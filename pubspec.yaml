@@ -1,0 +1,60 @@
+name: quality_quest
+description: QualityQuest elevates your software's excellence effortlessly.
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.1.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+
+
+  #Cupertino Icons
+  cupertino_icons: ^1.0.2
+
+
+  #freezed_annotation
+  freezed_annotation: ^2.4.1
+
+  #json_annotation
+  json_annotation: ^4.8.1
+
+  #Network
+  http: ^1.1.0
+
+  #Animation
+  lottie: ^2.6.0
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  #Flutter Lints
+  flutter_lints: ^2.0.0
+
+  #build_runnner
+  build_runner: ^2.4.6
+
+  #json_serializable
+  json_serializable: ^6.7.1
+
+  #freezed
+  freezed: ^2.4.1
+
+
+flutter:
+
+
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+    - assets/icons/
+    - assets/lotties/
+
