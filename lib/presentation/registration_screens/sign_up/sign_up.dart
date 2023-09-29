@@ -1,3 +1,7 @@
+import 'dart:io';
+
+import 'package:quality_quest/core/params/aps.dart';
+import 'package:quality_quest/data/network_service.dart';
 import 'package:quality_quest/library.dart';
 
 
@@ -10,9 +14,9 @@ class SignUpScreen extends StatefulWidget {
 
 class _SignUpScreenState extends State<SignUpScreen> {
   final TextEditingController controllerName = TextEditingController();
-  final TextEditingController controllerSurname = TextEditingController();
-  final TextEditingController controllerEmail = TextEditingController();
-  final TextEditingController controllerPassword = TextEditingController();
+  final TextEditingController controllerSurname  = TextEditingController();
+  final TextEditingController controllerEmail  = TextEditingController();
+  final TextEditingController controllerPassword  = TextEditingController();
 
   bool isVisible = false;
 
@@ -21,23 +25,29 @@ class _SignUpScreenState extends State<SignUpScreen> {
     setState(() {});
   }
 
-  // Future<void> addUser() async {
-  //   final name = controllerName.value.text.trim();
-  //   final surname = controllerSurname.value.text.trim();
-  //   String description = controllerEmail.value.text.trim();
-  //   String password = controllerPassword.value.text.trim();
-  //
-  //   final Map<String, Object?> data = {
-  //     "name": name,
-  //     "surname": surname,
-  //     "description": description,
-  //     "password": password,
-  //   };
-  //
-  //   HttpNetwork asd = HttpNetwork();
-  //   await asd.methodPostRegister(api: Api.apiRegister, data: data);
-  //   if (mounted) Navigator.of(context).pop();
-  // }
+  Future<void> addUser() async {
+
+    final name = controllerName.value.text.trim().toString();
+    final surname = controllerSurname.value.text.trim().toString();
+    final email = controllerEmail.value.text.trim().toString();
+    final password = controllerPassword.value.text.trim().toString();
+
+    if(name.isEmpty || surname.isEmpty ||email.isEmpty || password.isEmpty){
+      return;
+    }
+
+
+    final Map<String, Object?> data = {
+      "firstname": name,
+      "lastname": surname,
+      "password": password,
+      "email": email,
+    };
+
+
+   final value =  await HttpService.methodSignUpPost(api: Api.apiSignUp, data: data);
+    if ( value == true && mounted  ) Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_)=> const SignInScreen()));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +66,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 "Create an Account ",
                 style: TextStyle(fontSize: 30, fontWeight: FontWeight.w600),
               ),
-
               const Spacer(),
 
               ///TextField name
@@ -120,14 +129,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
               ///Sign up button
               CustomDeepPurpleButton(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const SignInScreen(),
-                      ),
-                    );
-                    // addUser();
+                  onTap: () async{
+                    await addUser();
+                    // setState(() {});
                   },
                   displayText: "Sign Up"),
               const Spacer(),

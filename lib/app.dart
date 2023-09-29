@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:quality_quest/presentation/screens/main_home_screen.dart';
+import 'package:quality_quest/library.dart';
+import 'presentation/registration_screens/splash_screen/splash_screen.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
       ),
       themeMode: ThemeMode.system,
       debugShowCheckedModeBanner: false,
-      home: const MainHomeScreen(),
+      home: const SignInScreen(),
     );
   }
 }
