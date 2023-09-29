@@ -29,6 +29,8 @@ dependencies:
 
   #Animation
   lottie: ^2.6.0
+  device_info_plus: ^9.0.3
+
 
 
 dev_dependencies:
@@ -45,7 +47,7 @@ dev_dependencies:
   json_serializable: ^6.7.1
 
   #freezed
-  freezed: ^2.4.1
+  freezed: ^2.4.2
 
 
 flutter:

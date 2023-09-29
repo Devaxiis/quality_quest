@@ -1,10 +1,13 @@
-import 'package:flutter/material.dart';
-import 'package:quality_quest/presentation/registration_screens/registration_view/custom_deep_purple_button.dart';
-import 'package:quality_quest/presentation/registration_screens/registration_view/text_field_view.dart';
+import 'dart:io';
+import 'package:device_info_plus/device_info_plus.dart';
+import 'dart:async';
+import 'package:quality_quest/core/params/aps.dart';
+import 'package:quality_quest/data/network_service.dart';
+import 'package:quality_quest/library.dart';
+import 'package:quality_quest/main.dart';
 import 'package:quality_quest/presentation/registration_screens/sign_in/sign_in_views/custom_rich_text.dart';
 import 'package:quality_quest/presentation/registration_screens/sign_in/sign_in_views/show_success_dialog.dart';
-import 'package:quality_quest/presentation/screens/home_screen/home_screen.dart';
-import 'package:quality_quest/presentation/screens/main_home_screen.dart';
+
 
 
 class SignInScreen extends StatefulWidget {
@@ -15,16 +18,54 @@ class SignInScreen extends StatefulWidget {
 }
 
 class _SignInScreenState extends State<SignInScreen> {
-  final TextEditingController controllerName = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    init();
+  }
+
+  final DeviceInfoPlugin deviceInfoPlugin = DeviceInfoPlugin();
   final TextEditingController controllerEmail = TextEditingController();
   final TextEditingController controllerPassword = TextEditingController();
+  Map<String,dynamic> value={};
   bool isVisible = false;
+  String model = "";
+
 
   void visiblePassword() {
     isVisible = !isVisible;
     setState(() {});
   }
 
+
+
+  Future<void> addUser() async{
+
+    final email = controllerEmail.value.text.trim().toString();
+    final password = controllerPassword.value.text.trim().toString();
+    if(email.isEmpty || password.isEmpty){
+      return;
+    }    Map<String, Object?> data = {
+      "password": password,
+      "email": email,
+      "deviceModel": model,
+    };
+
+
+    final value =  await HttpService.methodSignInPost(api: Api.apiSignIN, data: data);
+    if ( value == true && mounted  ) Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_)=> const HomeScreen()));
+  }
+
+  void init()async{
+    final deviceInfoPlugin = DeviceInfoPlugin();
+    if(Platform.isAndroid) {
+      model = (await deviceInfoPlugin.androidInfo).model;
+    }
+    if(Platform.isIOS){
+      model = (await deviceInfoPlugin.iosInfo).model;
+    }
+  }
 
 
   @override
@@ -89,13 +130,10 @@ class _SignInScreenState extends State<SignInScreen> {
               /// #Button
               Center(
                 child: CustomDeepPurpleButton(
-                  onTap: () {
+                  onTap: () async{
                     showSuccessDialog(context);
-                    Future.delayed(const Duration(seconds: 3)).then(
-                      (value) => Navigator.of(context).push(
-                        MaterialPageRoute(
-                            builder: (context) => const MainHomeScreen()),
-                      ),
+                    await Future.delayed(const Duration(seconds: 3)).then(
+                      (value) => addUser()
                     );
                   },
                   displayText: 'Sign In',
@@ -108,4 +146,5 @@ class _SignInScreenState extends State<SignInScreen> {
       ),
     );
   }
+
 }
