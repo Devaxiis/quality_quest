@@ -29,7 +29,19 @@ dependencies:
 
   #Animation
   lottie: ^2.6.0
+
+  #device_info_plus
   device_info_plus: ^9.0.3
+
+  #equatable
+  equatable: ^2.0.5
+
+  #bloc
+  bloc: ^8.1.2
+
+  #flutter_bloc
+  flutter_bloc: ^8.1.3
+
 
 
 
