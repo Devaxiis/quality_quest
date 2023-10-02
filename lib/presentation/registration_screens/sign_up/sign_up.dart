@@ -1,8 +1,6 @@
-
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quality_quest/bloc/auth/auth_bloc.dart';
 import 'package:quality_quest/library.dart';
-
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -24,7 +22,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
     setState(() {});
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,8 +30,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
         listeners: [
           BlocListener<AuthBloc, AuthState>(listener: (_, state) {
             if (state is AuthSignUpSuccessState) {
-              Navigator.of(context).pushReplacement(MaterialPageRoute(
-                  builder: (context) => const SignInScreen()));
+              Navigator.of(context).pushReplacement(
+                MaterialPageRoute(
+                  builder: (context) => const SignInScreen(),
+                ),
+              );
             }
           })
         ],
@@ -94,13 +94,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               onTap: () => visiblePassword(),
                               child: isVisible == true
                                   ? const Icon(
-                                Icons.visibility_outlined,
-                                color: Colors.deepPurpleAccent,
-                              )
+                                      Icons.visibility_outlined,
+                                      color: Colors.deepPurpleAccent,
+                                    )
                                   : const Icon(
-                                Icons.visibility_off,
-                                color: Colors.deepPurpleAccent,
-                              )),
+                                      Icons.visibility_off,
+                                      color: Colors.deepPurpleAccent,
+                                    )),
                           obc: isVisible,
                           text: "Password",
                         ),
@@ -108,7 +108,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
                         ///Personal text
                         const Text(
-                          "Please complate your profile. Don't worry, your data will remain private and only you can see it",
+                          "Please complete your profile. Don't worry, your data will remain private and only you can see it",
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.w400,
@@ -121,17 +121,21 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         CustomDeepPurpleButton(
                             onTap: () {
                               final Map<String, Object?> data = {
-                                "firstname": controllerName.value.text.trim()
+                                "firstname":
+                                    controllerName.value.text.trim().toString(),
+                                "lastname": controllerSurname.value.text
+                                    .trim()
                                     .toString(),
-                                "lastname": controllerSurname.value.text.trim()
+                                "password": controllerPassword.value.text
+                                    .trim()
                                     .toString(),
-                                "password": controllerPassword.value.text.trim()
-                                    .toString(),
-                                "email": controllerEmail.value.text.trim()
+                                "email": controllerEmail.value.text
+                                    .trim()
                                     .toString(),
                               };
-                              context.read<AuthBloc>().add(
-                                  AuthSignUpEvent(data: data));
+                              context
+                                  .read<AuthBloc>()
+                                  .add(AuthSignUpEvent(data: data));
                               // await addUser();
                             },
                             displayText: "Sign Up"),
@@ -140,10 +144,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       ],
                     ),
                   ),
-                  if(state is AuthSignUpLoadingState)const Center(
-                      child: CircularProgressIndicator(),
-                    )
-
+                  if (state is AuthSignUpLoadingState)
+                    const Center(
+                      child: CircularProgressIndicator.adaptive(),
+                    ),
                 ],
               );
             },

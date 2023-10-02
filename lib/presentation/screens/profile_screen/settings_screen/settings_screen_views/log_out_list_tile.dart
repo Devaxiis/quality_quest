@@ -1,10 +1,18 @@
 import 'package:flutter/material.dart';
 
-class LogOutListTile extends StatelessWidget {
+class LogOutListTile extends StatefulWidget {
+  final void Function() onPressed;
+
   const LogOutListTile({
     super.key,
+    required this.onPressed,
   });
 
+  @override
+  State<LogOutListTile> createState() => _LogOutListTileState();
+}
+
+class _LogOutListTileState extends State<LogOutListTile> {
   @override
   Widget build(BuildContext context) {
     return ListTile(
@@ -18,7 +26,7 @@ class LogOutListTile extends StatelessWidget {
         ),
       ),
       trailing: IconButton(
-        onPressed: () {},
+        onPressed: widget.onPressed,
         style: IconButton.styleFrom(
           backgroundColor: const Color(0xFFFFF3F3),
           shape: const OvalBorder(),

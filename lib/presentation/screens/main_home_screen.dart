@@ -18,8 +18,6 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
 
-      /// #AppBar
-
       /// #Body
       body: PageView(
         physics: const NeverScrollableScrollPhysics(),
