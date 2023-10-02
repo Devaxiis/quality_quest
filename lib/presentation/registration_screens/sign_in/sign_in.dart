@@ -7,6 +7,7 @@ import 'package:quality_quest/library.dart';
 import 'package:quality_quest/main.dart';
 import 'package:quality_quest/presentation/registration_screens/sign_in/sign_in_views/custom_rich_text.dart';
 import 'package:quality_quest/presentation/registration_screens/sign_in/sign_in_views/show_success_dialog.dart';
+import 'package:quality_quest/presentation/screens/main_home_screen.dart';
 
 
 
@@ -54,7 +55,7 @@ class _SignInScreenState extends State<SignInScreen> {
 
 
     final value =  await HttpService.methodSignInPost(api: Api.apiSignIN, data: data);
-    if ( value == true && mounted  ) Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_)=> const HomeScreen()));
+    if ( value == true && mounted  ) Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_)=> const MainHomeScreen()));
   }
 
   void init()async{
