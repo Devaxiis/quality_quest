@@ -24,14 +24,44 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       /// #background Color
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        forceMaterialTransparency: true,
-        automaticallyImplyLeading: false,
-        title: AppBarChildView(
-          currentIndex: currentIndex,
+
+      appBar:AppBar(
+        title: Text(
+          "QualityQuest",
+          style: Theme.of(context).textTheme.titleLarge?.copyWith(
+            color: Colors.deepPurpleAccent.shade700,
+            fontWeight: FontWeight.w800,
+          ),
         ),
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon:const Image(
+              image: AssetImage('assets/icons/ic_search.png'),
+              height: 20,
+              width: 20,
+            ),
+          ),
+          IconButton(
+            onPressed: () {},
+            icon: const Image(
+              image: AssetImage('assets/icons/ic_bell.png'),
+              height: 20,
+              width: 20,
+            ),
+          ),
+          const SizedBox(width: 10),
+        ],
+        bottom: PreferredSize(
+          preferredSize: Size(MediaQuery.sizeOf(context).width, 50),
+          child: AppBarChildView(
+            currentIndex: currentIndex,
+          ),
+        ),
+        automaticallyImplyLeading: false,
+        forceMaterialTransparency: true,
       ),
+
 
       /// #Body
       body: const Padding(
