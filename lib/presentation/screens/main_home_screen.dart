@@ -1,6 +1,6 @@
 import 'package:quality_quest/library.dart';
 import 'package:quality_quest/presentation/screens/create_screen/create_screen.dart';
-
+import 'package:quality_quest/presentation/screens/profile_screen/settings_screen/settings_screen.dart';
 
 class MainHomeScreen extends StatefulWidget {
   const MainHomeScreen({super.key});
@@ -19,7 +19,6 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
       backgroundColor: Colors.white,
 
       /// #AppBar
-     
 
       /// #Body
       body: PageView(
@@ -30,6 +29,7 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
           LibraryScreen(),
           SearchUserScreen(),
           CreateScreen(),
+          SettingScreen(),
         ],
       ),
 
