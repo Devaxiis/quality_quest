@@ -1,5 +1,6 @@
 import 'package:quality_quest/library.dart';
 import 'package:quality_quest/presentation/screens/create_screen/create_screen.dart';
+import 'package:quality_quest/presentation/screens/profile_screen/profile_screen.dart';
 
 
 class MainHomeScreen extends StatefulWidget {
@@ -30,6 +31,7 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
           LibraryScreen(),
           SearchUserScreen(),
           CreateScreen(),
+          ProfileScreen(),
         ],
       ),
 
