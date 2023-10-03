@@ -1,4 +1,3 @@
-
 import 'package:quality_quest/library.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -60,11 +59,14 @@ class _SplashScreenState extends State<SplashScreen>
   }
 
   void navigateToSignInScreen() async {
-    Future.delayed(const Duration(seconds: 3)).then((value) {
-      Navigator.of(context).pushAndRemoveUntil(
+    Future.delayed(const Duration(seconds: 3)).then(
+      (value) {
+        Navigator.of(context).pushAndRemoveUntil(
           MaterialPageRoute(builder: (context) => const IntroScreen()),
-          (route) => false);
-    });
+          (route) => false,
+        );
+      },
+    );
   }
 
   @override

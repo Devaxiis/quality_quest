@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quality_quest/bloc/auth/auth_bloc.dart';
 import 'package:quality_quest/library.dart';
+import 'package:quality_quest/presentation/registration_screens/splash_screen/splash_screen.dart';
 import 'package:quality_quest/presentation/screens/main_home_screen.dart';
-import 'package:quality_quest/presentation/screens/profile_screen/profile_screen.dart';
-import 'presentation/registration_screens/splash_screen/splash_screen.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -14,11 +13,10 @@ class MyApp extends StatelessWidget {
     return BlocProvider(
       create: (context) => AuthBloc(),
       child: MaterialApp(
-        title: 'Flutter Demo',
         theme: ThemeData(useMaterial3: true),
-        themeMode: ThemeMode.system,
+        themeMode: ThemeMode.light,
         debugShowCheckedModeBanner: false,
-        home: const MainHomeScreen(),
+        home: const SplashScreen(),
       ),
     );
   }
