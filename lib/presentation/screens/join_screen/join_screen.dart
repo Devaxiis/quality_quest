@@ -27,9 +27,9 @@ class _SearchUserScreenState extends State<SearchUserScreen> {
                 prefixIcon: Padding(
                   padding: EdgeInsets.all(15.0),
                   child: Image(
-                      image: AssetImage("assets/icons/ic_search.png",),
-                      color: Color(0xff6949ff),
-                      ),
+                    image: AssetImage("assets/icons/ic_search.png"),
+                    color: Color(0xff6949ff),
+                  ),
                 ),
                 suffixIcon: Icon(
                   Icons.cancel,
@@ -64,28 +64,42 @@ class _SearchUserScreenState extends State<SearchUserScreen> {
       ),
 
       /// #Body
-      body:  ListView.builder(
+      body: ListView.builder(
         itemCount: 15,
-          itemBuilder: (context,index){
-            return ListTile(
-                leading: const CircleAvatar(child: Image(image: AssetImage("assets/images/img_profile_circle.png"))),
-                title: const Text("Richard Qayum",style: TextStyle(fontSize: 17,fontWeight: FontWeight.bold),),
-                subtitle: const Text("richard@gmail.com"),
-                trailing: Container(
-                  height: 30,
-                  width: 80,
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                      borderRadius: const BorderRadius.all(Radius.circular(50)),
-                      border: Border.fromBorderSide(BorderSide(
-                        width: 1.4,
-                        color: Colors.deepPurpleAccent.shade700,
-                      ))
+        itemBuilder: (context, index) {
+          return ListTile(
+            leading: const CircleAvatar(
+              child: Image(
+                image: AssetImage("assets/images/img_profile_circle.png"),
+              ),
+            ),
+            title: const Text(
+              "Richard Traverse",
+              style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+            ),
+            subtitle: const Text("richard@gmail.com"),
+            trailing: Container(
+              height: 30,
+              width: 80,
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                borderRadius: const BorderRadius.all(Radius.circular(50)),
+                border: Border.fromBorderSide(
+                  BorderSide(
+                    width: 1.4,
+                    color: Colors.deepPurpleAccent.shade700,
                   ),
-                  child: Text("Following",style: TextStyle(color: Colors.deepPurpleAccent.shade700),),
                 ),
-            );
-          },
+              ),
+              child: Text(
+                "Following",
+                style: TextStyle(
+                  color: Colors.deepPurpleAccent.shade700,
+                ),
+              ),
+            ),
+          );
+        },
       ),
     );
   }
