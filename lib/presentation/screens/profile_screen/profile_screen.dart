@@ -33,7 +33,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         actions:  [
           IconButton(
             onPressed: (){
-              Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=> const SettingScreen()));
+              Navigator.of(context).push(MaterialPageRoute(builder: (context)=> const SettingScreen()));
             },
           icon: const Icon(Icons.settings,),
           ),
@@ -45,10 +45,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
           child: Column(
         children: [
           Expanded(
-            flex: 4,
+            flex: 3,
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const SizedBox(height: 30),
+                // const SizedBox(height: 30),
+                const Spacer(flex: 2,),
                 Row(
                   children: [
                     const Spacer(),
@@ -102,27 +104,106 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     const Spacer(),
                   ],
                 ),
-                const SizedBox(height: 30),
+                // const SizedBox(height: 30),
+                const Spacer(flex: 5,),
                 const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    CustomButtonViews(title: "My Question",),
+                    CustomButtonViews(title: "My Question",color: Color(0xff6949ff),),
                     CustomButtonViews(title: "Do you work",),
                     CustomButtonViews(title: "Subscribers",),
                   ],
                 ),
-                const SizedBox(height: 5),
+                // const SizedBox(height: 5),
+                const Spacer(),
               ],
             ),
           ),
           Expanded(
-            flex: 13,
+            flex: 7,
             child: ListView.separated(
               itemBuilder: (context, index) {
                 return Container(
-                  width: 200,
-                  height: 50,
-                  color: Colors.yellowAccent,
+                  height: 180,
+                  margin: const EdgeInsets.symmetric(
+                    vertical: 10,
+                    horizontal: 12,
+                  ),
+                  clipBehavior: Clip.antiAlias,
+                  decoration: BoxDecoration(
+                    borderRadius: const BorderRadius.all(
+                      Radius.circular(20),
+                    ),
+                    border: Border.all(
+                      color: Colors.blueGrey.shade500,
+                      width: 2,
+                    ),
+                  ),
+                  child: Row(
+                    children: [
+                      Container(
+                        height: double.infinity,
+                        width: 150,
+                        decoration: const BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage('assets/images/idea.jpg'),
+                            fit: BoxFit.cover,
+                          ),
+                          borderRadius: BorderRadius.only(
+                            bottomLeft: Radius.circular(18),
+                            topLeft: Radius.circular(18),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 10),
+                      Expanded(
+                        flex: 4,
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Back to School. Get Smarter...",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .titleMedium!
+                                  .copyWith(
+                                color: Colors.black,
+                                fontWeight: FontWeight.w800,
+                              ),
+                            ),
+                            const SizedBox(height: 26),
+                            Row(
+                              children: [
+                                const Text(
+                                  "2 years ago",
+                                ),
+                                const SizedBox(width: 15),
+                                CircleAvatar(
+                                  backgroundColor: Colors.grey.shade800,
+                                  maxRadius: 3.3,
+                                ),
+                                const SizedBox(width: 15),
+                                const Text("15.7K plays"),
+                              ],
+                            ),
+                            const SizedBox(height: 20),
+                            const Row(
+                              children: [
+                                CircleAvatar(
+                                  backgroundImage: AssetImage(
+                                    'assets/images/img_profile_circle.png',
+                                  ),
+                                ),
+                                SizedBox(width: 20),
+                                Text('Edgar Torrey'),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
                 );
               },
               separatorBuilder: (context, index) {
