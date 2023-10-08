@@ -6,8 +6,12 @@ class DetailDiscoverScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
+      // #Background Color
       backgroundColor: Colors.white,
       resizeToAvoidBottomInset: true,
+
+      // #AppBar
       appBar: AppBar(
         automaticallyImplyLeading: false,
         centerTitle: false,
@@ -21,6 +25,8 @@ class DetailDiscoverScreen extends StatelessWidget {
           ),
         ),
       ),
+
+      // #Body
       body: Column(
         children: [
           Expanded(

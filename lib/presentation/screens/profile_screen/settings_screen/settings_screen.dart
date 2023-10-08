@@ -55,10 +55,6 @@ class _SettingScreenState extends State<SettingScreen> {
       appBar: AppBar(
         forceMaterialTransparency: true,
         backgroundColor: Colors.white,
-        leading: IconButton(
-          onPressed: () {},
-          icon: const Icon(Icons.arrow_back),
-        ),
         title: const Text(
           "Settings",
           style: TextStyle(
