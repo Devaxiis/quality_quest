@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quality_quest/presentation/screens/profile_screen/settings_screen/setting_screen_views/custom_button_views.dart';
 import 'package:quality_quest/presentation/screens/profile_screen/settings_screen/settings_screen.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -102,69 +103,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ],
                 ),
                 const SizedBox(height: 30),
-                Row(
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    Container(
-                      height: 40,
-                      alignment: Alignment.center,
-                      padding: const EdgeInsets.symmetric(horizontal: 10),
-                      decoration: BoxDecoration(
-                          borderRadius:
-                              const BorderRadius.all(Radius.circular(50)),
-                          border: Border.all(
-                            width: 2,
-                            color: const Color(0xff6949ff),
-                          )),
-                      child: const Text(
-                        "My Question",
-                        style: TextStyle(
-                            color: Color(0xff6949ff),
-                            fontWeight: FontWeight.bold,
-                            fontSize: 15),
-                      ),
-                    ),
-                    Container(
-                      height: 40,
-                      alignment: Alignment.center,
-                      padding: const EdgeInsets.symmetric(horizontal: 10),
-                      decoration: BoxDecoration(
-                          borderRadius:
-                              const BorderRadius.all(Radius.circular(50)),
-                          border: Border.all(
-                            width: 2,
-                            color: const Color(0xff6949ff),
-                          )),
-                      child: const Text(
-                        "My Question",
-                        style: TextStyle(
-                            color: Color(0xff6949ff),
-                            fontWeight: FontWeight.bold,
-                            fontSize: 15),
-                      ),
-                    ),
-                    Container(
-                      height: 40,
-                      alignment: Alignment.center,
-                      padding: const EdgeInsets.symmetric(horizontal: 10),
-                      decoration: BoxDecoration(
-                          borderRadius:
-                              const BorderRadius.all(Radius.circular(50)),
-                          border: Border.all(
-                            width: 2,
-                            color: const Color(0xff6949ff),
-                          )),
-                      child: const Text(
-                        "My Question",
-                        style: TextStyle(
-                            color: Color(0xff6949ff),
-                            fontWeight: FontWeight.bold,
-                            fontSize: 15),
-                      ),
-                    ),
+                    CustomButtonViews(),
+                    CustomButtonViews(),
+                    CustomButtonViews(),
                   ],
                 ),
-                const SizedBox(height: 30),
+                const SizedBox(height: 5),
               ],
             ),
           ),
