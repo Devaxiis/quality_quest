@@ -18,7 +18,7 @@ class AnswerAddButton extends StatelessWidget {
       onTap: onTap,
       child: Container(
         height: 120,
-        width: 195,
+        width: 180,
         alignment: Alignment.topCenter,
         decoration: BoxDecoration(
           color: shadowColor,

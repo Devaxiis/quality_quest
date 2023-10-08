@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quality_quest/bloc/auth/auth_bloc.dart';
 import 'package:quality_quest/library.dart';
-import 'package:quality_quest/presentation/registration_screens/splash_screen/splash_screen.dart';
 import 'package:quality_quest/presentation/screens/main_home_screen.dart';
 import 'package:quality_quest/presentation/screens/profile_screen/profile_screen.dart';
 
@@ -17,7 +16,8 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(useMaterial3: true),
         themeMode: ThemeMode.light,
         debugShowCheckedModeBanner: false,
-        home: const ProfileScreen(),
+        home: const MainHomeScreen(),
+       
       ),
     );
   }
