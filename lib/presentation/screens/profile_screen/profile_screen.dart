@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quality_quest/presentation/screens/profile_screen/settings_screen/settings_screen.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -28,9 +29,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
             fontWeight: FontWeight.bold,
           ),
         ),
-        actions: const [
-          Icon(Icons.settings),
-          SizedBox(width: 20),
+        actions:  [
+          IconButton(
+            onPressed: (){
+              Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=> const SettingScreen()));
+            },
+          icon: const Icon(Icons.settings,),
+          ),
+          const SizedBox(width: 20),
         ],
         forceMaterialTransparency: true,
       ),
