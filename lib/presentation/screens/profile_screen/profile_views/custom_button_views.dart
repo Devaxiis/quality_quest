@@ -1,7 +1,8 @@
 import 'package:quality_quest/library.dart';
 
 class CustomButtonViews extends StatelessWidget {
-  const CustomButtonViews({super.key});
+  final String title;
+  const CustomButtonViews({super.key, required this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -16,9 +17,9 @@ class CustomButtonViews extends StatelessWidget {
             width: 2,
             color: const Color(0xff6949ff),
           )),
-      child: const Text(
-        "My Question",
-        style: TextStyle(
+      child: Text(
+        title,
+        style: const TextStyle(
             color: Color(0xff6949ff),
             fontWeight: FontWeight.bold,
             fontSize: 15),
