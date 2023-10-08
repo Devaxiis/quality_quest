@@ -1,4 +1,5 @@
 import 'package:quality_quest/library.dart';
+import 'package:quality_quest/presentation/screens/home_screen/search_screen/search_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -10,11 +11,12 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int currentIndex = 0;
 
-  void navigateToDiscoverPage() {
+
+  void navigateToSearchScreen() {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => const DetailDiscoverScreen(),
+        builder: (context) => const SearchScreen(),
       ),
     );
   }
@@ -25,18 +27,19 @@ class _HomeScreenState extends State<HomeScreen> {
       /// #background Color
       backgroundColor: Colors.white,
 
-      appBar:AppBar(
+      appBar: AppBar(
         title: Text(
           "QualityQuest",
-          style: Theme.of(context).textTheme.titleLarge?.copyWith(
+          style: TextStyle(
+            fontSize: 22.5,
             color: Colors.deepPurpleAccent.shade700,
             fontWeight: FontWeight.w800,
           ),
         ),
         actions: [
           IconButton(
-            onPressed: () {},
-            icon:const Image(
+            onPressed: navigateToSearchScreen,
+            icon: const Image(
               image: AssetImage('assets/icons/ic_search.png'),
               height: 20,
               width: 20,
@@ -61,7 +64,6 @@ class _HomeScreenState extends State<HomeScreen> {
         automaticallyImplyLeading: false,
         forceMaterialTransparency: true,
       ),
-
 
       /// #Body
       body: const Padding(

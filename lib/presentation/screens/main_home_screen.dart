@@ -3,6 +3,8 @@ import 'package:quality_quest/presentation/screens/create_screen/create_screen.d
 import 'package:quality_quest/presentation/screens/profile_screen/profile_screen.dart';
 
 
+import 'join_screen/join_screen.dart';
+
 class MainHomeScreen extends StatefulWidget {
   const MainHomeScreen({super.key});
 
