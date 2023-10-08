@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:quality_quest/presentation/screens/profile_screen/settings_screen/setting_screen_views/custom_button_views.dart';
+import 'package:quality_quest/presentation/screens/profile_screen/profile_views/custom_button_views.dart';
 import 'package:quality_quest/presentation/screens/profile_screen/settings_screen/settings_screen.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -106,9 +106,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    CustomButtonViews(),
-                    CustomButtonViews(),
-                    CustomButtonViews(),
+                    CustomButtonViews(title: "My Question",),
+                    CustomButtonViews(title: "Do you work",),
+                    CustomButtonViews(title: "Subscribers",),
                   ],
                 ),
                 const SizedBox(height: 5),

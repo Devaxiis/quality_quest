@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(useMaterial3: true),
         themeMode: ThemeMode.light,
         debugShowCheckedModeBanner: false,
-        home: const ProfileScreen(),
+        home: const MainHomeScreen(),
       ),
     );
   }
