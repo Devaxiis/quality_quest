@@ -22,21 +22,12 @@ class _CreateScreenState extends State<CreateScreen> {
         ),
         leading: IconButton(
           onPressed: () {},
-          icon: const Image(
-            height: 28,
-            width: 28,
-            image: AssetImage('assets/icons/ic_x.png',),
-            color: Color(0xFF295ECC),
-          ),
+          icon: const Icon(Icons.clear,color: Color(0xFF295ECC),size: 30,)
         ),
         actions: [
           IconButton(
             onPressed: () {},
-            icon: const Image(
-              height: 28,
-              width: 28,
-              image: AssetImage("assets/icons/ic_more.png"),
-            ),
+            icon: const Icon(Icons.more_horiz,color: Color(0xFF295ECC),size: 35,)
           ),
         ],
       ),
