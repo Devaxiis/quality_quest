@@ -11,18 +11,13 @@ class _CreateScreenState extends State<CreateScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        backgroundColor: const Color(0xFF6949FF),
-        hoverColor: const Color(0xFFD9D6FE),
-        child: const Icon(Icons.add, color: Colors.white),
-      ),
+
       appBar: AppBar(
         title: const Text(
           "Create Quiz",
           style: TextStyle(
-            color: Colors.black87,
-            fontWeight: FontWeight.w600,
+            color: Color(0xFF6949FF),
+            fontWeight: FontWeight.w800,
           ),
         ),
         leading: IconButton(
@@ -30,7 +25,8 @@ class _CreateScreenState extends State<CreateScreen> {
           icon: const Image(
             height: 28,
             width: 28,
-            image: AssetImage('assets/icons/ic_x.png'),
+            image: AssetImage('assets/icons/ic_x.png',),
+            color: Color(0xFF295ECC),
           ),
         ),
         actions: [
@@ -50,12 +46,6 @@ class _CreateScreenState extends State<CreateScreen> {
           child: Column(
             children: [
               const SizedBox(height: 30),
-
-              /// #Image Picker
-              const CustomImagePicker(),
-
-              const SizedBox(height: 40),
-
               /// #TextField
               const CustomTextField(),
 
@@ -121,7 +111,7 @@ class _CreateScreenState extends State<CreateScreen> {
                     },
                   ),
 
-                  /// #Second Answer Button
+                  // / #Second Answer Button
                   AnswerAddButton(
                     shadowColor: const Color(0xFF00B777),
                     buttonColor: const Color(0xFF12D18E),
@@ -142,6 +132,15 @@ class _CreateScreenState extends State<CreateScreen> {
             ],
           ),
         ),
+      ),
+
+
+      /// #Floating action button
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        backgroundColor: const Color(0xFF6949FF),
+        hoverColor: const Color(0xFFD9D6FE),
+        child: const Icon(Icons.add, color: Colors.white),
       ),
     );
   }
