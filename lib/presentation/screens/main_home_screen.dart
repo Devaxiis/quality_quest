@@ -19,6 +19,8 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
+      /// #Backgroun color
       backgroundColor: Colors.white,
 
       /// #Body
