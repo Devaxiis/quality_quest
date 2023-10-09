@@ -14,3 +14,12 @@ class AuthSignUpEvent extends AuthEvent{
   @override
   List<Object?> get props =>[data];
 }
+
+class AuthSignInEvent extends AuthEvent{
+  Map<String,Object?> data;
+
+  AuthSignInEvent({required this.data,});
+
+  @override
+  List<Object?> get props =>[data];
+}
