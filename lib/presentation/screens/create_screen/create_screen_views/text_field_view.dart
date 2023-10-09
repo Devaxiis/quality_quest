@@ -8,13 +8,13 @@ class CustomTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const TextField(
-      maxLines: null,
+      maxLines: 10,
       style: TextStyle(
         fontSize: 18.5,
         color: Colors.black87,
         fontWeight: FontWeight.w600,
       ),
-      textInputAction: TextInputAction.done,
+      textInputAction: TextInputAction.newline,
       decoration: InputDecoration(
         filled: true,
         fillColor: Color(0xFFEDEDF3),

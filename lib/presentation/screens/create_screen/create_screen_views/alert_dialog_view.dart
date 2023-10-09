@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:quality_quest/library.dart';
 
 class CustomAnswerDialog extends StatelessWidget {
@@ -12,21 +13,23 @@ class CustomAnswerDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool? qiymat = false;
     return AlertDialog(
       title: const Center(
-        child: Text('Add Answer'),
+        child: Text('Add Answer',style: TextStyle(color: Color(0xFF295ECC),fontWeight: FontWeight.w800,fontSize: 30),),
       ),
       content: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           const Divider(
+            color: Colors.grey,
             endIndent: 20,
             indent: 20,
           ),
           const SizedBox(height: 10),
           Container(
             height: 120,
-            width: 195,
+            width: 200,
             alignment: Alignment.topCenter,
             decoration: BoxDecoration(
               color: shadowColor,
@@ -65,23 +68,42 @@ class CustomAnswerDialog extends StatelessWidget {
         ],
       ),
       actions: [
-        ElevatedButton(
-          style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.deepPurpleAccent,
-            elevation: 6,
-            shadowColor: Colors.deepPurple,
-          ),
-          onPressed: () {
-            Navigator.of(context).pop();
+       CheckBox(qiymrat: qiymat),
+      ],
+    );
+  }
+}
+
+class CheckBox extends StatefulWidget {
+  bool? qiymrat = false;
+  CheckBox({super.key,this.qiymrat});
+
+  @override
+  State<CheckBox> createState() => _CheckBoxState();
+}
+
+class _CheckBoxState extends State<CheckBox> {
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        const Text("It is a correct answer",style: TextStyle(color: Color(0xFF295ECC),fontWeight: FontWeight.w800),),
+        CupertinoCheckbox(
+          activeColor: const Color(0xFF295ECC),
+          shape: const CircleBorder(),
+          side: const BorderSide(color: Color(0xFF295ECC)),
+          value: widget.qiymrat,
+          onChanged: (ind) {
+            setState(() {
+              widget.qiymrat = ind;
+            });
+
           },
-          child: const Text(
-            'Submit',
-            style: TextStyle(
-              color: Colors.white,
-            ),
-          ),
         ),
       ],
     );
   }
 }
+
