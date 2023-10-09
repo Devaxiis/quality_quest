@@ -10,6 +10,8 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -106,14 +108,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ),
                 // const SizedBox(height: 30),
                 const Spacer(flex: 5,),
-                const Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    CustomButtonViews(title: "My Question",color: Color(0xff6949ff),),
-                    CustomButtonViews(title: "Do you work",),
-                    CustomButtonViews(title: "Subscribers",),
-                  ],
-                ),
+                 ThreeButtons(),
                 // const SizedBox(height: 5),
                 const Spacer(),
               ],
