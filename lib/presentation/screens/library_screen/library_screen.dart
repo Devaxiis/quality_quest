@@ -7,6 +7,7 @@ class LibraryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       /// #Body
       body: ListView.builder(
         itemCount: 10,
