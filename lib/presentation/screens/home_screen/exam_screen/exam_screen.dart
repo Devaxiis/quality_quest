@@ -59,7 +59,11 @@ class _ExamScreenState extends State<ExamScreen> {
                 ],
               ),
             ),
-            const Expanded(child: SizedBox(),),
+             Expanded(child: Column(
+               children: [
+                 CustomDeepPurpleButton(onTap: (){}, displayText: "Next"),
+               ],
+             ),),
           ],
         ),
       ),
@@ -67,3 +71,5 @@ class _ExamScreenState extends State<ExamScreen> {
     );
   }
 }
+
+
