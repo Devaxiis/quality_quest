@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:quality_quest/library.dart';
+import 'package:quality_quest/presentation/screens/create_screen/create_screen.dart';
 
 class PreCreateScreen extends StatefulWidget {
   const PreCreateScreen({super.key});
@@ -89,7 +90,9 @@ class _PreCreateScreenState extends State<PreCreateScreen> {
           shadowColor: Colors.deepPurple,
           fixedSize: const Size(150, 45),
         ),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.of(context).push(MaterialPageRoute(builder: (_)=>const CreateScreen()));
+        },
         child: const Text(
           'Next',
           style: TextStyle(

@@ -60,6 +60,7 @@ class _CreateScreenState extends State<CreateScreen> {
                   AnswerAddButton(
                     shadowColor: const Color(0xFF295ECC),
                     buttonColor: const Color(0xFF3779FF),
+                    text: "Answer",
                     onTap: () {
                       showDialog(
                         context: context,
@@ -77,6 +78,7 @@ class _CreateScreenState extends State<CreateScreen> {
                   AnswerAddButton(
                     shadowColor: const Color(0xFFEA1E61),
                     buttonColor: const Color(0xFFF75555),
+                    text: "Answer",
                     onTap: () {
                       showDialog(
                         context: context,
@@ -99,6 +101,7 @@ class _CreateScreenState extends State<CreateScreen> {
                   AnswerAddButton(
                     shadowColor: const Color(0xFFF48400),
                     buttonColor: const Color(0xFFFF981F),
+                    text: "Answer",
                     onTap: () {
                       showDialog(
                         context: context,
@@ -116,6 +119,7 @@ class _CreateScreenState extends State<CreateScreen> {
                   AnswerAddButton(
                     shadowColor: const Color(0xFF00B777),
                     buttonColor: const Color(0xFF12D18E),
+                    text: "Answer",
                     onTap: () {
                       showDialog(
                         context: context,
