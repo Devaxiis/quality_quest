@@ -38,9 +38,11 @@ class _SignInScreenState extends State<SignInScreen> {
   Future<void> addUser() async {
     final email = controllerEmail.value.text.trim().toString();
     final password = controllerPassword.value.text.trim().toString();
+
     if (email.isEmpty || password.isEmpty) {
       return;
     }
+
     Map<String, Object?> data = {
       "password": password,
       "email": email,

@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return BlocProvider(
       create: (context) => AuthBloc(),
       child: MaterialApp(
-        theme: ThemeData(useMaterial3: true),
+        theme: ThemeData.light(useMaterial3: true),
         themeMode: ThemeMode.light,
         debugShowCheckedModeBanner: false,
         home: const MainHomeScreen(),
