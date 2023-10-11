@@ -4,12 +4,13 @@ class AnswerAddButton extends StatelessWidget {
   final Color shadowColor;
   final Color buttonColor;
   final void Function() onTap;
-
-  const AnswerAddButton({
+  String? text;
+  AnswerAddButton({
     super.key,
     required this.shadowColor,
     required this.buttonColor,
     required this.onTap,
+    this.text,
   });
 
   @override
@@ -36,9 +37,13 @@ class AnswerAddButton extends StatelessWidget {
               Radius.circular(15),
             ),
           ),
-          child: const Text(
-            "Add Answer",
-            style: TextStyle(
+          child: Text(
+            text!,
+            style: text != null ? const TextStyle(
+            color: Colors.white,
+            fontSize: 25,
+            fontWeight: FontWeight.w700,
+          ):const TextStyle(
               color: Colors.white,
               fontSize: 20,
               fontWeight: FontWeight.bold,
