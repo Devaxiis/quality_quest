@@ -13,23 +13,29 @@ class CustomAnswerDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool? qiymat = false;
+    bool? currentValue = false;
     return AlertDialog(
+      surfaceTintColor: Colors.white,
       title: const Center(
-        child: Text('Add Answer',style: TextStyle(color: Color(0xFF295ECC),fontWeight: FontWeight.w800,fontSize: 30),),
+        child: Text(
+          'Add Answer',
+          style: TextStyle(
+            color: Color(0xFF295ECC),
+            fontWeight: FontWeight.w800,
+            fontSize: 28,
+          ),
+        ),
       ),
       content: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisSize: MainAxisSize.min,
         children: [
-          const Divider(
-            color: Colors.grey,
-            endIndent: 20,
-            indent: 20,
-          ),
+          const Divider(color: Colors.grey),
           const SizedBox(height: 10),
+
           Container(
             height: 120,
-            width: 200,
+            width: 250,
             alignment: Alignment.topCenter,
             decoration: BoxDecoration(
               color: shadowColor,
@@ -49,6 +55,8 @@ class CustomAnswerDialog extends StatelessWidget {
                 ),
               ),
               child: const TextField(
+                textAlign: TextAlign.justify,
+                maxLines: null,
                 style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.w700,
@@ -68,15 +76,20 @@ class CustomAnswerDialog extends StatelessWidget {
         ],
       ),
       actions: [
-       CheckBox(qiymrat: qiymat),
+        CheckBox(value: currentValue),
+        const SizedBox(width: 15),
       ],
     );
   }
 }
 
 class CheckBox extends StatefulWidget {
-  bool? qiymrat = false;
-  CheckBox({super.key,this.qiymrat});
+  bool? value = false;
+
+  CheckBox({
+    super.key,
+    this.value,
+  });
 
   @override
   State<CheckBox> createState() => _CheckBoxState();
@@ -85,25 +98,55 @@ class CheckBox extends StatefulWidget {
 class _CheckBoxState extends State<CheckBox> {
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        const Text("It is a correct answer",style: TextStyle(color: Color(0xFF295ECC),fontWeight: FontWeight.w800),),
-        CupertinoCheckbox(
-          activeColor: const Color(0xFF295ECC),
-          shape: const CircleBorder(),
-          side: const BorderSide(color: Color(0xFF295ECC)),
-          value: widget.qiymrat,
-          onChanged: (ind) {
-            setState(() {
-              widget.qiymrat = ind;
-            });
-
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            // const Spacer(),
+            const Text(
+              "Correct answer",
+              style: TextStyle(
+                color: Color(0xFF295ECC),
+                fontWeight: FontWeight.w800,
+                fontSize: 19,
+              ),
+            ),
+            const SizedBox(width: 60),
+            CupertinoCheckbox(
+              activeColor: const Color(0xFF295ECC),
+              shape: const CircleBorder(),
+              side: const BorderSide(color: Color(0xFF295ECC)),
+              value: widget.value,
+              onChanged: (ind) {
+                setState(() {
+                  widget.value = ind;
+                });
+              },
+            ),
+            // const Spacer(),
+          ],
+        ),
+        const SizedBox(height: 20),
+        ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.deepPurpleAccent,
+            elevation: 6,
+            shadowColor: Colors.deepPurple,
+            fixedSize: const Size(250, 40),
+          ),
+          onPressed: () {
+            Navigator.of(context).pop();
           },
+          child: const Text(
+            'Submit',
+            style: TextStyle(
+              color: Colors.white,
+            ),
+          ),
         ),
       ],
     );
   }
 }
-

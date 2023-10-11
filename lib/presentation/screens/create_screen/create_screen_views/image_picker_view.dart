@@ -20,8 +20,8 @@ class CustomImagePicker extends StatelessWidget {
           borderRadius: const BorderRadius.all(Radius.circular(30)),
         ),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const SizedBox(height: 40),
             IconButton(
               onPressed: () {},
               icon: const Image(
@@ -39,6 +39,7 @@ class CustomImagePicker extends StatelessWidget {
                 fontSize: 18,
               ),
             ),
+            const SizedBox(height: 20),
           ],
         ),
       ),

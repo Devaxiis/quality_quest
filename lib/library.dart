@@ -17,7 +17,7 @@ export 'package:quality_quest/presentation/screens/home_screen/discover_screen/d
 export 'package:quality_quest/presentation/screens/home_screen/home_screen_views/home_screen_question_quantity_views.dart';
 export 'package:quality_quest/presentation/screens/create_screen/create_screen_views/add_answer_button_view.dart';
 export 'package:quality_quest/presentation/screens/create_screen/create_screen_views/alert_dialog_view.dart';
-export 'package:quality_quest/presentation/screens/create_screen/create_screen_views/imgae_picker_view.dart';
+export 'package:quality_quest/presentation/screens/create_screen/create_screen_views/image_picker_view.dart';
 export 'package:quality_quest/presentation/screens/create_screen/create_screen_views/text_field_view.dart';
 
 

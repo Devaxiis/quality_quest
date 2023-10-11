@@ -11,8 +11,9 @@ class _CreateScreenState extends State<CreateScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
+      backgroundColor: Colors.white,
       appBar: AppBar(
+        forceMaterialTransparency: true,
         title: const Text(
           "Create Quiz",
           style: TextStyle(
@@ -22,12 +23,20 @@ class _CreateScreenState extends State<CreateScreen> {
         ),
         leading: IconButton(
           onPressed: () {},
-          icon: const Icon(Icons.clear,color: Color(0xFF295ECC),size: 30,)
+          icon: const Icon(
+            Icons.clear,
+            color: Color(0xFF295ECC),
+            size: 30,
+          ),
         ),
         actions: [
           IconButton(
             onPressed: () {},
-            icon: const Icon(Icons.more_horiz,color: Color(0xFF295ECC),size: 35,)
+            icon: const Icon(
+              Icons.more_horiz,
+              color: Color(0xFF295ECC),
+              size: 35,
+            ),
           ),
         ],
       ),
@@ -37,6 +46,7 @@ class _CreateScreenState extends State<CreateScreen> {
           child: Column(
             children: [
               const SizedBox(height: 30),
+
               /// #TextField
               const CustomTextField(),
 
@@ -125,7 +135,6 @@ class _CreateScreenState extends State<CreateScreen> {
         ),
       ),
 
-
       /// #Floating action button
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
@@ -136,4 +145,3 @@ class _CreateScreenState extends State<CreateScreen> {
     );
   }
 }
-

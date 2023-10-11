@@ -10,11 +10,10 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         leading: Container(
           height: 40,
@@ -32,12 +31,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
             fontWeight: FontWeight.bold,
           ),
         ),
-        actions:  [
+        actions: [
           IconButton(
-            onPressed: (){
-              Navigator.of(context).push(MaterialPageRoute(builder: (context)=> const SettingScreen()));
+            onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => const SettingScreen()));
             },
-          icon: const Icon(Icons.settings,),
+            icon: const Icon(
+              Icons.settings,
+            ),
           ),
           const SizedBox(width: 20),
         ],
@@ -52,7 +54,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 // const SizedBox(height: 30),
-                const Spacer(flex: 2,),
+                const Spacer(
+                  flex: 2,
+                ),
                 Row(
                   children: [
                     const Spacer(),
@@ -73,16 +77,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         Text(
                           "Andrew Ainley",
                           style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20),
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                          ),
                         ),
                         Text(
                           "andrewainley@gmail.com",
                           style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.normal,
-                              fontSize: 13),
+                            color: Colors.black,
+                            fontWeight: FontWeight.normal,
+                            fontSize: 13,
+                          ),
                         ),
                       ],
                     ),
@@ -107,8 +113,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ],
                 ),
                 // const SizedBox(height: 30),
-                const Spacer(flex: 5,),
-                 ThreeButtons(),
+                const Spacer(
+                  flex: 5,
+                ),
+                ThreeButtons(),
                 // const SizedBox(height: 5),
                 const Spacer(),
               ],
@@ -163,9 +171,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   .textTheme
                                   .titleMedium!
                                   .copyWith(
-                                color: Colors.black,
-                                fontWeight: FontWeight.w800,
-                              ),
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w800,
+                                  ),
                             ),
                             const SizedBox(height: 26),
                             Row(
