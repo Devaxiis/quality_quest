@@ -31,15 +31,16 @@ class DetailDiscoverScreen extends StatelessWidget {
       body: Column(
         children: [
           Expanded(
-            child: ListWheelScrollView.useDelegate(
-              childDelegate: ListWheelChildBuilderDelegate(
-                childCount: 20,
-                builder: (context, index) {
+            child: ListView.builder(
+              itemCount: 30,
+                itemBuilder:(context,index){
                   return GestureDetector(
                     onTap: (){
-                      Navigator.of(context).push(MaterialPageRoute(builder: (_)=> const ExamStartSplashScreen() ));
+                      Navigator.of(context).push(MaterialPageRoute(builder: (_)=> const ExamStartSplashScreen()));
                     },
                     child: Container(
+                      height: 150,
+                      width: MediaQuery.sizeOf(context).width / 1.5,
                       margin: const EdgeInsets.symmetric(
                         vertical: 10,
                         horizontal: 12,
@@ -85,9 +86,9 @@ class DetailDiscoverScreen extends StatelessWidget {
                                       .textTheme
                                       .titleMedium!
                                       .copyWith(
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.w800,
-                                      ),
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w800,
+                                  ),
                                 ),
                                 const SizedBox(height: 26),
                                 Row(
@@ -123,11 +124,7 @@ class DetailDiscoverScreen extends StatelessWidget {
                       ),
                     ),
                   );
-                },
-              ),
-              itemExtent: 200,
-              diameterRatio: 7.5,
-            ),
+                }),
           ),
           Container(
             height: 1,
@@ -142,8 +139,8 @@ class DetailDiscoverScreen extends StatelessWidget {
               ],
             ),
           ),
-        ],
-      ),
+    ]
+    )
     );
   }
 }
