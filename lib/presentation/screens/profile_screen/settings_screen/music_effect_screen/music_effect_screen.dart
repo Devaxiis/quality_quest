@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:quality_quest/services/constants/colors.dart';
-import 'package:quality_quest/services/constants/strings.dart';
+
+import 'package:quality_quest/library.dart';
+
 
 class MusicEffectScreen extends StatefulWidget {
   const MusicEffectScreen({super.key});
@@ -26,10 +26,9 @@ class _MusicEffectScreenState extends State<MusicEffectScreen> {
         ),
         title: const Text(
           Strings.musicEffectTXT,
-          style: TextStyle(
-            fontWeight: FontWeight.w600,
-            color: CustomColors.oxFF000000,
-          ),
+
+          style: Style.musicEffectST,
+
         ),
       ),
       body: ListView(
@@ -69,11 +68,9 @@ class _NotificationTileState extends State<NotificationTile> {
     return ListTile(
       title: Text(
         widget.title,
-        style: const TextStyle(
-          fontSize: 17.5,
-          fontWeight: FontWeight.w700,
-          color: CustomColors.oxFF212121,
-        ),
+
+        style: Style.musicTitleST,
+
       ),
       trailing: CupertinoSwitch(
         activeColor: CustomColors.oxFF6949FF,

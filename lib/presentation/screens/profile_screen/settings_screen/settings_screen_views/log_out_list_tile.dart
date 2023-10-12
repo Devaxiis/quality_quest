@@ -1,6 +1,7 @@
-import 'package:flutter/material.dart';
-import 'package:quality_quest/services/constants/colors.dart';
-import 'package:quality_quest/services/constants/strings.dart';
+
+import 'package:quality_quest/library.dart';
+
+
 
 class LogOutListTile extends StatefulWidget {
   final void Function() onPressed;

@@ -1,8 +1,8 @@
-import 'package:flutter/material.dart';
-import 'package:quality_quest/services/constants/colors.dart';
-import 'package:quality_quest/services/constants/strings.dart';
+
+import 'package:quality_quest/library.dart';
 
 import 'bottom_sheet_button.dart';
+
 
 void showLogoutBottomSheet(BuildContext context) {
   void navigateToBack() {
@@ -29,11 +29,9 @@ void showLogoutBottomSheet(BuildContext context) {
             const Center(
               child: Text(
                 Strings.logoutTXT,
-                style: TextStyle(
-                  fontWeight: FontWeight.w700,
-                  fontSize: 23,
-                  color: CustomColors.oxFFF85656,
-                ),
+
+                style: Style.logoutST,
+
               ),
             ),
             const SizedBox(height: 10),
@@ -46,7 +44,7 @@ void showLogoutBottomSheet(BuildContext context) {
             const Center(
               child: Text(
                 Strings.sureToLogOutTXT,
-                style: TextStyle(fontSize: 18.0),
+                style: Style.sureToLogOutST,
               ),
             ),
             const SizedBox(height: 25.0),

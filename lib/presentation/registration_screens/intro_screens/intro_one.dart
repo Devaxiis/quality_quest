@@ -1,7 +1,6 @@
-import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
-import 'package:quality_quest/services/constants/colors.dart';
-import 'package:quality_quest/services/constants/strings.dart';
+
+import 'package:quality_quest/library.dart';
+
 
 class IntroOne extends StatelessWidget {
   const IntroOne({super.key});
@@ -23,11 +22,7 @@ class IntroOne extends StatelessWidget {
               ),
               const Text(
                 Strings.introFirstTXT,
-                style: TextStyle(
-                  color: CustomColors.oxFF212121,
-                  fontSize: 25,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: Style.introFirstST,
                 textAlign: TextAlign.center,
               ),
             ],

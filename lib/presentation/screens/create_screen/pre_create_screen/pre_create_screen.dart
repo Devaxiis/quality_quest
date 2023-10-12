@@ -1,8 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:quality_quest/library.dart';
-import 'package:quality_quest/presentation/screens/create_screen/create_screen.dart';
-import 'package:quality_quest/services/constants/colors.dart';
-import 'package:quality_quest/services/constants/strings.dart';
 
 
 class PreCreateScreen extends StatefulWidget {
@@ -25,10 +22,9 @@ class _PreCreateScreenState extends State<PreCreateScreen> {
         centerTitle: true,
         title: const Text(
           Strings.createQuizTXT,
-          style: TextStyle(
-            color: CustomColors.oxFF6949FF,
-            fontWeight: FontWeight.w800,
-          ),
+
+          style: Style.createQuizST,
+
         ),
       ),
       body: Padding(
@@ -80,13 +76,11 @@ class _PreCreateScreenState extends State<PreCreateScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text(
+                 Text(
                   Strings.wantToMakePublicTXT,
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: CustomColors.oxFF424242,
-                    fontWeight: FontWeight.w800,
-                  ),
+
+                  style: Style.createWantToMakePublicST,
+
                 ),
                 CupertinoSwitch(
                   activeColor: CustomColors.oxFF6949FF,

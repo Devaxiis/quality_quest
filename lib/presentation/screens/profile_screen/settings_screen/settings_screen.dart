@@ -1,11 +1,5 @@
 import 'package:quality_quest/library.dart';
-import 'package:quality_quest/presentation/screens/profile_screen/settings_screen/about_app_screen/about_app_screen.dart';
-import 'package:quality_quest/presentation/screens/profile_screen/settings_screen/music_effect_screen/music_effect_screen.dart';
-import 'package:quality_quest/presentation/screens/profile_screen/settings_screen/notification_screen/notification_screen.dart';
-import 'package:quality_quest/presentation/screens/profile_screen/settings_screen/settings_screen_views/log_out_bottom_sheet.dart';
-import 'package:quality_quest/presentation/screens/profile_screen/settings_screen/settings_screen_views/log_out_list_tile.dart';
-import 'package:quality_quest/presentation/screens/profile_screen/settings_screen/settings_screen_views/settings_tile_view.dart';
-import 'package:quality_quest/services/constants/strings.dart';
+
 
 import '../../../../services/constants/colors.dart';
 
@@ -60,10 +54,9 @@ class _SettingScreenState extends State<SettingScreen> {
         backgroundColor: CustomColors.oxFFFFFFFF,
         title: const Text(
           Strings.settingsTXT,
-          style: TextStyle(
-            fontWeight: FontWeight.w600,
-            color: CustomColors.oxFF000000,
-          ),
+
+          style:  Style.settingsST,
+
         ),
       ),
 

@@ -1,7 +1,6 @@
-import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
-import 'package:quality_quest/services/constants/colors.dart';
-import 'package:quality_quest/services/constants/strings.dart';
+
+import 'package:quality_quest/library.dart';
+
 
 class IntroThree extends StatelessWidget {
   const IntroThree({super.key});
@@ -18,11 +17,9 @@ class IntroThree extends StatelessWidget {
                 height: 300, width: 300),
             const Text(
               Strings.introThirdTXT,
-              style: TextStyle(
-                color: CustomColors.oxFF212121,
-                fontSize: 25,
-                fontWeight: FontWeight.bold,
-              ),
+
+              style: Style.introThirdST,
+
               textAlign: TextAlign.center,
             ),
           ],

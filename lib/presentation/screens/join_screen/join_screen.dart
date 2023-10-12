@@ -1,6 +1,5 @@
 import 'package:quality_quest/library.dart';
-import 'package:quality_quest/services/constants/colors.dart';
-import 'package:quality_quest/services/constants/strings.dart';
+
 
 class SearchUserScreen extends StatefulWidget {
   const SearchUserScreen({super.key});
@@ -39,7 +38,7 @@ class _SearchUserScreenState extends State<SearchUserScreen> {
                 ),
                 label: Text(
                   Strings.searchTXT,
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.normal),
+                  style: Style.joinSearchST,
                 ),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.all(Radius.circular(15)),
@@ -89,7 +88,7 @@ class _SearchUserScreenState extends State<SearchUserScreen> {
             ),
             title: const Text(
               "Richard Traverse",
-              style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+              style: Style.joinTitleST,
             ),
             subtitle: const Text("richard@gmail.com"),
             trailing: Container(
@@ -105,11 +104,9 @@ class _SearchUserScreenState extends State<SearchUserScreen> {
                   ),
                 ),
               ),
-              child: const Text(
+              child:  Text(
                 Strings.followingTXT,
-                style: TextStyle(
-                  color: CustomColors.oxFF6200EA,
-                ),
+                style: Style.joinFollowingST,
               ),
             ),
           );

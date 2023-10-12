@@ -1,7 +1,5 @@
 import 'package:quality_quest/library.dart';
-import 'package:quality_quest/presentation/screens/home_screen/exam_screen/exam_start_splash_screen.dart';
-import 'package:quality_quest/services/constants/colors.dart';
-import 'package:quality_quest/services/constants/strings.dart';
+
 
 class DetailDiscoverScreen extends StatelessWidget {
   const DetailDiscoverScreen({super.key});
@@ -19,13 +17,11 @@ class DetailDiscoverScreen extends StatelessWidget {
         automaticallyImplyLeading: false,
         centerTitle: false,
         forceMaterialTransparency: true,
-        title: const Text(
+        title:  Text(
           Strings.qualityQuestTXT,
-          style: TextStyle(
-            fontSize: 23,
-            color: CustomColors.oxFF6200EA,
-            fontWeight: FontWeight.w800,
-          ),
+
+          style: Style.homeDiscoverQualityQuestST,
+
         ),
       ),
 

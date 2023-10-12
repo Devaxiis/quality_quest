@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
-import 'package:quality_quest/services/constants/colors.dart';
-import 'package:quality_quest/services/constants/strings.dart';
+
+import 'package:quality_quest/library.dart';
+
 
 class AboutAppScreen extends StatefulWidget {
   const AboutAppScreen({super.key});
@@ -27,10 +27,9 @@ class _AboutAppScreenState extends State<AboutAppScreen> {
         ),
         title: const Text(
           Strings.aboutAppTXT,
-          style: TextStyle(
-            fontWeight: FontWeight.w600,
-            color: CustomColors.oxFF000000,
-          ),
+
+          style: Style.aboutAppST,
+
         ),
       ),
       body: SingleChildScrollView(
@@ -40,15 +39,12 @@ class _AboutAppScreenState extends State<AboutAppScreen> {
             Image(
               image: const AssetImage("assets/icons/ic_logo.png"),
               height: MediaQuery.sizeOf(context).height / 3.5,
-              // width: double.infinity,
+
             ),
             const SizedBox(height: 30),
             const Text(
               Strings.appVersionTXT,
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.w500,
-              ),
+              style: Style.appVersionST,
             ),
             const SizedBox(height: 30),
             const Divider(
@@ -61,12 +57,9 @@ class _AboutAppScreenState extends State<AboutAppScreen> {
               child: Text(
                 Strings.descriptionQualityQuestTXT,
                 textAlign: TextAlign.justify,
-                style: TextStyle(
-                  fontWeight: FontWeight.w400,
-                  color: CustomColors.oxDD000000,
-                  fontSize: 20,
-                  letterSpacing: -1,
-                ),
+
+                style: Style.descriptionQualityQuestST,
+
               ),
             ),
           ],

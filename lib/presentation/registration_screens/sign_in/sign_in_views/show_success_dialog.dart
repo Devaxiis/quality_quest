@@ -1,7 +1,6 @@
-import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
-import 'package:quality_quest/services/constants/colors.dart';
-import 'package:quality_quest/services/constants/strings.dart';
+
+import 'package:quality_quest/library.dart';
+
 
 void showSuccessDialog(BuildContext context) {
   showDialog(
@@ -24,22 +23,18 @@ void showSuccessDialog(BuildContext context) {
                 ),
               ),
               const SizedBox(height: 10),
-              const Text(
+               Text(
                 Strings.welcomeTXT,
-                style: TextStyle(
-                  color: CustomColors.oxFF512DA8,
-                  fontSize: 22,
-                  fontWeight: FontWeight.w500,
-                ),
+
+                style: Style.welcomeST,
+
               ),
               const SizedBox(height: 15),
-              const Text(
+               Text(
                 Strings.successfullyCreatedAccount,
-                style: TextStyle(
-                  color: CustomColors.oxFF616161,
-                  fontSize: 15,
-                  fontWeight: FontWeight.w500,
-                ),
+
+                style: Style.successfullyCreatedAccountST,
+
               ),
               const SizedBox(height: 20),
             ],

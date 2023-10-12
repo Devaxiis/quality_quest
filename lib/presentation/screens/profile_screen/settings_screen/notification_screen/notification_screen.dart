@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quality_quest/services/constants/colors.dart';
 import 'package:quality_quest/services/constants/strings.dart';
-
+import 'package:quality_quest/services/constants/style.dart';
 import 'notification_screen_view/notification_tile.dart';
 
 class NotificationScreen extends StatefulWidget {
@@ -27,10 +27,9 @@ class _NotificationScreenState extends State<NotificationScreen> {
         ),
         title: const Text(
           Strings.notificationTXT,
-          style: TextStyle(
-            fontWeight: FontWeight.w600,
-            color: CustomColors.oxFF000000,
-          ),
+
+          style: Style.notificationST,
+
         ),
       ),
       body: ListView(
