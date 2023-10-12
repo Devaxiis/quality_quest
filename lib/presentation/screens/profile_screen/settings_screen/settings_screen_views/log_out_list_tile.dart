@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quality_quest/services/constants/colors.dart';
 import 'package:quality_quest/services/constants/strings.dart';
 
 class LogOutListTile extends StatefulWidget {
@@ -23,13 +24,13 @@ class _LogOutListTileState extends State<LogOutListTile> {
         style: TextStyle(
           fontSize: 19,
           fontWeight: FontWeight.w700,
-          color: Color(0xFFFC6369),
+          color: CustomColors.oxFFFC6369,
         ),
       ),
       trailing: IconButton(
         onPressed: widget.onPressed,
         style: IconButton.styleFrom(
-          backgroundColor: const Color(0xFFFFF3F3),
+          backgroundColor: CustomColors.oxFFFFF3F3,
           shape: const OvalBorder(),
           padding: const EdgeInsets.symmetric(
             vertical: 15,
@@ -38,7 +39,7 @@ class _LogOutListTileState extends State<LogOutListTile> {
         ),
         icon: const Image(
           image: AssetImage('assets/icons/ic_log_out.png'),
-          color: Color(0xFFFC6369),
+          color: CustomColors.oxFFFC6369,
         ),
       ),
     );

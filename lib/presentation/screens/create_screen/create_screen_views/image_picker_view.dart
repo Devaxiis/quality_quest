@@ -1,4 +1,5 @@
 import 'package:quality_quest/library.dart';
+import 'package:quality_quest/services/constants/colors.dart';
 import 'package:quality_quest/services/constants/strings.dart';
 
 class CustomImagePicker extends StatelessWidget {
@@ -15,7 +16,7 @@ class CustomImagePicker extends StatelessWidget {
         width: double.infinity,
         decoration: BoxDecoration(
           border: Border.all(
-            color: const Color(0xFF7658FF),
+            color: CustomColors.oxFF7658FF,
             width: 2.3,
           ),
           borderRadius: const BorderRadius.all(Radius.circular(30)),
@@ -35,7 +36,7 @@ class CustomImagePicker extends StatelessWidget {
             const Text(
               Strings.addCoverImageTXT,
               style: TextStyle(
-                color: Color(0xFF6949FF),
+                color: CustomColors.oxFF6949FF,
                 fontWeight: FontWeight.w700,
                 fontSize: 18,
               ),

@@ -1,4 +1,5 @@
 import 'package:quality_quest/library.dart';
+import 'package:quality_quest/services/constants/colors.dart';
 import 'package:quality_quest/services/constants/strings.dart';
 
 class LibraryAppBarViews extends StatelessWidget {
@@ -15,11 +16,11 @@ class LibraryAppBarViews extends StatelessWidget {
       ),
       centerTitle: false,
       forceMaterialTransparency: true,
-      title: Text(
+      title: const Text(
         Strings.libraryTXT,
         style: TextStyle(
           fontSize: 22.5,
-          color: Colors.deepPurpleAccent.shade700,
+          color: CustomColors.oxFF6200EA,
           fontWeight: FontWeight.w800,
         ),
       ),

@@ -1,4 +1,5 @@
 import 'package:quality_quest/library.dart';
+import 'package:quality_quest/services/constants/colors.dart';
 import 'package:quality_quest/services/constants/strings.dart';
 
 class SearchScreen extends StatelessWidget {
@@ -7,10 +8,10 @@ class SearchScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: CustomColors.oxFFFFFFFF,
       appBar: AppBar(
         toolbarHeight: 80,
-        backgroundColor: Colors.white,
+        backgroundColor: CustomColors.oxFFFFFFFF,
         title: Padding(
           padding: const EdgeInsets.only(top: 10),
           child: SizedBox(
@@ -22,12 +23,12 @@ class SearchScreen extends StatelessWidget {
                   padding: EdgeInsets.all(15.0),
                   child: Image(
                     image: AssetImage("assets/icons/ic_search.png"),
-                    color: Color(0xff6949ff),
+                    color: CustomColors.oxFF6949FF,
                   ),
                 ),
                 suffixIcon: Icon(
                   Icons.cancel,
-                  color: Color(0xff6949ff),
+                  color: CustomColors.oxFF6949FF,
                 ),
                 label: Text(
                   Strings.searchTXT,
@@ -35,19 +36,31 @@ class SearchScreen extends StatelessWidget {
                 ),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.all(Radius.circular(15)),
-                  borderSide: BorderSide(width: 2, color: Color(0xff6949ff)),
+                  borderSide: BorderSide(
+                    width: 2,
+                    color: CustomColors.oxFF6949FF,
+                  ),
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.all(Radius.circular(15)),
-                  borderSide: BorderSide(width: 2, color: Color(0xff6949ff)),
+                  borderSide: BorderSide(
+                    width: 2,
+                    color: CustomColors.oxFF6949FF,
+                  ),
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.all(Radius.circular(15)),
-                  borderSide: BorderSide(width: 2, color: Color(0xff6949ff)),
+                  borderSide: BorderSide(
+                    width: 2,
+                    color: CustomColors.oxFF6949FF,
+                  ),
                 ),
                 disabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.all(Radius.circular(15)),
-                  borderSide: BorderSide(width: 2, color: Color(0xff6949ff)),
+                  borderSide: BorderSide(
+                    width: 2,
+                    color: CustomColors.oxFF6949FF,
+                  ),
                 ),
               ),
             ),

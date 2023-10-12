@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:quality_quest/services/constants/colors.dart';
 import 'package:quality_quest/services/constants/strings.dart';
 
 class IntroThree extends StatelessWidget {
@@ -18,7 +19,7 @@ class IntroThree extends StatelessWidget {
             const Text(
               Strings.introThirdTXT,
               style: TextStyle(
-                color: Color(0xff212121),
+                color: CustomColors.oxFF212121,
                 fontSize: 25,
                 fontWeight: FontWeight.bold,
               ),

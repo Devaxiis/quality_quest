@@ -1,4 +1,5 @@
 import 'package:quality_quest/library.dart';
+import 'package:quality_quest/services/constants/colors.dart';
 import 'package:quality_quest/services/constants/strings.dart';
 
 class ExamScreen extends StatefulWidget {
@@ -14,11 +15,11 @@ class _ExamScreenState extends State<ExamScreen> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text(
+        title: const Text(
           Strings.qualityQuestTXT,
           style: TextStyle(
             fontSize: 25,
-            color: Colors.deepPurpleAccent.shade700,
+            color: CustomColors.oxFF6200EA,
             fontWeight: FontWeight.w800,
           ),
         ),
@@ -27,20 +28,23 @@ class _ExamScreenState extends State<ExamScreen> {
         child: Column(
           children: [
             const Expanded(
-                flex: 4,
-                child: Center(
-                    child: Padding(
+              flex: 4,
+              child: Center(
+                child: Padding(
                   padding: EdgeInsets.all(20.0),
                   child: Text(
                     "O'zbekistonning poytaxti?",
                     style: TextStyle(
-                        color: Color(0xff6949ff),
-                        fontSize: 40,
-                        fontWeight: FontWeight.w800),
+                      color: CustomColors.oxFF6949FF,
+                      fontSize: 40,
+                      fontWeight: FontWeight.w800,
+                    ),
                   ),
-                ))),
+                ),
+              ),
+            ),
             const Divider(
-              color: Colors.grey,
+              color: CustomColors.oxFF9E9E9E,
               indent: 20,
               endIndent: 20,
             ),
@@ -53,14 +57,14 @@ class _ExamScreenState extends State<ExamScreen> {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       AnswerAddButton(
-                        shadowColor: Colors.deepPurpleAccent.shade700,
-                        buttonColor: const Color(0xff6949ff),
+                        shadowColor:  CustomColors.oxFF6200EA,
+                        buttonColor: CustomColors.oxFF6949FF,
                         text: "Andijon",
                         onTap: () {},
                       ),
                       AnswerAddButton(
-                        shadowColor: Colors.deepPurpleAccent.shade700,
-                        buttonColor: const Color(0xff6949ff),
+                        shadowColor:  CustomColors.oxFF6200EA,
+                        buttonColor: CustomColors.oxFF6949FF,
                         text: "Namangan",
                         onTap: () {},
                       ),
@@ -70,14 +74,14 @@ class _ExamScreenState extends State<ExamScreen> {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       AnswerAddButton(
-                        shadowColor: Colors.deepPurpleAccent.shade700,
-                        buttonColor: const Color(0xff6949ff),
+                        shadowColor:  CustomColors.oxFF6200EA,
+                        buttonColor: CustomColors.oxFF6949FF,
                         text: "Toshkent",
                         onTap: () {},
                       ),
                       AnswerAddButton(
-                        shadowColor: Colors.deepPurpleAccent.shade700,
-                        buttonColor: const Color(0xff6949ff),
+                        shadowColor: CustomColors.oxFF6200EA,
+                        buttonColor: CustomColors.oxFF6949FF,
                         text: "Farg'ona",
                         onTap: () {},
                       ),

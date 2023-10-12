@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:quality_quest/library.dart';
+import 'package:quality_quest/services/constants/colors.dart';
 import 'package:quality_quest/services/constants/strings.dart';
 
 class CustomAnswerDialog extends StatelessWidget {
@@ -16,12 +17,12 @@ class CustomAnswerDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     bool? currentValue = false;
     return AlertDialog(
-      surfaceTintColor: Colors.white,
+      surfaceTintColor: CustomColors.oxFFFFFFFF,
       title: const Center(
         child: Text(
           Strings.addAnswerTXT,
           style: TextStyle(
-            color: Color(0xFF295ECC),
+            color: CustomColors.oxFF295ECC,
             fontWeight: FontWeight.w800,
             fontSize: 28,
           ),
@@ -31,7 +32,7 @@ class CustomAnswerDialog extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisSize: MainAxisSize.min,
         children: [
-          const Divider(color: Colors.grey),
+          const Divider(color: CustomColors.oxFF9E9E9E),
           const SizedBox(height: 10),
 
           Container(
@@ -59,13 +60,13 @@ class CustomAnswerDialog extends StatelessWidget {
                 textAlign: TextAlign.justify,
                 maxLines: null,
                 style: TextStyle(
-                  color: Colors.white,
+                  color: CustomColors.oxFFFFFFFF,
                   fontWeight: FontWeight.w700,
                 ),
                 decoration: InputDecoration(
                   hintText: Strings.addYourAnswerTXT,
                   hintStyle: TextStyle(
-                    color: Colors.white,
+                    color: CustomColors.oxFFFFFFFF,
                     fontWeight: FontWeight.w700,
                   ),
                   border: InputBorder.none,
@@ -109,16 +110,16 @@ class _CheckBoxState extends State<CheckBox> {
             const Text(
               Strings.correctAnswerTXT,
               style: TextStyle(
-                color: Color(0xFF295ECC),
+                color: CustomColors.oxFF295ECC,
                 fontWeight: FontWeight.w800,
                 fontSize: 19,
               ),
             ),
             const SizedBox(width: 60),
             CupertinoCheckbox(
-              activeColor: const Color(0xFF295ECC),
+              activeColor: CustomColors.oxFF295ECC,
               shape: const CircleBorder(),
-              side: const BorderSide(color: Color(0xFF295ECC)),
+              side: const BorderSide(color: CustomColors.oxFF295ECC),
               value: widget.value,
               onChanged: (ind) {
                 setState(() {
@@ -132,9 +133,9 @@ class _CheckBoxState extends State<CheckBox> {
         const SizedBox(height: 20),
         ElevatedButton(
           style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.deepPurpleAccent,
+            backgroundColor: CustomColors.oxFF7C4DFF,
             elevation: 6,
-            shadowColor: Colors.deepPurple,
+            shadowColor: CustomColors.oxFF673AB7,
             fixedSize: const Size(250, 40),
           ),
           onPressed: () {
@@ -143,7 +144,7 @@ class _CheckBoxState extends State<CheckBox> {
           child: const Text(
             Strings.submitTXT,
             style: TextStyle(
-              color: Colors.white,
+              color: CustomColors.oxFFFFFFFF,
             ),
           ),
         ),

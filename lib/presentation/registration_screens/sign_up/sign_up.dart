@@ -1,6 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quality_quest/bloc/auth/auth_bloc.dart';
 import 'package:quality_quest/library.dart';
+import 'package:quality_quest/services/constants/colors.dart';
 import 'package:quality_quest/services/constants/strings.dart';
 
 class SignUpScreen extends StatefulWidget {
@@ -26,7 +27,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: CustomColors.oxFFFFFFFF,
       body: MultiBlocListener(
         listeners: [
           BlocListener<AuthBloc, AuthState>(listener: (_, state) {
@@ -98,11 +99,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             child: isVisible
                                 ? const Icon(
                                     Icons.visibility_off,
-                                    color: Colors.deepPurpleAccent,
+                                    color: CustomColors.oxFF7C4DFF,
                                   )
                                 : const Icon(
                                     Icons.visibility_outlined,
-                                    color: Colors.deepPurpleAccent,
+                                    color: CustomColors.oxFF7C4DFF,
                                   ),
                           ),
                           obc: isVisible,

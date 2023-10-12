@@ -1,3 +1,5 @@
+import 'package:quality_quest/services/constants/colors.dart';
+
 import '../../../../library.dart';
 
 class CategoryButtonView extends StatelessWidget {
@@ -17,17 +19,19 @@ class CategoryButtonView extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 5),
         alignment: Alignment.center,
         decoration: BoxDecoration(
-          color: color ?? Colors.white,
+          color: color ?? CustomColors.oxFFFFFFFF,
           borderRadius: const BorderRadius.all(Radius.circular(50)),
           border: Border.all(
-            color: const Color(0xff6949ff),
+            color: CustomColors.oxFF6949FF,
             width: 2,
           ),
         ),
         child: Text(
           name,
           style: TextStyle(
-            color: color != null ? Colors.white : const Color(0xff6949ff),
+            color: color != null
+                ? CustomColors.oxFFFFFFFF
+                : CustomColors.oxFF6949FF,
             fontWeight: FontWeight.bold,
             fontSize: 15,
           ),

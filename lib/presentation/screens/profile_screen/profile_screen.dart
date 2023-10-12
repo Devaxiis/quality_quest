@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quality_quest/presentation/screens/profile_screen/profile_views/custom_button_views.dart';
 import 'package:quality_quest/presentation/screens/profile_screen/settings_screen/settings_screen.dart';
+import 'package:quality_quest/services/constants/colors.dart';
 import 'package:quality_quest/services/constants/strings.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -14,7 +15,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: CustomColors.oxFFFFFFFF,
       appBar: AppBar(
         leading: Container(
           height: 40,
@@ -27,7 +28,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         title: const Text(
           Strings.qualityQuestTXT,
           style: TextStyle(
-            color: Color(0xff6949ff),
+            color: CustomColors.oxFF6949FF,
             fontSize: 25,
             fontWeight: FontWeight.bold,
           ),
@@ -66,7 +67,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       width: 60,
                       child: CircleAvatar(
                         radius: 60,
-                        backgroundColor: Color(0xff6949ff),
+                        backgroundColor: CustomColors.oxFF6949FF,
                         backgroundImage:
                             AssetImage("assets/images/img_profile_circle.png"),
                       ),
@@ -78,7 +79,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         Text(
                           "Andrew Ainley",
                           style: TextStyle(
-                            color: Colors.black,
+                            color: CustomColors.oxFF000000,
                             fontWeight: FontWeight.bold,
                             fontSize: 20,
                           ),
@@ -86,7 +87,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         Text(
                           "andrewainley@gmail.com",
                           style: TextStyle(
-                            color: Colors.black,
+                            color: CustomColors.oxFF000000,
                             fontWeight: FontWeight.normal,
                             fontSize: 13,
                           ),
@@ -99,15 +100,16 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       alignment: Alignment.center,
                       padding: const EdgeInsets.symmetric(horizontal: 10),
                       decoration: const BoxDecoration(
-                        color: Color(0xff6949ff),
+                        color: CustomColors.oxFF6949FF,
                         borderRadius: BorderRadius.all(Radius.circular(50)),
                       ),
                       child: const Text(
                         Strings.editProfileTXT,
                         style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 15),
+                          color: CustomColors.oxFFFFFFFF,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 15,
+                        ),
                       ),
                     ),
                     const Spacer(),
@@ -139,7 +141,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       Radius.circular(20),
                     ),
                     border: Border.all(
-                      color: Colors.blueGrey.shade500,
+                      color: CustomColors.oxFF607D8B,
                       width: 2,
                     ),
                   ),
@@ -166,15 +168,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           mainAxisSize: MainAxisSize.min,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
+                            const Text(
                               "Back to School. Get Smarter...",
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .titleMedium!
-                                  .copyWith(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w800,
-                                  ),
+                              style: TextStyle(
+                                fontSize: 15,
+                                color: CustomColors.oxFF000000,
+                                fontWeight: FontWeight.w800,
+                              ),
                             ),
                             const SizedBox(height: 26),
                             Row(

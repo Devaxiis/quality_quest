@@ -1,4 +1,5 @@
 import 'package:quality_quest/library.dart';
+import 'package:quality_quest/services/constants/colors.dart';
 import 'package:quality_quest/services/constants/strings.dart';
 
 class CustomHomeScreenAppBar extends StatelessWidget {
@@ -8,11 +9,11 @@ class CustomHomeScreenAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     int currentIndex = 0;
     return AppBar(
-      backgroundColor: Colors.white,
+      backgroundColor: CustomColors.oxFFFFFFFF,
       title: Text(
         Strings.qualityQuestTXT,
         style: Theme.of(context).textTheme.titleLarge?.copyWith(
-          color: Colors.deepPurpleAccent.shade700,
+          color: CustomColors.oxFF6200EA,
           fontWeight: FontWeight.w800,
         ),
       ),

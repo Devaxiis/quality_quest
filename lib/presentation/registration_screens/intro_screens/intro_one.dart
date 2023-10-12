@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:quality_quest/services/constants/colors.dart';
 import 'package:quality_quest/services/constants/strings.dart';
 
 class IntroOne extends StatelessWidget {
@@ -8,6 +9,7 @@ class IntroOne extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: CustomColors.oxFFFFFFFF,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Center(
@@ -22,7 +24,7 @@ class IntroOne extends StatelessWidget {
               const Text(
                 Strings.introFirstTXT,
                 style: TextStyle(
-                  color: Color(0xff212121),
+                  color: CustomColors.oxFF212121,
                   fontSize: 25,
                   fontWeight: FontWeight.bold,
                 ),

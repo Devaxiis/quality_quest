@@ -1,5 +1,6 @@
 import 'package:quality_quest/library.dart';
 import 'package:quality_quest/presentation/screens/home_screen/exam_screen/exam_screen.dart';
+import 'package:quality_quest/services/constants/colors.dart';
 import 'package:quality_quest/services/constants/strings.dart';
 
 class ExamStartSplashScreen extends StatefulWidget {
@@ -13,21 +14,32 @@ class _ExamStartSplashScreenState extends State<ExamStartSplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: CustomColors.oxFFFFFFFF,
       body: SafeArea(
         child: Center(
           child: Column(
-             mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              ExamSplashCustomButton(text: Strings.startTXT,color: Colors.green,onTab: (){
-               Navigator.push(context,MaterialPageRoute(builder: (_)=> const ExamScreen()));
-              },
-                colorShadow: Colors.green.shade700,
+              ExamSplashCustomButton(
+                text: Strings.startTXT,
+                color: CustomColors.oxFF4CAF50,
+                onTab: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => const ExamScreen(),
+                    ),
+                  );
+                },
+                colorShadow: CustomColors.oxFF388E3C,
               ),
-              ExamSplashCustomButton(text: Strings.exitTXT,color: Colors.red,onTab: (){
-                Navigator.pop(context);
-              },
-                colorShadow: Colors.red.shade700,
+              ExamSplashCustomButton(
+                text: Strings.exitTXT,
+                color: CustomColors.oxFFF44336,
+                onTab: () {
+                  Navigator.pop(context);
+                },
+                colorShadow: CustomColors.oxFFD32F2F,
               ),
             ],
           ),
@@ -42,13 +54,19 @@ class ExamSplashCustomButton extends StatelessWidget {
   final Color color;
   final Color colorShadow;
   final Function onTab;
-  const ExamSplashCustomButton({super.key, required this.text, required this.color, required this.onTab, required this.colorShadow});
+
+  const ExamSplashCustomButton(
+      {super.key,
+      required this.text,
+      required this.color,
+      required this.onTab,
+      required this.colorShadow});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){
-       return onTab();
+      onTap: () {
+        return onTab();
       },
       child: Container(
         height: 110,
@@ -61,26 +79,28 @@ class ExamSplashCustomButton extends StatelessWidget {
             boxShadow: [
               BoxShadow(
                 color: Colors.black.withOpacity(.4),
-                offset: const Offset(0,10),
+                offset: const Offset(0, 10),
                 blurRadius: 10,
                 spreadRadius: 1,
               )
-            ]
-        ),
+            ]),
         child: Container(
-            height: 100,
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-              color: color,
-              borderRadius: const BorderRadius.all(Radius.circular(35)),
+          height: 100,
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+            color: color,
+            borderRadius: const BorderRadius.all(Radius.circular(35)),
+          ),
+          child: Text(
+            text,
+            style: const TextStyle(
+              color: CustomColors.oxFFFFFFFF,
+              fontSize: 30,
+              fontWeight: FontWeight.bold,
             ),
-            child:  Text(text,style: const TextStyle(color: Colors.white,fontSize: 30,fontWeight: FontWeight.bold),),
-
+          ),
         ),
       ),
     );
   }
 }
-
-
-
