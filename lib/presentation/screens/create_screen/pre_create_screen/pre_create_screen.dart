@@ -4,6 +4,7 @@ import 'package:quality_quest/presentation/screens/create_screen/create_screen.d
 import 'package:quality_quest/services/constants/colors.dart';
 import 'package:quality_quest/services/constants/strings.dart';
 
+
 class PreCreateScreen extends StatefulWidget {
   const PreCreateScreen({super.key});
 
@@ -107,12 +108,16 @@ class _PreCreateScreenState extends State<PreCreateScreen> {
           fixedSize: const Size(150, 45),
         ),
         onPressed: () {
+
+          Navigator.of(context).push(MaterialPageRoute(builder: (_)=>const CreateScreen()));
+
           Navigator.push(
             context,
             MaterialPageRoute(
               builder: (context) => const CreateScreen(),
             ),
           );
+
         },
         child: const Text(
           Strings.nextTXT,

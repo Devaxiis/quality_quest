@@ -57,12 +57,6 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           const SizedBox(width: 10),
         ],
-        // bottom: PreferredSize(
-        //   preferredSize: Size(MediaQuery.sizeOf(context).width, 50),
-        //   child: AppBarChildView(
-        //     currentIndex: currentIndex,
-        //   ),
-        // ),
         elevation: 3,
         automaticallyImplyLeading: false,
         forceMaterialTransparency: true,
