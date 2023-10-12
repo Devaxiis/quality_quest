@@ -1,5 +1,6 @@
 import 'package:quality_quest/library.dart';
 import 'package:quality_quest/presentation/screens/home_screen/exam_screen/exam_screen.dart';
+import 'package:quality_quest/services/constants/strings.dart';
 
 class ExamStartSplashScreen extends StatefulWidget {
   const ExamStartSplashScreen({super.key});
@@ -18,12 +19,12 @@ class _ExamStartSplashScreenState extends State<ExamStartSplashScreen> {
           child: Column(
              mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              ExamSplashCustomButton(text: "Testni Boshlash",color: Colors.green,onTab: (){
+              ExamSplashCustomButton(text: Strings.startTXT,color: Colors.green,onTab: (){
                Navigator.push(context,MaterialPageRoute(builder: (_)=> const ExamScreen()));
               },
                 colorShadow: Colors.green.shade700,
               ),
-              ExamSplashCustomButton(text: "Qaytish",color: Colors.red,onTab: (){
+              ExamSplashCustomButton(text: Strings.exitTXT,color: Colors.red,onTab: (){
                 Navigator.pop(context);
               },
                 colorShadow: Colors.red.shade700,

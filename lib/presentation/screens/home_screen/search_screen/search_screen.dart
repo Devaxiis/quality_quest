@@ -1,4 +1,5 @@
 import 'package:quality_quest/library.dart';
+import 'package:quality_quest/services/constants/strings.dart';
 
 class SearchScreen extends StatelessWidget {
   const SearchScreen({super.key});
@@ -29,7 +30,7 @@ class SearchScreen extends StatelessWidget {
                   color: Color(0xff6949ff),
                 ),
                 label: Text(
-                  "Search",
+                  Strings.searchTXT,
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.normal),
                 ),
                 border: OutlineInputBorder(

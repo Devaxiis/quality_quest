@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:quality_quest/library.dart';
+import 'package:quality_quest/presentation/screens/create_screen/create_screen.dart';
+import 'package:quality_quest/services/constants/strings.dart';
 
 class PreCreateScreen extends StatefulWidget {
   const PreCreateScreen({super.key});
@@ -9,6 +11,8 @@ class PreCreateScreen extends StatefulWidget {
 }
 
 class _PreCreateScreenState extends State<PreCreateScreen> {
+  bool _toggleSwitch = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +22,7 @@ class _PreCreateScreenState extends State<PreCreateScreen> {
         forceMaterialTransparency: true,
         centerTitle: true,
         title: const Text(
-          "Create Quiz",
+          Strings.createQuizTXT,
           style: TextStyle(
             color: Color(0xFF6949FF),
             fontWeight: FontWeight.w800,
@@ -53,7 +57,7 @@ class _PreCreateScreenState extends State<PreCreateScreen> {
                   borderRadius: BorderRadius.all(Radius.circular(20)),
                   borderSide: BorderSide(width: 2, color: Color(0xff6949ff)),
                 ),
-                hintText: "Quiz Name",
+                hintText: Strings.quizNameTXT,
                 hintStyle: TextStyle(
                   fontSize: 18,
                   color: Colors.black54,
@@ -66,7 +70,7 @@ class _PreCreateScreenState extends State<PreCreateScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  "Do you want to make it public ?",
+                  Strings.wantToMakePublicTXT,
                   style: TextStyle(
                     fontSize: 18,
                     color: Colors.grey.shade800,
@@ -74,9 +78,12 @@ class _PreCreateScreenState extends State<PreCreateScreen> {
                   ),
                 ),
                 CupertinoSwitch(
-                  value: false,
-                  onChanged: (value) {},
-                ),
+                  activeColor: const Color(0xFF6949FF),
+                  value: _toggleSwitch,
+                  onChanged: (value) {
+                    setState(() => _toggleSwitch = value);
+                  },
+                )
               ],
             ),
           ],
@@ -89,9 +96,16 @@ class _PreCreateScreenState extends State<PreCreateScreen> {
           shadowColor: Colors.deepPurple,
           fixedSize: const Size(150, 45),
         ),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const CreateScreen(),
+            ),
+          );
+        },
         child: const Text(
-          'Next',
+          Strings.nextTXT,
           style: TextStyle(
             color: Colors.white,
           ),

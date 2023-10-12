@@ -1,5 +1,6 @@
 import 'package:quality_quest/library.dart';
 import 'package:quality_quest/presentation/screens/home_screen/search_screen/search_screen.dart';
+import 'package:quality_quest/services/constants/strings.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -29,7 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
       appBar: AppBar(
         title: Text(
-          "QualityQuest",
+          Strings.qualityQuestTXT,
           style: TextStyle(
             fontSize: 22.5,
             color: Colors.deepPurpleAccent.shade700,

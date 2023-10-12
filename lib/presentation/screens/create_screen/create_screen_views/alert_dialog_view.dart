@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:quality_quest/library.dart';
+import 'package:quality_quest/services/constants/strings.dart';
 
 class CustomAnswerDialog extends StatelessWidget {
   final Color shadowColor;
@@ -18,7 +19,7 @@ class CustomAnswerDialog extends StatelessWidget {
       surfaceTintColor: Colors.white,
       title: const Center(
         child: Text(
-          'Add Answer',
+          Strings.addAnswerTXT,
           style: TextStyle(
             color: Color(0xFF295ECC),
             fontWeight: FontWeight.w800,
@@ -62,7 +63,7 @@ class CustomAnswerDialog extends StatelessWidget {
                   fontWeight: FontWeight.w700,
                 ),
                 decoration: InputDecoration(
-                  hintText: 'Add your answer...',
+                  hintText: Strings.addYourAnswerTXT,
                   hintStyle: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.w700,
@@ -106,7 +107,7 @@ class _CheckBoxState extends State<CheckBox> {
           children: [
             // const Spacer(),
             const Text(
-              "Correct answer",
+              Strings.correctAnswerTXT,
               style: TextStyle(
                 color: Color(0xFF295ECC),
                 fontWeight: FontWeight.w800,
@@ -140,7 +141,7 @@ class _CheckBoxState extends State<CheckBox> {
             Navigator.of(context).pop();
           },
           child: const Text(
-            'Submit',
+            Strings.submitTXT,
             style: TextStyle(
               color: Colors.white,
             ),

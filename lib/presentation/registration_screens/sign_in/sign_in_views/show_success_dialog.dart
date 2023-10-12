@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:quality_quest/services/constants/strings.dart';
 
 void showSuccessDialog(BuildContext context) {
   showDialog(
@@ -23,7 +24,7 @@ void showSuccessDialog(BuildContext context) {
               ),
               const SizedBox(height: 10),
               Text(
-                "Welcome",
+                Strings.welcomeTXT,
                 style: TextStyle(
                   color: Colors.deepPurple.shade700,
                   fontSize: 22,
@@ -32,7 +33,7 @@ void showSuccessDialog(BuildContext context) {
               ),
               const SizedBox(height: 15),
               Text(
-                "Successfully created an account!",
+                Strings.successfullyCreatedAccount,
                 style: TextStyle(
                   color: Colors.grey.shade700,
                   fontSize: 15,
