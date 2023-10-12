@@ -1,8 +1,4 @@
 import 'package:quality_quest/library.dart';
-import 'package:quality_quest/presentation/screens/create_screen/pre_create_screen/pre_create_screen.dart';
-import 'package:quality_quest/presentation/screens/profile_screen/profile_screen.dart';
-
-
 import 'join_screen/join_screen.dart';
 
 class MainHomeScreen extends StatefulWidget {

@@ -7,11 +7,9 @@ class LibraryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
+      // #background color
       backgroundColor: Colors.white,
-      // appBar: const PreferredSize(
-      //   preferredSize: Size(double.infinity, 60),
-      //   child: LibraryAppBarViews(),
-      // ),
 
       /// #Body
       body: ListView.builder(

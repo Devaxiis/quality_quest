@@ -1,14 +1,5 @@
-import 'dart:async';
-import 'dart:io';
-
-import 'package:device_info_plus/device_info_plus.dart';
-import 'package:quality_quest/core/params/aps.dart';
-import 'package:quality_quest/data/network_service.dart';
 import 'package:quality_quest/library.dart';
-import 'package:quality_quest/presentation/registration_screens/sign_in/sign_in_views/custom_rich_text.dart';
-import 'package:quality_quest/presentation/registration_screens/sign_in/sign_in_views/show_success_dialog.dart';
-import 'package:quality_quest/presentation/screens/main_home_screen.dart';
-import 'package:quality_quest/services/constants/strings.dart';
+
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
@@ -90,7 +81,7 @@ class _SignInScreenState extends State<SignInScreen> {
               /// #Header Text
               const Text(
                 Strings.helloThereTXT,
-                style: TextStyle(fontSize: 30, fontWeight: FontWeight.w600),
+                style: Style.helloThereST,
               ),
 
               const Spacer(),

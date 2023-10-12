@@ -1,5 +1,5 @@
 import 'package:quality_quest/library.dart';
-import 'package:quality_quest/services/constants/strings.dart';
+
 
 class SearchScreen extends StatelessWidget {
   const SearchScreen({super.key});

@@ -3,6 +3,8 @@ import 'package:quality_quest/bloc/auth/auth_bloc.dart';
 import 'package:quality_quest/library.dart';
 import 'package:quality_quest/services/constants/strings.dart';
 
+import '../../../services/constants/style.dart';
+
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
 
@@ -52,13 +54,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         const Spacer(),
 
                         /// #Header Text
-                        const Text(
-                          Strings.createAccountTXT,
-                          style: TextStyle(
-                            fontSize: 30,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
+                        const Text(Strings.createAccountTXT,style: Style.createAccountSt),
                         const Spacer(),
 
                         ///TextField name
@@ -70,7 +66,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         ),
                         const Spacer(),
 
-                        ///TextField Surname
+                        /// #TextField Surname
                         CustomTextFormField(
                           control: controllerSurname,
                           keyboardType: TextInputType.name,
@@ -79,7 +75,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         ),
                         const Spacer(),
 
-                        ///TextField email
+                        /// #TextField email
                         CustomTextFormField(
                           control: controllerEmail,
                           keyboardType: TextInputType.emailAddress,
@@ -88,7 +84,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         ),
                         const Spacer(),
 
-                        ///TextField password
+                        /// #TextField password
                         CustomTextFormField(
                           control: controllerPassword,
                           keyboardType: TextInputType.visiblePassword,
@@ -113,10 +109,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         ///Personal text
                         const Text(
                           Strings.signUpAlertTXT,
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.w400,
-                          ),
+                          style: Style.signUpAlertST,
                           textAlign: TextAlign.center,
                         ),
                         const Spacer(flex: 2),

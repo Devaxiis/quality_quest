@@ -1,7 +1,6 @@
-import 'package:flutter/material.dart';
-import 'package:quality_quest/presentation/screens/profile_screen/profile_views/custom_button_views.dart';
-import 'package:quality_quest/presentation/screens/profile_screen/settings_screen/settings_screen.dart';
-import 'package:quality_quest/services/constants/strings.dart';
+
+import 'package:quality_quest/library.dart';
+
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -26,11 +25,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         ),
         title: const Text(
           Strings.qualityQuestTXT,
-          style: TextStyle(
-            color: Color(0xff6949ff),
-            fontSize: 25,
-            fontWeight: FontWeight.bold,
-          ),
+          style: Style.qualityQuestST,
         ),
         actions: [
           IconButton(
@@ -77,19 +72,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       children: [
                         Text(
                           "Andrew Ainley",
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20,
-                          ),
+                          style: Style.nameEditST,
                         ),
                         Text(
                           "andrewainley@gmail.com",
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.normal,
-                            fontSize: 13,
-                          ),
+                          style: Style.emailEditST,
                         ),
                       ],
                     ),
@@ -104,10 +91,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                       child: const Text(
                         Strings.editProfileTXT,
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 15),
+                        style: Style.editProfileST,
                       ),
                     ),
                     const Spacer(),
@@ -127,88 +111,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             flex: 7,
             child: ListView.separated(
               itemBuilder: (context, index) {
-                return Container(
-                  height: 180,
-                  margin: const EdgeInsets.symmetric(
-                    vertical: 10,
-                    horizontal: 12,
-                  ),
-                  clipBehavior: Clip.antiAlias,
-                  decoration: BoxDecoration(
-                    borderRadius: const BorderRadius.all(
-                      Radius.circular(20),
-                    ),
-                    border: Border.all(
-                      color: Colors.blueGrey.shade500,
-                      width: 2,
-                    ),
-                  ),
-                  child: Row(
-                    children: [
-                      Container(
-                        height: double.infinity,
-                        width: 150,
-                        decoration: const BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage('assets/images/idea.jpg'),
-                            fit: BoxFit.cover,
-                          ),
-                          borderRadius: BorderRadius.only(
-                            bottomLeft: Radius.circular(18),
-                            topLeft: Radius.circular(18),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(width: 10),
-                      Expanded(
-                        flex: 4,
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Back to School. Get Smarter...",
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .titleMedium!
-                                  .copyWith(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w800,
-                                  ),
-                            ),
-                            const SizedBox(height: 26),
-                            Row(
-                              children: [
-                                const Text(
-                                  "2 years ago",
-                                ),
-                                const SizedBox(width: 15),
-                                CircleAvatar(
-                                  backgroundColor: Colors.grey.shade800,
-                                  maxRadius: 3.3,
-                                ),
-                                const SizedBox(width: 15),
-                                const Text("15.7K plays"),
-                              ],
-                            ),
-                            const SizedBox(height: 20),
-                            const Row(
-                              children: [
-                                CircleAvatar(
-                                  backgroundImage: AssetImage(
-                                    'assets/images/img_profile_circle.png',
-                                  ),
-                                ),
-                                SizedBox(width: 20),
-                                Text('Edgar Torrey'),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                );
+                return const MyQuestionViews();
               },
               separatorBuilder: (context, index) {
                 return const SizedBox(height: 10);

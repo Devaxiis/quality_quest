@@ -1,6 +1,5 @@
 import 'package:quality_quest/library.dart';
-import 'package:quality_quest/presentation/screens/home_screen/exam_screen/exam_screen.dart';
-import 'package:quality_quest/services/constants/strings.dart';
+
 
 class ExamStartSplashScreen extends StatefulWidget {
   const ExamStartSplashScreen({super.key});

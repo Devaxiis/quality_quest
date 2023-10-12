@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:quality_quest/library.dart';
 
 class CustomDeepPurpleButton extends StatelessWidget {
   final String displayText;
@@ -46,11 +46,7 @@ class CustomDeepPurpleButton extends StatelessWidget {
           ),
           child: Text(
             displayText,
-            style: TextStyle(
-              color: colorText ?? Colors.white,
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-            ),
+            style: TextStyle(color: colorText ?? Colors.white,fontSize: 20,fontWeight: FontWeight.bold,),
           ),
         ),
       ),

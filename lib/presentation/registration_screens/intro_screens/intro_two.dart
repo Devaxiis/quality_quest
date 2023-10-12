@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
-import 'package:quality_quest/services/constants/strings.dart';
+import 'package:quality_quest/library.dart';
 
 class IntroTwo extends StatelessWidget {
   const IntroTwo({super.key});
@@ -17,11 +15,7 @@ class IntroTwo extends StatelessWidget {
                 height: 300, width: 300),
             const Text(
               Strings.introSecondTXT,
-              style: TextStyle(
-                color: Color(0xff212121),
-                fontSize: 25,
-                fontWeight: FontWeight.bold,
-              ),
+              style: Style.introSecondST ,
               textAlign: TextAlign.center,
             ),
           ],

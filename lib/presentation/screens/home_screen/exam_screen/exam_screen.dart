@@ -1,5 +1,5 @@
 import 'package:quality_quest/library.dart';
-import 'package:quality_quest/services/constants/strings.dart';
+
 
 class ExamScreen extends StatefulWidget {
   const ExamScreen({super.key});
@@ -16,11 +16,7 @@ class _ExamScreenState extends State<ExamScreen> {
         automaticallyImplyLeading: false,
         title: Text(
           Strings.qualityQuestTXT,
-          style: TextStyle(
-            fontSize: 25,
-            color: Colors.deepPurpleAccent.shade700,
-            fontWeight: FontWeight.w800,
-          ),
+          style: Style.homeExamQualityQuestST,
         ),
       ),
       body: SafeArea(
@@ -33,11 +29,7 @@ class _ExamScreenState extends State<ExamScreen> {
                   padding: EdgeInsets.all(20.0),
                   child: Text(
                     "O'zbekistonning poytaxti?",
-                    style: TextStyle(
-                        color: Color(0xff6949ff),
-                        fontSize: 40,
-                        fontWeight: FontWeight.w800),
-                  ),
+                    style: Style.homeExamQuestionST),
                 ))),
             const Divider(
               color: Colors.grey,

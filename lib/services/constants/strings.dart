@@ -1,4 +1,5 @@
-class Strings {
+sealed class Strings {
+
   static const introFirstTXT = "Create, share and play quizzes whenever and wherever you want";
   static const introSecondTXT = "Find fun and interesting quizzes to boost up your knowledge";
   static const introThirdTXT = "Play and take quiz challenges together with your friends";

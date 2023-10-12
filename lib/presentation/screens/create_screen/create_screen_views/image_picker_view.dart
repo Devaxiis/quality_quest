@@ -1,5 +1,5 @@
 import 'package:quality_quest/library.dart';
-import 'package:quality_quest/services/constants/strings.dart';
+
 
 class CustomImagePicker extends StatelessWidget {
   const CustomImagePicker({
@@ -32,13 +32,9 @@ class CustomImagePicker extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 5),
-            const Text(
+             Text(
               Strings.addCoverImageTXT,
-              style: TextStyle(
-                color: Color(0xFF6949FF),
-                fontWeight: FontWeight.w700,
-                fontSize: 18,
-              ),
+              style: Style.createAddCoverImageST,
             ),
             const SizedBox(height: 20),
           ],

@@ -39,11 +39,7 @@ class SettingsTileView extends StatelessWidget {
       ),
       title: Text(
         title,
-        style: TextStyle(
-          fontWeight: FontWeight.w600,
-          color: textColor,
-          fontSize: 19,
-        ),
+        style: TextStyle(fontWeight: FontWeight.w600,color: textColor,fontSize: 19,),
       ),
       trailing: trailing,
     );

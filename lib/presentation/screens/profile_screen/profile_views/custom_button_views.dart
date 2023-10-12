@@ -32,8 +32,7 @@ class CustomButtonViews extends StatelessWidget {
       ),
       child: Text(
         title,
-        style:
-            TextStyle(color: color, fontWeight: FontWeight.bold, fontSize: 15),
+        style:TextStyle(color: color, fontWeight: FontWeight.bold, fontSize: 15),
       ),
     );
   }

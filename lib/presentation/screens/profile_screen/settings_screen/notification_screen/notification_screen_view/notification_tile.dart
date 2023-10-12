@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+import 'package:quality_quest/library.dart';
 
 class NotificationTile extends StatefulWidget {
   final String title;
@@ -21,11 +21,7 @@ class _NotificationTileState extends State<NotificationTile> {
     return ListTile(
       title: Text(
         widget.title,
-        style: const TextStyle(
-          fontSize: 17.5,
-          fontWeight: FontWeight.w700,
-          color: Color(0xFF212121),
-        ),
+        style: Style.widgetTitleST,
       ),
       trailing: CupertinoSwitch(
         activeColor: const Color(0xFF6949FF),

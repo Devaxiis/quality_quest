@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:quality_quest/library.dart';
-import 'package:quality_quest/services/constants/strings.dart';
+
 
 class CustomAnswerDialog extends StatelessWidget {
   final Color shadowColor;
@@ -20,11 +20,7 @@ class CustomAnswerDialog extends StatelessWidget {
       title: const Center(
         child: Text(
           Strings.addAnswerTXT,
-          style: TextStyle(
-            color: Color(0xFF295ECC),
-            fontWeight: FontWeight.w800,
-            fontSize: 28,
-          ),
+          style: Style.createAddAnswerST,
         ),
       ),
       content: Column(
@@ -58,16 +54,10 @@ class CustomAnswerDialog extends StatelessWidget {
               child: const TextField(
                 textAlign: TextAlign.justify,
                 maxLines: null,
-                style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.w700,
-                ),
+                style: Style.createTextFieldST,
                 decoration: InputDecoration(
                   hintText: Strings.addYourAnswerTXT,
-                  hintStyle: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.w700,
-                  ),
+                  hintStyle: Style.createAddYourAnswerST,
                   border: InputBorder.none,
                   contentPadding: EdgeInsets.symmetric(horizontal: 20),
                 ),
@@ -108,11 +98,7 @@ class _CheckBoxState extends State<CheckBox> {
             // const Spacer(),
             const Text(
               Strings.correctAnswerTXT,
-              style: TextStyle(
-                color: Color(0xFF295ECC),
-                fontWeight: FontWeight.w800,
-                fontSize: 19,
-              ),
+              style: Style.createCorrectAnswerST,
             ),
             const SizedBox(width: 60),
             CupertinoCheckbox(

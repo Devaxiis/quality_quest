@@ -1,13 +1,8 @@
-import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart';
-import 'package:quality_quest/services/constants/strings.dart';
+import 'package:quality_quest/library.dart';
 
-import '../../sign_up/sign_up.dart';
 
 class CustomRichText extends StatelessWidget {
-  const CustomRichText({
-    super.key,
-  });
+  const CustomRichText({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -26,19 +21,11 @@ class CustomRichText extends StatelessWidget {
           children: [
             TextSpan(
               text: Strings.notHaveAccountTXT,
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.grey.shade700,
-                fontWeight: FontWeight.w600,
-              ),
+              style: Style.notHaveAccountST,
             ),
             TextSpan(
               text: Strings.signUpTXT,
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.deepPurple.shade700,
-                fontWeight: FontWeight.w600,
-              ),
+              style: Style.signUpST,
               recognizer: TapGestureRecognizer()
                 ..onTap = () {
                   navigateToDetailScreen();
