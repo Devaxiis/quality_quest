@@ -1,4 +1,5 @@
 import 'package:quality_quest/library.dart';
+import 'package:quality_quest/services/constants/strings.dart';
 
 class SearchUserScreen extends StatefulWidget {
   const SearchUserScreen({super.key});
@@ -36,7 +37,7 @@ class _SearchUserScreenState extends State<SearchUserScreen> {
                   color: Color(0xff6949ff),
                 ),
                 label: Text(
-                  "Search",
+                  Strings.searchTXT,
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.normal),
                 ),
                 border: OutlineInputBorder(
@@ -92,7 +93,7 @@ class _SearchUserScreenState extends State<SearchUserScreen> {
                 ),
               ),
               child: Text(
-                "Following",
+                Strings.followingTXT,
                 style: TextStyle(
                   color: Colors.deepPurpleAccent.shade700,
                 ),

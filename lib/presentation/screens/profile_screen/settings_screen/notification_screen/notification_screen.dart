@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quality_quest/services/constants/strings.dart';
 
 import 'notification_screen_view/notification_tile.dart';
 
@@ -24,7 +25,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
           icon: const Icon(Icons.arrow_back),
         ),
         title: const Text(
-          "Notification",
+          Strings.notificationTXT,
           style: TextStyle(
             fontWeight: FontWeight.w600,
             color: Colors.black,
@@ -34,21 +35,19 @@ class _NotificationScreenState extends State<NotificationScreen> {
       body: ListView(
         padding: const EdgeInsets.symmetric(vertical: 10),
         children: const [
-          NotificationTile(title: "Enable Push Notification"),
+          NotificationTile(title: Strings.enablePushNotificationTXT),
           SizedBox(height: 10),
-          NotificationTile(title: "New Followers"),
+          NotificationTile(title: Strings.newFollowersTXT),
           SizedBox(height: 10),
-          NotificationTile(title: "New Likes"),
+          NotificationTile(title: Strings.newLikesTXT),
           SizedBox(height: 10),
-          NotificationTile(title: "Subscriptions"),
+          NotificationTile(title: Strings.subscriptionsTXT),
           SizedBox(height: 10),
-          NotificationTile(title: "Friend Activity"),
+          NotificationTile(title: Strings.leaderboardTXT),
           SizedBox(height: 10),
-          NotificationTile(title: "Leaderboard"),
+          NotificationTile(title: Strings.appUpdatesTXT),
           SizedBox(height: 10),
-          NotificationTile(title: "App Updates"),
-          SizedBox(height: 10),
-          NotificationTile(title: "New Tips Available"),
+          NotificationTile(title: Strings.newTipsTXT),
         ],
       ),
     );

@@ -1,4 +1,5 @@
 import 'package:quality_quest/library.dart';
+import 'package:quality_quest/services/constants/strings.dart';
 
 class ExamScreen extends StatefulWidget {
   const ExamScreen({super.key});
@@ -13,8 +14,8 @@ class _ExamScreenState extends State<ExamScreen> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title:Text(
-          "QualityQuest",
+        title: Text(
+          Strings.qualityQuestTXT,
           style: TextStyle(
             fontSize: 25,
             color: Colors.deepPurpleAccent.shade700,
@@ -25,13 +26,19 @@ class _ExamScreenState extends State<ExamScreen> {
       body: SafeArea(
         child: Column(
           children: [
-                const Expanded(
-                  flex: 4,
-                    child:
-                    Center(child: Padding(
-                      padding: EdgeInsets.all(20.0),
-                      child: Text("O'zbekistonning pytaxti?",style: TextStyle(color: Color(0xff6949ff),fontSize: 40,fontWeight: FontWeight.w800),),
-                    ))),
+            const Expanded(
+                flex: 4,
+                child: Center(
+                    child: Padding(
+                  padding: EdgeInsets.all(20.0),
+                  child: Text(
+                    "O'zbekistonning poytaxti?",
+                    style: TextStyle(
+                        color: Color(0xff6949ff),
+                        fontSize: 40,
+                        fontWeight: FontWeight.w800),
+                  ),
+                ))),
             const Divider(
               color: Colors.grey,
               indent: 20,
@@ -45,31 +52,53 @@ class _ExamScreenState extends State<ExamScreen> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      AnswerAddButton(shadowColor: Colors.deepPurpleAccent.shade700, buttonColor:const Color(0xff6949ff), text: "Andijon", onTap: (){},),
-                      AnswerAddButton(shadowColor: Colors.deepPurpleAccent.shade700, buttonColor:const Color(0xff6949ff), text: "Namangan", onTap: (){}),
+                      AnswerAddButton(
+                        shadowColor: Colors.deepPurpleAccent.shade700,
+                        buttonColor: const Color(0xff6949ff),
+                        text: "Andijon",
+                        onTap: () {},
+                      ),
+                      AnswerAddButton(
+                        shadowColor: Colors.deepPurpleAccent.shade700,
+                        buttonColor: const Color(0xff6949ff),
+                        text: "Namangan",
+                        onTap: () {},
+                      ),
                     ],
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      AnswerAddButton(shadowColor: Colors.deepPurpleAccent.shade700, buttonColor:const Color(0xff6949ff), text: "Toshkent", onTap: (){}),
-                      AnswerAddButton(shadowColor: Colors.deepPurpleAccent.shade700, buttonColor:const Color(0xff6949ff), text: "Farg'ona", onTap: (){}),
+                      AnswerAddButton(
+                        shadowColor: Colors.deepPurpleAccent.shade700,
+                        buttonColor: const Color(0xff6949ff),
+                        text: "Toshkent",
+                        onTap: () {},
+                      ),
+                      AnswerAddButton(
+                        shadowColor: Colors.deepPurpleAccent.shade700,
+                        buttonColor: const Color(0xff6949ff),
+                        text: "Farg'ona",
+                        onTap: () {},
+                      ),
                     ],
                   ),
                 ],
               ),
             ),
-             Expanded(child: Column(
-               children: [
-                 CustomDeepPurpleButton(onTap: (){}, displayText: "Next"),
-               ],
-             ),),
+            Expanded(
+              child: Column(
+                children: [
+                  CustomDeepPurpleButton(
+                    onTap: () {},
+                    displayText: Strings.nextTXT,
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),
-      
     );
   }
 }
-
-

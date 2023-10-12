@@ -1,4 +1,5 @@
 import 'package:quality_quest/library.dart';
+import 'package:quality_quest/services/constants/strings.dart';
 
 class CustomTextField extends StatelessWidget {
   const CustomTextField({
@@ -28,7 +29,7 @@ class CustomTextField extends StatelessWidget {
           ),
         ),
         enabled: true,
-        hintText: "Tap to add question",
+        hintText: Strings.tapToAddQuestion,
         hintStyle: TextStyle(
           color: Color(0xFF295ECC),
           fontWeight: FontWeight.w700,

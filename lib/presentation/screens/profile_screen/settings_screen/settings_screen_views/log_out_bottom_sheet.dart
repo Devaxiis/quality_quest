@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quality_quest/services/constants/strings.dart';
 
 import 'bottom_sheet_button.dart';
 
@@ -26,7 +27,7 @@ void showLogoutBottomSheet(BuildContext context) {
           children: [
             const Center(
               child: Text(
-                "Logout",
+                Strings.logoutTXT,
                 style: TextStyle(
                   fontWeight: FontWeight.w700,
                   fontSize: 23,
@@ -43,7 +44,7 @@ void showLogoutBottomSheet(BuildContext context) {
             const SizedBox(height: 10),
             const Center(
               child: Text(
-                'Are you sure you want to log out?',
+                Strings.sureToLogOutTXT,
                 style: TextStyle(fontSize: 18.0),
               ),
             ),
@@ -55,14 +56,14 @@ void showLogoutBottomSheet(BuildContext context) {
                   onTap: navigateToBack,
                   shadowColor: const Color(0xFFC3B6FF),
                   buttonColor: const Color(0xFFF0EDFF),
-                  displayText: "Cancel",
+                  displayText: Strings.cancelTXT,
                   textColor: const Color(0xFF6949FF),
                 ),
                 BottomSheetButton(
                   onTap: navigateToBack,
                   shadowColor: const Color(0xFF543ACD),
                   buttonColor: const Color(0xFF6949FF),
-                  displayText: "Yes, Logout",
+                  displayText: Strings.yesLogOutTXT,
                   textColor: Colors.white,
                 ),
               ],

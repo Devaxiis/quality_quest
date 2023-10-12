@@ -4,12 +4,14 @@ class CategoryButtonView extends StatelessWidget {
   final String name;
   final Function onTap;
   final Color? color;
-  const CategoryButtonView({super.key, required this.name, required this.onTap, this.color});
+
+  const CategoryButtonView(
+      {super.key, required this.name, required this.onTap, this.color});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){},
+      onTap: () {},
       child: Container(
         height: 40,
         padding: const EdgeInsets.symmetric(horizontal: 5),
@@ -22,7 +24,14 @@ class CategoryButtonView extends StatelessWidget {
             width: 2,
           ),
         ),
-        child: Text(name,style: TextStyle(color: color != null ? Colors.white:Color(0xff6949ff),fontWeight: FontWeight.bold,fontSize: 15),),
+        child: Text(
+          name,
+          style: TextStyle(
+            color: color != null ? Colors.white : const Color(0xff6949ff),
+            fontWeight: FontWeight.bold,
+            fontSize: 15,
+          ),
+        ),
       ),
     );
   }

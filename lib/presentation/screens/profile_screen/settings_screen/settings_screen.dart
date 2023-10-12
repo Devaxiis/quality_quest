@@ -5,6 +5,7 @@ import 'package:quality_quest/presentation/screens/profile_screen/settings_scree
 import 'package:quality_quest/presentation/screens/profile_screen/settings_screen/settings_screen_views/log_out_bottom_sheet.dart';
 import 'package:quality_quest/presentation/screens/profile_screen/settings_screen/settings_screen_views/log_out_list_tile.dart';
 import 'package:quality_quest/presentation/screens/profile_screen/settings_screen/settings_screen_views/settings_tile_view.dart';
+import 'package:quality_quest/services/constants/strings.dart';
 
 class SettingScreen extends StatefulWidget {
   const SettingScreen({super.key});
@@ -56,7 +57,7 @@ class _SettingScreenState extends State<SettingScreen> {
         forceMaterialTransparency: true,
         backgroundColor: Colors.white,
         title: const Text(
-          "Settings",
+          Strings.settingsTXT,
           style: TextStyle(
             fontWeight: FontWeight.w600,
             color: Colors.black,
@@ -75,7 +76,7 @@ class _SettingScreenState extends State<SettingScreen> {
               SettingsTileView(
                 backgroundColor: const Color(0xFFEEF4FF),
                 iconColor: const Color(0xFF3B7BFE),
-                title: 'Notification',
+                title: Strings.notificationTXT,
                 icon: const AssetImage('assets/icons/ic_bell.png'),
                 textColor: Colors.black87,
                 trailing: IconButton(
@@ -86,7 +87,7 @@ class _SettingScreenState extends State<SettingScreen> {
               SettingsTileView(
                 backgroundColor: const Color(0xFFF3F1FF),
                 iconColor: const Color(0xFF7C5FFF),
-                title: 'Music & Effects',
+                title: Strings.musicEffectTXT,
                 icon: const AssetImage('assets/icons/ic_volume.png'),
                 textColor: Colors.black87,
                 trailing: IconButton(
@@ -97,7 +98,7 @@ class _SettingScreenState extends State<SettingScreen> {
               SettingsTileView(
                 backgroundColor: const Color(0xFFFFF7EB),
                 iconColor: const Color(0xFFFEA01D),
-                title: 'About Quality Quest',
+                title: Strings.aboutAppTXT,
                 icon: const AssetImage('assets/icons/ic_about.png'),
                 textColor: Colors.black87,
                 trailing: IconButton(

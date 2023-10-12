@@ -1,4 +1,5 @@
 import 'package:quality_quest/library.dart';
+import 'package:quality_quest/services/constants/strings.dart';
 
 class BottomNavBar extends StatelessWidget {
   final void Function(int) onTap;
@@ -16,8 +17,7 @@ class BottomNavBar extends StatelessWidget {
       type: BottomNavigationBarType.fixed,
       backgroundColor: Colors.white,
       mouseCursor: MouseCursor.uncontrolled,
-      // showSelectedLabels: true,
-      showUnselectedLabels: true,
+      showSelectedLabels: true,
       currentIndex: bottomNavbarIndex,
       onTap: onTap,
       items: const [
@@ -27,7 +27,7 @@ class BottomNavBar extends StatelessWidget {
             height: 18,
             width: 18,
           ),
-          label: "Home",
+          label: Strings.homeTXT,
           activeIcon: Image(
             image: AssetImage('assets/icons/ic_home_fill.png'),
             height: 18,
@@ -45,7 +45,7 @@ class BottomNavBar extends StatelessWidget {
             height: 18,
             width: 18,
           ),
-          label: "Library",
+          label: Strings.libraryTXT,
         ),
         BottomNavigationBarItem(
           icon: Image(
@@ -53,7 +53,7 @@ class BottomNavBar extends StatelessWidget {
             height: 25,
             width: 25,
           ),
-          label: "Join",
+          label: Strings.joinTXT,
         ),
         BottomNavigationBarItem(
           icon: Image(
@@ -66,7 +66,7 @@ class BottomNavBar extends StatelessWidget {
             height: 18,
             width: 18,
           ),
-          label: "Create",
+          label: Strings.createTXT,
         ),
         BottomNavigationBarItem(
           icon: Image(
@@ -74,7 +74,7 @@ class BottomNavBar extends StatelessWidget {
             height: 18,
             width: 18,
           ),
-          label: "Profile",
+          label: Strings.profileTXT,
           activeIcon: Image(
             image: AssetImage('assets/icons/ic_user_fill.png'),
             height: 18,
