@@ -104,7 +104,9 @@ class _CreateScreenState extends State<CreateScreen> {
                   AnswerAddButton(
                     shadowColor: const Color(0xFFF48400),
                     buttonColor: const Color(0xFFFF981F),
+
                     text: Strings.answerTXT,
+
                     onTap: () {
                       showDialog(
                         context: context,
