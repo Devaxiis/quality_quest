@@ -1,5 +1,7 @@
 import 'package:quality_quest/library.dart';
 
+import '../../../../services/constants/colors.dart';
+
 class QuizGridView extends StatelessWidget {
   const QuizGridView({
     super.key,
@@ -31,7 +33,7 @@ class QuizGridView extends StatelessWidget {
             child: Container(
               alignment: Alignment.topCenter,
               decoration: const BoxDecoration(
-                color: Color(0xFFEEEEEE),
+                color: CustomColors.oxFFEEEEEE,
                 borderRadius: BorderRadius.all(
                   Radius.circular(20),
                 ),
@@ -40,7 +42,7 @@ class QuizGridView extends StatelessWidget {
                 clipBehavior: Clip.antiAlias,
                 height: 250,
                 decoration: const BoxDecoration(
-                  color: Colors.white,
+                  color: CustomColors.oxFFFFFFFF,
                   borderRadius: BorderRadius.all(
                     Radius.circular(20),
                   ),

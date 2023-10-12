@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quality_quest/services/constants/colors.dart';
 
 class CustomDeepPurpleButton extends StatelessWidget {
   final String displayText;
@@ -29,7 +30,7 @@ class CustomDeepPurpleButton extends StatelessWidget {
         width: width ?? MediaQuery.sizeOf(context).width / 1.15,
         alignment: Alignment.topCenter,
         decoration: BoxDecoration(
-          color: colorOne ?? const Color(0xff543ACC),
+          color: colorOne ?? CustomColors.oxFF543ACC,
           borderRadius: const BorderRadius.all(
             Radius.circular(50),
           ),
@@ -39,7 +40,7 @@ class CustomDeepPurpleButton extends StatelessWidget {
           alignment: Alignment.center,
           width: width ?? MediaQuery.sizeOf(context).width / 1.15,
           decoration: BoxDecoration(
-            color: colorTwo ?? const Color(0xff6949FF),
+            color: colorTwo ?? CustomColors.oxFF6949FF,
             borderRadius: const BorderRadius.all(
               Radius.circular(50),
             ),
@@ -47,7 +48,7 @@ class CustomDeepPurpleButton extends StatelessWidget {
           child: Text(
             displayText,
             style: TextStyle(
-              color: colorText ?? Colors.white,
+              color: colorText ?? CustomColors.oxFFFFFFFF,
               fontSize: 20,
               fontWeight: FontWeight.bold,
             ),

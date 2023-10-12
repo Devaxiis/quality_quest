@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:quality_quest/services/constants/colors.dart';
 import 'package:quality_quest/services/constants/strings.dart';
 
 import '../../sign_up/sign_up.dart';
@@ -24,19 +25,19 @@ class CustomRichText extends StatelessWidget {
       child: RichText(
         text: TextSpan(
           children: [
-            TextSpan(
+            const TextSpan(
               text: Strings.notHaveAccountTXT,
               style: TextStyle(
                 fontSize: 16,
-                color: Colors.grey.shade700,
+                color: CustomColors.oxFF616161,
                 fontWeight: FontWeight.w600,
               ),
             ),
             TextSpan(
               text: Strings.signUpTXT,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 16,
-                color: Colors.deepPurple.shade700,
+                color: CustomColors.oxFF512DA8,
                 fontWeight: FontWeight.w600,
               ),
               recognizer: TapGestureRecognizer()

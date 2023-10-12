@@ -1,4 +1,5 @@
 import 'package:quality_quest/library.dart';
+import 'package:quality_quest/services/constants/colors.dart';
 
 class LibraryContainerContentViews extends StatelessWidget {
   const LibraryContainerContentViews({
@@ -31,22 +32,22 @@ class LibraryContainerContentViews extends StatelessWidget {
                 Text(
                   "Have Fun Together & Smart Brain",
                   style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                    color: Colors.black,
+                    color: CustomColors.oxFF000000,
                     fontWeight: FontWeight.w800,
                     overflow: TextOverflow.ellipsis,
                   ),
                 ),
                 const Spacer(),
-                Row(
+                const Row(
                   children: [
-                    const Text("4 months ago"),
-                    const SizedBox(width: 15),
+                    Text("4 months ago"),
+                    SizedBox(width: 15),
                     CircleAvatar(
-                      backgroundColor: Colors.grey.shade800,
+                      backgroundColor: CustomColors.oxFF424242,
                       maxRadius: 3.3,
                     ),
-                    const SizedBox(width: 15),
-                    const Text("95.7K plays"),
+                    SizedBox(width: 15),
+                    Text("95.7K plays"),
                   ],
                 ),
                 const Spacer(),

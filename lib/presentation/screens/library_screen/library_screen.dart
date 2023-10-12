@@ -1,5 +1,5 @@
 import 'package:quality_quest/library.dart';
-import 'package:quality_quest/presentation/screens/library_screen/library_views/library_app_bar_views.dart';
+import 'package:quality_quest/services/constants/colors.dart';
 
 class LibraryScreen extends StatelessWidget {
   const LibraryScreen({super.key});
@@ -7,7 +7,7 @@ class LibraryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: CustomColors.oxFFFFFFFF,
       // appBar: const PreferredSize(
       //   preferredSize: Size(double.infinity, 60),
       //   child: LibraryAppBarViews(),
@@ -29,7 +29,7 @@ class LibraryScreen extends StatelessWidget {
               borderRadius: const BorderRadius.all(
                 Radius.circular(20),
               ),
-              border: Border.all(color: Colors.grey.shade300),
+              border: Border.all(color: CustomColors.oxFFE0E0E0),
             ),
             child: const LibraryContainerContentViews(),
           );

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:quality_quest/services/constants/colors.dart';
 
 class NotificationTile extends StatefulWidget {
   final String title;
@@ -24,11 +25,11 @@ class _NotificationTileState extends State<NotificationTile> {
         style: const TextStyle(
           fontSize: 17.5,
           fontWeight: FontWeight.w700,
-          color: Color(0xFF212121),
+          color: CustomColors.oxFF212121,
         ),
       ),
       trailing: CupertinoSwitch(
-        activeColor: const Color(0xFF6949FF),
+        activeColor: CustomColors.oxFF6949FF,
         value: _toggleSwitch,
         onChanged: (value) {
           setState(() => _toggleSwitch = value);

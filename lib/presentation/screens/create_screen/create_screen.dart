@@ -1,4 +1,5 @@
 import 'package:quality_quest/library.dart';
+import 'package:quality_quest/services/constants/colors.dart';
 import 'package:quality_quest/services/constants/strings.dart';
 
 class CreateScreen extends StatefulWidget {
@@ -12,13 +13,13 @@ class _CreateScreenState extends State<CreateScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: CustomColors.oxFFFFFFFF,
       appBar: AppBar(
         forceMaterialTransparency: true,
         title: const Text(
           Strings.createQuizTXT,
           style: TextStyle(
-            color: Color(0xFF6949FF),
+            color: CustomColors.oxFF6949FF,
             fontWeight: FontWeight.w800,
           ),
         ),
@@ -28,7 +29,7 @@ class _CreateScreenState extends State<CreateScreen> {
           },
           icon: const Icon(
             Icons.clear,
-            color: Color(0xFF295ECC),
+            color: CustomColors.oxFF295ECC,
             size: 30,
           ),
         ),
@@ -37,7 +38,7 @@ class _CreateScreenState extends State<CreateScreen> {
             onPressed: () {},
             icon: const Icon(
               Icons.more_horiz,
-              color: Color(0xFF295ECC),
+              color: CustomColors.oxFF295ECC,
               size: 35,
             ),
           ),
@@ -61,16 +62,16 @@ class _CreateScreenState extends State<CreateScreen> {
                 children: [
                   /// #First Answer Button
                   AnswerAddButton(
-                    shadowColor: const Color(0xFF295ECC),
-                    buttonColor: const Color(0xFF3779FF),
+                    shadowColor: CustomColors.oxFF295ECC,
+                    buttonColor: CustomColors.oxFF3779FF,
                     text: Strings.answerTXT,
                     onTap: () {
                       showDialog(
                         context: context,
                         builder: (context) {
                           return const CustomAnswerDialog(
-                            shadowColor: Color(0xFF295ECC),
-                            buttonColor: Color(0xFF3779FF),
+                            shadowColor: CustomColors.oxFF295ECC,
+                            buttonColor: CustomColors.oxFF3779FF,
                           );
                         },
                       );
@@ -79,16 +80,16 @@ class _CreateScreenState extends State<CreateScreen> {
 
                   /// #Second Answer Button
                   AnswerAddButton(
-                    shadowColor: const Color(0xFFEA1E61),
-                    buttonColor: const Color(0xFFF75555),
+                    shadowColor: CustomColors.oxFFEA1E61,
+                    buttonColor: CustomColors.oxFFF75555,
                     text: Strings.answerTXT,
                     onTap: () {
                       showDialog(
                         context: context,
                         builder: (context) {
                           return const CustomAnswerDialog(
-                            shadowColor: Color(0xFFEA1E61),
-                            buttonColor: Color(0xFFF75555),
+                            shadowColor: CustomColors.oxFFEA1E61,
+                            buttonColor: CustomColors.oxFFF75555,
                           );
                         },
                       );
@@ -102,16 +103,16 @@ class _CreateScreenState extends State<CreateScreen> {
                 children: [
                   /// #First Answer Button
                   AnswerAddButton(
-                    shadowColor: const Color(0xFFF48400),
-                    buttonColor: const Color(0xFFFF981F),
+                    shadowColor: CustomColors.oxFFF48400,
+                    buttonColor: CustomColors.oxFFFF981F,
                     text: Strings.answerTXT,
                     onTap: () {
                       showDialog(
                         context: context,
                         builder: (context) {
                           return const CustomAnswerDialog(
-                            shadowColor: Color(0xFFF48400),
-                            buttonColor: Color(0xFFFF981F),
+                            shadowColor: CustomColors.oxFFF48400,
+                            buttonColor: CustomColors.oxFFFF981F,
                           );
                         },
                       );
@@ -120,16 +121,16 @@ class _CreateScreenState extends State<CreateScreen> {
 
                   // / #Second Answer Button
                   AnswerAddButton(
-                    shadowColor: const Color(0xFF00B777),
-                    buttonColor: const Color(0xFF12D18E),
+                    shadowColor: CustomColors.oxFF00B777,
+                    buttonColor: CustomColors.oxFF12D18E,
                     text: Strings.answerTXT,
                     onTap: () {
                       showDialog(
                         context: context,
                         builder: (context) {
                           return const CustomAnswerDialog(
-                            shadowColor: Color(0xFF00B777),
-                            buttonColor: Color(0xFF12D18E),
+                            shadowColor: CustomColors.oxFF00B777,
+                            buttonColor: CustomColors.oxFF12D18E,
                           );
                         },
                       );
@@ -145,9 +146,9 @@ class _CreateScreenState extends State<CreateScreen> {
       /// #Floating action button
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
-        backgroundColor: const Color(0xFF6949FF),
-        hoverColor: const Color(0xFFD9D6FE),
-        child: const Icon(Icons.add, color: Colors.white),
+        backgroundColor: CustomColors.oxFF6949FF,
+        hoverColor: CustomColors.oxFFD9D6FE,
+        child: const Icon(Icons.add, color: CustomColors.oxFFFFFFFF),
       ),
     );
   }

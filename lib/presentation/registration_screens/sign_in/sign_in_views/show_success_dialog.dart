@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:quality_quest/services/constants/colors.dart';
 import 'package:quality_quest/services/constants/strings.dart';
 
 void showSuccessDialog(BuildContext context) {
@@ -8,7 +9,7 @@ void showSuccessDialog(BuildContext context) {
     context: context,
     builder: (context) {
       return AlertDialog(
-        backgroundColor: Colors.white,
+        backgroundColor: CustomColors.oxFFFFFFFF,
         content: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -23,19 +24,19 @@ void showSuccessDialog(BuildContext context) {
                 ),
               ),
               const SizedBox(height: 10),
-              Text(
+              const Text(
                 Strings.welcomeTXT,
                 style: TextStyle(
-                  color: Colors.deepPurple.shade700,
+                  color: CustomColors.oxFF512DA8,
                   fontSize: 22,
                   fontWeight: FontWeight.w500,
                 ),
               ),
               const SizedBox(height: 15),
-              Text(
+              const Text(
                 Strings.successfullyCreatedAccount,
                 style: TextStyle(
-                  color: Colors.grey.shade700,
+                  color: CustomColors.oxFF616161,
                   fontSize: 15,
                   fontWeight: FontWeight.w500,
                 ),

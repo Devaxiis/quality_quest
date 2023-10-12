@@ -1,4 +1,5 @@
 import 'package:quality_quest/library.dart';
+import 'package:quality_quest/services/constants/colors.dart';
 
 class AnswerAddButton extends StatelessWidget {
   final Color shadowColor;
@@ -41,7 +42,7 @@ class AnswerAddButton extends StatelessWidget {
           child: Text(
             text,
             style: const TextStyle(
-              color: Colors.white,
+              color: CustomColors.oxFFFFFFFF,
               fontSize: 23,
               fontWeight: FontWeight.bold,
             ),

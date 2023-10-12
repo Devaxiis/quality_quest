@@ -1,5 +1,6 @@
 import 'package:quality_quest/library.dart';
 import 'package:quality_quest/presentation/screens/home_screen/search_screen/search_screen.dart';
+import 'package:quality_quest/services/constants/colors.dart';
 import 'package:quality_quest/services/constants/strings.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -26,14 +27,14 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       /// #background Color
-      backgroundColor: Colors.white,
+      backgroundColor: CustomColors.oxFFFFFFFF,
 
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           Strings.qualityQuestTXT,
           style: TextStyle(
             fontSize: 22.5,
-            color: Colors.deepPurpleAccent.shade700,
+            color: CustomColors.oxFF6200EA,
             fontWeight: FontWeight.w800,
           ),
         ),

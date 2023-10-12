@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quality_quest/services/constants/colors.dart';
 import 'package:quality_quest/services/constants/strings.dart';
 
 import 'notification_screen_view/notification_tile.dart';
@@ -14,10 +15,10 @@ class _NotificationScreenState extends State<NotificationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: CustomColors.oxFFFFFFFF,
       appBar: AppBar(
         forceMaterialTransparency: true,
-        backgroundColor: Colors.white,
+        backgroundColor:  CustomColors.oxFFFFFFFF,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -28,7 +29,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
           Strings.notificationTXT,
           style: TextStyle(
             fontWeight: FontWeight.w600,
-            color: Colors.black,
+            color: CustomColors.oxFF000000,
           ),
         ),
       ),

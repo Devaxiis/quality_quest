@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quality_quest/services/constants/colors.dart';
 import 'package:quality_quest/services/constants/strings.dart';
 
 class AboutAppScreen extends StatefulWidget {
@@ -11,14 +12,15 @@ class AboutAppScreen extends StatefulWidget {
 class _AboutAppScreenState extends State<AboutAppScreen> {
   @override
   Widget build(BuildContext context) {
-    void navigateToBack(){
+    void navigateToBack() {
       Navigator.pop(context);
     }
+
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: CustomColors.oxFFFFFFFF,
       appBar: AppBar(
         forceMaterialTransparency: true,
-        backgroundColor: Colors.white,
+        backgroundColor: CustomColors.oxFFFFFFFF,
         leading: IconButton(
           onPressed: navigateToBack,
           icon: const Icon(Icons.arrow_back),
@@ -27,7 +29,7 @@ class _AboutAppScreenState extends State<AboutAppScreen> {
           Strings.aboutAppTXT,
           style: TextStyle(
             fontWeight: FontWeight.w600,
-            color: Colors.black,
+            color: CustomColors.oxFF000000,
           ),
         ),
       ),
@@ -61,7 +63,7 @@ class _AboutAppScreenState extends State<AboutAppScreen> {
                 textAlign: TextAlign.justify,
                 style: TextStyle(
                   fontWeight: FontWeight.w400,
-                  color: Colors.black87,
+                  color: CustomColors.oxDD000000,
                   fontSize: 20,
                   letterSpacing: -1,
                 ),

@@ -8,6 +8,7 @@ import 'package:quality_quest/library.dart';
 import 'package:quality_quest/presentation/registration_screens/sign_in/sign_in_views/custom_rich_text.dart';
 import 'package:quality_quest/presentation/registration_screens/sign_in/sign_in_views/show_success_dialog.dart';
 import 'package:quality_quest/presentation/screens/main_home_screen.dart';
+import 'package:quality_quest/services/constants/colors.dart';
 import 'package:quality_quest/services/constants/strings.dart';
 
 class SignInScreen extends StatefulWidget {
@@ -76,8 +77,11 @@ class _SignInScreenState extends State<SignInScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(elevation: 0, backgroundColor: Colors.white),
+      backgroundColor: CustomColors.oxFFFFFFFF,
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: CustomColors.oxFFFFFFFF,
+      ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -115,11 +119,11 @@ class _SignInScreenState extends State<SignInScreen> {
                   child: isVisible
                       ? const Icon(
                           Icons.visibility_off,
-                          color: Colors.deepPurpleAccent,
+                          color: CustomColors.oxFF7C4DFF,
                         )
                       : const Icon(
                           Icons.visibility_outlined,
-                          color: Colors.deepPurpleAccent,
+                          color: CustomColors.oxFF7C4DFF,
                         ),
                 ),
                 text: Strings.passwordTXT,

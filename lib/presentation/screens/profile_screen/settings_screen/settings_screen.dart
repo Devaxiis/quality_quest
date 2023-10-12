@@ -7,6 +7,8 @@ import 'package:quality_quest/presentation/screens/profile_screen/settings_scree
 import 'package:quality_quest/presentation/screens/profile_screen/settings_screen/settings_screen_views/settings_tile_view.dart';
 import 'package:quality_quest/services/constants/strings.dart';
 
+import '../../../../services/constants/colors.dart';
+
 class SettingScreen extends StatefulWidget {
   const SettingScreen({super.key});
 
@@ -52,15 +54,15 @@ class _SettingScreenState extends State<SettingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: CustomColors.oxFFFFFFFF,
       appBar: AppBar(
         forceMaterialTransparency: true,
-        backgroundColor: Colors.white,
+        backgroundColor: CustomColors.oxFFFFFFFF,
         title: const Text(
           Strings.settingsTXT,
           style: TextStyle(
             fontWeight: FontWeight.w600,
-            color: Colors.black,
+            color: CustomColors.oxFF000000,
           ),
         ),
       ),
@@ -74,33 +76,33 @@ class _SettingScreenState extends State<SettingScreen> {
             physics: const NeverScrollableScrollPhysics(),
             children: [
               SettingsTileView(
-                backgroundColor: const Color(0xFFEEF4FF),
-                iconColor: const Color(0xFF3B7BFE),
+                backgroundColor: CustomColors.oxFFEEF4FF,
+                iconColor: CustomColors.oxFF3B7BFE,
                 title: Strings.notificationTXT,
                 icon: const AssetImage('assets/icons/ic_bell.png'),
-                textColor: Colors.black87,
+                textColor: CustomColors.oxDD000000,
                 trailing: IconButton(
                   onPressed: navigateToNotificationScreen,
                   icon: const Icon(Icons.arrow_forward_ios_rounded),
                 ),
               ),
               SettingsTileView(
-                backgroundColor: const Color(0xFFF3F1FF),
-                iconColor: const Color(0xFF7C5FFF),
+                backgroundColor: CustomColors.oxFFF3F1FF,
+                iconColor: CustomColors.oxFF7C5FFF,
                 title: Strings.musicEffectTXT,
                 icon: const AssetImage('assets/icons/ic_volume.png'),
-                textColor: Colors.black87,
+                textColor: CustomColors.oxDD000000,
                 trailing: IconButton(
                   onPressed: navigateToMusicEffectScreen,
                   icon: const Icon(Icons.arrow_forward_ios_rounded),
                 ),
               ),
               SettingsTileView(
-                backgroundColor: const Color(0xFFFFF7EB),
-                iconColor: const Color(0xFFFEA01D),
+                backgroundColor: CustomColors.oxFFFFF7EB,
+                iconColor: CustomColors.oxFFFEA01D,
                 title: Strings.aboutAppTXT,
                 icon: const AssetImage('assets/icons/ic_about.png'),
-                textColor: Colors.black87,
+                textColor: CustomColors.oxDD000000,
                 trailing: IconButton(
                   onPressed: navigateToAboutAppScreen,
                   icon: const Icon(Icons.arrow_forward_ios_rounded),

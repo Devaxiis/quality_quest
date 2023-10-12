@@ -1,6 +1,8 @@
 import 'package:quality_quest/library.dart';
 import 'package:quality_quest/services/constants/strings.dart';
 
+import '../../../../services/constants/colors.dart';
+
 class BottomNavBar extends StatelessWidget {
   final void Function(int) onTap;
   final int bottomNavbarIndex;
@@ -15,7 +17,7 @@ class BottomNavBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return BottomNavigationBar(
       type: BottomNavigationBarType.fixed,
-      backgroundColor: Colors.white,
+      backgroundColor: CustomColors.oxFFFFFFFF,
       mouseCursor: MouseCursor.uncontrolled,
       showSelectedLabels: true,
       currentIndex: bottomNavbarIndex,

@@ -1,6 +1,8 @@
 import 'package:quality_quest/library.dart';
 import 'package:quality_quest/services/constants/strings.dart';
 
+import '../../../../services/constants/colors.dart';
+
 class CustomButtonViews extends StatelessWidget {
   final String title;
   final int index;
@@ -27,13 +29,16 @@ class CustomButtonViews extends StatelessWidget {
         borderRadius: const BorderRadius.all(Radius.circular(50)),
         border: Border.all(
           width: 2,
-          color: const Color(0xff6949ff),
+          color: CustomColors.oxFF6949FF,
         ),
       ),
       child: Text(
         title,
-        style:
-            TextStyle(color: color, fontWeight: FontWeight.bold, fontSize: 15),
+        style: TextStyle(
+          color: color,
+          fontWeight: FontWeight.bold,
+          fontSize: 15,
+        ),
       ),
     );
   }
@@ -64,9 +69,9 @@ class _ThreeButtonsState extends State<ThreeButtons> {
             child: CustomButtonViews(
               title: Strings.quizzesTXT,
               index: currentIndex,
-              color: currentIndex == 0 ? Colors.white : const Color(0xff6949ff),
+              color: currentIndex == 0 ? CustomColors.oxFFFFFFFF : CustomColors.oxFF6949FF,
               colorBack:
-                  currentIndex != 0 ? Colors.white : const Color(0xff6949ff),
+                  currentIndex != 0 ? CustomColors.oxFFFFFFFF : CustomColors.oxFF6949FF,
             )),
         GestureDetector(
             onTap: () {
@@ -76,9 +81,9 @@ class _ThreeButtonsState extends State<ThreeButtons> {
             child: CustomButtonViews(
               title: Strings.groupsTXT,
               index: currentIndex,
-              color: currentIndex == 1 ? Colors.white : const Color(0xff6949ff),
+              color: currentIndex == 1 ? CustomColors.oxFFFFFFFF : CustomColors.oxFF6949FF,
               colorBack:
-                  currentIndex != 1 ? Colors.white : const Color(0xff6949ff),
+                  currentIndex != 1 ? CustomColors.oxFFFFFFFF : CustomColors.oxFF6949FF,
             )),
         GestureDetector(
           onTap: () {
@@ -88,9 +93,9 @@ class _ThreeButtonsState extends State<ThreeButtons> {
           child: CustomButtonViews(
             title: Strings.subscribersTXT,
             index: currentIndex,
-            color: currentIndex == 2 ? Colors.white : const Color(0xff6949ff),
+            color: currentIndex == 2 ? CustomColors.oxFFFFFFFF : CustomColors.oxFF6949FF,
             colorBack:
-                currentIndex != 2 ? Colors.white : const Color(0xff6949ff),
+                currentIndex != 2 ? CustomColors.oxFFFFFFFF : CustomColors.oxFF6949FF,
           ),
         ),
       ],
