@@ -1,6 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quality_quest/bloc/auth/auth_bloc.dart';
 import 'package:quality_quest/library.dart';
+import 'package:quality_quest/services/constants/strings.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -15,7 +16,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final TextEditingController controllerEmail = TextEditingController();
   final TextEditingController controllerPassword = TextEditingController();
 
-  bool isVisible = false;
+  bool isVisible = true;
 
   void visiblePassword() {
     isVisible = !isVisible;
@@ -52,9 +53,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
                         /// #Header Text
                         const Text(
-                          "Create an Account ",
+                          Strings.createAccountTXT,
                           style: TextStyle(
-                              fontSize: 30, fontWeight: FontWeight.w600),
+                            fontSize: 30,
+                            fontWeight: FontWeight.w600,
+                          ),
                         ),
                         const Spacer(),
 
@@ -63,7 +66,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           control: controllerName,
                           keyboardType: TextInputType.name,
                           textInput: TextInputAction.next,
-                          text: "Name",
+                          text: Strings.nameTXT,
                         ),
                         const Spacer(),
 
@@ -72,7 +75,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           control: controllerSurname,
                           keyboardType: TextInputType.name,
                           textInput: TextInputAction.next,
-                          text: "Surname",
+                          text: Strings.surnameTXT,
                         ),
                         const Spacer(),
 
@@ -81,7 +84,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           control: controllerEmail,
                           keyboardType: TextInputType.emailAddress,
                           textInput: TextInputAction.next,
-                          text: "Email",
+                          text: Strings.emailTXT,
                         ),
                         const Spacer(),
 
@@ -91,24 +94,25 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           keyboardType: TextInputType.visiblePassword,
                           textInput: TextInputAction.done,
                           suffixIcon: GestureDetector(
-                              onTap: () => visiblePassword(),
-                              child: isVisible == true
-                                  ? const Icon(
-                                      Icons.visibility_outlined,
-                                      color: Colors.deepPurpleAccent,
-                                    )
-                                  : const Icon(
-                                      Icons.visibility_off,
-                                      color: Colors.deepPurpleAccent,
-                                    )),
+                            onTap: () => visiblePassword(),
+                            child: isVisible
+                                ? const Icon(
+                                    Icons.visibility_off,
+                                    color: Colors.deepPurpleAccent,
+                                  )
+                                : const Icon(
+                                    Icons.visibility_outlined,
+                                    color: Colors.deepPurpleAccent,
+                                  ),
+                          ),
                           obc: isVisible,
-                          text: "Password",
+                          text: Strings.passwordTXT,
                         ),
                         const Spacer(),
 
                         ///Personal text
                         const Text(
-                          "Please complete your profile. Don't worry, your data will remain private and only you can see it",
+                          Strings.signUpAlertTXT,
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.w400,
@@ -119,26 +123,26 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
                         ///Sign up button
                         CustomDeepPurpleButton(
-                            onTap: () {
-                              final Map<String, Object?> data = {
-                                "firstname":
-                                    controllerName.value.text.trim().toString(),
-                                "lastname": controllerSurname.value.text
-                                    .trim()
-                                    .toString(),
-                                "password": controllerPassword.value.text
-                                    .trim()
-                                    .toString(),
-                                "email": controllerEmail.value.text
-                                    .trim()
-                                    .toString(),
-                              };
-                              context
-                                  .read<AuthBloc>()
-                                  .add(AuthSignUpEvent(data: data));
-                              // await addUser();
-                            },
-                            displayText: "Sign Up"),
+                          onTap: () {
+                            final Map<String, Object?> data = {
+                              "firstname":
+                                  controllerName.value.text.trim().toString(),
+                              "lastname": controllerSurname.value.text
+                                  .trim()
+                                  .toString(),
+                              "password": controllerPassword.value.text
+                                  .trim()
+                                  .toString(),
+                              "email":
+                                  controllerEmail.value.text.trim().toString(),
+                            };
+                            context
+                                .read<AuthBloc>()
+                                .add(AuthSignUpEvent(data: data));
+                            // await addUser();
+                          },
+                          displayText: Strings.signUpTXT,
+                        ),
 
                         const Spacer(),
                       ],

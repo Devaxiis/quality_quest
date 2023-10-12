@@ -1,4 +1,5 @@
 import 'package:quality_quest/library.dart';
+import 'package:quality_quest/services/constants/strings.dart';
 
 class IntroScreen extends StatefulWidget {
   const IntroScreen({super.key});
@@ -85,7 +86,7 @@ class _IntroScreenState extends State<IntroScreen> {
                         builder: (context) => const SignUpScreen()),
                     (route) => false);
               },
-              displayText: 'GET STARTED',
+              displayText: Strings.getStartedTXT,
             ),
             const Spacer(),
             CustomDeepPurpleButton(
@@ -94,11 +95,13 @@ class _IntroScreenState extends State<IntroScreen> {
               colorText: const Color(0xff6949FF),
               onTap: () {
                 Navigator.of(context).pushAndRemoveUntil(
-                    MaterialPageRoute(
-                        builder: (context) => const SignInScreen()),
-                    (route) => false);
+                  MaterialPageRoute(
+                    builder: (context) => const SignInScreen(),
+                  ),
+                  (route) => false,
+                );
               },
-              displayText: "I Already have an Account",
+              displayText: Strings.haveAnAccountTXT,
             ),
             const Spacer(flex: 2),
           ],

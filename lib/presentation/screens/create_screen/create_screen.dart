@@ -1,4 +1,5 @@
 import 'package:quality_quest/library.dart';
+import 'package:quality_quest/services/constants/strings.dart';
 
 class CreateScreen extends StatefulWidget {
   const CreateScreen({super.key});
@@ -15,14 +16,16 @@ class _CreateScreenState extends State<CreateScreen> {
       appBar: AppBar(
         forceMaterialTransparency: true,
         title: const Text(
-          "Create Quiz",
+          Strings.createQuizTXT,
           style: TextStyle(
             color: Color(0xFF6949FF),
             fontWeight: FontWeight.w800,
           ),
         ),
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pop(context);
+          },
           icon: const Icon(
             Icons.clear,
             color: Color(0xFF295ECC),
@@ -60,7 +63,7 @@ class _CreateScreenState extends State<CreateScreen> {
                   AnswerAddButton(
                     shadowColor: const Color(0xFF295ECC),
                     buttonColor: const Color(0xFF3779FF),
-                    text: "Answer",
+                    text: Strings.answerTXT,
                     onTap: () {
                       showDialog(
                         context: context,
@@ -78,7 +81,7 @@ class _CreateScreenState extends State<CreateScreen> {
                   AnswerAddButton(
                     shadowColor: const Color(0xFFEA1E61),
                     buttonColor: const Color(0xFFF75555),
-                    text: "Answer",
+                    text: Strings.answerTXT,
                     onTap: () {
                       showDialog(
                         context: context,
@@ -101,7 +104,9 @@ class _CreateScreenState extends State<CreateScreen> {
                   AnswerAddButton(
                     shadowColor: const Color(0xFFF48400),
                     buttonColor: const Color(0xFFFF981F),
-                    text: "Answer",
+
+                    text: Strings.answerTXT,
+
                     onTap: () {
                       showDialog(
                         context: context,
@@ -119,7 +124,7 @@ class _CreateScreenState extends State<CreateScreen> {
                   AnswerAddButton(
                     shadowColor: const Color(0xFF00B777),
                     buttonColor: const Color(0xFF12D18E),
-                    text: "Answer",
+                    text: Strings.answerTXT,
                     onTap: () {
                       showDialog(
                         context: context,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quality_quest/presentation/screens/profile_screen/profile_views/custom_button_views.dart';
 import 'package:quality_quest/presentation/screens/profile_screen/settings_screen/settings_screen.dart';
+import 'package:quality_quest/services/constants/strings.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -24,7 +25,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           ),
         ),
         title: const Text(
-          "Quality Quest",
+          Strings.qualityQuestTXT,
           style: TextStyle(
             color: Color(0xff6949ff),
             fontSize: 25,
@@ -102,7 +103,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         borderRadius: BorderRadius.all(Radius.circular(50)),
                       ),
                       child: const Text(
-                        "Edit Profile",
+                        Strings.editProfileTXT,
                         style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
@@ -116,7 +117,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 const Spacer(
                   flex: 5,
                 ),
-                ThreeButtons(),
+                const ThreeButtons(),
                 // const SizedBox(height: 5),
                 const Spacer(),
               ],

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:quality_quest/services/constants/strings.dart';
 
 class IntroThree extends StatelessWidget {
   const IntroThree({super.key});
@@ -15,11 +16,12 @@ class IntroThree extends StatelessWidget {
             Lottie.asset("assets/lotties/animation_lmdqpiyt.json",
                 height: 300, width: 300),
             const Text(
-              "Play and take quiz challanges together with your friends",
+              Strings.introThirdTXT,
               style: TextStyle(
-                  color: Color(0xff212121),
-                  fontSize: 25,
-                  fontWeight: FontWeight.bold),
+                color: Color(0xff212121),
+                fontSize: 25,
+                fontWeight: FontWeight.bold,
+              ),
               textAlign: TextAlign.center,
             ),
           ],

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quality_quest/services/constants/strings.dart';
 
 class LogOutListTile extends StatefulWidget {
   final void Function() onPressed;
@@ -18,7 +19,7 @@ class _LogOutListTileState extends State<LogOutListTile> {
     return ListTile(
       contentPadding: const EdgeInsets.symmetric(horizontal: 25),
       title: const Text(
-        "Log Out",
+        Strings.logOutTXT,
         style: TextStyle(
           fontSize: 19,
           fontWeight: FontWeight.w700,

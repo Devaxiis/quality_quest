@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:quality_quest/services/constants/strings.dart';
 
 class MusicEffectScreen extends StatefulWidget {
   const MusicEffectScreen({super.key});
@@ -23,7 +24,7 @@ class _MusicEffectScreenState extends State<MusicEffectScreen> {
           icon: const Icon(Icons.arrow_back),
         ),
         title: const Text(
-          "Music & Effects",
+          Strings.musicEffectTXT,
           style: TextStyle(
             fontWeight: FontWeight.w600,
             color: Colors.black,
@@ -33,13 +34,13 @@ class _MusicEffectScreenState extends State<MusicEffectScreen> {
       body: ListView(
         padding: const EdgeInsets.symmetric(vertical: 10),
         children: const [
-          NotificationTile(title: "Music"),
+          NotificationTile(title: Strings.musicTXT),
           SizedBox(height: 10),
-          NotificationTile(title: "Sound Effects"),
+          NotificationTile(title: Strings.soundEffectsTXT),
           SizedBox(height: 10),
-          NotificationTile(title: "Animation Effects"),
+          NotificationTile(title: Strings.animationEffectsTXT),
           SizedBox(height: 10),
-          NotificationTile(title: "Visual Effects"),
+          NotificationTile(title: Strings.visualEffectsTXT),
           SizedBox(height: 10),
         ],
       ),

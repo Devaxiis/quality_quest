@@ -8,6 +8,7 @@ import 'package:quality_quest/library.dart';
 import 'package:quality_quest/presentation/registration_screens/sign_in/sign_in_views/custom_rich_text.dart';
 import 'package:quality_quest/presentation/registration_screens/sign_in/sign_in_views/show_success_dialog.dart';
 import 'package:quality_quest/presentation/screens/main_home_screen.dart';
+import 'package:quality_quest/services/constants/strings.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
@@ -27,7 +28,7 @@ class _SignInScreenState extends State<SignInScreen> {
   final TextEditingController controllerEmail = TextEditingController();
   final TextEditingController controllerPassword = TextEditingController();
   Map<String, dynamic> value = {};
-  bool isVisible = false;
+  bool isVisible = true;
   String model = "";
 
   void visiblePassword() {
@@ -88,7 +89,7 @@ class _SignInScreenState extends State<SignInScreen> {
 
               /// #Header Text
               const Text(
-                "Hello There 👋",
+                Strings.helloThereTXT,
                 style: TextStyle(fontSize: 30, fontWeight: FontWeight.w600),
               ),
 
@@ -99,7 +100,7 @@ class _SignInScreenState extends State<SignInScreen> {
                 control: controllerEmail,
                 keyboardType: TextInputType.emailAddress,
                 textInput: TextInputAction.next,
-                text: "Email",
+                text: Strings.emailTXT,
               ),
 
               const Spacer(),
@@ -111,17 +112,17 @@ class _SignInScreenState extends State<SignInScreen> {
                 textInput: TextInputAction.done,
                 suffixIcon: GestureDetector(
                   onTap: () => visiblePassword(),
-                  child: isVisible == true
+                  child: isVisible
                       ? const Icon(
-                          Icons.visibility_outlined,
+                          Icons.visibility_off,
                           color: Colors.deepPurpleAccent,
                         )
                       : const Icon(
-                          Icons.visibility_off,
+                          Icons.visibility_outlined,
                           color: Colors.deepPurpleAccent,
                         ),
                 ),
-                text: "Password",
+                text: Strings.passwordTXT,
                 obc: isVisible,
               ),
 
@@ -141,7 +142,7 @@ class _SignInScreenState extends State<SignInScreen> {
                       (value) => addUser(),
                     );
                   },
-                  displayText: 'Sign In',
+                  displayText: Strings.signInTXT,
                 ),
               ),
               const Spacer(),
