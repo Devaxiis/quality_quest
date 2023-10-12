@@ -1,4 +1,6 @@
+
 import 'package:quality_quest/library.dart';
+
 
 void showSuccessDialog(BuildContext context) {
   showDialog(
@@ -6,7 +8,7 @@ void showSuccessDialog(BuildContext context) {
     context: context,
     builder: (context) {
       return AlertDialog(
-        backgroundColor: Colors.white,
+        backgroundColor: CustomColors.oxFFFFFFFF,
         content: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -21,14 +23,18 @@ void showSuccessDialog(BuildContext context) {
                 ),
               ),
               const SizedBox(height: 10),
-              Text(
+               Text(
                 Strings.welcomeTXT,
+
                 style: Style.welcomeST,
+
               ),
               const SizedBox(height: 15),
-              Text(
+               Text(
                 Strings.successfullyCreatedAccount,
+
                 style: Style.successfullyCreatedAccountST,
+
               ),
               const SizedBox(height: 20),
             ],

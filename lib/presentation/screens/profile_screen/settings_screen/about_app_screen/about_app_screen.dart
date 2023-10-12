@@ -1,4 +1,6 @@
+
 import 'package:quality_quest/library.dart';
+
 
 class AboutAppScreen extends StatefulWidget {
   const AboutAppScreen({super.key});
@@ -10,21 +12,24 @@ class AboutAppScreen extends StatefulWidget {
 class _AboutAppScreenState extends State<AboutAppScreen> {
   @override
   Widget build(BuildContext context) {
-    void navigateToBack(){
+    void navigateToBack() {
       Navigator.pop(context);
     }
+
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: CustomColors.oxFFFFFFFF,
       appBar: AppBar(
         forceMaterialTransparency: true,
-        backgroundColor: Colors.white,
+        backgroundColor: CustomColors.oxFFFFFFFF,
         leading: IconButton(
           onPressed: navigateToBack,
           icon: const Icon(Icons.arrow_back),
         ),
         title: const Text(
           Strings.aboutAppTXT,
+
           style: Style.aboutAppST,
+
         ),
       ),
       body: SingleChildScrollView(
@@ -52,7 +57,9 @@ class _AboutAppScreenState extends State<AboutAppScreen> {
               child: Text(
                 Strings.descriptionQualityQuestTXT,
                 textAlign: TextAlign.justify,
+
                 style: Style.descriptionQualityQuestST,
+
               ),
             ),
           ],

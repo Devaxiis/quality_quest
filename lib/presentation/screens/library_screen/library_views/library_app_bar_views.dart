@@ -15,7 +15,7 @@ class LibraryAppBarViews extends StatelessWidget {
       ),
       centerTitle: false,
       forceMaterialTransparency: true,
-      title: Text(
+      title:  Text(
         Strings.libraryTXT,
         style: Style.libraryST,
       ),

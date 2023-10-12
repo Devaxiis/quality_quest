@@ -46,7 +46,7 @@ export 'package:quality_quest/presentation/screens/home_screen/search_screen/sea
 export 'package:quality_quest/presentation/screens/home_screen/exam_screen/exam_screen.dart';
 export 'package:quality_quest/presentation/screens/home_screen/exam_screen/exam_start_splash_screen.dart';
 export 'package:quality_quest/presentation/screens/create_screen/create_screen.dart';
-
+export 'package:quality_quest/services/constants/colors.dart';
 
 
 

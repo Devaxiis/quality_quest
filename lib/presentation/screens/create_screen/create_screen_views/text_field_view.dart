@@ -12,16 +12,16 @@ class CustomTextField extends StatelessWidget {
       maxLines: 6,
       style: TextStyle(
         fontSize: 18.5,
-        color: Colors.black,
+        color: CustomColors.oxFF000000,
         fontWeight: FontWeight.w600,
       ),
       textInputAction: TextInputAction.newline,
       decoration: InputDecoration(
         filled: true,
-        fillColor: Color(0xFFEDEDF3),
+        fillColor: CustomColors.oxFFEDEDF3,
         border: OutlineInputBorder(
           borderSide: BorderSide(
-            color: Color(0xFF295ECC),
+            color: CustomColors.oxFF295ECC,
             width: 4,
           ),
           borderRadius: BorderRadius.all(
@@ -31,7 +31,7 @@ class CustomTextField extends StatelessWidget {
         enabled: true,
         hintText: Strings.tapToAddQuestion,
         hintStyle: TextStyle(
-          color: Color(0xFF295ECC),
+          color: CustomColors.oxFF295ECC,
           fontWeight: FontWeight.w700,
           fontSize: 17,
         ),

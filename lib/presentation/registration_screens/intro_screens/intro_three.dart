@@ -1,4 +1,6 @@
+
 import 'package:quality_quest/library.dart';
+
 
 class IntroThree extends StatelessWidget {
   const IntroThree({super.key});
@@ -15,7 +17,9 @@ class IntroThree extends StatelessWidget {
                 height: 300, width: 300),
             const Text(
               Strings.introThirdTXT,
+
               style: Style.introThirdST,
+
               textAlign: TextAlign.center,
             ),
           ],

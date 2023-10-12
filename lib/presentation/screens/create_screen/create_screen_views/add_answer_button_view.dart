@@ -1,5 +1,6 @@
 import 'package:quality_quest/library.dart';
 
+
 class AnswerAddButton extends StatelessWidget {
   final Color shadowColor;
   final Color buttonColor;
@@ -40,7 +41,9 @@ class AnswerAddButton extends StatelessWidget {
           ),
           child: Text(
             text,
+
             style: Style.createTextST,
+
           ),
         ),
       ),

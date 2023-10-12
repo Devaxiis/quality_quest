@@ -67,8 +67,11 @@ class _SignInScreenState extends State<SignInScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(elevation: 0, backgroundColor: Colors.white),
+      backgroundColor: CustomColors.oxFFFFFFFF,
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: CustomColors.oxFFFFFFFF,
+      ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -106,11 +109,11 @@ class _SignInScreenState extends State<SignInScreen> {
                   child: isVisible
                       ? const Icon(
                           Icons.visibility_off,
-                          color: Colors.deepPurpleAccent,
+                          color: CustomColors.oxFF7C4DFF,
                         )
                       : const Icon(
                           Icons.visibility_outlined,
-                          color: Colors.deepPurpleAccent,
+                          color: CustomColors.oxFF7C4DFF,
                         ),
                 ),
                 text: Strings.passwordTXT,

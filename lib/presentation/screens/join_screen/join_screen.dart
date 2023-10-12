@@ -13,7 +13,7 @@ class _SearchUserScreenState extends State<SearchUserScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       ///#Backgroun Color
-      backgroundColor: Colors.white,
+      backgroundColor: CustomColors.oxFFFFFFFF,
 
       /// #AppBar
       appBar: AppBar(
@@ -29,12 +29,12 @@ class _SearchUserScreenState extends State<SearchUserScreen> {
                   padding: EdgeInsets.all(15.0),
                   child: Image(
                     image: AssetImage("assets/icons/ic_search.png"),
-                    color: Color(0xff6949ff),
+                    color: CustomColors.oxFF6949FF,
                   ),
                 ),
                 suffixIcon: Icon(
                   Icons.cancel,
-                  color: Color(0xff6949ff),
+                  color: CustomColors.oxFF6949FF,
                 ),
                 label: Text(
                   Strings.searchTXT,
@@ -42,19 +42,31 @@ class _SearchUserScreenState extends State<SearchUserScreen> {
                 ),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.all(Radius.circular(15)),
-                  borderSide: BorderSide(width: 2, color: Color(0xff6949ff)),
+                  borderSide: BorderSide(
+                    width: 2,
+                    color: CustomColors.oxFF6949FF,
+                  ),
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.all(Radius.circular(15)),
-                  borderSide: BorderSide(width: 2, color: Color(0xff6949ff)),
+                  borderSide: BorderSide(
+                    width: 2,
+                    color: CustomColors.oxFF6949FF,
+                  ),
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.all(Radius.circular(15)),
-                  borderSide: BorderSide(width: 2, color: Color(0xff6949ff)),
+                  borderSide: BorderSide(
+                    width: 2,
+                    color: CustomColors.oxFF6949FF,
+                  ),
                 ),
                 disabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.all(Radius.circular(15)),
-                  borderSide: BorderSide(width: 2, color: Color(0xff6949ff)),
+                  borderSide: BorderSide(
+                    width: 2,
+                    color: CustomColors.oxFF6949FF,
+                  ),
                 ),
               ),
             ),
@@ -83,16 +95,16 @@ class _SearchUserScreenState extends State<SearchUserScreen> {
               height: 30,
               width: 80,
               alignment: Alignment.center,
-              decoration: BoxDecoration(
-                borderRadius: const BorderRadius.all(Radius.circular(50)),
+              decoration: const BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(50)),
                 border: Border.fromBorderSide(
                   BorderSide(
                     width: 1.4,
-                    color: Colors.deepPurpleAccent.shade700,
+                    color: CustomColors.oxFF6200EA,
                   ),
                 ),
               ),
-              child: Text(
+              child:  Text(
                 Strings.followingTXT,
                 style: Style.joinFollowingST,
               ),

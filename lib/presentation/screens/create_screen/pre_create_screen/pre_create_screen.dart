@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:quality_quest/library.dart';
 
+
 class PreCreateScreen extends StatefulWidget {
   const PreCreateScreen({super.key});
 
@@ -14,14 +15,16 @@ class _PreCreateScreenState extends State<PreCreateScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: CustomColors.oxFFFFFFFF,
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: CustomColors.oxFFFFFFFF,
         forceMaterialTransparency: true,
         centerTitle: true,
         title: const Text(
           Strings.createQuizTXT,
+
           style: Style.createQuizST,
+
         ),
       ),
       body: Padding(
@@ -40,22 +43,31 @@ class _PreCreateScreenState extends State<PreCreateScreen> {
                   borderRadius: BorderRadius.all(
                     Radius.circular(20),
                   ),
-                  borderSide: BorderSide(width: 2, color: Color(0xff6949ff)),
+                  borderSide: BorderSide(
+                    width: 2,
+                    color: CustomColors.oxFF6949FF,
+                  ),
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.all(
                     Radius.circular(20),
                   ),
-                  borderSide: BorderSide(width: 2, color: Color(0xff6949ff)),
+                  borderSide: BorderSide(
+                    width: 2,
+                    color: CustomColors.oxFF6949FF,
+                  ),
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.all(Radius.circular(20)),
-                  borderSide: BorderSide(width: 2, color: Color(0xff6949ff)),
+                  borderSide: BorderSide(
+                    width: 2,
+                    color: CustomColors.oxFF6949FF,
+                  ),
                 ),
                 hintText: Strings.quizNameTXT,
                 hintStyle: TextStyle(
                   fontSize: 18,
-                  color: Colors.black54,
+                  color: CustomColors.ox8A000000,
                   fontWeight: FontWeight.w700,
                 ),
               ),
@@ -64,12 +76,14 @@ class _PreCreateScreenState extends State<PreCreateScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
+                 Text(
                   Strings.wantToMakePublicTXT,
+
                   style: Style.createWantToMakePublicST,
+
                 ),
                 CupertinoSwitch(
-                  activeColor: const Color(0xFF6949FF),
+                  activeColor: CustomColors.oxFF6949FF,
                   value: _toggleSwitch,
                   onChanged: (value) {
                     setState(() => _toggleSwitch = value);
@@ -82,9 +96,9 @@ class _PreCreateScreenState extends State<PreCreateScreen> {
       ),
       floatingActionButton: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.deepPurpleAccent,
+          backgroundColor: CustomColors.oxFF7C4DFF,
           elevation: 6,
-          shadowColor: Colors.deepPurple,
+          shadowColor: CustomColors.oxFF673AB7,
           fixedSize: const Size(150, 45),
         ),
         onPressed: () {
@@ -102,7 +116,7 @@ class _PreCreateScreenState extends State<PreCreateScreen> {
         child: const Text(
           Strings.nextTXT,
           style: TextStyle(
-            color: Colors.white,
+            color: CustomColors.oxFFFFFFFF,
           ),
         ),
       ),

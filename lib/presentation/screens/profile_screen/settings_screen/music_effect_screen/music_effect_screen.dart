@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+
 import 'package:quality_quest/library.dart';
 
 
@@ -13,10 +14,10 @@ class _MusicEffectScreenState extends State<MusicEffectScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: CustomColors.oxFFFFFFFF,
       appBar: AppBar(
         forceMaterialTransparency: true,
-        backgroundColor: Colors.white,
+        backgroundColor: CustomColors.oxFFFFFFFF,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -25,7 +26,9 @@ class _MusicEffectScreenState extends State<MusicEffectScreen> {
         ),
         title: const Text(
           Strings.musicEffectTXT,
+
           style: Style.musicEffectST,
+
         ),
       ),
       body: ListView(
@@ -65,10 +68,12 @@ class _NotificationTileState extends State<NotificationTile> {
     return ListTile(
       title: Text(
         widget.title,
+
         style: Style.musicTitleST,
+
       ),
       trailing: CupertinoSwitch(
-        activeColor: const Color(0xFF6949FF),
+        activeColor: CustomColors.oxFF6949FF,
         value: _toggleSwitch,
         onChanged: (value) {
           setState(() => _toggleSwitch = value);

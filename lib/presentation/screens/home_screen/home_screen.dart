@@ -25,12 +25,14 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       /// #background Color
-      backgroundColor: Colors.white,
+      backgroundColor: CustomColors.oxFFFFFFFF,
 
       appBar: AppBar(
-        title: Text(
+        title:  Text(
           Strings.qualityQuestTXT,
+
           style: Style.homeQualityQuestST,
+
         ),
         actions: [
           IconButton(

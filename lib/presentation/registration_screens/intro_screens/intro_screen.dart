@@ -1,6 +1,8 @@
 import 'package:quality_quest/library.dart';
 
 
+import '../../../services/constants/colors.dart';
+
 class IntroScreen extends StatefulWidget {
   const IntroScreen({super.key});
 
@@ -15,6 +17,7 @@ class _IntroScreenState extends State<IntroScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: CustomColors.oxFFFFFFFF,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -47,8 +50,9 @@ class _IntroScreenState extends State<IntroScreen> {
                       borderRadius: const BorderRadius.all(
                         Radius.circular(50),
                       ),
-                      color:
-                          values == 0 ? const Color(0xff7C4DFF) : Colors.grey,
+                      color: values == 0
+                          ? CustomColors.oxFF7C4DFF
+                          : CustomColors.oxFF9E9E9E,
                     ),
                   ),
                   const SizedBox(width: 7),
@@ -59,8 +63,9 @@ class _IntroScreenState extends State<IntroScreen> {
                       borderRadius: const BorderRadius.all(
                         Radius.circular(50),
                       ),
-                      color:
-                          values == 1 ? const Color(0xff7C4DFF) : Colors.grey,
+                      color: values == 1
+                          ? CustomColors.oxFF7C4DFF
+                          : CustomColors.oxFF9E9E9E,
                     ),
                   ),
                   const SizedBox(width: 7),
@@ -71,8 +76,9 @@ class _IntroScreenState extends State<IntroScreen> {
                       borderRadius: const BorderRadius.all(
                         Radius.circular(50),
                       ),
-                      color:
-                          values == 2 ? const Color(0xff7C4DFF) : Colors.grey,
+                      color: values == 2
+                          ? CustomColors.oxFF7C4DFF
+                          : CustomColors.oxFF9E9E9E,
                     ),
                   ),
                 ],
@@ -90,9 +96,9 @@ class _IntroScreenState extends State<IntroScreen> {
             ),
             const Spacer(),
             CustomDeepPurpleButton(
-              colorOne: const Color(0xffc4b7ff),
-              colorTwo: const Color(0xfff0edff),
-              colorText: const Color(0xff6949FF),
+              colorOne: CustomColors.oxFFC4B7FF,
+              colorTwo: CustomColors.oxFFF0EDFF,
+              colorText: CustomColors.oxFF6949FF,
               onTap: () {
                 Navigator.of(context).pushAndRemoveUntil(
                   MaterialPageRoute(

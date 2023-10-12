@@ -1,4 +1,7 @@
 import 'package:quality_quest/library.dart';
+import 'package:quality_quest/services/constants/colors.dart';
+
+
 import 'join_screen/join_screen.dart';
 
 class MainHomeScreen extends StatefulWidget {
@@ -17,7 +20,7 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
     return Scaffold(
 
       /// #Backgroun color
-      backgroundColor: Colors.white,
+      backgroundColor: CustomColors.oxFFFFFFFF,
 
       /// #Body
       body: PageView(

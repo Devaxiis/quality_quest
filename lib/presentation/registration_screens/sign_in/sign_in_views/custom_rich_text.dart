@@ -1,4 +1,6 @@
+
 import 'package:quality_quest/library.dart';
+
 
 
 class CustomRichText extends StatelessWidget {
@@ -19,13 +21,15 @@ class CustomRichText extends StatelessWidget {
       child: RichText(
         text: TextSpan(
           children: [
-            TextSpan(
+             TextSpan(
               text: Strings.notHaveAccountTXT,
+
               style: Style.notHaveAccountST,
             ),
             TextSpan(
               text: Strings.signUpTXT,
               style: Style.signUpST,
+
               recognizer: TapGestureRecognizer()
                 ..onTap = () {
                   navigateToDetailScreen();

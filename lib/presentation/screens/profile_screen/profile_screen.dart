@@ -1,6 +1,9 @@
 
 import 'package:quality_quest/library.dart';
 
+import '../../../services/constants/colors.dart';
+
+
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -13,7 +16,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: CustomColors.oxFFFFFFFF,
       appBar: AppBar(
         leading: Container(
           height: 40,
@@ -25,7 +28,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
         ),
         title: const Text(
           Strings.qualityQuestTXT,
+
           style: Style.qualityQuestST,
+
         ),
         actions: [
           IconButton(
@@ -61,7 +66,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       width: 60,
                       child: CircleAvatar(
                         radius: 60,
-                        backgroundColor: Color(0xff6949ff),
+                        backgroundColor: CustomColors.oxFF6949FF,
                         backgroundImage:
                             AssetImage("assets/images/img_profile_circle.png"),
                       ),
@@ -72,11 +77,21 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       children: [
                         Text(
                           "Andrew Ainley",
+
                           style: Style.nameEditST,
                         ),
                         Text(
                           "andrewainley@gmail.com",
                           style: Style.emailEditST,
+                        ),
+                        Text(
+                          "andrewainley@gmail.com",
+                          style: TextStyle(
+                            color: CustomColors.oxFF000000,
+                            fontWeight: FontWeight.normal,
+                            fontSize: 13,
+                          ),
+
                         ),
                       ],
                     ),
@@ -86,12 +101,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       alignment: Alignment.center,
                       padding: const EdgeInsets.symmetric(horizontal: 10),
                       decoration: const BoxDecoration(
-                        color: Color(0xff6949ff),
+                        color: CustomColors.oxFF6949FF,
                         borderRadius: BorderRadius.all(Radius.circular(50)),
                       ),
                       child: const Text(
                         Strings.editProfileTXT,
+
                         style: Style.editProfileST,
+
                       ),
                     ),
                     const Spacer(),
@@ -111,7 +128,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
             flex: 7,
             child: ListView.separated(
               itemBuilder: (context, index) {
+
                 return const MyQuestionViews();
+
+
               },
               separatorBuilder: (context, index) {
                 return const SizedBox(height: 10);

@@ -15,7 +15,7 @@ class CustomImagePicker extends StatelessWidget {
         width: double.infinity,
         decoration: BoxDecoration(
           border: Border.all(
-            color: const Color(0xFF7658FF),
+            color: CustomColors.oxFF7658FF,
             width: 2.3,
           ),
           borderRadius: const BorderRadius.all(Radius.circular(30)),
@@ -32,9 +32,11 @@ class CustomImagePicker extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 5),
-             Text(
+             const Text(
               Strings.addCoverImageTXT,
+
               style: Style.createAddCoverImageST,
+
             ),
             const SizedBox(height: 20),
           ],

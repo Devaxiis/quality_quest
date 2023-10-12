@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
+
 import 'package:quality_quest/library.dart';
+
 
 class NotificationTile extends StatefulWidget {
   final String title;
@@ -21,10 +23,12 @@ class _NotificationTileState extends State<NotificationTile> {
     return ListTile(
       title: Text(
         widget.title,
+
         style: Style.widgetTitleST,
+
       ),
       trailing: CupertinoSwitch(
-        activeColor: const Color(0xFF6949FF),
+        activeColor: CustomColors.oxFF6949FF,
         value: _toggleSwitch,
         onChanged: (value) {
           setState(() => _toggleSwitch = value);

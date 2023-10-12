@@ -9,7 +9,7 @@ class DetailDiscoverScreen extends StatelessWidget {
     return Scaffold(
 
       // #Background Color
-      backgroundColor: Colors.white,
+      backgroundColor: CustomColors.oxFFFFFFFF,
       resizeToAvoidBottomInset: true,
 
       // #AppBar
@@ -17,9 +17,11 @@ class DetailDiscoverScreen extends StatelessWidget {
         automaticallyImplyLeading: false,
         centerTitle: false,
         forceMaterialTransparency: true,
-        title: Text(
+        title:  Text(
           Strings.qualityQuestTXT,
+
           style: Style.homeDiscoverQualityQuestST,
+
         ),
       ),
 
@@ -47,7 +49,7 @@ class DetailDiscoverScreen extends StatelessWidget {
                           Radius.circular(20),
                         ),
                         border: Border.all(
-                          color: Colors.blueGrey.shade500,
+                          color: CustomColors.oxFF607D8B,
                           width: 2,
                         ),
                       ),
@@ -82,7 +84,7 @@ class DetailDiscoverScreen extends StatelessWidget {
                                       .textTheme
                                       .titleMedium!
                                       .copyWith(
-                                    color: Colors.black,
+                                    color: CustomColors.oxFF000000,
                                     fontWeight: FontWeight.w800,
                                   ),
                                 ),
@@ -128,7 +130,7 @@ class DetailDiscoverScreen extends StatelessWidget {
               boxShadow: [
                 BoxShadow(
                   offset: Offset(0, 1),
-                  color: Colors.white,
+                  color: CustomColors.oxFFFFFFFF,
                   blurRadius: 128,
                   spreadRadius: 70,
                 )
