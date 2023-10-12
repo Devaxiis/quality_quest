@@ -17,6 +17,7 @@ class _IntroScreenState extends State<IntroScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: CustomColors.oxFFFFFFFF,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

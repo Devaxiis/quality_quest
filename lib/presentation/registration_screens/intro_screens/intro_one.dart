@@ -9,6 +9,7 @@ class IntroOne extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: CustomColors.oxFFFFFFFF,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Center(
