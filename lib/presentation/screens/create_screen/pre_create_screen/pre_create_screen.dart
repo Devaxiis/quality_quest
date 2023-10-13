@@ -72,7 +72,7 @@ class _PreCreateScreenState extends State<PreCreateScreen> {
             ),
             const SizedBox(height: 40),
             Padding(
-              padding: EdgeInsets.only(right: 20.sp),
+              padding: EdgeInsets.only(left: 9.sp),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -81,13 +81,21 @@ class _PreCreateScreenState extends State<PreCreateScreen> {
                     style: Style.createWantToMakePublicST,
                   ),
                   SizedBox(
-                    height: 15.sp,
-                    width: 15.sp,
-                    child: CupertinoSwitch(
-                      activeColor: CustomColors.oxFF6949FF,
+                    height: 50.sp,
+                    width: 50.sp,
+                    child: CupertinoCheckbox(
+                      activeColor: CustomColors.oxFF295ECC,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(7),
+                        ),
+                      ),
+                      side: const BorderSide(color: CustomColors.oxFF295ECC),
                       value: _toggleSwitch,
-                      onChanged: (value) {
-                        setState(() => _toggleSwitch = value);
+                      onChanged: (ind) {
+                        setState(() {
+                          _toggleSwitch = !_toggleSwitch;
+                        });
                       },
                     ),
                   ),
