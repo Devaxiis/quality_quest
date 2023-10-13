@@ -1,10 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quality_quest/bloc/auth/auth_bloc.dart';
 import 'package:quality_quest/library.dart';
-import 'package:quality_quest/services/constants/colors.dart';
-import 'package:quality_quest/services/constants/strings.dart';
-
-import '../../../services/constants/style.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -55,7 +51,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         const Spacer(),
 
                         /// #Header Text
-                        const Text(Strings.createAccountTXT,style: Style.createAccountSt),
+                        const Text(Strings.createAccountTXT,
+                            style: Style.createAccountSt),
                         const Spacer(),
 
                         ///TextField name

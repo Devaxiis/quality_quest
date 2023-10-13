@@ -1,7 +1,4 @@
 import 'package:quality_quest/library.dart';
-import 'package:quality_quest/services/constants/strings.dart';
-
-import '../../../../services/constants/colors.dart';
 
 class BottomNavBar extends StatelessWidget {
   final void Function(int) onTap;

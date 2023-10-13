@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:quality_quest/library.dart';
 
-
 class PreCreateScreen extends StatefulWidget {
   const PreCreateScreen({super.key});
 
@@ -22,9 +21,7 @@ class _PreCreateScreenState extends State<PreCreateScreen> {
         centerTitle: true,
         title: const Text(
           Strings.createQuizTXT,
-
           style: Style.createQuizST,
-
         ),
       ),
       body: Padding(
@@ -76,11 +73,9 @@ class _PreCreateScreenState extends State<PreCreateScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                 Text(
+                Text(
                   Strings.wantToMakePublicTXT,
-
                   style: Style.createWantToMakePublicST,
-
                 ),
                 CupertinoSwitch(
                   activeColor: CustomColors.oxFF6949FF,
@@ -102,16 +97,9 @@ class _PreCreateScreenState extends State<PreCreateScreen> {
           fixedSize: const Size(150, 45),
         ),
         onPressed: () {
-
-          Navigator.of(context).push(MaterialPageRoute(builder: (_)=>const CreateScreen()));
-
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => const CreateScreen(),
-            ),
+          Navigator.of(context).push(
+            MaterialPageRoute(builder: (_) => const CreateScreen()),
           );
-
         },
         child: const Text(
           Strings.nextTXT,

@@ -1,5 +1,4 @@
 import 'package:quality_quest/library.dart';
-import 'package:quality_quest/services/constants/colors.dart';
 
 class LibraryContainerContentViews extends StatelessWidget {
   const LibraryContainerContentViews({

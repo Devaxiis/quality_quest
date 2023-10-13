@@ -1,6 +1,4 @@
 import 'package:quality_quest/library.dart';
-import 'package:quality_quest/services/constants/colors.dart';
-
 
 import 'join_screen/join_screen.dart';
 
@@ -18,7 +16,6 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       /// #Backgroun color
       backgroundColor: CustomColors.oxFFFFFFFF,
 

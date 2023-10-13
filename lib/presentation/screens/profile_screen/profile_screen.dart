@@ -1,9 +1,4 @@
-
 import 'package:quality_quest/library.dart';
-
-import '../../../services/constants/colors.dart';
-
-
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -28,15 +23,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
         ),
         title: const Text(
           Strings.qualityQuestTXT,
-
           style: Style.qualityQuestST,
-
         ),
         actions: [
           IconButton(
             onPressed: () {
-              Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => const SettingScreen()));
+              Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) => const SettingScreen()),
+              );
             },
             icon: const Icon(
               Icons.settings,
@@ -67,8 +61,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       child: CircleAvatar(
                         radius: 60,
                         backgroundColor: CustomColors.oxFF6949FF,
-                        backgroundImage:
-                            AssetImage("assets/images/img_profile_circle.png"),
+                        backgroundImage: AssetImage(
+                          "assets/images/img_profile_circle.png",
+                        ),
                       ),
                     ),
                     const Spacer(),
@@ -77,12 +72,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       children: [
                         Text(
                           "Andrew Ainley",
-
                           style: Style.nameEditST,
-                        ),
-                        Text(
-                          "andrewainley@gmail.com",
-                          style: Style.emailEditST,
                         ),
                         Text(
                           "andrewainley@gmail.com",
@@ -91,7 +81,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             fontWeight: FontWeight.normal,
                             fontSize: 13,
                           ),
-
                         ),
                       ],
                     ),
@@ -106,9 +95,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                       child: const Text(
                         Strings.editProfileTXT,
-
                         style: Style.editProfileST,
-
                       ),
                     ),
                     const Spacer(),
@@ -128,10 +115,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             flex: 7,
             child: ListView.separated(
               itemBuilder: (context, index) {
-
                 return const MyQuestionViews();
-
-
               },
               separatorBuilder: (context, index) {
                 return const SizedBox(height: 10);

@@ -1,5 +1,4 @@
 import 'package:quality_quest/library.dart';
-import 'package:quality_quest/services/constants/colors.dart';
 
 class QuestionsQuantity extends StatelessWidget {
   const QuestionsQuantity({
