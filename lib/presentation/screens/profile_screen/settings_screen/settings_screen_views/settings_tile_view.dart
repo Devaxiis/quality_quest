@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SettingsTileView extends StatelessWidget {
   final Color backgroundColor;
@@ -21,7 +22,7 @@ class SettingsTileView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      contentPadding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+      contentPadding:  EdgeInsets.symmetric(horizontal: 15.sp, vertical: 15.sp),
       dense: true,
       leading: Container(
         padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),

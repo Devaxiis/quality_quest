@@ -1,4 +1,5 @@
 
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quality_quest/library.dart';
 
 
@@ -19,11 +20,11 @@ class _LogOutListTileState extends State<LogOutListTile> {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      contentPadding: const EdgeInsets.symmetric(horizontal: 25),
-      title: const Text(
+      contentPadding:  EdgeInsets.symmetric(horizontal: 25.sp),
+      title:  Text(
         Strings.logOutTXT,
         style: TextStyle(
-          fontSize: 19,
+          fontSize: 19.sp,
           fontWeight: FontWeight.w700,
           color: CustomColors.oxFFFC6369,
         ),
@@ -33,9 +34,9 @@ class _LogOutListTileState extends State<LogOutListTile> {
         style: IconButton.styleFrom(
           backgroundColor: CustomColors.oxFFFFF3F3,
           shape: const OvalBorder(),
-          padding: const EdgeInsets.symmetric(
-            vertical: 15,
-            horizontal: 15,
+          padding: EdgeInsets.symmetric(
+            vertical: 15.sp,
+            horizontal: 15.sp,
           ),
         ),
         icon: const Image(

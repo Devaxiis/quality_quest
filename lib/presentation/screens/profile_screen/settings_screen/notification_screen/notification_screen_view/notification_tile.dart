@@ -23,9 +23,7 @@ class _NotificationTileState extends State<NotificationTile> {
     return ListTile(
       title: Text(
         widget.title,
-
         style: Style.widgetTitleST,
-
       ),
       trailing: CupertinoSwitch(
         activeColor: CustomColors.oxFF6949FF,

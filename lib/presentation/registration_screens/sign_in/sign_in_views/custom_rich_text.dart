@@ -29,7 +29,6 @@ class CustomRichText extends StatelessWidget {
             TextSpan(
               text: Strings.signUpTXT,
               style: Style.signUpST,
-
               recognizer: TapGestureRecognizer()
                 ..onTap = () {
                   navigateToDetailScreen();

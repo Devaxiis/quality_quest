@@ -1,3 +1,4 @@
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quality_quest/library.dart';
 
 class CustomButtonViews extends StatelessWidget {
@@ -17,8 +18,8 @@ class CustomButtonViews extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 40,
-      width: 120,
+      height: 40.sp,
+      width: 120.sp,
       alignment: Alignment.center,
       padding: const EdgeInsets.symmetric(horizontal: 10),
       decoration: BoxDecoration(
@@ -32,7 +33,7 @@ class CustomButtonViews extends StatelessWidget {
       child: Text(
         title,
         style:
-            TextStyle(color: color, fontWeight: FontWeight.bold, fontSize: 15),
+            TextStyle(color: color, fontWeight: FontWeight.bold, fontSize: 15.sp),
       ),
     );
   }

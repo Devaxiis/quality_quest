@@ -51,7 +51,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         const Spacer(),
 
                         /// #Header Text
-                        const Text(Strings.createAccountTXT,
+                         Text(Strings.createAccountTXT,
                             style: Style.createAccountSt),
                         const Spacer(),
 
@@ -105,7 +105,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         const Spacer(),
 
                         ///Personal text
-                        const Text(
+                         Text(
                           Strings.signUpAlertTXT,
                           style: Style.signUpAlertST,
                           textAlign: TextAlign.center,

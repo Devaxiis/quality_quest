@@ -1,3 +1,4 @@
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quality_quest/library.dart';
 
 class ExamStartSplashScreen extends StatefulWidget {
@@ -66,7 +67,7 @@ class ExamSplashCustomButton extends StatelessWidget {
         return onTab();
       },
       child: Container(
-        height: 110,
+        height: 110.sp,
         alignment: Alignment.topCenter,
         width: MediaQuery.sizeOf(context).width / 1.3,
         margin: const EdgeInsets.symmetric(vertical: 20),
@@ -83,7 +84,7 @@ class ExamSplashCustomButton extends StatelessWidget {
           ],
         ),
         child: Container(
-          height: 100,
+          height: 100.sp,
           alignment: Alignment.center,
           decoration: BoxDecoration(
             color: color,
@@ -91,9 +92,9 @@ class ExamSplashCustomButton extends StatelessWidget {
           ),
           child: Text(
             text,
-            style: const TextStyle(
+            style:  TextStyle(
               color: CustomColors.oxFFFFFFFF,
-              fontSize: 30,
+              fontSize: 30.sp,
               fontWeight: FontWeight.bold,
             ),
           ),
