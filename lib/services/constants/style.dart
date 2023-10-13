@@ -2,40 +2,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quality_quest/library.dart';
 
 sealed class Style {
-  static const createAccountSt = TextStyle(
-    fontSize: 30,
-    fontWeight: FontWeight.w600,
-  );
-  static const signUpAlertST = TextStyle(
-    fontSize: 18,
-    fontWeight: FontWeight.w400,
-  );
-  static const helloThereST = TextStyle(
-    fontSize: 30,
-    fontWeight: FontWeight.w600,
-  );
-  static final notHaveAccountST = TextStyle(
-    fontSize: 16,
-    color: Colors.grey.shade700,
-    fontWeight: FontWeight.w600,
-  );
-  static final signUpST = TextStyle(
-    fontSize: 16,
-    color: Colors.deepPurple.shade700,
-    fontWeight: FontWeight.w600,
-  );
-  static final welcomeST = TextStyle(
-    color: Colors.deepPurple.shade700,
-    fontSize: 22,
-    fontWeight: FontWeight.w500,
-  );
-  static final successfullyCreatedAccountST = TextStyle(
-    color: Colors.grey.shade700,
-    fontSize: 15,
-    fontWeight: FontWeight.w500,
-  );
 
-<<<<<<< HEAD
   static final createAccountSt = TextStyle(fontSize: 30.sp,fontWeight: FontWeight.w600,);
   static final signUpAlertST = TextStyle(fontSize: 18.sp,fontWeight: FontWeight.w400,);
   static final helloThereST = TextStyle(fontSize: 30.sp, fontWeight: FontWeight.w600);
@@ -51,43 +18,8 @@ sealed class Style {
   static final emailEditST =  TextStyle(color: Colors.black,fontWeight: FontWeight.normal,fontSize: 15.sp,);
   static final nameEditST =   TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 22.sp,);
   static final qualityQuestST = TextStyle(color: Color(0xff6949ff),fontSize: 25.sp,fontWeight: FontWeight.bold,);
-=======
-  // static final labelTextST =  Theme.of(context).textTheme.labelLarge;
-  static const introFirstST = TextStyle(
-    color: Color(0xff212121),
-    fontSize: 25,
-    fontWeight: FontWeight.bold,
-  );
-  static const introThirdST = TextStyle(
-    color: Color(0xff212121),
-    fontSize: 25,
-    fontWeight: FontWeight.bold,
-  );
-  static const introSecondST = TextStyle(
-    color: Color(0xff212121),
-    fontSize: 25,
-    fontWeight: FontWeight.bold,
-  );
-  static const editProfileST =
-      TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 15);
-  static const emailEditST = TextStyle(
-    color: Colors.black,
-    fontWeight: FontWeight.normal,
-    fontSize: 13,
-  );
-  static const nameEditST = TextStyle(
-    color: Colors.black,
-    fontWeight: FontWeight.bold,
-    fontSize: 20,
-  );
-  static final qualityQuestST = TextStyle(
-    color: const Color(0xff6949ff),
-    fontSize: 24.sp,
-    fontWeight: FontWeight.bold,
-  );
 
->>>>>>> ebffdb75b0d0e23e851cb2e4b1e8f408c2ebde12
-  // static const titleST = TextStyle(color: color, fontWeight: FontWeight.bold, fontSize: 15);
+
   static const settingsST = TextStyle(
     fontWeight: FontWeight.w600,
     color: Colors.black,
@@ -178,7 +110,7 @@ sealed class Style {
   );
 
   // #Create Quiz
-<<<<<<< HEAD
+
   static const createQuizST = TextStyle(color: Color(0xFF6949FF),fontWeight: FontWeight.w800,);
   static final createWantToMakePublicST = TextStyle(fontSize: 18,color: Colors.grey.shade800,fontWeight: FontWeight.w800,);
   static const createAddCoverImageST = TextStyle(color: Color(0xFF6949FF),fontWeight: FontWeight.w700,fontSize: 18,);
@@ -188,43 +120,4 @@ sealed class Style {
   static const createCorrectAnswerST = TextStyle(color: Color(0xFF295ECC),fontWeight: FontWeight.w800,fontSize: 19,);
   static final createTextST = TextStyle(color: Colors.white,fontSize: 23.sp,fontWeight: FontWeight.bold,);
 }
-=======
-  static const createQuizST = TextStyle(
-    color: Color(0xFF6949FF),
-    fontWeight: FontWeight.w800,
-  );
-  static final createWantToMakePublicST = TextStyle(
-    fontSize: 17.sp,
-    color: Colors.grey.shade800,
-    fontWeight: FontWeight.w800,
-  );
-  static final createAddCoverImageST = TextStyle(
-    color: const Color(0xFF6949FF),
-    fontWeight: FontWeight.w700,
-    fontSize: 18.sp,
-  );
-  static const createAddAnswerST = TextStyle(
-    color: Color(0xFF295ECC),
-    fontWeight: FontWeight.w800,
-    fontSize: 28,
-  );
-  static const createTextFieldST = TextStyle(
-    color: Colors.white,
-    fontWeight: FontWeight.w700,
-  );
-  static const createAddYourAnswerST = TextStyle(
-    color: Colors.white,
-    fontWeight: FontWeight.w700,
-  );
-  static final createCorrectAnswerST = TextStyle(
-    color: const Color(0xFF295ECC),
-    fontWeight: FontWeight.w800,
-    fontSize: 19.sp,
-  );
-  static final createTextST = TextStyle(
-    color: Colors.white,
-    fontSize: 22.sp,
-    fontWeight: FontWeight.bold,
-  );
-}
->>>>>>> ebffdb75b0d0e23e851cb2e4b1e8f408c2ebde12
+

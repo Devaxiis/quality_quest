@@ -79,7 +79,7 @@ class DetailDiscoverScreen extends StatelessWidget {
                               mainAxisSize: MainAxisSize.min,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-<<<<<<< HEAD
+
                                 const Spacer(),
                                 Text(
                                   "Back to School. Get Smarter",
@@ -87,14 +87,7 @@ class DetailDiscoverScreen extends StatelessWidget {
                                       color: CustomColors.oxFF000000,
                                       fontWeight: FontWeight.w800,
                                       fontSize: 20.sp
-=======
-                                const Text(
-                                  "Back to School. Get Smarter With New Quizzes",
-                                  style: TextStyle(
-                                    color: CustomColors.oxFF000000,
-                                    fontWeight: FontWeight.w800,
-                                    fontSize: 15,
->>>>>>> ebffdb75b0d0e23e851cb2e4b1e8f408c2ebde12
+
                                   ),
                                   overflow: TextOverflow.ellipsis,
                                 ),
