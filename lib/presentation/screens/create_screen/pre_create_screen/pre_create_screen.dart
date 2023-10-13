@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quality_quest/library.dart';
 
 class PreCreateScreen extends StatefulWidget {
@@ -34,9 +35,9 @@ class _PreCreateScreenState extends State<PreCreateScreen> {
             const SizedBox(height: 15),
             const CustomImagePicker(),
             const SizedBox(height: 30),
-            const TextField(
+            TextField(
               decoration: InputDecoration(
-                border: OutlineInputBorder(
+                border: const OutlineInputBorder(
                   borderRadius: BorderRadius.all(
                     Radius.circular(20),
                   ),
@@ -45,7 +46,7 @@ class _PreCreateScreenState extends State<PreCreateScreen> {
                     color: CustomColors.oxFF6949FF,
                   ),
                 ),
-                enabledBorder: OutlineInputBorder(
+                enabledBorder: const OutlineInputBorder(
                   borderRadius: BorderRadius.all(
                     Radius.circular(20),
                   ),
@@ -54,7 +55,7 @@ class _PreCreateScreenState extends State<PreCreateScreen> {
                     color: CustomColors.oxFF6949FF,
                   ),
                 ),
-                focusedBorder: OutlineInputBorder(
+                focusedBorder: const OutlineInputBorder(
                   borderRadius: BorderRadius.all(Radius.circular(20)),
                   borderSide: BorderSide(
                     width: 2,
@@ -63,28 +64,35 @@ class _PreCreateScreenState extends State<PreCreateScreen> {
                 ),
                 hintText: Strings.quizNameTXT,
                 hintStyle: TextStyle(
-                  fontSize: 18,
+                  fontSize: 18.sp,
                   color: CustomColors.ox8A000000,
                   fontWeight: FontWeight.w700,
                 ),
               ),
             ),
             const SizedBox(height: 40),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  Strings.wantToMakePublicTXT,
-                  style: Style.createWantToMakePublicST,
-                ),
-                CupertinoSwitch(
-                  activeColor: CustomColors.oxFF6949FF,
-                  value: _toggleSwitch,
-                  onChanged: (value) {
-                    setState(() => _toggleSwitch = value);
-                  },
-                )
-              ],
+            Padding(
+              padding: EdgeInsets.only(right: 20.sp),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    Strings.wantToMakePublicTXT,
+                    style: Style.createWantToMakePublicST,
+                  ),
+                  SizedBox(
+                    height: 15.sp,
+                    width: 15.sp,
+                    child: CupertinoSwitch(
+                      activeColor: CustomColors.oxFF6949FF,
+                      value: _toggleSwitch,
+                      onChanged: (value) {
+                        setState(() => _toggleSwitch = value);
+                      },
+                    ),
+                  ),
+                ],
+              ),
             ),
           ],
         ),
@@ -94,17 +102,18 @@ class _PreCreateScreenState extends State<PreCreateScreen> {
           backgroundColor: CustomColors.oxFF7C4DFF,
           elevation: 6,
           shadowColor: CustomColors.oxFF673AB7,
-          fixedSize: const Size(150, 45),
+          fixedSize: Size(150.sp, 45.sp),
         ),
         onPressed: () {
           Navigator.of(context).push(
             MaterialPageRoute(builder: (_) => const CreateScreen()),
           );
         },
-        child: const Text(
+        child: Text(
           Strings.nextTXT,
           style: TextStyle(
             color: CustomColors.oxFFFFFFFF,
+            fontSize: 15.sp,
           ),
         ),
       ),

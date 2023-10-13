@@ -1,3 +1,4 @@
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quality_quest/library.dart';
 
 class QuizGridView extends StatelessWidget {
@@ -12,11 +13,11 @@ class QuizGridView extends StatelessWidget {
         padding: const EdgeInsets.only(top: 20, left: 8, right: 8),
         scrollDirection: Axis.vertical,
         itemCount: 8,
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
-          crossAxisSpacing: 15,
-          mainAxisSpacing: 20,
-          mainAxisExtent: 258,
+          crossAxisSpacing: 15.sp,
+          mainAxisSpacing: 20.sp,
+          mainAxisExtent: 258.sp,
         ),
         itemBuilder: (context, index) {
           return GestureDetector(
@@ -38,7 +39,7 @@ class QuizGridView extends StatelessWidget {
               ),
               child: Container(
                 clipBehavior: Clip.antiAlias,
-                height: 250,
+                height: 250.sp,
                 decoration: const BoxDecoration(
                   color: CustomColors.oxFFFFFFFF,
                   borderRadius: BorderRadius.all(
@@ -62,7 +63,11 @@ class QuizGridView extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(horizontal: 8.0),
                       child: Text(
                         'Brain Storming Puzzle Tests',
-                        style: Theme.of(context).textTheme.titleMedium,
+                        style: TextStyle(
+                          fontSize: 15.sp,
+                          color: Colors.black,
+                          fontWeight: FontWeight.w500,
+                        ),
                         overflow: TextOverflow.ellipsis,
                       ),
                     ),

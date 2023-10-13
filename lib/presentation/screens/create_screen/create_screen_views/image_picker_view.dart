@@ -1,5 +1,5 @@
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quality_quest/library.dart';
-
 
 class CustomImagePicker extends StatelessWidget {
   const CustomImagePicker({
@@ -11,7 +11,7 @@ class CustomImagePicker extends StatelessWidget {
     return GestureDetector(
       onTap: () {},
       child: Container(
-        height: 250,
+        height: 250.sp,
         width: double.infinity,
         decoration: BoxDecoration(
           border: Border.all(
@@ -32,11 +32,9 @@ class CustomImagePicker extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 5),
-             const Text(
+             Text(
               Strings.addCoverImageTXT,
-
               style: Style.createAddCoverImageST,
-
             ),
             const SizedBox(height: 20),
           ],

@@ -1,6 +1,5 @@
 import 'package:quality_quest/library.dart';
 
-
 class CreateScreen extends StatefulWidget {
   const CreateScreen({super.key});
 
@@ -11,15 +10,16 @@ class CreateScreen extends StatefulWidget {
 class _CreateScreenState extends State<CreateScreen> {
   @override
   Widget build(BuildContext context) {
+    final h = MediaQuery.sizeOf(context).height;
+    final w = MediaQuery.sizeOf(context).width;
+
     return Scaffold(
       backgroundColor: CustomColors.oxFFFFFFFF,
       appBar: AppBar(
         forceMaterialTransparency: true,
         title: const Text(
           Strings.createQuizTXT,
-
           style: Style.createQuizST,
-
         ),
         leading: IconButton(
           onPressed: () {
@@ -101,12 +101,9 @@ class _CreateScreenState extends State<CreateScreen> {
                 children: [
                   /// #First Answer Button
                   AnswerAddButton(
-
                     shadowColor: CustomColors.oxFFF48400,
                     buttonColor: CustomColors.oxFFFF981F,
-
                     text: Strings.answerTXT,
-
                     onTap: () {
                       showDialog(
                         context: context,

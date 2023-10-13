@@ -15,6 +15,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     return Scaffold(
       backgroundColor: CustomColors.oxFFFFFFFF,
       appBar: AppBar(
+<<<<<<< HEAD
         leading: Container(
           height: 40.sp,
           width: 40.sp,
@@ -26,6 +27,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
           ),
         ),
         title:  Text(
+=======
+        title: Text(
+>>>>>>> ebffdb75b0d0e23e851cb2e4b1e8f408c2ebde12
           Strings.qualityQuestTXT,
           style: Style.qualityQuestST,
         ),
