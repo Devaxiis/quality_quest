@@ -9,7 +9,7 @@ class LibraryAppBarViews extends StatelessWidget {
     return AppBar(
       centerTitle: false,
       forceMaterialTransparency: true,
-      title:  const Text(
+      title: Text(
         Strings.qualityQuestTXT,
         style: Style.qualityQuestST,
       ),

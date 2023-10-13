@@ -1,3 +1,4 @@
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quality_quest/library.dart';
 import 'package:quality_quest/presentation/screens/library_screen/library_views/library_app_bar_views.dart';
 
@@ -23,7 +24,7 @@ class LibraryScreen extends StatelessWidget {
         scrollDirection: Axis.vertical,
         itemBuilder: (context, index) {
           return Container(
-            height: 150,
+            height: 150.sp,
             width: MediaQuery.sizeOf(context).width / 1.5,
             margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
             clipBehavior: Clip.antiAlias,

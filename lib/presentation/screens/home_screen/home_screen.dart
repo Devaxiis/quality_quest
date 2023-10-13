@@ -1,3 +1,4 @@
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quality_quest/library.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -26,25 +27,25 @@ class _HomeScreenState extends State<HomeScreen> {
       backgroundColor: CustomColors.oxFFFFFFFF,
 
       appBar: AppBar(
-        title: const Text(
+        title: Text(
           Strings.qualityQuestTXT,
           style: Style.qualityQuestST,
         ),
         actions: [
           IconButton(
             onPressed: navigateToSearchScreen,
-            icon: const Image(
-              image: AssetImage('assets/icons/ic_search.png'),
-              height: 20,
-              width: 20,
+            icon: Image(
+              image: const AssetImage('assets/icons/ic_search.png'),
+              height: 25.sp,
+              width: 25.sp,
             ),
           ),
           IconButton(
             onPressed: () {},
-            icon: const Image(
-              image: AssetImage('assets/icons/ic_bell.png'),
-              height: 20,
-              width: 20,
+            icon: Image(
+              image: const AssetImage('assets/icons/ic_bell.png'),
+              height: 25.sp,
+              width: 25.sp,
             ),
           ),
           const SizedBox(width: 10),

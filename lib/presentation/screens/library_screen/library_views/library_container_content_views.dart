@@ -1,3 +1,4 @@
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quality_quest/library.dart';
 
 class LibraryContainerContentViews extends StatelessWidget {
@@ -30,38 +31,54 @@ class LibraryContainerContentViews extends StatelessWidget {
                 const Spacer(),
                 Text(
                   "Have Fun Together & Smart Brain",
-                  style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                  style: TextStyle(
+                    fontSize: 18.sp,
                     color: CustomColors.oxFF000000,
                     fontWeight: FontWeight.w800,
                     overflow: TextOverflow.ellipsis,
                   ),
                 ),
                 const Spacer(),
-                const Row(
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("4 months ago"),
-                    SizedBox(width: 15),
-                    CircleAvatar(
+                    Text(
+                      "4 months ago",
+                      style: TextStyle(
+                        fontSize: 15.sp,
+                      ),
+                    ),
+                    // SizedBox(width: 15.sp),
+                    const CircleAvatar(
                       backgroundColor: CustomColors.oxFF424242,
                       maxRadius: 3.3,
                     ),
-                    SizedBox(width: 15),
-                    Text("95.7K plays"),
+                    // SizedBox(width: 15.sp),
+                    Text(
+                      "95.7K plays",
+                      style: TextStyle(
+                        fontSize: 15.sp,
+                      ),
+                    ),
                   ],
                 ),
                 const Spacer(),
-                const Row(
+                Row(
                   children: [
                     CircleAvatar(
-                      child: Image(
-                        image: AssetImage(
-                          "assets/images/img_profile_circle.png",
-                        ),
+                      backgroundImage: const AssetImage(
+                        "assets/images/img_profile_circle.png",
+                      ),
+                      radius: 18.sp,
+                    ),
+                    const Spacer(flex: 10),
+                    Text(
+                      'Elmer Wick',
+                      style: TextStyle(
+                        fontSize: 15.sp,
                       ),
                     ),
-                    Spacer(flex: 10),
-                    Text('Elmer Wick'),
-                    Spacer(flex: 50),
+                    const Spacer(flex: 50),
                   ],
                 ),
                 const Spacer(),

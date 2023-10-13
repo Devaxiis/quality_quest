@@ -13,7 +13,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     return Scaffold(
       backgroundColor: CustomColors.oxFFFFFFFF,
       appBar: AppBar(
-        title: const Text(
+        title: Text(
           Strings.qualityQuestTXT,
           style: Style.qualityQuestST,
         ),
