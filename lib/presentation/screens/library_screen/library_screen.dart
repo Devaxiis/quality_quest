@@ -1,4 +1,5 @@
 import 'package:quality_quest/library.dart';
+import 'package:quality_quest/presentation/screens/library_screen/library_views/library_app_bar_views.dart';
 
 class LibraryScreen extends StatelessWidget {
   const LibraryScreen({super.key});
@@ -6,11 +7,13 @@ class LibraryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
+      appBar: const PreferredSize(
+        preferredSize: Size(double.infinity, 50),
+        child: LibraryAppBarViews(),
+      ),
 
       // #background color
       backgroundColor: CustomColors.oxFFFFFFFF,
-
 
       /// #Body
       body: ListView.builder(

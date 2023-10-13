@@ -1,13 +1,11 @@
 import 'package:quality_quest/library.dart';
 
-
 class DetailDiscoverScreen extends StatelessWidget {
   const DetailDiscoverScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       // #Background Color
       backgroundColor: CustomColors.oxFFFFFFFF,
       resizeToAvoidBottomInset: true,
@@ -17,11 +15,9 @@ class DetailDiscoverScreen extends StatelessWidget {
         automaticallyImplyLeading: false,
         centerTitle: false,
         forceMaterialTransparency: true,
-        title:  Text(
+        title: Text(
           Strings.qualityQuestTXT,
-
           style: Style.homeDiscoverQualityQuestST,
-
         ),
       ),
 
@@ -30,11 +26,15 @@ class DetailDiscoverScreen extends StatelessWidget {
         children: [
           Expanded(
             child: ListView.builder(
-              itemCount: 30,
-                itemBuilder:(context,index){
+                itemCount: 30,
+                itemBuilder: (context, index) {
                   return GestureDetector(
-                    onTap: (){
-                      Navigator.of(context).push(MaterialPageRoute(builder: (_)=> const ExamStartSplashScreen()));
+                    onTap: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (_) => const ExamStartSplashScreen(),
+                        ),
+                      );
                     },
                     child: Container(
                       height: 150,
@@ -78,15 +78,14 @@ class DetailDiscoverScreen extends StatelessWidget {
                               mainAxisSize: MainAxisSize.min,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(
-                                  "Back to School. Get Smarter...",
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .titleMedium!
-                                      .copyWith(
+                                const Text(
+                                  "Back to School. Get Smarter With New Quizzes",
+                                  style: TextStyle(
                                     color: CustomColors.oxFF000000,
                                     fontWeight: FontWeight.w800,
+                                    fontSize: 15,
                                   ),
+                                  overflow: TextOverflow.ellipsis,
                                 ),
                                 const SizedBox(height: 26),
                                 Row(
@@ -137,8 +136,8 @@ class DetailDiscoverScreen extends StatelessWidget {
               ],
             ),
           ),
-    ]
-    )
+        ],
+      ),
     );
   }
 }

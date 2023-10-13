@@ -1,6 +1,5 @@
 import 'package:quality_quest/library.dart';
 
-
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -10,7 +9,6 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int currentIndex = 0;
-
 
   void navigateToSearchScreen() {
     Navigator.push(
@@ -28,11 +26,9 @@ class _HomeScreenState extends State<HomeScreen> {
       backgroundColor: CustomColors.oxFFFFFFFF,
 
       appBar: AppBar(
-        title:  Text(
+        title: const Text(
           Strings.qualityQuestTXT,
-
-          style: Style.homeQualityQuestST,
-
+          style: Style.qualityQuestST,
         ),
         actions: [
           IconButton(

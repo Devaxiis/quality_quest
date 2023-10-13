@@ -13,14 +13,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
     return Scaffold(
       backgroundColor: CustomColors.oxFFFFFFFF,
       appBar: AppBar(
-        leading: Container(
-          height: 40,
-          width: 40,
-          margin: const EdgeInsets.only(top: 10, left: 10, bottom: 10),
-          child: const Image(
-            image: AssetImage("assets/images/purple_group.png"),
-          ),
-        ),
         title: const Text(
           Strings.qualityQuestTXT,
           style: Style.qualityQuestST,
