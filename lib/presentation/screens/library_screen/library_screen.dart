@@ -1,5 +1,4 @@
 import 'package:quality_quest/library.dart';
-import 'package:quality_quest/services/constants/colors.dart';
 
 class LibraryScreen extends StatelessWidget {
   const LibraryScreen({super.key});
@@ -10,7 +9,7 @@ class LibraryScreen extends StatelessWidget {
 
 
       // #background color
-      backgroundColor: Colors.white,
+      backgroundColor: CustomColors.oxFFFFFFFF,
 
 
       /// #Body

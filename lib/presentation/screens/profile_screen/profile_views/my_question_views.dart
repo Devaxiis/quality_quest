@@ -17,7 +17,7 @@ class MyQuestionViews extends StatelessWidget {
           Radius.circular(20),
         ),
         border: Border.all(
-          color: Colors.blueGrey.shade500,
+          color: CustomColors.oxFF607D8B,
           width: 2,
         ),
       ),
@@ -44,15 +44,14 @@ class MyQuestionViews extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  "Back to School. Get Smarter...",
-                  style: Theme.of(context)
-                      .textTheme
-                      .titleMedium!
-                      .copyWith(
-                    color: Colors.black,
+                const Text(
+                  "Back to School. Get Smarter With New Quizzes",
+                  style: TextStyle(
+                    color: CustomColors.oxFF000000,
                     fontWeight: FontWeight.w800,
+                    fontSize: 15,
                   ),
+                  overflow: TextOverflow.ellipsis,
                 ),
                 const SizedBox(height: 26),
                 Row(

@@ -1,5 +1,4 @@
 import 'package:quality_quest/library.dart';
-import 'package:quality_quest/services/constants/strings.dart';
 
 class CustomButtonViews extends StatelessWidget {
   final String title;
@@ -27,12 +26,13 @@ class CustomButtonViews extends StatelessWidget {
         borderRadius: const BorderRadius.all(Radius.circular(50)),
         border: Border.all(
           width: 2,
-          color: const Color(0xff6949ff),
+          color: CustomColors.oxFF6949FF,
         ),
       ),
       child: Text(
         title,
-        style:TextStyle(color: color, fontWeight: FontWeight.bold, fontSize: 15),
+        style:
+            TextStyle(color: color, fontWeight: FontWeight.bold, fontSize: 15),
       ),
     );
   }
@@ -56,40 +56,42 @@ class _ThreeButtonsState extends State<ThreeButtons> {
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
         GestureDetector(
-            onTap: () {
-              currentIndex = 0;
-              setState(() {});
-            },
-            child: CustomButtonViews(
-              title: Strings.quizzesTXT,
-              index: currentIndex,
-              color: currentIndex == 0 ? Colors.white : const Color(0xff6949ff),
-              colorBack:
-                  currentIndex != 0 ? Colors.white : const Color(0xff6949ff),
-            )),
-        GestureDetector(
-            onTap: () {
-              currentIndex = 1;
-              setState(() {});
-            },
-            child: CustomButtonViews(
-              title: Strings.groupsTXT,
-              index: currentIndex,
-              color: currentIndex == 1 ? Colors.white : const Color(0xff6949ff),
-              colorBack:
-                  currentIndex != 1 ? Colors.white : const Color(0xff6949ff),
-            )),
+          onTap: () {
+            currentIndex = 0;
+            setState(() {});
+          },
+          child: CustomButtonViews(
+            title: Strings.quizzesTXT,
+            index: currentIndex,
+            color: currentIndex == 0 ? CustomColors.oxFFFFFFFF : CustomColors.oxFF6949FF,
+            colorBack:
+                currentIndex != 0 ? CustomColors.oxFFFFFFFF  : CustomColors.oxFF6949FF,
+          ),
+        ),
         GestureDetector(
           onTap: () {
             currentIndex = 2;
             setState(() {});
           },
           child: CustomButtonViews(
-            title: Strings.subscribersTXT,
+            title: Strings.groupsTXT,
             index: currentIndex,
-            color: currentIndex == 2 ? Colors.white : const Color(0xff6949ff),
+            color: currentIndex == 2 ? CustomColors.oxFFFFFFFF : CustomColors.oxFF6949FF,
             colorBack:
-                currentIndex != 2 ? Colors.white : const Color(0xff6949ff),
+                currentIndex != 2 ? CustomColors.oxFFFFFFFF : CustomColors.oxFF6949FF,
+          ),
+        ),
+        GestureDetector(
+          onTap: () {
+            currentIndex = 1;
+            setState(() {});
+          },
+          child: CustomButtonViews(
+            title: Strings.statsTXT,
+            index: currentIndex,
+            color: currentIndex == 1 ? CustomColors.oxFFFFFFFF : CustomColors.oxFF6949FF,
+            colorBack:
+                currentIndex != 1 ? CustomColors.oxFFFFFFFF : CustomColors.oxFF6949FF,
           ),
         ),
       ],

@@ -1,6 +1,5 @@
 import 'package:quality_quest/library.dart';
 
-
 class ExamStartSplashScreen extends StatefulWidget {
   const ExamStartSplashScreen({super.key});
 
@@ -72,16 +71,17 @@ class ExamSplashCustomButton extends StatelessWidget {
         width: MediaQuery.sizeOf(context).width / 1.3,
         margin: const EdgeInsets.symmetric(vertical: 20),
         decoration: BoxDecoration(
-            color: colorShadow,
-            borderRadius: const BorderRadius.all(Radius.circular(35)),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withOpacity(.4),
-                offset: const Offset(0, 10),
-                blurRadius: 10,
-                spreadRadius: 1,
-              )
-            ]),
+          color: colorShadow,
+          borderRadius: const BorderRadius.all(Radius.circular(35)),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(.4),
+              offset: const Offset(0, 10),
+              blurRadius: 10,
+              spreadRadius: 1,
+            )
+          ],
+        ),
         child: Container(
           height: 100,
           alignment: Alignment.center,

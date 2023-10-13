@@ -41,8 +41,8 @@ sealed class Strings {
   static const followTXT = "Following";
   static const editProfileTXT = "Edit Profile";
   static const quizzesTXT = "Quizzes";
+  static const statsTXT = "Statistics";
   static const groupsTXT = "Groups";
-  static const subscribersTXT = "Subscribers";
   static const aboutAppTXT = "About QualityQuest";
   static const appVersionTXT = "QualityQuest v1.0.0";
   static const descriptionQualityQuestTXT = "QualityQuest is a captivating quiz app that promises an immersive experience for knowledge enthusiasts. Challenge yourself with a diverse range of thought-provoking questions that cover various topics, keeping the experience engaging and enriching. The app's sleek design ensures user-friendly navigation, while its name, QualityQuest, reflects its commitment to delivering high-quality quiz content. Whether you're a trivia buff or just looking for a fun way to expand your knowledge, QualityQuest has you covered. With a name that speaks to its commitment to excellence, this quiz app aims to elevate your quiz experience. So, buckle up for an exciting journey of discovery and learning with QualityQuest.";

@@ -1,6 +1,5 @@
 import 'package:quality_quest/library.dart';
 
-
 class ExamScreen extends StatefulWidget {
   const ExamScreen({super.key});
 
@@ -14,11 +13,9 @@ class _ExamScreenState extends State<ExamScreen> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title:  Text(
+        title: Text(
           Strings.qualityQuestTXT,
-
           style: Style.homeExamQualityQuestST,
-
         ),
       ),
       body: SafeArea(
@@ -31,12 +28,11 @@ class _ExamScreenState extends State<ExamScreen> {
                   padding: EdgeInsets.all(20.0),
                   child: Text(
                     "O'zbekistonning poytaxti?",
-
-                    style: Style.homeExamQuestionST),
-                ))),
-
-
-
+                    style: Style.homeExamQuestionST,
+                  ),
+                ),
+              ),
+            ),
             const Divider(
               color: CustomColors.oxFF9E9E9E,
               indent: 20,
@@ -51,13 +47,13 @@ class _ExamScreenState extends State<ExamScreen> {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       AnswerAddButton(
-                        shadowColor:  CustomColors.oxFF6200EA,
+                        shadowColor: CustomColors.oxFF6200EA,
                         buttonColor: CustomColors.oxFF6949FF,
                         text: "Andijon",
                         onTap: () {},
                       ),
                       AnswerAddButton(
-                        shadowColor:  CustomColors.oxFF6200EA,
+                        shadowColor: CustomColors.oxFF6200EA,
                         buttonColor: CustomColors.oxFF6949FF,
                         text: "Namangan",
                         onTap: () {},
@@ -68,7 +64,7 @@ class _ExamScreenState extends State<ExamScreen> {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       AnswerAddButton(
-                        shadowColor:  CustomColors.oxFF6200EA,
+                        shadowColor: CustomColors.oxFF6200EA,
                         buttonColor: CustomColors.oxFF6949FF,
                         text: "Toshkent",
                         onTap: () {},

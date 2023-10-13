@@ -1,5 +1,3 @@
-import 'package:quality_quest/services/constants/colors.dart';
-
 import '../../../../library.dart';
 
 class CategoryButtonView extends StatelessWidget {
