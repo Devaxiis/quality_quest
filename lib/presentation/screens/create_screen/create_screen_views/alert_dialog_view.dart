@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quality_quest/library.dart';
-
 
 class CustomAnswerDialog extends StatelessWidget {
   final Color shadowColor;
@@ -21,7 +21,6 @@ class CustomAnswerDialog extends StatelessWidget {
         child: Text(
           Strings.addAnswerTXT,
           style: Style.createAddAnswerST,
-
         ),
       ),
       content: Column(
@@ -30,10 +29,9 @@ class CustomAnswerDialog extends StatelessWidget {
         children: [
           const Divider(color: CustomColors.oxFF9E9E9E),
           const SizedBox(height: 10),
-
           Container(
-            height: 120,
-            width: 250,
+            height: 120.sp,
+            width: 250.sp,
             alignment: Alignment.topCenter,
             decoration: BoxDecoration(
               color: shadowColor,
@@ -42,7 +40,7 @@ class CustomAnswerDialog extends StatelessWidget {
               ),
             ),
             child: Container(
-              height: 113,
+              height: 113.sp,
               alignment: Alignment.center,
               width: MediaQuery.of(context).size.width / 1.15,
               decoration: BoxDecoration(
@@ -55,14 +53,10 @@ class CustomAnswerDialog extends StatelessWidget {
               child: const TextField(
                 textAlign: TextAlign.justify,
                 maxLines: null,
-
                 style: Style.createTextFieldST,
                 decoration: InputDecoration(
                   hintText: Strings.addYourAnswerTXT,
                   hintStyle: Style.createAddYourAnswerST,
-
-
-
                   border: InputBorder.none,
                   contentPadding: EdgeInsets.symmetric(horizontal: 20),
                 ),
@@ -98,16 +92,13 @@ class _CheckBoxState extends State<CheckBox> {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            // const Spacer(),
-            const Text(
+            Text(
               Strings.correctAnswerTXT,
-
               style: Style.createCorrectAnswerST,
-
             ),
-            const SizedBox(width: 60),
+            SizedBox(width: 45.sp),
             CupertinoCheckbox(
               activeColor: CustomColors.oxFF295ECC,
               shape: const CircleBorder(),
@@ -119,7 +110,6 @@ class _CheckBoxState extends State<CheckBox> {
                 });
               },
             ),
-            // const Spacer(),
           ],
         ),
         const SizedBox(height: 20),
@@ -128,7 +118,7 @@ class _CheckBoxState extends State<CheckBox> {
             backgroundColor: CustomColors.oxFF7C4DFF,
             elevation: 6,
             shadowColor: CustomColors.oxFF673AB7,
-            fixedSize: const Size(250, 40),
+            fixedSize: Size(250.sp, 40.sp),
           ),
           onPressed: () {
             Navigator.of(context).pop();
