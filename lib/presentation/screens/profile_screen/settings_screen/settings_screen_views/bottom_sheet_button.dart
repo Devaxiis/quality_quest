@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class BottomSheetButton extends StatelessWidget {
   final Color shadowColor;
@@ -21,7 +22,7 @@ class BottomSheetButton extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        height: 50,
+        height: 50.sp,
         width: MediaQuery.sizeOf(context).width / 2.5,
         alignment: Alignment.topCenter,
         decoration: BoxDecoration(
@@ -31,7 +32,7 @@ class BottomSheetButton extends StatelessWidget {
           ),
         ),
         child: Container(
-          height: 45,
+          height: 45.sp,
           alignment: Alignment.center,
           width: MediaQuery.sizeOf(context).width / 2.5,
           decoration: BoxDecoration(

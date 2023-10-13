@@ -1,3 +1,4 @@
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quality_quest/library.dart';
 
 
@@ -37,7 +38,7 @@ class DetailDiscoverScreen extends StatelessWidget {
                       Navigator.of(context).push(MaterialPageRoute(builder: (_)=> const ExamStartSplashScreen()));
                     },
                     child: Container(
-                      height: 150,
+                      height: 150.sp,
                       width: MediaQuery.sizeOf(context).width / 1.5,
                       margin: const EdgeInsets.symmetric(
                         vertical: 10,
@@ -78,21 +79,21 @@ class DetailDiscoverScreen extends StatelessWidget {
                               mainAxisSize: MainAxisSize.min,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
+                                const Spacer(),
                                 Text(
-                                  "Back to School. Get Smarter...",
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .titleMedium!
-                                      .copyWith(
-                                    color: CustomColors.oxFF000000,
-                                    fontWeight: FontWeight.w800,
+                                  "Back to School. Get Smarter",
+                                  style: TextStyle(
+                                      color: CustomColors.oxFF000000,
+                                      fontWeight: FontWeight.w800,
+                                      fontSize: 20.sp
                                   ),
+                                  overflow: TextOverflow.ellipsis,
                                 ),
-                                const SizedBox(height: 26),
+                                const Spacer(),
                                 Row(
                                   children: [
-                                    const Text(
-                                      "2 years ago",
+                                     Text(
+                                      "2 years ago",style: TextStyle(fontSize: 15.sp),
                                     ),
                                     const SizedBox(width: 15),
                                     CircleAvatar(
@@ -100,21 +101,24 @@ class DetailDiscoverScreen extends StatelessWidget {
                                       maxRadius: 3.3,
                                     ),
                                     const SizedBox(width: 15),
-                                    const Text("15.7K plays"),
+                                     Text("15.7K plays",style: TextStyle(fontSize: 15.sp),),
                                   ],
                                 ),
-                                const SizedBox(height: 20),
-                                const Row(
+                                const Spacer(),
+                                 Row(
                                   children: [
-                                    CircleAvatar(
-                                      backgroundImage: AssetImage(
+                                     CircleAvatar(
+
+                                      backgroundImage: const AssetImage(
                                         'assets/images/img_profile_circle.png',
                                       ),
+                                      radius: 20.sp,
                                     ),
-                                    SizedBox(width: 20),
-                                    Text('Edgar Torrey'),
+                                    const SizedBox(width: 20),
+                                    Text('Edgar Torrey',style: TextStyle(fontSize: 18.sp,fontWeight: FontWeight.bold),),
                                   ],
                                 ),
+                                const Spacer(),
                               ],
                             ),
                           ),
@@ -125,7 +129,7 @@ class DetailDiscoverScreen extends StatelessWidget {
                 }),
           ),
           Container(
-            height: 1,
+            height: 1.sp,
             decoration: const BoxDecoration(
               boxShadow: [
                 BoxShadow(

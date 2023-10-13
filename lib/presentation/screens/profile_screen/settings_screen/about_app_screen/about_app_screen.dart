@@ -27,9 +27,7 @@ class _AboutAppScreenState extends State<AboutAppScreen> {
         ),
         title: const Text(
           Strings.aboutAppTXT,
-
           style: Style.aboutAppST,
-
         ),
       ),
       body: SingleChildScrollView(

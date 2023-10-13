@@ -26,9 +26,7 @@ class _MusicEffectScreenState extends State<MusicEffectScreen> {
         ),
         title: const Text(
           Strings.musicEffectTXT,
-
           style: Style.musicEffectST,
-
         ),
       ),
       body: ListView(

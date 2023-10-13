@@ -1,3 +1,4 @@
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quality_quest/library.dart';
 
 class ExamScreen extends StatefulWidget {
@@ -33,10 +34,10 @@ class _ExamScreenState extends State<ExamScreen> {
                 ),
               ),
             ),
-            const Divider(
+             Divider(
               color: CustomColors.oxFF9E9E9E,
-              indent: 20,
-              endIndent: 20,
+              indent: 20.sp,
+              endIndent: 20.sp,
             ),
             Expanded(
               flex: 5,

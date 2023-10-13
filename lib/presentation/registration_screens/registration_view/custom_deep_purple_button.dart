@@ -1,3 +1,4 @@
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quality_quest/library.dart';
 
 class CustomDeepPurpleButton extends StatelessWidget {
@@ -25,7 +26,7 @@ class CustomDeepPurpleButton extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        height: height ?? 57,
+        height: height ?? 57.sp,
         width: width ?? MediaQuery.sizeOf(context).width / 1.15,
         alignment: Alignment.topCenter,
         decoration: BoxDecoration(
@@ -35,7 +36,7 @@ class CustomDeepPurpleButton extends StatelessWidget {
           ),
         ),
         child: Container(
-          height: height ?? 50,
+          height: height ?? 50.sp,
           alignment: Alignment.center,
           width: width ?? MediaQuery.sizeOf(context).width / 1.15,
           decoration: BoxDecoration(
@@ -48,7 +49,7 @@ class CustomDeepPurpleButton extends StatelessWidget {
             displayText,
             style: TextStyle(
               color: colorText ?? CustomColors.oxFFFFFFFF,
-              fontSize: 20,
+              fontSize: 20.sp,
               fontWeight: FontWeight.bold,
             ),
           ),

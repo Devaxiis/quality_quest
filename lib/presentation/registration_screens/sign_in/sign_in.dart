@@ -62,6 +62,7 @@ class _SignInScreenState extends State<SignInScreen> {
     if (Platform.isIOS) {
       model = (await deviceInfoPlugin.iosInfo).model;
     }
+
   }
 
   @override
@@ -82,7 +83,7 @@ class _SignInScreenState extends State<SignInScreen> {
               const Spacer(),
 
               /// #Header Text
-              const Text(
+               Text(
                 Strings.helloThereTXT,
                 style: Style.helloThereST,
               ),

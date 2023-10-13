@@ -1,3 +1,4 @@
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quality_quest/library.dart';
 
 
@@ -20,8 +21,8 @@ class AnswerAddButton extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        height: 120,
-        width: 190,
+        height: 120.sp,
+        width: 190.sp,
         alignment: Alignment.topCenter,
         decoration: BoxDecoration(
           color: shadowColor,
@@ -41,9 +42,7 @@ class AnswerAddButton extends StatelessWidget {
           ),
           child: Text(
             text,
-
             style: Style.createTextST,
-
           ),
         ),
       ),

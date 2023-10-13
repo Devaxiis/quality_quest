@@ -1,3 +1,4 @@
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quality_quest/library.dart';
 
 class MyQuestionViews extends StatelessWidget {
@@ -6,10 +7,10 @@ class MyQuestionViews extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 180,
-      margin: const EdgeInsets.symmetric(
-        vertical: 10,
-        horizontal: 12,
+      height: 180.sp,
+      margin: EdgeInsets.symmetric(
+        vertical: 10.sp,
+        horizontal: 12.sp,
       ),
       clipBehavior: Clip.antiAlias,
       decoration: BoxDecoration(
@@ -24,8 +25,8 @@ class MyQuestionViews extends StatelessWidget {
       child: Row(
         children: [
           Container(
-            height: double.infinity,
-            width: 150,
+            height: double.infinity.sp,
+            width: 150.sp,
             decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage('assets/images/idea.jpg'),
@@ -44,42 +45,49 @@ class MyQuestionViews extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
+                const Spacer(),
+                 Text(
                   "Back to School. Get Smarter With New Quizzes",
                   style: TextStyle(
                     color: CustomColors.oxFF000000,
                     fontWeight: FontWeight.w800,
-                    fontSize: 15,
+                    fontSize: 18.sp,
                   ),
                   overflow: TextOverflow.ellipsis,
                 ),
-                const SizedBox(height: 26),
+                const Spacer(),
                 Row(
                   children: [
-                    const Text(
+                     Text(
                       "2 years ago",
+                      style: TextStyle(fontSize: 15.sp),
                     ),
                     const SizedBox(width: 15),
                     CircleAvatar(
                       backgroundColor: Colors.grey.shade800,
                       maxRadius: 3.3,
                     ),
-                    const SizedBox(width: 15),
-                    const Text("15.7K plays"),
+                     const SizedBox(width: 15),
+                     Text("15.7K plays",style: TextStyle(fontSize: 15.sp)),
                   ],
                 ),
-                const SizedBox(height: 20),
-                const Row(
+                const Spacer(),
+                 Row(
                   children: [
-                    CircleAvatar(
-                      backgroundImage: AssetImage(
-                        'assets/images/img_profile_circle.png',
+                    SizedBox(
+                      height: 40.sp,
+                      width: 40.sp,
+                      child: const CircleAvatar(
+                        backgroundImage: AssetImage(
+                          'assets/images/img_profile_circle.png',
+                        ),
                       ),
                     ),
-                    SizedBox(width: 20),
-                    Text('Edgar Torrey'),
+                    SizedBox(width: 20.sp),
+                    Text('Edgar Torrey',style: TextStyle(fontSize: 15.sp),),
                   ],
                 ),
+                 const  Spacer(),
               ],
             ),
           ),

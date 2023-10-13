@@ -1,3 +1,4 @@
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quality_quest/library.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -10,18 +11,21 @@ class ProfileScreen extends StatefulWidget {
 class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       backgroundColor: CustomColors.oxFFFFFFFF,
       appBar: AppBar(
         leading: Container(
-          height: 40,
-          width: 40,
-          margin: const EdgeInsets.only(top: 10, left: 10, bottom: 10),
-          child: const Image(
-            image: AssetImage("assets/images/purple_group.png"),
+          height: 40.sp,
+          width: 40.sp,
+          margin:  EdgeInsets.only(top: 10.sp, left: 10.sp, bottom: 10.sp),
+          child: Image(
+            image: const AssetImage("assets/images/purple_group.png"),
+            height: 45.sp,
+            width: 45.sp,
           ),
         ),
-        title: const Text(
+        title:  Text(
           Strings.qualityQuestTXT,
           style: Style.qualityQuestST,
         ),
@@ -36,7 +40,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               Icons.settings,
             ),
           ),
-          const SizedBox(width: 20),
+           SizedBox(width: 20.sp),
         ],
         forceMaterialTransparency: true,
       ),
@@ -48,17 +52,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                // const SizedBox(height: 30),
+
                 const Spacer(
                   flex: 2,
                 ),
                 Row(
                   children: [
                     const Spacer(),
-                    const SizedBox(
-                      height: 60,
-                      width: 60,
-                      child: CircleAvatar(
+                     SizedBox(
+                      height: 60.sp,
+                      width: 60.sp,
+                      child: const CircleAvatar(
                         radius: 60,
                         backgroundColor: CustomColors.oxFF6949FF,
                         backgroundImage: AssetImage(
@@ -67,7 +71,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                     ),
                     const Spacer(),
-                    const Column(
+                      Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
@@ -76,24 +80,20 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         ),
                         Text(
                           "andrewainley@gmail.com",
-                          style: TextStyle(
-                            color: CustomColors.oxFF000000,
-                            fontWeight: FontWeight.normal,
-                            fontSize: 13,
-                          ),
+                          style: Style.emailEditST,
                         ),
                       ],
                     ),
                     const Spacer(),
                     Container(
-                      height: 40,
+                      height: 40.sp,
                       alignment: Alignment.center,
-                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      padding:  EdgeInsets.symmetric(horizontal: 10.sp),
                       decoration: const BoxDecoration(
                         color: CustomColors.oxFF6949FF,
                         borderRadius: BorderRadius.all(Radius.circular(50)),
                       ),
-                      child: const Text(
+                      child: Text(
                         Strings.editProfileTXT,
                         style: Style.editProfileST,
                       ),
@@ -118,7 +118,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 return const MyQuestionViews();
               },
               separatorBuilder: (context, index) {
-                return const SizedBox(height: 10);
+                return  SizedBox(height: 10.sp);
               },
               itemCount: 20,
             ),

@@ -54,9 +54,7 @@ class _SettingScreenState extends State<SettingScreen> {
         backgroundColor: CustomColors.oxFFFFFFFF,
         title: const Text(
           Strings.settingsTXT,
-
           style:  Style.settingsST,
-
         ),
       ),
 

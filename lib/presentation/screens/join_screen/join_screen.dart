@@ -1,3 +1,4 @@
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quality_quest/library.dart';
 
 
@@ -12,16 +13,17 @@ class _SearchUserScreenState extends State<SearchUserScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       ///#Backgroun Color
       backgroundColor: CustomColors.oxFFFFFFFF,
 
       /// #AppBar
       appBar: AppBar(
-        toolbarHeight: 80,
+        toolbarHeight: 80.sp,
         title: Padding(
           padding: const EdgeInsets.only(top: 10),
           child: SizedBox(
-            height: 55,
+            height: 55.sp,
             width: MediaQuery.sizeOf(context).width / 1.1,
             child: const TextField(
               decoration: InputDecoration(
@@ -92,14 +94,14 @@ class _SearchUserScreenState extends State<SearchUserScreen> {
             ),
             subtitle: const Text("richard@gmail.com"),
             trailing: Container(
-              height: 30,
-              width: 80,
+              height: 30.sp,
+              width: 80.sp,
               alignment: Alignment.center,
-              decoration: const BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(50)),
+              decoration: BoxDecoration(
+                borderRadius: const BorderRadius.all(Radius.circular(50)),
                 border: Border.fromBorderSide(
                   BorderSide(
-                    width: 1.4,
+                    width: 1.4.sp,
                     color: CustomColors.oxFF6200EA,
                   ),
                 ),
@@ -112,6 +114,7 @@ class _SearchUserScreenState extends State<SearchUserScreen> {
           );
         },
       ),
+
     );
   }
 }
