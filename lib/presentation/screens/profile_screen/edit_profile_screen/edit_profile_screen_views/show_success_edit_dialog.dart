@@ -12,13 +12,8 @@ void showSuccessEditDialog(BuildContext context) async {
             mainAxisAlignment: MainAxisAlignment.center,
             mainAxisSize: MainAxisSize.min,
             children: [
-              Transform.scale(
-                scale: 1.2,
-                child: Lottie.asset(
-                  "assets/lotties/done_animation.json",
-                  height: 240,
-                  width: 230,
-                ),
+              Lottie.asset(
+                "assets/lotties/done_animation.json",
               ),
               const SizedBox(height: 10),
               Text(
@@ -32,7 +27,7 @@ void showSuccessEditDialog(BuildContext context) async {
       );
     },
   );
-  await Future.delayed(const Duration(seconds: 2)).then(
+  await Future.delayed(const Duration(seconds: 3)).then(
         (value) => Navigator.pop(context),
   );
 }
