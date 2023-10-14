@@ -65,5 +65,10 @@ sealed class Strings {
   static const yesLogOutTXT = "Yes, Logout";
   static const logOutTXT = "Log Out";
   static const settingsTXT = "Settings";
+  static const fullNameTXT = "Full Name";
+  static const phoneNumberTXT = "Phone Number";
+  static const countryTXT = "Country";
+  static const dateOfBirthTXT = "Date of Birth";
+  static const personalInfoTXT = "Personal Info";
 
 }
