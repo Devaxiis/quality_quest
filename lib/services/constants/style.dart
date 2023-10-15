@@ -33,7 +33,11 @@ sealed class Style {
     fontWeight: FontWeight.w500,
   );
 
-  // static final labelTextST =  Theme.of(context).textTheme.labelLarge;
+  static final personalInfoST = TextStyle(
+    fontSize: 21.sp,
+    fontWeight: FontWeight.w600,
+  );
+
   static const introFirstST = TextStyle(
     color: Color(0xff212121),
     fontSize: 25,

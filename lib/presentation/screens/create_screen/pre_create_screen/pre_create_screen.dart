@@ -85,7 +85,7 @@ class _PreCreateScreenState extends State<PreCreateScreen> {
                     width: 50.sp,
                     child: CupertinoCheckbox(
                       activeColor: CustomColors.oxFF295ECC,
-                      shape: RoundedRectangleBorder(
+                      shape: const RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(
                           Radius.circular(7),
                         ),

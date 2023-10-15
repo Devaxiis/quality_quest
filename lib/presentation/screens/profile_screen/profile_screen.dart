@@ -1,5 +1,6 @@
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quality_quest/library.dart';
+import 'package:quality_quest/presentation/screens/profile_screen/edit_profile_screen/edit_profile_screen.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -9,40 +10,48 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
+  void navigateToEditProfileScreen() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const EditProfileScreen(),
+      ),
+    );
+  }
+
+  void navigateToSettingsScreen() {
+    Navigator.of(context).push(
+      MaterialPageRoute(builder: (context) => const SettingScreen()),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       backgroundColor: CustomColors.oxFFFFFFFF,
       appBar: AppBar(
-
         leading: Container(
           height: 40.sp,
           width: 40.sp,
-          margin:  EdgeInsets.only(top: 10.sp, left: 10.sp, bottom: 10.sp),
+          margin: EdgeInsets.only(top: 10.sp, left: 10.sp, bottom: 10.sp),
           child: Image(
             image: const AssetImage("assets/images/purple_group.png"),
             height: 45.sp,
             width: 45.sp,
           ),
         ),
-        title:  Text(
-
+        title: Text(
           Strings.qualityQuestTXT,
           style: Style.qualityQuestST,
         ),
         actions: [
           IconButton(
-            onPressed: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(builder: (context) => const SettingScreen()),
-              );
-            },
+            onPressed: navigateToSettingsScreen,
             icon: const Icon(
               Icons.settings,
             ),
           ),
-           SizedBox(width: 20.sp),
+          SizedBox(width: 20.sp),
         ],
         forceMaterialTransparency: true,
       ),
@@ -54,14 +63,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-
                 const Spacer(
                   flex: 2,
                 ),
                 Row(
                   children: [
                     const Spacer(),
-                     SizedBox(
+                    SizedBox(
                       height: 60.sp,
                       width: 60.sp,
                       child: const CircleAvatar(
@@ -73,7 +81,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                     ),
                     const Spacer(),
-                      Column(
+                    Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
@@ -87,17 +95,20 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ],
                     ),
                     const Spacer(),
-                    Container(
-                      height: 40.sp,
-                      alignment: Alignment.center,
-                      padding:  EdgeInsets.symmetric(horizontal: 10.sp),
-                      decoration: const BoxDecoration(
-                        color: CustomColors.oxFF6949FF,
-                        borderRadius: BorderRadius.all(Radius.circular(50)),
-                      ),
-                      child: Text(
-                        Strings.editProfileTXT,
-                        style: Style.editProfileST,
+                    GestureDetector(
+                      onTap: navigateToEditProfileScreen,
+                      child: Container(
+                        height: 40.sp,
+                        alignment: Alignment.center,
+                        padding: EdgeInsets.symmetric(horizontal: 10.sp),
+                        decoration: const BoxDecoration(
+                          color: CustomColors.oxFF6949FF,
+                          borderRadius: BorderRadius.all(Radius.circular(50)),
+                        ),
+                        child: Text(
+                          Strings.editProfileTXT,
+                          style: Style.editProfileST,
+                        ),
                       ),
                     ),
                     const Spacer(),
@@ -120,7 +131,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 return const MyQuestionViews();
               },
               separatorBuilder: (context, index) {
-                return  SizedBox(height: 10.sp);
+                return SizedBox(height: 10.sp);
               },
               itemCount: 20,
             ),
