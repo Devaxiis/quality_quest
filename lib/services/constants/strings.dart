@@ -25,7 +25,7 @@ sealed class Strings {
   static const submitTXT = "Submit";
   static const addCoverImageTXT = "Add Cover Image";
   static const tapToAddQuestion = "Tap to add question";
-  static const quizNameTXT = "Quiz Name";
+  static const quizNameTXT = "Exam Name";
   static const wantToMakePublicTXT = "Do you want to make it public ?";
   static const nextTXT = "Next";
   static const qualityQuestTXT = "QualityQuest";

@@ -15,7 +15,11 @@ class _PreCreateScreenState extends State<PreCreateScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
+      // #backgroun color
       backgroundColor: CustomColors.oxFFFFFFFF,
+
+      // #App Bar
       appBar: AppBar(
         backgroundColor: CustomColors.oxFFFFFFFF,
         forceMaterialTransparency: true,
@@ -25,106 +29,134 @@ class _PreCreateScreenState extends State<PreCreateScreen> {
           style: Style.createQuizST,
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(
-          vertical: 8.0,
-          horizontal: 20.0,
-        ),
-        child: Column(
-          children: [
-            const SizedBox(height: 15),
-            const CustomImagePicker(),
-            const SizedBox(height: 30),
-            TextField(
-              decoration: InputDecoration(
-                border: const OutlineInputBorder(
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(20),
-                  ),
-                  borderSide: BorderSide(
-                    width: 2,
-                    color: CustomColors.oxFF6949FF,
-                  ),
-                ),
-                enabledBorder: const OutlineInputBorder(
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(20),
-                  ),
-                  borderSide: BorderSide(
-                    width: 2,
-                    color: CustomColors.oxFF6949FF,
-                  ),
-                ),
-                focusedBorder: const OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(20)),
-                  borderSide: BorderSide(
-                    width: 2,
-                    color: CustomColors.oxFF6949FF,
-                  ),
-                ),
-                hintText: Strings.quizNameTXT,
-                hintStyle: TextStyle(
-                  fontSize: 18.sp,
-                  color: CustomColors.ox8A000000,
-                  fontWeight: FontWeight.w700,
-                ),
-              ),
+
+      // #Body
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(
+              vertical: 10,
+              horizontal: 20.0,
             ),
-            const SizedBox(height: 40),
-            Padding(
-              padding: EdgeInsets.only(left: 9.sp),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    Strings.wantToMakePublicTXT,
-                    style: Style.createWantToMakePublicST,
-                  ),
-                  SizedBox(
-                    height: 50.sp,
-                    width: 50.sp,
-                    child: CupertinoCheckbox(
-                      activeColor: CustomColors.oxFF295ECC,
-                      shape: const RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(7),
-                        ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(height: 15),
+                // #Image picker
+                const CustomImagePicker(),
+                const SizedBox(height: 30),
+                // #Exam Name
+                TextField(
+                  decoration: InputDecoration(
+                    border: const OutlineInputBorder(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(20),
                       ),
-                      side: const BorderSide(color: CustomColors.oxFF295ECC),
-                      value: _toggleSwitch,
-                      onChanged: (ind) {
-                        setState(() {
-                          _toggleSwitch = !_toggleSwitch;
-                        });
-                      },
+                      borderSide: BorderSide(
+                        width: 2,
+                        color: CustomColors.oxFF6949FF,
+                      ),
+                    ),
+                    enabledBorder: const OutlineInputBorder(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(20),
+                      ),
+                      borderSide: BorderSide(
+                        width: 2,
+                        color: CustomColors.oxFF6949FF,
+                      ),
+                    ),
+                    focusedBorder: const OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(20)),
+                      borderSide: BorderSide(
+                        width: 2,
+                        color: CustomColors.oxFF6949FF,
+                      ),
+                    ),
+                    hintText: Strings.quizNameTXT,
+                    hintStyle: TextStyle(
+                      fontSize: 18.sp,
+                      color: CustomColors.ox8A000000,
+                      fontWeight: FontWeight.w700,
                     ),
                   ),
-                ],
-              ),
+                ),
+                const SizedBox(height: 20,),
+                // #scienceType
+                Container(
+                  height: 65.sp,
+                  width: MediaQuery.sizeOf(context).width / 2.5.sp,
+                  decoration: BoxDecoration(
+                  borderRadius: const BorderRadius.all(Radius.circular(18)),
+                    border: Border.all(width: 2,color: CustomColors.oxFF6949FF),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      const Text("Matem",style: TextStyle(color: CustomColors.oxFF6949FF,fontWeight: FontWeight.bold,fontSize: 15),),
+                      PopupMenuButton(
+                        iconSize: 30,
+                        color: CustomColors.oxFF6949FF,
+                        icon: const Icon(Icons.arrow_drop_down_rounded),
+                        itemBuilder: (BuildContext context) {
+                             return [
+                               const PopupMenuItem(child: Icon(Icons.add)),
+                               const PopupMenuItem(child: Icon(Icons.add)),
+                               const PopupMenuItem(child: Icon(Icons.add)),
+                             ];
+                          },),
+                    ],
+                  ),
+                ),
+                // # Public button
+                const SizedBox(height: 30),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 15),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(Strings.wantToMakePublicTXT,
+                        style: Style.createWantToMakePublicST,),
+                      SizedBox(
+                        height: 50.sp,
+                        width: 50.sp,
+                        child: CupertinoCheckbox(
+                          activeColor: CustomColors.oxFF295ECC,
+                          shape: const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(7),
+                            ),
+                          ),
+                          side: const BorderSide(color: CustomColors.oxFF295ECC),
+                          value: _toggleSwitch,
+                          onChanged: (ind) {
+                            setState(() {
+                              _toggleSwitch = !_toggleSwitch;
+                            });
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(height: MediaQuery.sizeOf(context).width / 3.5.sp),
+                // #Next Button
+                Center(
+                  child: CustomDeepPurpleButton(onTap: (){
+                   Navigator.of(context).push(
+                     MaterialPageRoute(builder: (_) => const CreateScreen()),
+                   );
+                  }, displayText: "Next"),
+                ),
+                // const SizedBox(height: 20,)
+              ],
             ),
-          ],
-        ),
-      ),
-      floatingActionButton: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          backgroundColor: CustomColors.oxFF7C4DFF,
-          elevation: 6,
-          shadowColor: CustomColors.oxFF673AB7,
-          fixedSize: Size(150.sp, 45.sp),
-        ),
-        onPressed: () {
-          Navigator.of(context).push(
-            MaterialPageRoute(builder: (_) => const CreateScreen()),
-          );
-        },
-        child: Text(
-          Strings.nextTXT,
-          style: TextStyle(
-            color: CustomColors.oxFFFFFFFF,
-            fontSize: 15.sp,
           ),
         ),
       ),
+
+      // #Floating action button
+      // floatingActionButton:
     );
   }
 }
