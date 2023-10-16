@@ -4,6 +4,7 @@ abstract class AuthEvent extends Equatable {
   const AuthEvent();
 }
 
+// #SignUp
 class AuthSignUpEvent extends AuthEvent{
   Map<String,Object?> data;
 
@@ -15,6 +16,7 @@ class AuthSignUpEvent extends AuthEvent{
   List<Object?> get props =>[data];
 }
 
+// #SignIn
 class AuthSignInEvent extends AuthEvent{
   Map<String,Object?> data;
 

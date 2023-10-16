@@ -1,5 +1,5 @@
 import 'package:quality_quest/library.dart';
-import 'package:quality_quest/services/constants/colors.dart';
+
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
