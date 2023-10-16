@@ -11,14 +11,30 @@ part 'auth_state.dart';
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   AuthBloc() : super(AuthInitial()) {
     on<AuthSignUpEvent>(_signUp);
+    on<AuthSignInEvent>(_signIn);
   }
 
+  // #SignUp Bloc
   void _signUp(AuthSignUpEvent event,Emitter emit)async{
     emit(AuthSignUpLoadingState());
     final result = await HttpService.methodSignUpPost(api: Api.apiSignUp, data: event.data);
     if(result){
     emit(AuthSignUpSuccessState());
+    }else{
+      emit(AuthSignUpFailureState());
     }
+  }
+
+  // #SignIn Bloc
+  void _signIn(AuthSignInEvent event,Emitter emit)async{
+    emit(AuthSignInLoadingState());
+    final result = await HttpService.methodSignInPost(api: Api.apiSignUp, data: event.data);
+    if(result){
+    emit(AuthSignUpSuccessState());
+    }else{
+      emit(AuthSignInFailureState());
+    }
+
   }
 
 }

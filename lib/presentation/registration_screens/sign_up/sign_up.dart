@@ -36,6 +36,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ),
               );
             }
+            if(state is AuthSignUpFailureState){
+              Navigator.of(context).pushReplacement(
+                MaterialPageRoute(
+                  builder: (context) => const SignUpScreen(),
+                ),
+              );
+            }
           })
         ],
         child: SafeArea(
