@@ -11,7 +11,7 @@ class CustomImagePicker extends StatelessWidget {
     return GestureDetector(
       onTap: () {},
       child: Container(
-        height: 250.sp,
+        height: 230.sp,
         width: double.infinity,
         decoration: BoxDecoration(
           border: Border.all(
