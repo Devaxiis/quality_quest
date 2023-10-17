@@ -1,6 +1,8 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quality_quest/bloc/auth/auth_bloc.dart';
+import 'package:quality_quest/domain/model/registration/sign_in_model/sign_in_model.dart';
 import 'package:quality_quest/library.dart';
+import 'package:quality_quest/main.dart';
 
 
 class SignInScreen extends StatefulWidget {
@@ -155,17 +157,11 @@ class _SignInScreenState extends State<SignInScreen> {
                       child: CustomDeepPurpleButton(
                         onTap: () async {
                           final Map<String, Object?> data = {
-                            "email":
-                            controllerEmail.value.text.trim().toString(),
-                            "password": controllerPassword.value.text
-                                .trim()
-                                .toString(),
+                            "email":controllerEmail.value.text.trim(),
+                            "password": controllerPassword.value.text.trim(),
                             "deviceModel": model,
-
                           };
-
                           context.read<AuthBloc>().add(AuthSignInEvent(data: data));
-
                           // showSuccessDialog(context);
                           // await Future.delayed(const Duration(seconds: 3)).then(
                           //       (value) => addUser(),
@@ -183,8 +179,10 @@ class _SignInScreenState extends State<SignInScreen> {
             BlocBuilder<AuthBloc, AuthState>(
               builder: (context, state) {
                 if (state is AuthSignInLoadingState) {
-                  return const Center(
-                      child: CircularProgressIndicator(),
+                  return const SizedBox(
+                    child: Center(
+                        child: CircularProgressIndicator.adaptive()
+                    ),
                   );
                 } else {
                   return const SizedBox.shrink();

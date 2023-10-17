@@ -16,4 +16,15 @@ class TokenModel {
       expireDate: json["expireDate"] as String,
     );
   }
+
+  Map<String,Object> toJson()=>{
+    "accessToken":accessToken,
+    "refreshToken":refreshToken,
+    "expireDate":expireDate,
+  };
+
+  @override
+  String toString() {
+    return "$TokenModel(accessToken: $accessToken, refreshToken: $refreshToken, expireDate: $expireDate)";
+  }
 }
