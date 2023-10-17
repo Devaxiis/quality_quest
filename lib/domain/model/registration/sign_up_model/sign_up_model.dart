@@ -7,7 +7,7 @@ part 'sign_up_model.g.dart';
 class SignUp with _$SignUp{
   @JsonSerializable(explicitToJson: true,fieldRename: FieldRename.snake)
   const factory SignUp({
-
+    required int id,
     required String firstname,
     required String lastname,
     required String password,

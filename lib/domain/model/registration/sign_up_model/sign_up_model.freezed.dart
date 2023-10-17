@@ -20,6 +20,7 @@ SignUp _$SignUpFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SignUp {
+  int get id => throw _privateConstructorUsedError;
   String get firstname => throw _privateConstructorUsedError;
   String get lastname => throw _privateConstructorUsedError;
   String get password => throw _privateConstructorUsedError;
@@ -35,7 +36,12 @@ abstract class $SignUpCopyWith<$Res> {
   factory $SignUpCopyWith(SignUp value, $Res Function(SignUp) then) =
       _$SignUpCopyWithImpl<$Res, SignUp>;
   @useResult
-  $Res call({String firstname, String lastname, String password, String email});
+  $Res call(
+      {int id,
+      String firstname,
+      String lastname,
+      String password,
+      String email});
 }
 
 /// @nodoc
@@ -51,12 +57,17 @@ class _$SignUpCopyWithImpl<$Res, $Val extends SignUp>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? firstname = null,
     Object? lastname = null,
     Object? password = null,
     Object? email = null,
   }) {
     return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
       firstname: null == firstname
           ? _value.firstname
           : firstname // ignore: cast_nullable_to_non_nullable
@@ -83,7 +94,12 @@ abstract class _$$_SignUpCopyWith<$Res> implements $SignUpCopyWith<$Res> {
       __$$_SignUpCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String firstname, String lastname, String password, String email});
+  $Res call(
+      {int id,
+      String firstname,
+      String lastname,
+      String password,
+      String email});
 }
 
 /// @nodoc
@@ -96,12 +112,17 @@ class __$$_SignUpCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? firstname = null,
     Object? lastname = null,
     Object? password = null,
     Object? email = null,
   }) {
     return _then(_$_SignUp(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
       firstname: null == firstname
           ? _value.firstname
           : firstname // ignore: cast_nullable_to_non_nullable
@@ -127,7 +148,8 @@ class __$$_SignUpCopyWithImpl<$Res>
 @JsonSerializable(explicitToJson: true, fieldRename: FieldRename.snake)
 class _$_SignUp implements _SignUp {
   const _$_SignUp(
-      {required this.firstname,
+      {required this.id,
+      required this.firstname,
       required this.lastname,
       required this.password,
       required this.email});
@@ -135,6 +157,8 @@ class _$_SignUp implements _SignUp {
   factory _$_SignUp.fromJson(Map<String, dynamic> json) =>
       _$$_SignUpFromJson(json);
 
+  @override
+  final int id;
   @override
   final String firstname;
   @override
@@ -146,7 +170,7 @@ class _$_SignUp implements _SignUp {
 
   @override
   String toString() {
-    return 'SignUp(firstname: $firstname, lastname: $lastname, password: $password, email: $email)';
+    return 'SignUp(id: $id, firstname: $firstname, lastname: $lastname, password: $password, email: $email)';
   }
 
   @override
@@ -154,6 +178,7 @@ class _$_SignUp implements _SignUp {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_SignUp &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.firstname, firstname) ||
                 other.firstname == firstname) &&
             (identical(other.lastname, lastname) ||
@@ -166,7 +191,7 @@ class _$_SignUp implements _SignUp {
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, firstname, lastname, password, email);
+      Object.hash(runtimeType, id, firstname, lastname, password, email);
 
   @JsonKey(ignore: true)
   @override
@@ -184,13 +209,16 @@ class _$_SignUp implements _SignUp {
 
 abstract class _SignUp implements SignUp {
   const factory _SignUp(
-      {required final String firstname,
+      {required final int id,
+      required final String firstname,
       required final String lastname,
       required final String password,
       required final String email}) = _$_SignUp;
 
   factory _SignUp.fromJson(Map<String, dynamic> json) = _$_SignUp.fromJson;
 
+  @override
+  int get id;
   @override
   String get firstname;
   @override

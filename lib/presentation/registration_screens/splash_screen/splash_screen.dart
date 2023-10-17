@@ -1,4 +1,7 @@
 import 'package:quality_quest/library.dart';
+import 'package:quality_quest/services/auth_service/auth_service.dart';
+
+import '../../../main.dart';
 
 
 class SplashScreen extends StatefulWidget {
@@ -8,8 +11,9 @@ class SplashScreen extends StatefulWidget {
   State<SplashScreen> createState() => _SplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen>
-    with TickerProviderStateMixin {
+
+
+class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMixin {
   late AnimationController controller;
   late Tween<Offset> offsetTween;
   late Tween<Offset> offsetTween2;
@@ -19,12 +23,13 @@ class _SplashScreenState extends State<SplashScreen>
   late Animation<Offset> offsetAnimation3;
   bool animateCompleted = false;
 
+  // ignore: prefer_typing_uninitialized_variables
+  late final user;
   @override
   void initState() {
+    user = auth.getUser();
     controller = AnimationController(
         duration: const Duration(milliseconds: 1500), vsync: this);
-
-    // prepare single Tween that would be applied to all of the Animations
     offsetTween = Tween(begin: const Offset(0, -1000), end: Offset.zero);
     offsetTween2 = Tween(
         begin: const Offset(-1000, -1500),
@@ -56,14 +61,20 @@ class _SplashScreenState extends State<SplashScreen>
         setState(() => animateCompleted = true);
       });
     }
+
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
     navigateToSignInScreen();
   }
 
   void navigateToSignInScreen() async {
-    Future.delayed(const Duration(seconds: 3)).then(
+    Future.delayed(const Duration(seconds: 4)).then(
       (value) {
         Navigator.of(context).pushAndRemoveUntil(
-          MaterialPageRoute(builder: (context) => const IntroScreen()),
+          MaterialPageRoute(builder: (context) => user != null ? const MainHomeScreen():const IntroScreen()),
           (route) => false,
         );
       },
@@ -80,7 +91,6 @@ class _SplashScreenState extends State<SplashScreen>
           return Center(
             child: SizedBox(
               width: double.infinity,
-              // padding: const EdgeInsets.symmetric(vertical: 150, horizontal: 60),
               child: Stack(
                 alignment: Alignment.center,
                 children: [
