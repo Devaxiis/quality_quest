@@ -11,15 +11,16 @@ class PreCreateScreen extends StatefulWidget {
 
 class _PreCreateScreenState extends State<PreCreateScreen> {
   bool _toggleSwitch = false;
+  String chooseCategory = "Category";
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
-      // #backgroun color
+      /// #background color
       backgroundColor: CustomColors.oxFFFFFFFF,
 
-      // #App Bar
+      /// #App Bar
       appBar: AppBar(
         backgroundColor: CustomColors.oxFFFFFFFF,
         forceMaterialTransparency: true,
@@ -30,7 +31,7 @@ class _PreCreateScreenState extends State<PreCreateScreen> {
         ),
       ),
 
-      // #Body
+      /// #Body
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
@@ -42,10 +43,12 @@ class _PreCreateScreenState extends State<PreCreateScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(height: 15),
-                // #Image picker
+
+                /// #Image picker
                 const CustomImagePicker(),
                 const SizedBox(height: 30),
-                // #Exam Name
+
+                /// #Exam Name
                 TextField(
                   decoration: InputDecoration(
                     border: const OutlineInputBorder(
@@ -81,42 +84,111 @@ class _PreCreateScreenState extends State<PreCreateScreen> {
                     ),
                   ),
                 ),
-                const SizedBox(height: 20,),
+                const SizedBox(
+                  height: 20,
+                ),
                 // #scienceType
                 Container(
                   height: 65.sp,
-                  width: MediaQuery.sizeOf(context).width / 2.5.sp,
+                  width: MediaQuery.sizeOf(context).width / 2.5,
                   decoration: BoxDecoration(
-                  borderRadius: const BorderRadius.all(Radius.circular(18)),
-                    border: Border.all(width: 2,color: CustomColors.oxFF6949FF),
+                    borderRadius: const BorderRadius.all(Radius.circular(18)),
+                    border: Border.all(
+                      width: 2,
+                      color: CustomColors.oxFF6949FF,
+                    ),
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      const Text("Matem",style: TextStyle(color: CustomColors.oxFF6949FF,fontWeight: FontWeight.bold,fontSize: 15),),
+                      Text(
+                        chooseCategory,
+                        style: TextStyle(
+                          color: CustomColors.oxFF6949FF,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 15.sp,
+                        ),
+                      ),
                       PopupMenuButton(
                         iconSize: 30,
                         color: CustomColors.oxFF6949FF,
                         icon: const Icon(Icons.arrow_drop_down_rounded),
                         itemBuilder: (BuildContext context) {
-                             return [
-                               const PopupMenuItem(child: Icon(Icons.add)),
-                               const PopupMenuItem(child: Icon(Icons.add)),
-                               const PopupMenuItem(child: Icon(Icons.add)),
-                             ];
-                          },),
+                          return [
+                            PopupMenuItem(
+                              child: Text(
+                                "History",
+                                style: TextStyle(
+                                  fontSize: 15.sp,
+                                  fontWeight: FontWeight.w800,
+                                  color: CustomColors.oxFFFFFFFF,
+                                ),
+                              ),
+                              onTap: () {
+                                chooseCategory = "History";
+                                setState(() {});
+                              },
+                            ),
+                            PopupMenuItem(
+                              child: Text(
+                                "Math",
+                                style: TextStyle(
+                                  fontSize: 15.sp,
+                                  fontWeight: FontWeight.w800,
+                                  color: CustomColors.oxFFFFFFFF,
+                                ),
+                              ),
+                              onTap: () {
+                                chooseCategory = "Math";
+                                setState(() {});
+                              },
+                            ),
+                            PopupMenuItem(
+                              child: Text(
+                                "Science",
+                                style: TextStyle(
+                                  fontSize: 15.sp,
+                                  fontWeight: FontWeight.w800,
+                                  color: CustomColors.oxFFFFFFFF,
+                                ),
+                              ),
+                              onTap: () {
+                                chooseCategory = "Science";
+                                setState(() {});
+                              },
+                            ),
+                            PopupMenuItem(
+                              child: Text(
+                                "Logical",
+                                style: TextStyle(
+                                  fontSize: 15.sp,
+                                  fontWeight: FontWeight.w800,
+                                  color: CustomColors.oxFFFFFFFF,
+                                ),
+                              ),
+                              onTap: () {
+                                chooseCategory = "Logical";
+                                setState(() {});
+                              },
+                            ),
+                          ];
+                        },
+                      ),
                     ],
                   ),
                 ),
-                // # Public button
+
+                /// # Public button
                 const SizedBox(height: 30),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 15),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(Strings.wantToMakePublicTXT,
-                        style: Style.createWantToMakePublicST,),
+                      Text(
+                        Strings.wantToMakePublicTXT,
+                        style: Style.createWantToMakePublicST,
+                      ),
                       SizedBox(
                         height: 50.sp,
                         width: 50.sp,
@@ -127,7 +199,8 @@ class _PreCreateScreenState extends State<PreCreateScreen> {
                               Radius.circular(7),
                             ),
                           ),
-                          side: const BorderSide(color: CustomColors.oxFF295ECC),
+                          side:
+                              const BorderSide(color: CustomColors.oxFF295ECC),
                           value: _toggleSwitch,
                           onChanged: (ind) {
                             setState(() {
@@ -139,14 +212,20 @@ class _PreCreateScreenState extends State<PreCreateScreen> {
                     ],
                   ),
                 ),
-                SizedBox(height: MediaQuery.sizeOf(context).width / 3.5.sp),
-                // #Next Button
+                SizedBox(height: MediaQuery.sizeOf(context).width / 3.5),
+
+                /// #Next Button
                 Center(
-                  child: CustomDeepPurpleButton(onTap: (){
-                   Navigator.of(context).push(
-                     MaterialPageRoute(builder: (_) => const CreateScreen()),
-                   );
-                  }, displayText: "Next"),
+                  child: CustomDeepPurpleButton(
+                    onTap: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (_) => const CreateScreen(),
+                        ),
+                      );
+                    },
+                    displayText: "Next",
+                  ),
                 ),
                 // const SizedBox(height: 20,)
               ],
@@ -154,9 +233,6 @@ class _PreCreateScreenState extends State<PreCreateScreen> {
           ),
         ),
       ),
-
-      // #Floating action button
-      // floatingActionButton:
     );
   }
 }

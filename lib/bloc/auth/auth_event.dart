@@ -5,23 +5,25 @@ abstract class AuthEvent extends Equatable {
 }
 
 // #SignUp
-class AuthSignUpEvent extends AuthEvent{
-  Map<String,Object?> data;
+class AuthSignUpEvent extends AuthEvent {
+  Map<String, Object?> data;
 
   AuthSignUpEvent({
-    required this.data ,
-});
+    required this.data,
+  });
 
   @override
-  List<Object?> get props =>[data];
+  List<Object?> get props => [data];
 }
 
 // #SignIn
-class AuthSignInEvent extends AuthEvent{
-  Map<String,Object?> data;
+class AuthSignInEvent extends AuthEvent {
+  Map<String, Object?> data;
 
-  AuthSignInEvent({required this.data,});
+  AuthSignInEvent({
+    required this.data,
+  });
 
   @override
-  List<Object?> get props =>[data];
+  List<Object?> get props => [data];
 }

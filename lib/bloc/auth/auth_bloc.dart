@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'dart:math';
 
 import 'package:bloc/bloc.dart';
@@ -25,7 +24,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     final result = await HttpService.methodSignUpPost(api: Api.apiSignUp, data: event.data);
     if(result){
       SignUp user = SignUp(
-          id:Random().nextInt(1000) ,
+          id:Random().nextInt(1000),
           firstname: event.data["firstname"].toString(),
           lastname: event.data["lastname"].toString(),
           password: event.data["password"].toString(),
