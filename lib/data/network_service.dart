@@ -47,10 +47,8 @@ class HttpService {
   static Future<bool> methodSignInPost({required String api, required Map<String, Object?> data})async{
     try{
       final response =await dio.post("${Api.baseUrl}$api", data: data);
-      
       print("-----------------${response.statusCode}----------------------");
       print("-----------------${response.data}----------------------");
-
       if(response.statusCode == 200 || response.statusCode == 201){
         _saveToken(response.data);
         return true;
