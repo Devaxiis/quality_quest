@@ -7,10 +7,10 @@ import 'package:quality_quest/core/params/apis.dart';
 import 'package:quality_quest/data/network_service.dart';
 import 'package:quality_quest/data/store.dart';
 import 'package:quality_quest/domain/model/registration/sign_up_model/sign_up_model.dart';
-import 'package:quality_quest/main.dart';
 
 
-import '../../domain/model/registration/sign_in_model/sign_in_model.dart';
+
+
 
 part 'auth_event.dart';
 part 'auth_state.dart';
@@ -31,7 +31,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
     if(result){
       SignUp user = SignUp(
-          id:Random().nextInt(1000) ,
+          id:Random().nextInt(1000),
           firstname: event.data["firstname"].toString(),
           lastname: event.data["lastname"].toString(),
           password: event.data["password"].toString(),

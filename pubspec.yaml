@@ -53,6 +53,9 @@ dependencies:
   #hive flutter
   hive_flutter: ^1.1.0
 
+  #image picker
+  image_picker: ^1.0.4
+
   #dio
   dio: ^5.3.3
   shared_preferences: ^2.2.2
