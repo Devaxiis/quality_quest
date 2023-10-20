@@ -13,8 +13,6 @@ dependencies:
   flutter:
     sdk: flutter
 
-
-
   #Cupertino Icons
   cupertino_icons: ^1.0.2
 
@@ -24,9 +22,6 @@ dependencies:
 
   #json_annotation
   json_annotation: ^4.8.1
-
-  #Network
-  http: ^1.1.0
 
   #Animation
   lottie: ^2.6.0
@@ -54,8 +49,16 @@ dependencies:
 
   #hive
   hive: ^2.2.3
+
+  #hive flutter
   hive_flutter: ^1.1.0
+
+  #image picker
   image_picker: ^1.0.4
+
+  #dio
+  dio: ^5.3.3
+  shared_preferences: ^2.2.2
 
 
 

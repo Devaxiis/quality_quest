@@ -21,7 +21,7 @@ export 'package:quality_quest/presentation/screens/create_screen/create_screen_v
 export 'package:quality_quest/presentation/screens/create_screen/create_screen_views/image_picker_view.dart';
 export 'package:quality_quest/presentation/screens/create_screen/create_screen_views/text_field_view.dart';
 export 'package:device_info_plus/device_info_plus.dart';
-export 'package:quality_quest/core/params/aps.dart';
+export 'package:quality_quest/core/params/apis.dart';
 export 'package:quality_quest/data/network_service.dart';
 export 'package:quality_quest/presentation/registration_screens/sign_in/sign_in_views/custom_rich_text.dart';
 export 'package:quality_quest/presentation/registration_screens/sign_in/sign_in_views/show_success_dialog.dart';

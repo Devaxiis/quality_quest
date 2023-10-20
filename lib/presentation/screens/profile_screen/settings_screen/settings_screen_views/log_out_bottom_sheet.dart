@@ -4,10 +4,8 @@ import 'package:quality_quest/library.dart';
 import 'bottom_sheet_button.dart';
 
 
-void showLogoutBottomSheet(BuildContext context) {
-  void navigateToBack() {
-    Navigator.pop(context);
-  }
+void showLogoutBottomSheet(BuildContext context,Function onTab, Function onTabTwo,) {
+
 
   showModalBottomSheet(
     context: context,
@@ -52,14 +50,14 @@ void showLogoutBottomSheet(BuildContext context) {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 BottomSheetButton(
-                  onTap: navigateToBack,
+                  onTap: ()=>onTab(),
                   shadowColor: CustomColors.oxFFC3B6FF,
                   buttonColor: CustomColors.oxFFF0EDFF,
                   displayText: Strings.cancelTXT,
                   textColor: CustomColors.oxFF6949FF,
                 ),
                 BottomSheetButton(
-                  onTap: navigateToBack,
+                  onTap:()=> onTabTwo(),
                   shadowColor: CustomColors.oxFF543ACD,
                   buttonColor: CustomColors.oxFF6949FF,
                   displayText: Strings.yesLogOutTXT,
