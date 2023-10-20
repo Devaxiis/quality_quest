@@ -1,3 +1,4 @@
+import 'package:quality_quest/data/store.dart';
 import 'package:quality_quest/library.dart';
 
 class SettingScreen extends StatefulWidget {
@@ -103,7 +104,10 @@ class _SettingScreenState extends State<SettingScreen> {
           const Spacer(flex: 10),
           LogOutListTile(
             onPressed: () {
-              showLogoutBottomSheet(context);
+              showLogoutBottomSheet(context,(){Navigator.pop(context);},(){Store.clear();UserSave.clear();
+                // ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("===worked===")));
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_)=> const SignInScreen()));
+              });
             },
           ),
           const Spacer(),

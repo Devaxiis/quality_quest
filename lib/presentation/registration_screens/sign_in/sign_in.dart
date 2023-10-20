@@ -162,10 +162,6 @@ class _SignInScreenState extends State<SignInScreen> {
                             "deviceModel": model,
                           };
                           context.read<AuthBloc>().add(AuthSignInEvent(data: data));
-                          // showSuccessDialog(context);
-                          // await Future.delayed(const Duration(seconds: 3)).then(
-                          //       (value) => addUser(),
-                          // );
                         },
                         displayText: Strings.signInTXT,
                       ),

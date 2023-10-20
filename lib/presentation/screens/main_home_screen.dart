@@ -1,5 +1,6 @@
+import 'package:quality_quest/domain/model/registration/token_model/token_mode.dart';
 import 'package:quality_quest/library.dart';
-
+import 'package:quality_quest/main.dart';
 import 'join_screen/join_screen.dart';
 
 class MainHomeScreen extends StatefulWidget {
@@ -10,8 +11,15 @@ class MainHomeScreen extends StatefulWidget {
 }
 
 class _MainHomeScreenState extends State<MainHomeScreen> {
-  int bottomNavbarIndex = 0;
   PageController pageController = PageController();
+  int bottomNavbarIndex = 0;
+  List<TokenModel> list =[];
+
+  @override
+  void initState() {
+    super.initState();
+    // list.add(auth.getToken );
+  }
 
   @override
   Widget build(BuildContext context) {

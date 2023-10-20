@@ -1,3 +1,4 @@
+import 'package:quality_quest/data/store.dart';
 import 'package:quality_quest/library.dart';
 import 'package:quality_quest/services/auth_service/auth_service.dart';
 
@@ -24,10 +25,11 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
   bool animateCompleted = false;
 
   // ignore: prefer_typing_uninitialized_variables
-  late final user;
+
   @override
   void initState() {
-    user = auth.getUser();
+
+    print("Token:------------- ${Store.getToken()}------------------");
     controller = AnimationController(
         duration: const Duration(milliseconds: 1500), vsync: this);
     offsetTween = Tween(begin: const Offset(0, -1000), end: Offset.zero);

@@ -1,48 +1,69 @@
-import 'dart:convert';
-import 'package:flutter/foundation.dart';
-import 'package:http/http.dart' as http;
-import 'package:quality_quest/core/params/aps.dart';
+import 'package:dio/dio.dart';
+import 'package:quality_quest/core/params/apis.dart';
+import 'package:quality_quest/data/dio_interseptor.dart';
+import 'package:quality_quest/data/store.dart';
+
 
 
 abstract class Network {
-  Future<void> methodPost({required String api, String baseUrl = Api.baseUrl, required Map<String, Object?> data});
+  Future<void> methodPost({required String api,required Map<String, Object?> data});
 }
 
 
+  final dio = Dio();
 class HttpService {
-  static Future<bool> methodSignUpPost({required String api,String baseUrl = Api.baseUrl, required Map<String, Object?> data})async {
+
+  late final Dio _dio;
+
+  HttpService(){
+    _dio = Dio();
+    _dio.interceptors.add(DioInterceptor());
+  }
+
+
+  static Future<void> _saveToken(Map<String,dynamic> data)async{
+    final token = data["accessToken"];
+    print("-----------------$token----------------------");
+    await Store.setToken(token);
+  }
+
+  // #Method SignUp
+  static Future<bool> methodSignUpPost({required String api,required Map<String, Object?> data})async{
+   try{
+     final response =await dio.post("${Api.baseUrl}$api", data: data);
+     print("-----------------${response.statusCode}----------------------");
+     if(response.statusCode == 200 || response.statusCode == 201){
+     return true;
+     }else{
+       return false;
+     }
+   }catch(e){
+     print("ERROR:===>$e");
+   }
+   return false;
+  }
+
+  // #Method SignIn
+  static Future<bool> methodSignInPost({required String api, required Map<String, Object?> data})async{
     try{
-      Uri url = Uri.http(baseUrl,Api.apiSignUp);
-      final response = await http.post(url,headers: Api.headers, body: jsonEncode(data));
-      print(response.statusCode);
-      print("---------------${response.body}-----------");
-      if(response.statusCode == 200 || response.statusCode == 201) {
-        debugPrint(response.body);
+      final response =await dio.post("${Api.baseUrl}$api", data: data);
+      
+      print("-----------------${response.statusCode}----------------------");
+      print("-----------------${response.data}----------------------");
+
+      if(response.statusCode == 200 || response.statusCode == 201){
+        _saveToken(response.data);
         return true;
-      }else {
-        return true;
+      }else{
+        return false;
       }
     }catch(e){
-      debugPrint(e.toString());
+      print("ERROR:===>$e");
     }
     return false;
   }
 
-  static Future<bool> methodSignInPost({required String api,String baseUrl = Api.baseUrl, required Map<String, Object?> data})async {
-    try{
-      Uri url = Uri.http(baseUrl,Api.apiSignIN);
-      print("-----------------$url-----------");
-      print("-----------------$data-----------");
-      final response = await http.post(url,headers: Api.headers, body: jsonEncode(data));
-      print("-----------------${response.statusCode}-----------");
+ 
 
-        return true;
-    }catch(e){
-      debugPrint(e.toString());
-    }
 
-    return false;
-  }
-
-  // static Future<bool> methodCreateScience({})async{}
 }
