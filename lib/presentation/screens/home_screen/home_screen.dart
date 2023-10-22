@@ -63,16 +63,110 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
 
       /// #Body
-      body: const Padding(
-        padding: EdgeInsets.symmetric(horizontal: 5),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            QuizGridView(),
-          ],
-        ),
-      ),
+      body: FutureBuilder(
+          future: HttpService.fetchScienceTypes(),
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const Center(child: CircularProgressIndicator());
+            } else if (snapshot.hasError) {
+              return Center(child: Text('Error: ${snapshot.error}'));
+            } else {
+              final scienceTypes = snapshot.data;
+              return Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 5),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Expanded(
+                      child: GridView.builder(
+                        padding:
+                            const EdgeInsets.only(top: 20, left: 8, right: 8),
+                        scrollDirection: Axis.vertical,
+                        itemCount: scienceTypes?.length,
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          crossAxisSpacing: 15.sp,
+                          mainAxisSpacing: 20.sp,
+                          mainAxisExtent: 258.sp,
+                        ),
+                        itemBuilder: (context, index) {
+                          final scienceType = scienceTypes?[index];
+                          return GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      const DetailDiscoverScreen(),
+                                ),
+                              );
+                            },
+                            child: Container(
+                              alignment: Alignment.topCenter,
+                              decoration: const BoxDecoration(
+                                color: CustomColors.oxFFEEEEEE,
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(20),
+                                ),
+                              ),
+                              child: Container(
+                                clipBehavior: Clip.antiAlias,
+                                width: 200.sp,
+                                height: 250.sp,
+                                decoration: const BoxDecoration(
+                                  color: CustomColors.oxFFFFFFFF,
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(20),
+                                  ),
+                                ),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    /// #Cover Image
+
+                                    Image.network(
+                                      scienceType?.photoUrl ?? "https://www.stx.ox.ac.uk/sites/default/files/stx/images/article/depositphotos_41197145-stock-photo-quiz.jpg",
+                                      errorBuilder: (___, __, _) => const Center(child: CircularProgressIndicator.adaptive()),
+                                    ),
+
+                                    const Spacer(flex: 3),
+
+                                    /// #Title
+                                    Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                        horizontal: 8.0,
+                                      ),
+                                      child: Text(
+                                        scienceType!.name,
+                                        style: TextStyle(
+                                          fontSize: 15.sp,
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                        overflow: TextOverflow.ellipsis,
+                                      ),
+                                    ),
+
+                                    const Spacer(flex: 3),
+
+                                    /// #Questions Quantity
+                                    const QuestionsQuantity(),
+
+                                    const Spacer(),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            }
+          }),
     );
   }
 }

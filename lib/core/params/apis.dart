@@ -8,6 +8,7 @@ sealed class Api{
   static const apiSignIN = "/api/Sign/In";
   static const apiLogOut = "/api/Sign/Out";
   static const createScience = "/api/Science/CreateScience";
+  static const getScienceTypes = "/api/Science/GetScienceTypes";
 
 
 }
