@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quality_quest/library.dart';
 
 class PreCreateScreen extends StatefulWidget {
@@ -84,9 +83,7 @@ class _PreCreateScreenState extends State<PreCreateScreen> {
                     ),
                   ),
                 ),
-                const SizedBox(
-                  height: 20,
-                ),
+                const SizedBox(height: 20),
                 // #scienceType
                 Container(
                   height: 65.sp,
@@ -213,7 +210,6 @@ class _PreCreateScreenState extends State<PreCreateScreen> {
                   ),
                 ),
                 SizedBox(height: MediaQuery.sizeOf(context).width / 3.5),
-
                 /// #Next Button
                 Center(
                   child: CustomDeepPurpleButton(

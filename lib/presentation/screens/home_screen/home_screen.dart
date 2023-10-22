@@ -1,4 +1,4 @@
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import 'package:quality_quest/library.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -11,14 +11,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int currentIndex = 0;
 
-  void navigateToSearchScreen() {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => const SearchScreen(),
-      ),
-    );
-  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +26,14 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         actions: [
           IconButton(
-            onPressed: navigateToSearchScreen,
+            onPressed: (){
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const SearchScreen(),
+                ),
+              );
+            },
             icon: Image(
               image: const AssetImage('assets/icons/ic_search.png'),
               height: 25.sp,
@@ -41,7 +41,14 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const NotificationScreen(),
+                ),
+              );
+            },
             icon: Image(
               image: const AssetImage('assets/icons/ic_bell.png'),
               height: 25.sp,

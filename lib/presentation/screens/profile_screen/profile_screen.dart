@@ -1,7 +1,4 @@
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:quality_quest/data/store.dart';
 import 'package:quality_quest/library.dart';
-import 'package:quality_quest/presentation/screens/profile_screen/edit_profile_screen/edit_profile_screen.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
