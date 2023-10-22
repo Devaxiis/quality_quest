@@ -1,5 +1,11 @@
-import 'dart:convert';
+
+import 'dart:io';
 import 'package:dio/dio.dart';
+import 'package:http/http.dart' as http;
+import 'package:http_parser/http_parser.dart';
+import 'package:quality_quest/core/params/apis.dart'
+import 'dart:convert';
+
 import 'package:quality_quest/data/dio_interseptor.dart';
 import 'package:quality_quest/data/store.dart';
 import 'package:quality_quest/domain/model/registration/logo_out/logo_out.dart';
@@ -100,4 +106,22 @@ class HttpService {
     return false;
   }
 
+
+  static Future<String?> multipart({String api = Api.addSciencePhoto, required String filePath, Map<String, String> headers = Api.headers, String baseUrl = Api.baseUrl, Map<String, String>? body}) async {
+    final Uri url = Uri.https(baseUrl, api);
+    final request = http.MultipartRequest("POST", url);
+    request.headers.addAll(headers);
+    request.files.add(await http.MultipartFile.fromPath(
+        "file", filePath, contentType: MediaType("image", "jpeg")));
+    if (body != null) request.fields.addAll(body);
+    http.StreamedResponse response = await request.send();
+    if (response.statusCode == 200 || response.statusCode == 201) {
+      return await response.stream.bytesToString();
+    } else {
+      return null;
+    }
+
+  }
+
+}
 }

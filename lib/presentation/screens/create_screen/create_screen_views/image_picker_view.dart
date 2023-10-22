@@ -1,37 +1,17 @@
 import 'package:flutter/services.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_picker/image_picker.dart';
 
 import 'package:quality_quest/library.dart';
 
-class CustomImagePicker extends StatefulWidget {
-  const CustomImagePicker({
-    super.key,
-  });
-
-  @override
-  State<CustomImagePicker> createState() => _CustomImagePickerState();
-}
-
-class _CustomImagePickerState extends State<CustomImagePicker> {
-  File? image;
-
-  Future pickImage() async {
-    try {
-      final image = await ImagePicker().pickImage(source: ImageSource.gallery);
-      if (image == null) return;
-      final imageTemp = File(image.path);
-      this.image = imageTemp;
-      setState(() {});
-    } on PlatformException catch (e) {
-      print('Failed to pick image: $e');
-    }
-  }
+class CustomImagePicker extends StatelessWidget {
+  final File? image;
+  final Function ontab;
+  const CustomImagePicker({super.key, this.image, required this.ontab,});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: pickImage,
+      onTap: ontab(),
       child: image == null
           ? Container(
               height: 230.sp,
@@ -47,7 +27,7 @@ class _CustomImagePickerState extends State<CustomImagePicker> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   IconButton(
-                    onPressed: pickImage,
+                    onPressed: ontab(),
                     icon: const Image(
                       height: 50,
                       width: 50,

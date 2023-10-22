@@ -8,13 +8,15 @@ sealed class Api{
   static const apiSignIN = "/api/Sign/In";
   static const apiLogOut = "/api/Sign/Out";
   static const createScience = "/api/Science/CreateScience";
+  static const addSciencePhoto = "/api/Science/AddPhoto";
   static const getScienceTypes = "/api/Science/GetScienceTypes";
 
 
+  static const Map<String, String> headers = {
+    "Content-Type": "multipart/form-data",
+  };
 }
-  // static const Map<String, String> headers = {
-  //   "Content-Type": "application/json; charset=UTF-8",
-  // };
+
 
 
   // static const Map<String, String> headerrs = {
