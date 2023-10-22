@@ -1,5 +1,4 @@
 import 'dart:math';
-
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:quality_quest/core/params/apis.dart';
@@ -26,16 +25,11 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     final result = await HttpService.methodSignUpPost(
         api: Api.apiSignUp, data: event.data);
 
-    if (result) {
-      SignUp user = SignUp(
-        id: Random().nextInt(1000),
-        firstname: event.data["firstname"].toString(),
-        lastname: event.data["lastname"].toString(),
-        password: event.data["password"].toString(),
-        email: event.data["email"].toString(),
-      );
-      emit(AuthSignUpSuccessState());
-    } else {
+
+    if(result){
+      // UserSave.setUser(id:Random().nextInt(1000), firstname: event.data["firstname"].toString(), lastname: event.data["lastname"].toString(), email: event.data["email"].toString(), password: event.data["password"].toString());
+    emit(AuthSignUpSuccessState());
+    }else{
       emit(AuthSignUpFailureState());
     }
   }
@@ -44,6 +38,13 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   void _signIn(AuthSignInEvent event, Emitter emit) async {
     // #loading
     emit(AuthSignInLoadingState());
+
+    // String response = UserSave.getUser().toString();
+    // List<String> users = response.split(",");
+    // List<String> haveUser = users.where((user) {
+    //   return user[3] == event.data["email"].toString() &&
+    //       user[4] == event.data["password"].toString();
+    // }).toList();
 
     // #method
     final result = await HttpService.methodSignInPost(
@@ -55,19 +56,15 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       emit(AuthSignInFailureState());
     }
 
-    String response = UserSave.getUser().toString();
-    List<String> users = response.split(",");
-    List<String> haveUser = users.where((user) {
-      return user[0] == event.data["email"].toString() &&
-          user[1] == event.data["password"].toString();
-    }).toList();
 
-    UserSave.setUser(
-        event.data["email"].toString(), event.data["password"].toString());
-    if (haveUser.isNotEmpty) {
-      emit(AuthSignInSuccessState());
-    } else {
-      emit(AuthSignInFailureState());
-    }
+
+
+    // UserSave.setAccessUser(email: event.data["email"].toString(), password: event.data["password"].toString(),);
+    // if(haveUser.isNotEmpty){
+    //    emit(AuthSignInSuccessState());
+    // }else{
+    //   emit(AuthSignInFailureState());
+    // }
+
   }
 }

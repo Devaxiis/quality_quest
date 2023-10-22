@@ -1,6 +1,4 @@
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quality_quest/library.dart';
-import 'package:quality_quest/presentation/screens/profile_screen/edit_profile_screen/edit_profile_screen.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -10,6 +8,8 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
+PageController controller=PageController();
+
   void navigateToEditProfileScreen() {
     Navigator.push(
       context,
@@ -27,6 +27,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       backgroundColor: CustomColors.oxFFFFFFFF,
       appBar: AppBar(
@@ -63,9 +64,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Spacer(
-                  flex: 2,
-                ),
+                const Spacer(flex: 2),
                 Row(
                   children: [
                     const Spacer(),
@@ -85,11 +84,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Andrew Ainley",
+                          "Andrev John",
                           style: Style.nameEditST,
                         ),
                         Text(
-                          "andrewainley@gmail.com",
+                          "andewy@gmail.com",
                           style: Style.emailEditST,
                         ),
                       ],
@@ -115,10 +114,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ],
                 ),
                 // const SizedBox(height: 30),
-                const Spacer(
-                  flex: 5,
-                ),
-                const ThreeButtons(),
+                const Spacer(flex: 5),
+                 ThreeButtons(controller: controller,),
                 // const SizedBox(height: 5),
                 const Spacer(),
               ],
@@ -126,18 +123,39 @@ class _ProfileScreenState extends State<ProfileScreen> {
           ),
           Expanded(
             flex: 7,
-            child: ListView.separated(
-              itemBuilder: (context, index) {
-                return const MyQuestionViews();
-              },
-              separatorBuilder: (context, index) {
-                return SizedBox(height: 10.sp);
-              },
-              itemCount: 20,
-            ),
+            child:PageView(
+              controller: controller,
+              physics: const NeverScrollableScrollPhysics(),
+              children: [
+                quizGroup(),
+                Container(
+                  color: Colors.green,
+                ),
+                Container(
+                  color: Colors.red,
+                )
+              ],
+            )
           ),
         ],
       )),
     );
   }
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+}
+
+Widget quizGroup(){
+  return  ListView.separated(
+    itemBuilder: (context, index) {
+      return const MyQuestionViews();
+    },
+    separatorBuilder: (context, index) {
+      return SizedBox(height: 10.sp);
+    },
+    itemCount: 20,
+  );
 }

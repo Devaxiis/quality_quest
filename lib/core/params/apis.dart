@@ -1,11 +1,7 @@
 
-import 'package:dio/dio.dart';
-import 'package:quality_quest/data/dio_interseptor.dart';
-import 'package:quality_quest/data/store.dart';
-import 'package:quality_quest/domain/model/registration/sign_in_model/sign_in_model.dart';
 
 sealed class Api{
-  late final token;
+  // late final token;
   static const baseUrl = "http://nimige2887-001-site1.etempurl.com";
 
   static const apiSignUp = "/api/Users";
@@ -15,16 +11,16 @@ sealed class Api{
   static const getScienceTypes = "/api/Science/GetScienceTypes";
 
 
-  static const Map<String, String> headers = {
-    "Content-Type": "application/json; charset=UTF-8",
-  };
-
-
-  static const Map<String, String> headerrs = {
-    "Authorization": "Bearer ",
-  };
-
 }
+  // static const Map<String, String> headers = {
+  //   "Content-Type": "application/json; charset=UTF-8",
+  // };
+
+
+  // static const Map<String, String> headerrs = {
+  //   "Authorization": "Bearer ",
+  // };
+
 
 // class DemoApi{
 //   late final Dio _dio;

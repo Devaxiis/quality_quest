@@ -43,7 +43,7 @@ class BottomSheetButton extends StatelessWidget {
           ),
           child: Text(
             displayText,
-            style: TextStyle(color: textColor,fontSize: 20,fontWeight: FontWeight.bold,),
+            style: TextStyle(color: textColor,fontSize: 20.sp,fontWeight: FontWeight.bold,),
           ),
         ),
       ),

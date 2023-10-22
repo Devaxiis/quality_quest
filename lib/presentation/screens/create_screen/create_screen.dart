@@ -10,11 +10,13 @@ class CreateScreen extends StatefulWidget {
 class _CreateScreenState extends State<CreateScreen> {
   @override
   Widget build(BuildContext context) {
-    final h = MediaQuery.sizeOf(context).height;
-    final w = MediaQuery.sizeOf(context).width;
-
+   // #Scaffold
     return Scaffold(
+
+      // #Background Color
       backgroundColor: CustomColors.oxFFFFFFFF,
+
+      // #AppBar
       appBar: AppBar(
         forceMaterialTransparency: true,
         title: const Text(
@@ -42,6 +44,8 @@ class _CreateScreenState extends State<CreateScreen> {
           ),
         ],
       ),
+
+      // #Body
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 12.0),
         child: SingleChildScrollView(
