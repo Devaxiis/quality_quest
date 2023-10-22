@@ -28,8 +28,6 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
 
   @override
   void initState() {
-
-    print("Token:------------- ${Store.getToken()}------------------");
     controller = AnimationController(
         duration: const Duration(milliseconds: 1500), vsync: this);
     offsetTween = Tween(begin: const Offset(0, -1000), end: Offset.zero);

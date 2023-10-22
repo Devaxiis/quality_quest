@@ -4,8 +4,7 @@ import 'package:quality_quest/library.dart';
 import 'bottom_sheet_button.dart';
 
 
-void showLogoutBottomSheet(BuildContext context,Function onTab, Function onTabTwo,) {
-
+Future showLogoutBottomSheet(BuildContext context, {required Function onTab,required Function onTabTwo}) async {
 
   showModalBottomSheet(
     context: context,

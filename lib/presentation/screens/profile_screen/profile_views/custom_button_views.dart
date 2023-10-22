@@ -40,8 +40,10 @@ class CustomButtonViews extends StatelessWidget {
 }
 
 class ThreeButtons extends StatefulWidget {
+ final PageController controller;
   const ThreeButtons({
     super.key,
+    required this.controller,
   });
 
   @override
@@ -59,6 +61,7 @@ class _ThreeButtonsState extends State<ThreeButtons> {
         GestureDetector(
           onTap: () {
             currentIndex = 0;
+            widget.controller.jumpToPage(currentIndex);
             setState(() {});
           },
           child: CustomButtonViews(
@@ -71,28 +74,30 @@ class _ThreeButtonsState extends State<ThreeButtons> {
         ),
         GestureDetector(
           onTap: () {
-            currentIndex = 2;
+            currentIndex = 1;
+            widget.controller.jumpToPage(currentIndex);
             setState(() {});
           },
           child: CustomButtonViews(
             title: Strings.groupsTXT,
             index: currentIndex,
-            color: currentIndex == 2 ? CustomColors.oxFFFFFFFF : CustomColors.oxFF6949FF,
+            color: currentIndex == 1 ? CustomColors.oxFFFFFFFF : CustomColors.oxFF6949FF,
             colorBack:
-                currentIndex != 2 ? CustomColors.oxFFFFFFFF : CustomColors.oxFF6949FF,
+                currentIndex != 1 ? CustomColors.oxFFFFFFFF : CustomColors.oxFF6949FF,
           ),
         ),
         GestureDetector(
           onTap: () {
-            currentIndex = 1;
+            currentIndex = 2;
+            widget.controller.jumpToPage(currentIndex);
             setState(() {});
           },
           child: CustomButtonViews(
             title: Strings.statsTXT,
             index: currentIndex,
-            color: currentIndex == 1 ? CustomColors.oxFFFFFFFF : CustomColors.oxFF6949FF,
+            color: currentIndex == 2 ? CustomColors.oxFFFFFFFF : CustomColors.oxFF6949FF,
             colorBack:
-                currentIndex != 1 ? CustomColors.oxFFFFFFFF : CustomColors.oxFF6949FF,
+                currentIndex != 2 ? CustomColors.oxFFFFFFFF : CustomColors.oxFF6949FF,
           ),
         ),
       ],

@@ -18,36 +18,41 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
   @override
   void initState() {
     super.initState();
-    // list.add(auth.getToken );
   }
+    bool shouldPop = false;
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      /// #Backgroun color
-      backgroundColor: CustomColors.oxFFFFFFFF,
+    return WillPopScope(
+      onWillPop:() async {
+        return shouldPop;
+      },
+      child: Scaffold(
+        /// #Backgroun color
+        backgroundColor: CustomColors.oxFFFFFFFF,
 
-      /// #Body
-      body: PageView(
-        physics: const NeverScrollableScrollPhysics(),
-        controller: pageController,
-        children: const [
-          HomeScreen(),
-          LibraryScreen(),
-          SearchUserScreen(),
-          PreCreateScreen(),
-          ProfileScreen(),
-        ],
-      ),
+        /// #Body
+        body: PageView(
+          physics: const NeverScrollableScrollPhysics(),
+          controller: pageController,
+          children: const [
+            HomeScreen(),
+            LibraryScreen(),
+            SearchUserScreen(),
+            PreCreateScreen(),
+            ProfileScreen(),
+          ],
+        ),
 
-      /// #BottomNavigationBar
-      bottomNavigationBar: BottomNavBar(
-        bottomNavbarIndex: bottomNavbarIndex,
-        onTap: (value) {
-          bottomNavbarIndex = value;
-          pageController.jumpToPage(bottomNavbarIndex);
-          setState(() {});
-        },
+        /// #BottomNavigationBar
+        bottomNavigationBar: BottomNavBar(
+          bottomNavbarIndex: bottomNavbarIndex,
+          onTap: (value) {
+            bottomNavbarIndex = value;
+            pageController.jumpToPage(bottomNavbarIndex);
+            setState(() {});
+          },
+        ),
       ),
     );
   }

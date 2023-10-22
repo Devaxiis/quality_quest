@@ -39,9 +39,11 @@ class _LogOutListTileState extends State<LogOutListTile> {
             horizontal: 15.sp,
           ),
         ),
-        icon: const Image(
-          image: AssetImage('assets/icons/ic_log_out.png'),
+        icon: Image(
+          image: const AssetImage('assets/icons/ic_log_out.png'),
           color: CustomColors.oxFFFC6369,
+          height: 20.sp,
+          width: 20.sp,
         ),
       ),
     );
