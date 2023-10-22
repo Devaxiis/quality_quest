@@ -124,9 +124,16 @@ class _HomeScreenState extends State<HomeScreen> {
                                     /// #Cover Image
 
                                     Image.network(
-                                      scienceType?.photoUrl ?? "https://www.stx.ox.ac.uk/sites/default/files/stx/images/article/depositphotos_41197145-stock-photo-quiz.jpg",
-                                      errorBuilder: (___, __, _) => const Center(child: CircularProgressIndicator.adaptive()),
+                                      scienceType?.photoUrl ??
+                                          "https://www.stx.ox.ac.uk/sites/default/files/stx/images/article/depositphotos_41197145-stock-photo-quiz.jpg",
+                                      errorBuilder: (___, __, _) => Image(
+                                        height: 150.sp,
+                                        width: 200.sp,
+                                        fit: BoxFit.fitWidth,
+                                        image: const AssetImage("assets/images/img_idea.png"),
+                                      ),
                                     ),
+
 
                                     const Spacer(flex: 3),
 
