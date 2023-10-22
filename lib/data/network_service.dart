@@ -1,67 +1,86 @@
+import 'dart:convert';
 import 'package:dio/dio.dart';
-import 'package:quality_quest/core/params/apis.dart';
 import 'package:quality_quest/data/dio_interseptor.dart';
 import 'package:quality_quest/data/store.dart';
-
-
+import '../domain/model/screens/category_model/category_model.dart';
+import '../library.dart';
 
 abstract class Network {
-  Future<void> methodPost({required String api,required Map<String, Object?> data});
+  Future<void> methodPost({
+    required String api,
+    required Map<String, Object?> data,
+  });
 }
 
+final dio = Dio();
 
-  final dio = Dio();
 class HttpService {
-
   late final Dio _dio;
 
-  HttpService(){
+  HttpService() {
     _dio = Dio();
     _dio.interceptors.add(DioInterceptor());
   }
 
-
-  static Future<void> _saveToken(Map<String,dynamic> data)async{
+  static Future<void> _saveToken(Map<String, dynamic> data) async {
     final token = data["accessToken"];
     print("-----------------$token----------------------");
     await Store.setToken(token);
   }
 
   // #Method SignUp
-  static Future<bool> methodSignUpPost({required String api,required Map<String, Object?> data})async{
-   try{
-     final response =await dio.post("${Api.baseUrl}$api", data: data);
-     print("-----------------${response.statusCode}----------------------");
-     if(response.statusCode == 200 || response.statusCode == 201){
-     return true;
-     }else{
-       return false;
-     }
-   }catch(e){
-     print("ERROR:===>$e");
-   }
-   return false;
-  }
-
-  // #Method SignIn
-  static Future<bool> methodSignInPost({required String api, required Map<String, Object?> data})async{
-    try{
-      final response =await dio.post("${Api.baseUrl}$api", data: data);
+  static Future<bool> methodSignUpPost({
+    required String api,
+    required Map<String, Object?> data,
+  }) async {
+    try {
+      final response = await dio.post("${Api.baseUrl}$api", data: data);
       print("-----------------${response.statusCode}----------------------");
-      print("-----------------${response.data}----------------------");
-      if(response.statusCode == 200 || response.statusCode == 201){
-        _saveToken(response.data);
+      if (response.statusCode == 200 || response.statusCode == 201) {
         return true;
-      }else{
+      } else {
         return false;
       }
-    }catch(e){
-      print("ERROR:===>$e");
+    } catch (e) {
+      print("SIGN UP ERROR:===>$e");
     }
     return false;
   }
 
- 
+  // #Method SignIn
+  static Future<bool> methodSignInPost({
+    required String api,
+    required Map<String, Object?> data,
+  }) async {
+    try {
+      final response = await dio.post(
+        "${Api.baseUrl}$api",
+        data: jsonEncode(data),
+      );
+      print("-----------------${response.statusCode}----------------------");
+      print("-----------------${response.data}----------------------");
+      if (response.statusCode == 200 || response.statusCode == 201) {
+        _saveToken(response.data);
+        return true;
+      } else {
+        return false;
+      }
+    } catch (e) {
+      print("SIGN IN ERROR:===>$e");
+    }
+    return false;
+  }
 
+  // #Method GET Science Type
+  static Future<List<ScienceType>> fetchScienceTypes() async {
+    final response = await dio.get("${Api.baseUrl}/api/Science/GetScienceTypes");
+
+    if (response.statusCode == 200) {
+      final List<dynamic> jsonList = response.data;
+      return jsonList.map((json) => ScienceType.fromJson(json)).toList();
+    } else {
+      throw Exception('Failed to fetch science types');
+    }
+  }
 
 }

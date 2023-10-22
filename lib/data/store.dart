@@ -1,6 +1,6 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
-sealed class Store{
+sealed class Store {
   static const String _tokenKey = "TOKEN";
 
   static Future<void> setToken(String token) async{

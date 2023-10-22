@@ -1,4 +1,3 @@
-
 import 'dart:math';
 
 import 'package:bloc/bloc.dart';
@@ -8,11 +7,8 @@ import 'package:quality_quest/data/network_service.dart';
 import 'package:quality_quest/data/store.dart';
 import 'package:quality_quest/domain/model/registration/sign_up_model/sign_up_model.dart';
 
-
-
-
-
 part 'auth_event.dart';
+
 part 'auth_state.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
@@ -22,54 +18,56 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   }
 
   // #SignUp Bloc
-  void _signUp(AuthSignUpEvent event,Emitter emit)async{
+  void _signUp(AuthSignUpEvent event, Emitter emit) async {
     // #loading
     emit(AuthSignUpLoadingState());
 
     // #method
-    final result = await HttpService.methodSignUpPost(api: Api.apiSignUp,data: event.data);
+    final result = await HttpService.methodSignUpPost(
+        api: Api.apiSignUp, data: event.data);
 
-    if(result){
+    if (result) {
       SignUp user = SignUp(
-          id:Random().nextInt(1000),
-          firstname: event.data["firstname"].toString(),
-          lastname: event.data["lastname"].toString(),
-          password: event.data["password"].toString(),
-          email: event.data["email"].toString(),
+        id: Random().nextInt(1000),
+        firstname: event.data["firstname"].toString(),
+        lastname: event.data["lastname"].toString(),
+        password: event.data["password"].toString(),
+        email: event.data["email"].toString(),
       );
-    emit(AuthSignUpSuccessState());
-    }else{
+      emit(AuthSignUpSuccessState());
+    } else {
       emit(AuthSignUpFailureState());
     }
   }
 
   // #SignIn Bloc
-  void _signIn(AuthSignInEvent event, Emitter emit)async{
+  void _signIn(AuthSignInEvent event, Emitter emit) async {
     // #loading
     emit(AuthSignInLoadingState());
 
     // #method
-    final result = await HttpService.methodSignInPost(api: Api.apiSignIN, data: event.data);
+    final result = await HttpService.methodSignInPost(
+        api: Api.apiSignIN, data: event.data);
 
-    if(result){
-        emit(AuthSignUpSuccessState());
-      }else{
-        emit(AuthSignInFailureState());
-      }
+    if (result) {
+      emit(AuthSignUpSuccessState());
+    } else {
+      emit(AuthSignInFailureState());
+    }
 
-    String response = UserSave.getUser() as String ;
+    String response = UserSave.getUser().toString();
     List<String> users = response.split(",");
     List<String> haveUser = users.where((user) {
       return user[0] == event.data["email"].toString() &&
           user[1] == event.data["password"].toString();
     }).toList();
 
-    UserSave.setUser(event.data["email"].toString(), event.data["password"].toString());
-    if(haveUser.isNotEmpty){
-       emit(AuthSignInSuccessState());
-    }else{
+    UserSave.setUser(
+        event.data["email"].toString(), event.data["password"].toString());
+    if (haveUser.isNotEmpty) {
+      emit(AuthSignInSuccessState());
+    } else {
       emit(AuthSignInFailureState());
     }
   }
-
 }
