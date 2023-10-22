@@ -93,6 +93,24 @@ class HttpService {
     return false;
   }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   static Future<String?> multipart(
       {String api = Api.addSciencePhoto,
       required String filePath,
