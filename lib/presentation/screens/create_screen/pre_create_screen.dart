@@ -13,23 +13,7 @@ class PreCreateScreen extends StatefulWidget {
 class _PreCreateScreenState extends State<PreCreateScreen> {
   bool _toggleSwitch = false;
   String chooseCategory = "Category";
-  File? image;
 
-  Future pickImage() async {
-    try {
-      final image = await ImagePicker().pickImage(source: ImageSource.gallery);
-      if (image == null) return;
-      final imageTemp = File(image.path);
-      this.image = imageTemp;
-      setState(() {});
-    } on PlatformException catch (e) {
-      print('Failed to pick image: $e');
-    }
-  }
-
-  void upload(){
-    HttpService.multipart(filePath: image!.path.toString());
-  }
 
 
   @override
@@ -63,7 +47,7 @@ class _PreCreateScreenState extends State<PreCreateScreen> {
                 const SizedBox(height: 15),
 
                 /// #Image picker
-                 CustomImagePicker(image: image,ontab:()=> pickImage(),),
+                 CustomImagePicker(),
                 const SizedBox(height: 30),
 
                 /// #Exam Name
@@ -233,7 +217,6 @@ class _PreCreateScreenState extends State<PreCreateScreen> {
                 Center(
                   child: CustomDeepPurpleButton(
                     onTap: () {
-                      upload();
                       Navigator.of(context).push(
                         MaterialPageRoute(
                           builder: (_) => const CreateScreen(),

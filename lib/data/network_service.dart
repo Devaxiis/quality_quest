@@ -3,12 +3,11 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:http/http.dart' as http;
 import 'package:http_parser/http_parser.dart';
-import 'package:quality_quest/core/params/apis.dart'
+import 'package:quality_quest/core/params/apis.dart';
 import 'dart:convert';
-
 import 'package:quality_quest/data/dio_interseptor.dart';
 import 'package:quality_quest/data/store.dart';
-import 'package:quality_quest/domain/model/registration/logo_out/logo_out.dart';
+import 'package:quality_quest/domain/model/screens/category_model/category_model.dart';
 
 
 
@@ -124,4 +123,4 @@ class HttpService {
   }
 
 }
-}
+
