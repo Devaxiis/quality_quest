@@ -1,7 +1,5 @@
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:quality_quest/domain/model/registration/token_model/token_mode.dart';
+import 'package:quality_quest/bloc/mein_home/home_bloc.dart';
 import 'package:quality_quest/library.dart';
-import 'package:quality_quest/main.dart';
 import 'join_screen/join_screen.dart';
 
 class MainHomeScreen extends StatefulWidget {
@@ -15,16 +13,11 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
   PageController pageController = PageController();
   int bottomNavbarIndex = 0;
   int counter = 0;
-  List<TokenModel> list =[];
-
-  @override
-  void initState() {
-    super.initState();
-  }
-    // bool shouldPop = false;
+  List<TokenModel> list = [];
 
   @override
   Widget build(BuildContext context) {
+    // #WillPopScope
     return WillPopScope(
       onWillPop: () async {
         final shouldPop = await showDialog<bool>(
@@ -38,13 +31,25 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
                   onPressed: () {
                     Navigator.pop(context, true);
                   },
-                  child:  Text('Yes',style: TextStyle(color: const Color(0xff6949ff),fontSize: 20.sp,fontWeight: FontWeight.bold),),
+                  child: Text(
+                    'Yes',
+                    style: TextStyle(
+                        color: const Color(0xff6949ff),
+                        fontSize: 20.sp,
+                        fontWeight: FontWeight.bold),
+                  ),
                 ),
                 TextButton(
                   onPressed: () {
                     Navigator.pop(context, false);
                   },
-                  child:  Text('No',style: TextStyle(color: const Color(0xff6949ff),fontSize: 20.sp,fontWeight: FontWeight.bold),),
+                  child: Text(
+                    'No',
+                    style: TextStyle(
+                        color: const Color(0xff6949ff),
+                        fontSize: 20.sp,
+                        fontWeight: FontWeight.bold),
+                  ),
                 ),
               ],
             );
@@ -52,31 +57,45 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
         );
         return shouldPop!;
       },
-      child: Scaffold(
-        /// #Backgroun color
-        backgroundColor: CustomColors.oxFFFFFFFF,
 
-        /// #Body
-        body: PageView(
-          physics: const NeverScrollableScrollPhysics(),
-          controller: pageController,
-          children: const [
-            HomeScreen(),
-            LibraryScreen(),
-            SearchUserScreen(),
-            PreCreateScreen(),
-            ProfileScreen(),
-          ],
-        ),
+      // #Scaffoled
+      child: BlocListener<HomeBloc, HomeState>(
+        listener: (context, state) {
+          if(state is HomeSuccess){
+            pageController.jumpToPage(state.index);
+          }
+        },
+        child: Scaffold(
 
-        /// #BottomNavigationBar
-        bottomNavigationBar: BottomNavBar(
-          bottomNavbarIndex: bottomNavbarIndex,
-          onTap: (value) {
-            bottomNavbarIndex = value;
-            pageController.jumpToPage(bottomNavbarIndex);
-            setState(() {});
-          },
+          /// #Backgroun color
+          backgroundColor: CustomColors.oxFFFFFFFF,
+
+          /// #Body
+          body: PageView(
+            physics: const NeverScrollableScrollPhysics(),
+            controller: pageController,
+            children: const [
+              HomeScreen(),
+              LibraryScreen(),
+              SearchUserScreen(),
+              PreCreateScreen(),
+              ProfileScreen(),
+            ],
+          ),
+
+          /// #BottomNavigationBar
+          bottomNavigationBar: BlocBuilder<HomeBloc, HomeState>(
+            builder: (context, state) {
+              return BottomNavBar(
+                bottomNavbarIndex: bottomNavbarIndex,
+                onTap: (value) {
+                  bottomNavbarIndex = value;
+                  context.read<HomeBloc>().add(
+                      MainHomeEvent(bottomNavbarIndex));
+                },
+              );
+            },
+          ),
         ),
       ),
     );
