@@ -7,6 +7,7 @@ import 'package:quality_quest/data/store.dart';
 import 'package:quality_quest/domain/model/registration/sign_up_model/sign_up_model.dart';
 
 part 'auth_event.dart';
+
 part 'auth_state.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
@@ -16,12 +17,14 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   }
 
   // #SignUp Bloc
-  void _signUp(AuthSignUpEvent event,Emitter emit)async{
+  void _signUp(AuthSignUpEvent event, Emitter emit) async {
     // #loading
     emit(AuthSignUpLoadingState());
 
     // #method
-    final result = await HttpService.methodSignUpPost(api: Api.apiSignUp,data: event.data);
+    final result = await HttpService.methodSignUpPost(
+        api: Api.apiSignUp, data: event.data);
+
 
     if(result){
       // UserSave.setUser(id:Random().nextInt(1000), firstname: event.data["firstname"].toString(), lastname: event.data["lastname"].toString(), email: event.data["email"].toString(), password: event.data["password"].toString());
@@ -32,7 +35,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   }
 
   // #SignIn Bloc
-  void _signIn(AuthSignInEvent event, Emitter emit)async{
+  void _signIn(AuthSignInEvent event, Emitter emit) async {
     // #loading
     emit(AuthSignInLoadingState());
 
@@ -44,13 +47,15 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     // }).toList();
 
     // #method
-    final result = await HttpService.methodSignInPost(api: Api.apiSignIN, data: event.data);
+    final result = await HttpService.methodSignInPost(
+        api: Api.apiSignIN, data: event.data);
 
-    if(result){
-        emit(AuthSignUpSuccessState());
-      }else{
-        emit(AuthSignInFailureState());
-      }
+    if (result) {
+      emit(AuthSignUpSuccessState());
+    } else {
+      emit(AuthSignInFailureState());
+    }
+
 
 
 
@@ -60,6 +65,6 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     // }else{
     //   emit(AuthSignInFailureState());
     // }
-  }
 
+  }
 }

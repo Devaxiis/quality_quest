@@ -1,17 +1,15 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
+class ScienceType {
+  final int id;
+  final String name;
+  final String? photoUrl;
 
-part 'category_model.freezed.dart';
-part 'category_model.g.dart';
+  ScienceType({required this.id, required this.name, this.photoUrl});
 
-@freezed
-class Category with _$Category {
-  @JsonSerializable(explicitToJson: true, fieldRename: FieldRename.snake)
-  const factory Category({
-    required int id,
-    required String name,
-    required String? photoUrl,
-  }) = _Category;
-
-  factory Category.fromJson(Map<String, Object?> json) =>
-      _$CategoryFromJson(json);
+  factory ScienceType.fromJson(Map<String, dynamic> json) {
+    return ScienceType(
+      id: json['id'],
+      name: json['name'],
+      photoUrl: json['photoUrl'],
+    );
+  }
 }

@@ -1,8 +1,10 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
+
 sealed class Store{
   static const String _tokenKey = "accessToken";
   static const String _refreshToken = "refreshToken";
+
 
   static Future<void> setToken(String token,String refToken) async{
     final preferences =await SharedPreferences.getInstance();
