@@ -3,15 +3,33 @@ import 'package:image_picker/image_picker.dart';
 
 import 'package:quality_quest/library.dart';
 
-class CustomImagePicker extends StatelessWidget {
-  final File? image;
-  final Function ontab;
-  const CustomImagePicker({super.key, this.image, required this.ontab,});
+class CustomImagePicker extends StatefulWidget {
+
+   CustomImagePicker({super.key,});
+
+  @override
+  State<CustomImagePicker> createState() => _CustomImagePickerState();
+}
+
+class _CustomImagePickerState extends State<CustomImagePicker> {
+   File? image;
+
+  Future pickImage() async {
+    try {
+      final image = await ImagePicker().pickImage(source: ImageSource.gallery);
+      if (image == null) return;
+      final imageTemp = File(image.path);
+      this.image = imageTemp;
+      setState(() {});
+    } on PlatformException catch (e) {
+      print('Failed to pick image: $e');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: ontab(),
+      onTap: pickImage,
       child: image == null
           ? Container(
               height: 230.sp,
@@ -27,7 +45,7 @@ class CustomImagePicker extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   IconButton(
-                    onPressed: ontab(),
+                    onPressed: pickImage,
                     icon: const Image(
                       height: 50,
                       width: 50,
