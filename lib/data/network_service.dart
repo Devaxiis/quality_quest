@@ -1,16 +1,5 @@
-import 'dart:convert';
-
-import 'package:dio/dio.dart';
+import 'package:quality_quest/library.dart';
 import 'package:http/http.dart' as http;
-import 'package:http_parser/http_parser.dart';
-import 'package:quality_quest/core/params/apis.dart';
-import 'dart:convert';
-import 'package:quality_quest/data/dio_interseptor.dart';
-import 'package:quality_quest/data/store.dart';
-
-import 'package:quality_quest/data/dio_interseptor.dart';
-import 'package:quality_quest/data/store.dart';
-
 
 // abstract class Network {
 // Future<void> methodPost({required String api,required Map<String, Object?> data});
@@ -123,8 +112,4 @@ class HttpService {
       return null;
     }
   }
-
-
 }
-
-
