@@ -1,4 +1,6 @@
+import 'package:quality_quest/domain/model/screens/category_model/category_model.dart';
 import 'package:quality_quest/library.dart';
+import 'package:quality_quest/presentation/screens/home_screen/notification_screen/notification_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -9,14 +11,19 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int currentIndex = 0;
+  List<ScienceType> list =[];
+
+
 
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       /// #background Color
       backgroundColor: CustomColors.oxFFFFFFFF,
 
+      // #AppBar
       appBar: AppBar(
         title: Text(
           Strings.qualityQuestTXT,
@@ -24,7 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         actions: [
           IconButton(
-            onPressed: (){
+            onPressed: () {
               Navigator.push(
                 context,
                 MaterialPageRoute(
@@ -43,7 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const NotificationScreen(),
+                  builder: (context) => const NotificationMainScreen(),
                 ),
               );
             },
@@ -61,8 +68,8 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
 
       /// #Body
-      body: FutureBuilder(
-          future: HttpService.fetchScienceTypes(),
+      body:  FutureBuilder(
+          future: HttpService.fetchScienceTypes(api: Api.getScienceTypes),
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
               return const Center(child: CircularProgressIndicator());
@@ -79,7 +86,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     Expanded(
                       child: GridView.builder(
                         padding:
-                            const EdgeInsets.only(top: 20, left: 8, right: 8),
+                        const EdgeInsets.only(top: 20, left: 8, right: 8),
                         scrollDirection: Axis.vertical,
                         itemCount: scienceTypes?.length,
                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -96,7 +103,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) =>
-                                      const DetailDiscoverScreen(),
+                                  const DetailDiscoverScreen(),
                                 ),
                               );
                             },
@@ -124,8 +131,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     /// #Cover Image
 
                                     Image.network(
-                                      scienceType?.photoUrl ??
-                                          "https://www.stx.ox.ac.uk/sites/default/files/stx/images/article/depositphotos_41197145-stock-photo-quiz.jpg",
+                                      scienceType!.photoUrl.toString() ,
                                       errorBuilder: (___, __, _) => Image(
                                         height: 125.sp,
                                         width: 200.sp,
@@ -145,7 +151,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         horizontal: 8.0,
                                       ),
                                       child: Text(
-                                        scienceType!.name,
+                                        scienceType.name,
                                         style: TextStyle(
                                           fontSize: 15.sp,
                                           color: Colors.black,
@@ -177,3 +183,8 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
+
+
+
+
+

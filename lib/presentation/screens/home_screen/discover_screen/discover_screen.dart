@@ -40,7 +40,7 @@ class _DetailDiscoverScreenState extends State<DetailDiscoverScreen> {
         children: [
           Expanded(
             child: ListView.builder(
-                itemCount: 30,
+                itemCount: 10,
                 itemBuilder: (context, index) {
                   return GestureDetector(
                     onTap: () {
@@ -122,7 +122,13 @@ class _DetailDiscoverScreenState extends State<DetailDiscoverScreen> {
                                   ],
                                 ),
                                 const Spacer(),
+<<<<<<< HEAD
+                                 Row(
+                                   mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                  mainAxisSize: MainAxisSize.min,
+=======
                                 Row(
+>>>>>>> bb6572a2b726504c2e54f6e344a0e906dbcbb576
                                   children: [
                                     CircleAvatar(
                                       backgroundImage: const AssetImage(
@@ -130,6 +136,13 @@ class _DetailDiscoverScreenState extends State<DetailDiscoverScreen> {
                                       ),
                                       radius: 20.sp,
                                     ),
+<<<<<<< HEAD
+                                    Text('Edgar Torrey',style: TextStyle(fontSize: 18.sp,fontWeight: FontWeight.bold),),
+                                    SizedBox(width: 20.sp),
+                                    IconButton(onPressed: (){
+                                      print("=============>hello<==============");
+                                    }, icon: const Icon(Icons.bookmark_border)),
+=======
                                     SizedBox(width: 20.sp),
                                     Text(
                                       'Edgar Torrey',
@@ -153,6 +166,7 @@ class _DetailDiscoverScreenState extends State<DetailDiscoverScreen> {
                                             )
                                           : const Icon(CupertinoIcons.heart),
                                     ),
+>>>>>>> bb6572a2b726504c2e54f6e344a0e906dbcbb576
                                   ],
                                 ),
                                 const Spacer(),
