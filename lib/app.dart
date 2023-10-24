@@ -1,14 +1,10 @@
-<<<<<<< HEAD
 
 import 'package:quality_quest/bloc/auth/auth_bloc.dart';
 import 'package:quality_quest/bloc/create_science/create_science_bloc.dart';
-=======
-import 'package:quality_quest/bloc/auth/auth_bloc.dart';
->>>>>>> bb6572a2b726504c2e54f6e344a0e906dbcbb576
 import 'package:quality_quest/bloc/mein_home/home_bloc.dart';
 import 'package:quality_quest/bloc/mein_home/profile/group_bloc.dart';
 import 'package:quality_quest/library.dart';
-import 'package:quality_quest/presentation/registration_screens/splash_screen/splash_screen.dart';
+
 
 
 class MyApp extends StatelessWidget {
