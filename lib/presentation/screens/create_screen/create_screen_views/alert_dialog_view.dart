@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:quality_quest/library.dart';
 
 late String answer;
@@ -8,6 +7,7 @@ TextEditingController answerAddingController = TextEditingController();
 class CustomAnswerDialog extends StatefulWidget {
   final Color shadowColor;
   final Color buttonColor;
+  final String titleText;
   final String initialValue;
 
   const CustomAnswerDialog({
@@ -15,6 +15,7 @@ class CustomAnswerDialog extends StatefulWidget {
     required this.shadowColor,
     required this.buttonColor,
     required this.initialValue,
+    required this.titleText,
   });
 
   @override
@@ -30,12 +31,11 @@ class _CustomAnswerDialogState extends State<CustomAnswerDialog> {
 
   @override
   Widget build(BuildContext context) {
-    bool? currentValue = false;
     return AlertDialog(
       surfaceTintColor: CustomColors.oxFFFFFFFF,
-      title: const Center(
+      title: Center(
         child: Text(
-          Strings.addAnswerTXT,
+          widget.titleText,
           style: Style.createAddAnswerST,
         ),
       ),
@@ -82,21 +82,6 @@ class _CustomAnswerDialogState extends State<CustomAnswerDialog> {
         ],
       ),
       actions: [
-        isCheckBoxTapped == false
-            ? Center(child: CheckBox(value: currentValue))
-            : Center(
-                child: GestureDetector(
-                  onTap: () {
-                    isCheckBoxTapped = false;
-                    setState(() {});
-                  },
-                  child: Text(
-                    "Correct answer?",
-                    style: Style.createAddCoverImageST,
-                  ),
-                ),
-              ),
-        const SizedBox(width: 15),
         const SizedBox(height: 20),
         Center(
           child: ElevatedButton(
@@ -124,50 +109,6 @@ class _CustomAnswerDialogState extends State<CustomAnswerDialog> {
               ),
             ),
           ),
-        ),
-      ],
-    );
-  }
-}
-
-class CheckBox extends StatefulWidget {
-  bool? value = false;
-
-  CheckBox({
-    super.key,
-    this.value,
-  });
-
-  @override
-  State<CheckBox> createState() => _CheckBoxState();
-}
-
-class _CheckBoxState extends State<CheckBox> {
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              Strings.correctAnswerTXT,
-              style: Style.createCorrectAnswerST,
-            ),
-            CupertinoCheckbox(
-              activeColor: CustomColors.oxFF295ECC,
-              shape: const CircleBorder(),
-              side: const BorderSide(color: CustomColors.oxFF295ECC),
-              value: widget.value,
-              onChanged: (currentValue) {
-                setState(() {
-                  widget.value = currentValue;
-                  isCheckBoxTapped = !isCheckBoxTapped;
-                });
-              },
-            ),
-          ],
         ),
       ],
     );

@@ -72,7 +72,7 @@ class _CreateScreenState extends State<CreateScreen> {
                     buttonColor: CustomColors.oxFF3779FF,
                     text: firstAnswer.isNotEmpty
                         ? firstAnswer
-                        : Strings.answerTXT,
+                        : Strings.correctAnswerTXT,
                     onTap: () {
                       showDialog(
                         context: context,
@@ -81,6 +81,7 @@ class _CreateScreenState extends State<CreateScreen> {
                             shadowColor: CustomColors.oxFF295ECC,
                             buttonColor: CustomColors.oxFF3779FF,
                             initialValue: firstAnswer,
+                            titleText: Strings.correctAnswerTXT,
                           );
                         },
                       ).then((value) {
@@ -108,6 +109,7 @@ class _CreateScreenState extends State<CreateScreen> {
                             shadowColor: CustomColors.oxFF295ECC,
                             buttonColor: CustomColors.oxFF3779FF,
                             initialValue: secondAnswer,
+                            titleText: Strings.answerTXT,
                           );
                         },
                       ).then((value) {
@@ -140,6 +142,7 @@ class _CreateScreenState extends State<CreateScreen> {
                             shadowColor: CustomColors.oxFF295ECC,
                             buttonColor: CustomColors.oxFF3779FF,
                             initialValue: thirdAnswer,
+                            titleText: Strings.answerTXT,
                           );
                         },
                       ).then((value) {
@@ -167,6 +170,7 @@ class _CreateScreenState extends State<CreateScreen> {
                             shadowColor: CustomColors.oxFF295ECC,
                             buttonColor: CustomColors.oxFF3779FF,
                             initialValue: fourthAnswer,
+                            titleText: Strings.answerTXT,
                           );
                         },
                       ).then((value) {

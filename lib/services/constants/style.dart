@@ -176,10 +176,10 @@ sealed class Style {
     fontWeight: FontWeight.w700,
     fontSize: 18.sp,
   );
-  static const createAddAnswerST = TextStyle(
-    color: Color(0xFF295ECC),
+  static final createAddAnswerST = TextStyle(
+    color: const Color(0xFF295ECC),
     fontWeight: FontWeight.w800,
-    fontSize: 28,
+    fontSize: 25.sp,
   );
   static const createTextFieldST = TextStyle(
     color: Colors.white,
@@ -196,7 +196,7 @@ sealed class Style {
   );
   static final createTextST = TextStyle(
     color: Colors.white,
-    fontSize: 21.sp,
+    fontSize: 20.sp,
     fontWeight: FontWeight.bold,
   );
 }

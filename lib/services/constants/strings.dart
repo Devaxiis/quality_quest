@@ -19,7 +19,6 @@ sealed class Strings {
   static const successfullyCreatedAccount = "Successfully created an account!";
   static const createQuizTXT = "Create Quiz";
   static const answerTXT = "Answer";
-  static const addAnswerTXT = "Answer";
   static const addYourAnswerTXT = "Add your answer...";
   static const correctAnswerTXT = "Correct answer";
   static const submitTXT = "Submit";
