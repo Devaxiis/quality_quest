@@ -12,8 +12,9 @@ class ExamScreen extends StatefulWidget {
   State<ExamScreen> createState() => _ExamScreenState();
 }
 
+int currentIndex = 0;
 class _ExamScreenState extends State<ExamScreen> {
-<<<<<<< HEAD
+
   int questionIndex = 0;
   String question = "";
   List<String> questionList = [];
@@ -26,10 +27,9 @@ class _ExamScreenState extends State<ExamScreen> {
     questionList = widget.data.tarix.values.first.values.first;
     questionIndex += 1;
   }
-=======
-  bool _isTapped = true;
-  int currentIndex = 0;
->>>>>>> bb6572a2b726504c2e54f6e344a0e906dbcbb576
+
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -63,67 +63,12 @@ class _ExamScreenState extends State<ExamScreen> {
             ),
             ////////////////////////////////////////////////////
             Expanded(
-<<<<<<< HEAD
                 flex: 5,
                 child: ExamQuestionItem(
                   controller: widget.controller,
                   questions: questionList,
                 )),
-=======
-              flex: 5,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      AnswerAddButton(
-                        shadowColor: currentIndex == 1 ? CustomColors.oxFFF48400 : CustomColors.oxFF6200EA,
-                        buttonColor: currentIndex == 1 ? CustomColors.oxFFFF981F : CustomColors.oxFF6949FF,
-                        text: "Andijon",
-                        onTap: () {
-                          currentIndex = 1;
-                          setState(() {});
-                        },
-                      ),
-                      AnswerAddButton(
-                        shadowColor: currentIndex == 2 ? CustomColors.oxFFF48400 : CustomColors.oxFF6200EA,
-                        buttonColor: currentIndex == 2 ? CustomColors.oxFFFF981F : CustomColors.oxFF6949FF,
-                        text: "Namangan",
-                        onTap: () {
-                          currentIndex = 2;
-                          setState(() {});
-                        },
-                      ),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      AnswerAddButton(
-                        shadowColor:  currentIndex == 3 ? CustomColors.oxFFF48400 : CustomColors.oxFF6200EA,
-                        buttonColor:  currentIndex == 3 ? CustomColors.oxFFFF981F : CustomColors.oxFF6949FF,
-                        text: "Toshkent",
-                        onTap: () {
-                          currentIndex = 3;
-                          setState(() {});
-                        },
-                      ),
-                      AnswerAddButton(
-                        shadowColor: currentIndex == 4 ? CustomColors.oxFFF48400 : CustomColors.oxFF6200EA,
-                        buttonColor: currentIndex == 4 ? CustomColors.oxFFFF981F : CustomColors.oxFF6949FF,
-                        text: "Farg'ona",
-                        onTap: () {
-                          currentIndex = 4;
-                          setState(() {});
-                        },
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
->>>>>>> bb6572a2b726504c2e54f6e344a0e906dbcbb576
+
             Expanded(
               child: Column(
                 children: [
@@ -144,6 +89,7 @@ class _ExamScreenState extends State<ExamScreen> {
                             .values
                             .toList()[0];
 
+                        currentIndex = 0;
                         widget.controller.update(() {});
                         questionIndex += 1;
                         print(widget.controller.score);
@@ -173,6 +119,7 @@ class ExamQuestionItem extends StatefulWidget {
 }
 
 class _ExamQuestionItemState extends State<ExamQuestionItem> {
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -182,20 +129,22 @@ class _ExamQuestionItemState extends State<ExamQuestionItem> {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             AnswerAddButton(
-              shadowColor: CustomColors.oxFF6200EA,
-              buttonColor: CustomColors.oxFF6949FF,
-              text: widget.questions[0],
+              shadowColor: currentIndex == 1 ? CustomColors.oxFFF48400 : CustomColors.oxFF6200EA,
+              buttonColor: currentIndex == 1 ? CustomColors.oxFFFF981F : CustomColors.oxFF6949FF,
+              text:widget.questions[0],
               onTap: () {
+                currentIndex = 1;
                 setState(() {
                   widget.controller.answer = widget.questions[0];
                 });
               },
             ),
             AnswerAddButton(
-              shadowColor: CustomColors.oxFF6200EA,
-              buttonColor: CustomColors.oxFF6949FF,
+              shadowColor: currentIndex == 2 ? CustomColors.oxFFF48400 : CustomColors.oxFF6200EA,
+              buttonColor: currentIndex == 2 ? CustomColors.oxFFFF981F : CustomColors.oxFF6949FF,
               text: widget.questions[1],
               onTap: () {
+                currentIndex = 2;
                 setState(() {
                   widget.controller.answer = widget.questions[1];
                 });
@@ -207,20 +156,22 @@ class _ExamQuestionItemState extends State<ExamQuestionItem> {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             AnswerAddButton(
-              shadowColor: CustomColors.oxFF6200EA,
-              buttonColor: CustomColors.oxFF6949FF,
+              shadowColor:  currentIndex == 3 ? CustomColors.oxFFF48400 : CustomColors.oxFF6200EA,
+              buttonColor:  currentIndex == 3 ? CustomColors.oxFFFF981F : CustomColors.oxFF6949FF,
               text: widget.questions[2],
               onTap: () {
+                currentIndex = 3;
                 setState(() {
                   widget.controller.answer = widget.questions[2];
                 });
               },
             ),
             AnswerAddButton(
-              shadowColor: CustomColors.oxFF6200EA,
-              buttonColor: CustomColors.oxFF6949FF,
+              shadowColor: currentIndex == 4 ? CustomColors.oxFFF48400 : CustomColors.oxFF6200EA,
+              buttonColor: currentIndex == 4 ? CustomColors.oxFFFF981F : CustomColors.oxFF6949FF,
               text: widget.questions[3],
               onTap: () {
+                currentIndex = 4;
                 setState(() {
                   widget.controller.answer = widget.questions[3];
                 });
@@ -232,3 +183,5 @@ class _ExamQuestionItemState extends State<ExamQuestionItem> {
     );
   }
 }
+
+

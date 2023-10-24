@@ -122,13 +122,7 @@ class _DetailDiscoverScreenState extends State<DetailDiscoverScreen> {
                                   ],
                                 ),
                                 const Spacer(),
-<<<<<<< HEAD
-                                 Row(
-                                   mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                  mainAxisSize: MainAxisSize.min,
-=======
                                 Row(
->>>>>>> bb6572a2b726504c2e54f6e344a0e906dbcbb576
                                   children: [
                                     CircleAvatar(
                                       backgroundImage: const AssetImage(
@@ -136,13 +130,6 @@ class _DetailDiscoverScreenState extends State<DetailDiscoverScreen> {
                                       ),
                                       radius: 20.sp,
                                     ),
-<<<<<<< HEAD
-                                    Text('Edgar Torrey',style: TextStyle(fontSize: 18.sp,fontWeight: FontWeight.bold),),
-                                    SizedBox(width: 20.sp),
-                                    IconButton(onPressed: (){
-                                      print("=============>hello<==============");
-                                    }, icon: const Icon(Icons.bookmark_border)),
-=======
                                     SizedBox(width: 20.sp),
                                     Text(
                                       'Edgar Torrey',
@@ -161,12 +148,12 @@ class _DetailDiscoverScreenState extends State<DetailDiscoverScreen> {
                                       },
                                       icon: _isTappedList[index]
                                           ? const Icon(
-                                              CupertinoIcons.heart_fill,
+                                              CupertinoIcons.bookmark_fill,
                                               color: CustomColors.oxFFD32F2F,
                                             )
-                                          : const Icon(CupertinoIcons.heart),
+                                          : const Icon(CupertinoIcons.bookmark),
                                     ),
->>>>>>> bb6572a2b726504c2e54f6e344a0e906dbcbb576
+
                                   ],
                                 ),
                                 const Spacer(),
