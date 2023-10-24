@@ -8,11 +8,15 @@ class CreateScreen extends StatefulWidget {
 }
 
 class _CreateScreenState extends State<CreateScreen> {
+  String firstAnswer = "";
+  String secondAnswer = "";
+  String thirdAnswer = "";
+  String fourthAnswer = "";
+
   @override
   Widget build(BuildContext context) {
-   // #Scaffold
+    // #Scaffold
     return Scaffold(
-
       // #Background Color
       backgroundColor: CustomColors.oxFFFFFFFF,
 
@@ -66,17 +70,26 @@ class _CreateScreenState extends State<CreateScreen> {
                   AnswerAddButton(
                     shadowColor: CustomColors.oxFF295ECC,
                     buttonColor: CustomColors.oxFF3779FF,
-                    text: Strings.answerTXT,
+                    text: firstAnswer.isNotEmpty
+                        ? firstAnswer
+                        : Strings.answerTXT,
                     onTap: () {
                       showDialog(
                         context: context,
                         builder: (context) {
-                          return const CustomAnswerDialog(
+                          return CustomAnswerDialog(
                             shadowColor: CustomColors.oxFF295ECC,
                             buttonColor: CustomColors.oxFF3779FF,
+                            initialValue: firstAnswer,
                           );
                         },
-                      );
+                      ).then((value) {
+                        if (value != null) {
+                          setState(() {
+                            firstAnswer = value;
+                          });
+                        }
+                      });
                     },
                   ),
 
@@ -84,17 +97,26 @@ class _CreateScreenState extends State<CreateScreen> {
                   AnswerAddButton(
                     shadowColor: CustomColors.oxFFEA1E61,
                     buttonColor: CustomColors.oxFFF75555,
-                    text: Strings.answerTXT,
+                    text: secondAnswer.isNotEmpty
+                        ? secondAnswer
+                        : Strings.answerTXT,
                     onTap: () {
                       showDialog(
                         context: context,
                         builder: (context) {
-                          return const CustomAnswerDialog(
-                            shadowColor: CustomColors.oxFFEA1E61,
-                            buttonColor: CustomColors.oxFFF75555,
+                          return CustomAnswerDialog(
+                            shadowColor: CustomColors.oxFF295ECC,
+                            buttonColor: CustomColors.oxFF3779FF,
+                            initialValue: secondAnswer,
                           );
                         },
-                      );
+                      ).then((value) {
+                        if (value != null) {
+                          setState(() {
+                            secondAnswer = value;
+                          });
+                        }
+                      });
                     },
                   ),
                 ],
@@ -107,17 +129,26 @@ class _CreateScreenState extends State<CreateScreen> {
                   AnswerAddButton(
                     shadowColor: CustomColors.oxFFF48400,
                     buttonColor: CustomColors.oxFFFF981F,
-                    text: Strings.answerTXT,
+                    text: thirdAnswer.isNotEmpty
+                        ? thirdAnswer
+                        : Strings.answerTXT,
                     onTap: () {
                       showDialog(
                         context: context,
                         builder: (context) {
-                          return const CustomAnswerDialog(
-                            shadowColor: CustomColors.oxFFF48400,
-                            buttonColor: CustomColors.oxFFFF981F,
+                          return CustomAnswerDialog(
+                            shadowColor: CustomColors.oxFF295ECC,
+                            buttonColor: CustomColors.oxFF3779FF,
+                            initialValue: thirdAnswer,
                           );
                         },
-                      );
+                      ).then((value) {
+                        if (value != null) {
+                          setState(() {
+                            thirdAnswer = value;
+                          });
+                        }
+                      });
                     },
                   ),
 
@@ -125,17 +156,26 @@ class _CreateScreenState extends State<CreateScreen> {
                   AnswerAddButton(
                     shadowColor: CustomColors.oxFF00B777,
                     buttonColor: CustomColors.oxFF12D18E,
-                    text: Strings.answerTXT,
+                    text: fourthAnswer.isNotEmpty
+                        ? fourthAnswer
+                        : Strings.answerTXT,
                     onTap: () {
                       showDialog(
                         context: context,
                         builder: (context) {
-                          return const CustomAnswerDialog(
-                            shadowColor: CustomColors.oxFF00B777,
-                            buttonColor: CustomColors.oxFF12D18E,
+                          return CustomAnswerDialog(
+                            shadowColor: CustomColors.oxFF295ECC,
+                            buttonColor: CustomColors.oxFF3779FF,
+                            initialValue: fourthAnswer,
                           );
                         },
-                      );
+                      ).then((value) {
+                        if (value != null) {
+                          setState(() {
+                            fourthAnswer = value;
+                          });
+                        }
+                      });
                     },
                   ),
                 ],

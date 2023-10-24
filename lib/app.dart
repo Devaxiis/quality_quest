@@ -1,6 +1,10 @@
+<<<<<<< HEAD
 
 import 'package:quality_quest/bloc/auth/auth_bloc.dart';
 import 'package:quality_quest/bloc/create_science/create_science_bloc.dart';
+=======
+import 'package:quality_quest/bloc/auth/auth_bloc.dart';
+>>>>>>> bb6572a2b726504c2e54f6e344a0e906dbcbb576
 import 'package:quality_quest/bloc/mein_home/home_bloc.dart';
 import 'package:quality_quest/bloc/mein_home/profile/group_bloc.dart';
 import 'package:quality_quest/library.dart';
@@ -27,7 +31,7 @@ class MyApp extends StatelessWidget {
               theme: ThemeData.light(useMaterial3: true),
               themeMode: ThemeMode.light,
               debugShowCheckedModeBanner: false,
-              home: const SplashScreen(),
+              home: const MainHomeScreen(),
           ),
         ),
     );

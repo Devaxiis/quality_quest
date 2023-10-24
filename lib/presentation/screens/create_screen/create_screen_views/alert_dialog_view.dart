@@ -1,16 +1,32 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quality_quest/library.dart';
 
-class CustomAnswerDialog extends StatelessWidget {
+late String answer;
+bool isCheckBoxTapped = false;
+TextEditingController answerAddingController = TextEditingController();
+
+class CustomAnswerDialog extends StatefulWidget {
   final Color shadowColor;
   final Color buttonColor;
+  final String initialValue;
 
   const CustomAnswerDialog({
     super.key,
     required this.shadowColor,
     required this.buttonColor,
+    required this.initialValue,
   });
+
+  @override
+  State<CustomAnswerDialog> createState() => _CustomAnswerDialogState();
+}
+
+class _CustomAnswerDialogState extends State<CustomAnswerDialog> {
+  @override
+  void initState() {
+    super.initState();
+    answer = widget.initialValue;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +50,7 @@ class CustomAnswerDialog extends StatelessWidget {
             width: 250.sp,
             alignment: Alignment.topCenter,
             decoration: BoxDecoration(
-              color: shadowColor,
+              color: widget.shadowColor,
               borderRadius: const BorderRadius.all(
                 Radius.circular(15),
               ),
@@ -44,17 +60,17 @@ class CustomAnswerDialog extends StatelessWidget {
               alignment: Alignment.center,
               width: MediaQuery.of(context).size.width / 1.15,
               decoration: BoxDecoration(
-                color: buttonColor,
-                // Replace with your buttonColor
+                color: widget.buttonColor,
                 borderRadius: const BorderRadius.all(
                   Radius.circular(15),
                 ),
               ),
-              child: const TextField(
+              child: TextField(
+                controller: answerAddingController,
                 textAlign: TextAlign.justify,
                 maxLines: null,
                 style: Style.createTextFieldST,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   hintText: Strings.addYourAnswerTXT,
                   hintStyle: Style.createAddYourAnswerST,
                   border: InputBorder.none,
@@ -66,8 +82,49 @@ class CustomAnswerDialog extends StatelessWidget {
         ],
       ),
       actions: [
-        CheckBox(value: currentValue),
+        isCheckBoxTapped == false
+            ? Center(child: CheckBox(value: currentValue))
+            : Center(
+                child: GestureDetector(
+                  onTap: () {
+                    isCheckBoxTapped = false;
+                    setState(() {});
+                  },
+                  child: Text(
+                    "Correct answer?",
+                    style: Style.createAddCoverImageST,
+                  ),
+                ),
+              ),
         const SizedBox(width: 15),
+        const SizedBox(height: 20),
+        Center(
+          child: ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: CustomColors.oxFF7C4DFF,
+              elevation: 6,
+              shadowColor: CustomColors.oxFF673AB7,
+              fixedSize: Size(250.sp, 40.sp),
+            ),
+            onPressed: () {
+              if (answerAddingController.text.isNotEmpty) {
+                setState(() {
+                  answer = answerAddingController.text;
+                });
+                Navigator.of(context).pop(answer);
+                answerAddingController.text = "";
+              } else {
+                return;
+              }
+            },
+            child: const Text(
+              Strings.submitTXT,
+              style: TextStyle(
+                color: CustomColors.oxFFFFFFFF,
+              ),
+            ),
+          ),
+        ),
       ],
     );
   }
@@ -92,43 +149,25 @@ class _CheckBoxState extends State<CheckBox> {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
               Strings.correctAnswerTXT,
               style: Style.createCorrectAnswerST,
             ),
-            SizedBox(width: 45.sp),
             CupertinoCheckbox(
               activeColor: CustomColors.oxFF295ECC,
               shape: const CircleBorder(),
               side: const BorderSide(color: CustomColors.oxFF295ECC),
               value: widget.value,
-              onChanged: (ind) {
+              onChanged: (currentValue) {
                 setState(() {
-                  widget.value = ind;
+                  widget.value = currentValue;
+                  isCheckBoxTapped = !isCheckBoxTapped;
                 });
               },
             ),
           ],
-        ),
-        const SizedBox(height: 20),
-        ElevatedButton(
-          style: ElevatedButton.styleFrom(
-            backgroundColor: CustomColors.oxFF7C4DFF,
-            elevation: 6,
-            shadowColor: CustomColors.oxFF673AB7,
-            fixedSize: Size(250.sp, 40.sp),
-          ),
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
-          child: const Text(
-            Strings.submitTXT,
-            style: TextStyle(
-              color: CustomColors.oxFFFFFFFF,
-            ),
-          ),
         ),
       ],
     );

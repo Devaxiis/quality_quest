@@ -51,7 +51,12 @@ export 'package:quality_quest/bloc/logout/logout_bloc.dart';
 export 'package:flutter_screenutil/flutter_screenutil.dart';
 export 'package:quality_quest/domain/model/registration/token_model/token_mode.dart';
 export 'package:quality_quest/presentation/screens/profile_screen/edit_profile_screen/edit_profile_screen.dart';
-
+export 'package:http_parser/http_parser.dart';
+export 'package:quality_quest/data/dio_interseptor.dart';
+export 'package:quality_quest/data/store.dart';
+export 'dart:convert';
+export 'package:dio/dio.dart';
+export '../domain/model/screens/category_model/category_model.dart';
 
 
 

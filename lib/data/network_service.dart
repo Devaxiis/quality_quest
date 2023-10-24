@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import 'package:dio/dio.dart';
 import 'package:http/http.dart' as http;
 import 'package:http_parser/http_parser.dart';
@@ -6,6 +7,10 @@ import 'dart:convert';
 import 'package:quality_quest/data/dio_interseptor.dart';
 import 'package:quality_quest/data/store.dart';
 import 'package:quality_quest/domain/model/screens/category_model/category_model.dart';
+=======
+import 'package:http/http.dart' as http;
+import 'package:quality_quest/library.dart';
+>>>>>>> bb6572a2b726504c2e54f6e344a0e906dbcbb576
 
 // abstract class Network {
 // Future<void> methodPost({required String api,required Map<String, Object?> data});
@@ -74,6 +79,7 @@ class HttpService {
   }
 
   // #Method GET Science Type
+<<<<<<< HEAD
   static Future<List<ScienceType>> fetchScienceTypes({
     required String api,
   }) async {
@@ -82,6 +88,14 @@ class HttpService {
       final List jsonList = response.data;
        final data = jsonList.map((json) => ScienceType.fromJson(json as Map<String, Object?>)).toList();
       return data;
+=======
+  static Future<List<ScienceType>> fetchScienceTypes() async {
+    final response =
+        await dio.get("${Api.baseUrl}/api/Science/GetScienceTypes");
+    if (response.statusCode == 200) {
+      final List<dynamic> jsonList = response.data;
+      return jsonList.map((json) => ScienceType.fromJson(json)).toList();
+>>>>>>> bb6572a2b726504c2e54f6e344a0e906dbcbb576
     } else {
       throw Exception('Failed to fetch science types');
     }
@@ -93,6 +107,7 @@ class HttpService {
       await Store.clear();
       return true;
     } catch (e) {
+<<<<<<< HEAD
       print("Error:----------$e-----------");
     }
     return false;
@@ -109,16 +124,29 @@ class HttpService {
       }
     } catch (e) {
       print("SIGN UP ERROR:===>$e");
+=======
+      print("Error:--------$e---------");
+>>>>>>> bb6572a2b726504c2e54f6e344a0e906dbcbb576
     }
     return false;
   }
 
+<<<<<<< HEAD
 
   static Future<String?> multipart({String api = Api.addSciencePhoto,
       required String filePath,
       Map<String, String> headers = Api.headers,
       String baseUrl = Api.baseUrl,
       Map<String, String>? body}) async {
+=======
+  static Future<String?> multipart({
+    String api = Api.addSciencePhoto,
+    required String filePath,
+    Map<String, String> headers = Api.headers,
+    String baseUrl = Api.baseUrl,
+    Map<String, String>? body,
+  }) async {
+>>>>>>> bb6572a2b726504c2e54f6e344a0e906dbcbb576
     final Uri url = Uri.https(baseUrl, api);
     final request = http.MultipartRequest("POST", url);
     request.headers.addAll(headers);
@@ -132,5 +160,4 @@ class HttpService {
       return null;
     }
   }
-
 }

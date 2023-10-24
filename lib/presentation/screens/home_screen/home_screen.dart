@@ -133,12 +133,15 @@ class _HomeScreenState extends State<HomeScreen> {
                                     Image.network(
                                       scienceType!.photoUrl.toString() ,
                                       errorBuilder: (___, __, _) => Image(
-                                        height: 150.sp,
+                                        height: 125.sp,
                                         width: 200.sp,
                                         fit: BoxFit.fitWidth,
                                         image: const AssetImage("assets/images/img_idea.png"),
                                       ),
+                                      height: 125.sp,
+                                      width: 200.sp,
                                     ),
+
 
                                     const Spacer(flex: 3),
 
