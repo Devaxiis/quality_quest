@@ -196,7 +196,7 @@ sealed class Style {
   );
   static final createTextST = TextStyle(
     color: Colors.white,
-    fontSize: 21.sp,
+    fontSize: 20.sp,
     fontWeight: FontWeight.bold,
   );
 }

@@ -72,7 +72,7 @@ class _CreateScreenState extends State<CreateScreen> {
                     buttonColor: CustomColors.oxFF3779FF,
                     text: firstAnswer.isNotEmpty
                         ? firstAnswer
-                        : Strings.answerTXT,
+                        : Strings.correctAnswerTXT,
                     onTap: () {
                       showDialog(
                         context: context,
