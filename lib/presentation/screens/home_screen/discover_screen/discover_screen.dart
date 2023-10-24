@@ -1,8 +1,21 @@
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:quality_quest/library.dart';
 
-class DetailDiscoverScreen extends StatelessWidget {
+class DetailDiscoverScreen extends StatefulWidget {
   const DetailDiscoverScreen({super.key});
+
+  @override
+  State<DetailDiscoverScreen> createState() => _DetailDiscoverScreenState();
+}
+
+class _DetailDiscoverScreenState extends State<DetailDiscoverScreen> {
+  List<bool> _isTappedList = [];
+
+  @override
+  void initState() {
+    super.initState();
+    _isTappedList = List.generate(30, (_) => false);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -79,23 +92,22 @@ class DetailDiscoverScreen extends StatelessWidget {
                               mainAxisSize: MainAxisSize.min,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-
                                 const Spacer(),
                                 Text(
                                   "Back to School. Get Smarter",
                                   style: TextStyle(
-                                      color: CustomColors.oxFF000000,
-                                      fontWeight: FontWeight.w800,
-                                      fontSize: 20.sp
-
+                                    color: CustomColors.oxFF000000,
+                                    fontWeight: FontWeight.w800,
+                                    fontSize: 20.sp,
                                   ),
                                   overflow: TextOverflow.ellipsis,
                                 ),
                                 const Spacer(),
                                 Row(
                                   children: [
-                                     Text(
-                                      "2 years ago",style: TextStyle(fontSize: 15.sp),
+                                    Text(
+                                      "2 years ago",
+                                      style: TextStyle(fontSize: 15.sp),
                                     ),
                                     const SizedBox(width: 15),
                                     CircleAvatar(
@@ -103,21 +115,44 @@ class DetailDiscoverScreen extends StatelessWidget {
                                       maxRadius: 3.3,
                                     ),
                                     const SizedBox(width: 15),
-                                     Text("15.7K plays",style: TextStyle(fontSize: 15.sp),),
+                                    Text(
+                                      "15.7K plays",
+                                      style: TextStyle(fontSize: 15.sp),
+                                    ),
                                   ],
                                 ),
                                 const Spacer(),
-                                 Row(
+                                Row(
                                   children: [
-                                     CircleAvatar(
-
+                                    CircleAvatar(
                                       backgroundImage: const AssetImage(
                                         'assets/images/img_profile_circle.png',
                                       ),
                                       radius: 20.sp,
                                     ),
-                                    const SizedBox(width: 20),
-                                    Text('Edgar Torrey',style: TextStyle(fontSize: 18.sp,fontWeight: FontWeight.bold),),
+                                    SizedBox(width: 20.sp),
+                                    Text(
+                                      'Edgar Torrey',
+                                      style: TextStyle(
+                                        fontSize: 18.sp,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    SizedBox(width: 20.sp),
+                                    IconButton(
+                                      onPressed: () {
+                                        setState(() {
+                                          _isTappedList[index] =
+                                              !_isTappedList[index];
+                                        });
+                                      },
+                                      icon: _isTappedList[index]
+                                          ? const Icon(
+                                              CupertinoIcons.heart_fill,
+                                              color: CustomColors.oxFFD32F2F,
+                                            )
+                                          : const Icon(CupertinoIcons.heart),
+                                    ),
                                   ],
                                 ),
                                 const Spacer(),

@@ -1,5 +1,5 @@
-import 'package:quality_quest/library.dart';
 import 'package:http/http.dart' as http;
+import 'package:quality_quest/library.dart';
 
 // abstract class Network {
 // Future<void> methodPost({required String api,required Map<String, Object?> data});
@@ -93,30 +93,13 @@ class HttpService {
     return false;
   }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  static Future<String?> multipart(
-      {String api = Api.addSciencePhoto,
-      required String filePath,
-      Map<String, String> headers = Api.headers,
-      String baseUrl = Api.baseUrl,
-      Map<String, String>? body}) async {
+  static Future<String?> multipart({
+    String api = Api.addSciencePhoto,
+    required String filePath,
+    Map<String, String> headers = Api.headers,
+    String baseUrl = Api.baseUrl,
+    Map<String, String>? body,
+  }) async {
     final Uri url = Uri.https(baseUrl, api);
     final request = http.MultipartRequest("POST", url);
     request.headers.addAll(headers);

@@ -127,11 +127,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                       scienceType?.photoUrl ??
                                           "https://www.stx.ox.ac.uk/sites/default/files/stx/images/article/depositphotos_41197145-stock-photo-quiz.jpg",
                                       errorBuilder: (___, __, _) => Image(
-                                        height: 150.sp,
+                                        height: 125.sp,
                                         width: 200.sp,
                                         fit: BoxFit.fitWidth,
                                         image: const AssetImage("assets/images/img_idea.png"),
                                       ),
+                                      height: 125.sp,
+                                      width: 200.sp,
                                     ),
 
 

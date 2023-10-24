@@ -53,7 +53,7 @@ class _CustomImagePickerState extends State<CustomImagePicker> {
                     ),
                   ),
                   const SizedBox(height: 5),
-                  const Text(
+                  Text(
                     Strings.addCoverImageTXT,
                     style: Style.createAddCoverImageST,
                   ),

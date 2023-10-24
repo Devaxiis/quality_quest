@@ -32,6 +32,7 @@ class AnswerAddButton extends StatelessWidget {
         child: Container(
           height: 113.sp,
           alignment: Alignment.center,
+          padding: const EdgeInsets.symmetric(horizontal: 8.0),
           width: MediaQuery.sizeOf(context).width / 1.15,
           decoration: BoxDecoration(
             color: buttonColor,
