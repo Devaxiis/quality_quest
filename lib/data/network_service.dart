@@ -1,5 +1,13 @@
+
+import 'package:dio/dio.dart';
 import 'package:http/http.dart' as http;
-import 'package:quality_quest/library.dart';
+import 'package:http_parser/http_parser.dart';
+import 'package:quality_quest/core/params/apis.dart';
+import 'dart:convert';
+import 'package:quality_quest/data/dio_interseptor.dart';
+import 'package:quality_quest/data/store.dart';
+import 'package:quality_quest/domain/model/screens/category_model/category_model.dart';
+
 
 // abstract class Network {
 // Future<void> methodPost({required String api,required Map<String, Object?> data});
@@ -47,10 +55,7 @@ class HttpService {
   }
 
   // #Method SignIn
-  static Future<bool> methodSignInPost({
-    required String api,
-    required Map<String, Object?> data,
-  }) async {
+  static Future<bool> methodSignInPost({required String api, required Map<String, Object?> data}) async {
     try {
       final response = await dio.post(
         "${Api.baseUrl}$api",
@@ -71,12 +76,15 @@ class HttpService {
   }
 
   // #Method GET Science Type
-  static Future<List<ScienceType>> fetchScienceTypes() async {
-    final response =
-        await dio.get("${Api.baseUrl}/api/Science/GetScienceTypes");
-    if (response.statusCode == 200) {
-      final List<dynamic> jsonList = response.data;
-      return jsonList.map((json) => ScienceType.fromJson(json)).toList();
+
+  static Future<List<ScienceType>> fetchScienceTypes({
+    required String api,
+  }) async {
+    final response = await dio.get("${Api.baseUrl}$api");
+    if (response.statusCode == 200 || response.statusCode == 201) {
+      final List jsonList = response.data;
+       final data = jsonList.map((json) => ScienceType.fromJson(json as Map<String, Object?>)).toList();
+      return data;
     } else {
       throw Exception('Failed to fetch science types');
     }
@@ -88,29 +96,24 @@ class HttpService {
       await Store.clear();
       return true;
     } catch (e) {
-      print("Error:--------$e---------");
+      print("Error:----------$e-----------");
     }
     return false;
   }
 
-  static Future<String?> multipart({
-    String api = Api.addSciencePhoto,
-    required String filePath,
-    Map<String, String> headers = Api.headers,
-    String baseUrl = Api.baseUrl,
-    Map<String, String>? body,
-  }) async {
-    final Uri url = Uri.https(baseUrl, api);
-    final request = http.MultipartRequest("POST", url);
-    request.headers.addAll(headers);
-    request.files.add(await http.MultipartFile.fromPath("file", filePath,
-        contentType: MediaType("image", "jpeg")));
-    if (body != null) request.fields.addAll(body);
-    http.StreamedResponse response = await request.send();
-    if (response.statusCode == 200 || response.statusCode == 201) {
-      return await response.stream.bytesToString();
-    } else {
-      return null;
+  static Future<bool> createScience({required String api, required Map<String, Object?> data})async{
+    try {
+      final response = await dio.post("${Api.baseUrl}$api", data: data);
+      print("-----------------${response.statusCode}----------------------");
+      if (response.statusCode == 200 || response.statusCode == 201) {
+        return true;
+      } else {
+        return false;
+      }
+    } catch (e) {
+      print("SIGN UP ERROR:===>$e");
     }
+    return false;
   }
+
 }

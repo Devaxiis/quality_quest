@@ -124,21 +124,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         ///Sign up button
                         CustomDeepPurpleButton(
                           onTap: () {
-                            final Map<String, Object?> data = {
-                              "firstname":
-                                  controllerName.value.text.trim().toString(),
-                              "lastname": controllerSurname.value.text
-                                  .trim()
-                                  .toString(),
-                              "password": controllerPassword.value.text
-                                  .trim()
-                                  .toString(),
-                              "email":
-                                  controllerEmail.value.text.trim().toString(),
-                            };
-                            context
-                                .read<AuthBloc>()
-                                .add(AuthSignUpEvent(data: data));
+                            if(controllerName.text.trim().length >= 3 && controllerSurname.text.trim().length >= 3 && controllerPassword.text.trim().length > 4 && controllerEmail.text.trim().length >= 6 && controllerEmail.text.trim().contains("@")){
+                            context.read<AuthBloc>().add(AuthSignUpEvent(firstname: controllerName.text.trim(),lastname: controllerSurname.text.trim(),password: controllerPassword.text.trim(),email: controllerEmail.text.trim()));
+                            }else{
+                              ScaffoldMessenger.of(context).showSnackBar( SnackBar(backgroundColor: const Color(0xff6949ff),content: Text("please fill in all sections",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 15.sp),)));
+                            }
                             // await addUser();
                           },
                           displayText: Strings.signUpTXT,

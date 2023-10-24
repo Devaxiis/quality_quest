@@ -40,7 +40,7 @@ class _DetailDiscoverScreenState extends State<DetailDiscoverScreen> {
         children: [
           Expanded(
             child: ListView.builder(
-                itemCount: 30,
+                itemCount: 10,
                 itemBuilder: (context, index) {
                   return GestureDetector(
                     onTap: () {
@@ -148,11 +148,12 @@ class _DetailDiscoverScreenState extends State<DetailDiscoverScreen> {
                                       },
                                       icon: _isTappedList[index]
                                           ? const Icon(
-                                              CupertinoIcons.heart_fill,
+                                              CupertinoIcons.bookmark_fill,
                                               color: CustomColors.oxFFD32F2F,
                                             )
-                                          : const Icon(CupertinoIcons.heart),
+                                          : const Icon(CupertinoIcons.bookmark),
                                     ),
+
                                   ],
                                 ),
                                 const Spacer(),

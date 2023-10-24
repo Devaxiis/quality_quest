@@ -21,9 +21,17 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     // #loading
     emit(AuthSignUpLoadingState());
 
+    final Map<String, Object?> data = {
+      "firstname":event.firstname,
+      "lastname": event.lastname,
+      "password": event.password,
+      "email":event.email,
+    };
+
+
     // #method
     final result = await HttpService.methodSignUpPost(
-        api: Api.apiSignUp, data: event.data);
+        api: Api.apiSignUp, data: data);
 
 
     if(result){

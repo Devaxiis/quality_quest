@@ -59,19 +59,19 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
       },
 
       // #Scaffoled
-      child: BlocListener<HomeBloc, HomeState>(
-        listener: (context, state) {
-          if(state is HomeSuccess){
-            pageController.jumpToPage(state.index);
-          }
-        },
-        child: Scaffold(
+      child: Scaffold(
 
-          /// #Backgroun color
-          backgroundColor: CustomColors.oxFFFFFFFF,
+        /// #Backgroun color
+        backgroundColor: CustomColors.oxFFFFFFFF,
 
-          /// #Body
-          body: PageView(
+        /// #Body
+        body: BlocListener<HomeBloc, HomeState>(
+          listener: (context, state) {
+            if(state is HomeSuccess){
+              pageController.jumpToPage(state.index);
+            }
+          },
+          child: PageView(
             physics: const NeverScrollableScrollPhysics(),
             controller: pageController,
             children: const [
@@ -82,20 +82,20 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
               ProfileScreen(),
             ],
           ),
+        ),
 
-          /// #BottomNavigationBar
-          bottomNavigationBar: BlocBuilder<HomeBloc, HomeState>(
-            builder: (context, state) {
-              return BottomNavBar(
-                bottomNavbarIndex: bottomNavbarIndex,
-                onTap: (value) {
-                  bottomNavbarIndex = value;
-                  context.read<HomeBloc>().add(
-                      MainHomeEvent(bottomNavbarIndex));
-                },
-              );
-            },
-          ),
+        /// #BottomNavigationBar
+        bottomNavigationBar: BlocBuilder<HomeBloc, HomeState>(
+          builder: (context, state) {
+            return BottomNavBar(
+              bottomNavbarIndex: bottomNavbarIndex,
+              onTap: (value) {
+                bottomNavbarIndex = value;
+                context.read<HomeBloc>().add(
+                    MainHomeEvent(bottomNavbarIndex));
+              },
+            );
+          },
         ),
       ),
     );

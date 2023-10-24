@@ -6,14 +6,20 @@ abstract class AuthEvent extends Equatable {
 
 // #SignUp
 class AuthSignUpEvent extends AuthEvent {
-  Map<String, Object?> data;
+  late String firstname;
+  late String lastname;
+  late String password;
+  late String email;
 
   AuthSignUpEvent({
-    required this.data,
+    required this.firstname,
+    required this.lastname,
+    required this.password,
+    required this.email,
   });
 
   @override
-  List<Object?> get props => [data];
+  List<Object?> get props => [firstname,lastname,password,email];
 }
 
 // #SignIn

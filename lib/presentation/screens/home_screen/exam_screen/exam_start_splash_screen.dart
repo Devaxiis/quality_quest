@@ -1,5 +1,7 @@
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quality_quest/library.dart';
+import 'package:quality_quest/presentation/screens/home_screen/exam_screen/exam_controller.dart';
+import 'package:quality_quest/services/fake_data/fake_data.dart';
 
 class ExamStartSplashScreen extends StatefulWidget {
   const ExamStartSplashScreen({super.key});
@@ -25,7 +27,7 @@ class _ExamStartSplashScreenState extends State<ExamStartSplashScreen> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (_) => const ExamScreen(),
+                      builder: (_) =>  ExamScreen(data: FakeData(), controller: ExamController(setState)),
                     ),
                   );
                 },
