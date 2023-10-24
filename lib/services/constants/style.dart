@@ -151,7 +151,7 @@ sealed class Style {
   );
   static const homeExamQuestionST = TextStyle(
     color: Color(0xff6949ff),
-    fontSize: 40,
+    fontSize: 30,
     fontWeight: FontWeight.w800,
   );
   static final homeDiscoverQualityQuestST = TextStyle(
@@ -171,10 +171,10 @@ sealed class Style {
     color: Colors.grey.shade800,
     fontWeight: FontWeight.w800,
   );
-  static const createAddCoverImageST = TextStyle(
-    color: Color(0xFF6949FF),
+  static final createAddCoverImageST = TextStyle(
+    color: const Color(0xFF6949FF),
     fontWeight: FontWeight.w700,
-    fontSize: 18,
+    fontSize: 18.sp,
   );
   static const createAddAnswerST = TextStyle(
     color: Color(0xFF295ECC),
@@ -192,11 +192,11 @@ sealed class Style {
   static final createCorrectAnswerST = TextStyle(
     color: const Color(0xFF295ECC),
     fontWeight: FontWeight.w800,
-    fontSize: 19.sp,
+    fontSize: 18.sp,
   );
   static final createTextST = TextStyle(
     color: Colors.white,
-    fontSize: 23.sp,
+    fontSize: 21.sp,
     fontWeight: FontWeight.bold,
   );
 }

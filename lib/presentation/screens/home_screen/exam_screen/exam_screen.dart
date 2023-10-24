@@ -1,4 +1,3 @@
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quality_quest/library.dart';
 
 class ExamScreen extends StatefulWidget {
@@ -9,6 +8,9 @@ class ExamScreen extends StatefulWidget {
 }
 
 class _ExamScreenState extends State<ExamScreen> {
+  bool _isTapped = true;
+  int currentIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,7 +36,7 @@ class _ExamScreenState extends State<ExamScreen> {
                 ),
               ),
             ),
-             Divider(
+            Divider(
               color: CustomColors.oxFF9E9E9E,
               indent: 20.sp,
               endIndent: 20.sp,
@@ -48,16 +50,22 @@ class _ExamScreenState extends State<ExamScreen> {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       AnswerAddButton(
-                        shadowColor: CustomColors.oxFF6200EA,
-                        buttonColor: CustomColors.oxFF6949FF,
+                        shadowColor: currentIndex == 1 ? CustomColors.oxFFF48400 : CustomColors.oxFF6200EA,
+                        buttonColor: currentIndex == 1 ? CustomColors.oxFFFF981F : CustomColors.oxFF6949FF,
                         text: "Andijon",
-                        onTap: () {},
+                        onTap: () {
+                          currentIndex = 1;
+                          setState(() {});
+                        },
                       ),
                       AnswerAddButton(
-                        shadowColor: CustomColors.oxFF6200EA,
-                        buttonColor: CustomColors.oxFF6949FF,
+                        shadowColor: currentIndex == 2 ? CustomColors.oxFFF48400 : CustomColors.oxFF6200EA,
+                        buttonColor: currentIndex == 2 ? CustomColors.oxFFFF981F : CustomColors.oxFF6949FF,
                         text: "Namangan",
-                        onTap: () {},
+                        onTap: () {
+                          currentIndex = 2;
+                          setState(() {});
+                        },
                       ),
                     ],
                   ),
@@ -65,16 +73,22 @@ class _ExamScreenState extends State<ExamScreen> {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       AnswerAddButton(
-                        shadowColor: CustomColors.oxFF6200EA,
-                        buttonColor: CustomColors.oxFF6949FF,
+                        shadowColor:  currentIndex == 3 ? CustomColors.oxFFF48400 : CustomColors.oxFF6200EA,
+                        buttonColor:  currentIndex == 3 ? CustomColors.oxFFFF981F : CustomColors.oxFF6949FF,
                         text: "Toshkent",
-                        onTap: () {},
+                        onTap: () {
+                          currentIndex = 3;
+                          setState(() {});
+                        },
                       ),
                       AnswerAddButton(
-                        shadowColor: CustomColors.oxFF6200EA,
-                        buttonColor: CustomColors.oxFF6949FF,
+                        shadowColor: currentIndex == 4 ? CustomColors.oxFFF48400 : CustomColors.oxFF6200EA,
+                        buttonColor: currentIndex == 4 ? CustomColors.oxFFFF981F : CustomColors.oxFF6949FF,
                         text: "Farg'ona",
-                        onTap: () {},
+                        onTap: () {
+                          currentIndex = 4;
+                          setState(() {});
+                        },
                       ),
                     ],
                   ),

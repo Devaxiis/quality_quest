@@ -1,7 +1,4 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quality_quest/bloc/auth/auth_bloc.dart';
-import 'package:quality_quest/bloc/logout/logout_bloc.dart';
 import 'package:quality_quest/bloc/mein_home/home_bloc.dart';
 import 'package:quality_quest/library.dart';
 import 'package:quality_quest/presentation/registration_screens/splash_screen/splash_screen.dart';
@@ -25,7 +22,7 @@ class MyApp extends StatelessWidget {
               theme: ThemeData.light(useMaterial3: true),
               themeMode: ThemeMode.light,
               debugShowCheckedModeBanner: false,
-              home: const SplashScreen(),
+              home: const MainHomeScreen(),
           ),
         ),
     );
