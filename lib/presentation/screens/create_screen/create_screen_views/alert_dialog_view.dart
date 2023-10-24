@@ -7,6 +7,7 @@ TextEditingController answerAddingController = TextEditingController();
 class CustomAnswerDialog extends StatefulWidget {
   final Color shadowColor;
   final Color buttonColor;
+  final String titleText;
   final String initialValue;
 
   const CustomAnswerDialog({
@@ -14,6 +15,7 @@ class CustomAnswerDialog extends StatefulWidget {
     required this.shadowColor,
     required this.buttonColor,
     required this.initialValue,
+    required this.titleText,
   });
 
   @override
@@ -31,9 +33,9 @@ class _CustomAnswerDialogState extends State<CustomAnswerDialog> {
   Widget build(BuildContext context) {
     return AlertDialog(
       surfaceTintColor: CustomColors.oxFFFFFFFF,
-      title: const Center(
+      title: Center(
         child: Text(
-          Strings.addAnswerTXT,
+          widget.titleText,
           style: Style.createAddAnswerST,
         ),
       ),
@@ -112,4 +114,3 @@ class _CustomAnswerDialogState extends State<CustomAnswerDialog> {
     );
   }
 }
-
