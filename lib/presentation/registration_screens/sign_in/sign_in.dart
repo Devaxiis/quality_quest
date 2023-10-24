@@ -31,32 +31,6 @@ class _SignInScreenState extends State<SignInScreen> {
     setState(() {});
   }
 
-  // Future<void> addUser() async {
-  //   final email = controllerEmail.value.text.trim().toString();
-  //   final password = controllerPassword.value.text.trim().toString();
-  //
-  //   if (email.isEmpty || password.isEmpty) {
-  //     return;
-  //   }
-  //
-  //   Map<String, Object?> data = {
-  //     "password": password,
-  //     "email": email,
-  //     "deviceModel": model,
-  //   };
-  //
-  //   final value = await HttpService.methodSignInPost(
-  //     api: Api.apiSignIN,
-  //     data: data,
-  //   );
-  //   if (value == true && mounted) {
-  //     Navigator.of(context).pushReplacement(
-  //       MaterialPageRoute(
-  //         builder: (_) => const MainHomeScreen(),
-  //       ),
-  //     );
-  //   }
-  // }
 
   void init() async {
     final deviceInfoPlugin = DeviceInfoPlugin();
@@ -156,12 +130,16 @@ class _SignInScreenState extends State<SignInScreen> {
                     Center(
                       child: CustomDeepPurpleButton(
                         onTap: () async {
-                          final Map<String, Object?> data = {
-                            "email":controllerEmail.value.text.trim(),
-                            "password": controllerPassword.value.text.trim(),
-                            "deviceModel": model,
-                          };
+                          if(model.isNotEmpty && controllerPassword.text.trim().length > 4 && controllerEmail.text.trim().length >= 6 && controllerEmail.text.trim().contains("@")){
+                            final Map<String, Object?> data = {
+                              "email":controllerEmail.value.text.trim(),
+                              "password": controllerPassword.value.text.trim(),
+                              "deviceModel": model,
+                            };
                           context.read<AuthBloc>().add(AuthSignInEvent(data: data));
+                          }else{
+                            ScaffoldMessenger.of(context).showSnackBar( SnackBar(backgroundColor: const Color(0xff6949ff),content: Text("please fill in all sections",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 15.sp),)));
+                          }
                         },
                         displayText: Strings.signInTXT,
                       ),

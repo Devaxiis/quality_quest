@@ -18,7 +18,7 @@ class LibraryScreen extends StatelessWidget {
 
       /// #Body
       body: ListView.builder(
-        itemCount: 10,
+        itemCount: 5,
         shrinkWrap: true,
         primary: true,
         scrollDirection: Axis.vertical,

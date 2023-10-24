@@ -10,6 +10,7 @@ class SearchUserScreen extends StatefulWidget {
 }
 
 class _SearchUserScreenState extends State<SearchUserScreen> {
+  int currentIndex =0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -80,7 +81,7 @@ class _SearchUserScreenState extends State<SearchUserScreen> {
 
       /// #Body
       body: ListView.builder(
-        itemCount: 15,
+        itemCount: 5,
         itemBuilder: (context, index) {
           return ListTile(
             leading: const CircleAvatar(
@@ -93,22 +94,17 @@ class _SearchUserScreenState extends State<SearchUserScreen> {
               style: Style.joinTitleST,
             ),
             subtitle: const Text("richard@gmail.com"),
-            trailing: Container(
-              height: 30.sp,
-              width: 80.sp,
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                borderRadius: const BorderRadius.all(Radius.circular(50)),
-                border: Border.fromBorderSide(
-                  BorderSide(
-                    width: 1.4.sp,
-                    color: CustomColors.oxFF6200EA,
-                  ),
-                ),
-              ),
-              child:  Text(
-                Strings.followingTXT,
-                style: Style.joinFollowingST,
+            trailing:  GestureDetector(
+              onTap: () {
+                currentIndex = index;
+                setState(() {});
+              },
+              child: CustomButtonViews(
+                title:  Strings.followingTXT,
+                index: currentIndex,
+                color: currentIndex == index ? CustomColors.oxFFFFFFFF : CustomColors.oxFF6949FF,
+                colorBack:
+                currentIndex != index ? CustomColors.oxFFFFFFFF  : CustomColors.oxFF6949FF,
               ),
             ),
           );

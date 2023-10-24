@@ -10,6 +10,7 @@ sealed class Api{
   static const createScience = "/api/Science/CreateScience";
   static const addSciencePhoto = "/api/Science/AddPhoto";
   static const getScienceTypes = "/api/Science/GetScienceTypes";
+  static const getScience = "/api/Science/CreateScience";
 
 
   static const Map<String, String> headers = {

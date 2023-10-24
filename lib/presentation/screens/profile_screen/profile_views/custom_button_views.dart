@@ -1,4 +1,6 @@
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import 'package:quality_quest/bloc/mein_home/profile/group_bloc.dart';
+import 'package:quality_quest/bloc/mein_home/profile/group_bloc.dart';
 import 'package:quality_quest/library.dart';
 
 class CustomButtonViews extends StatelessWidget {
@@ -55,14 +57,15 @@ class _ThreeButtonsState extends State<ThreeButtons> {
 
   @override
   Widget build(BuildContext context) {
+    return BlocBuilder<GroupBloc, GroupState>(
+  builder: (context, state) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
         GestureDetector(
           onTap: () {
             currentIndex = 0;
-            widget.controller.jumpToPage(currentIndex);
-            setState(() {});
+            context.read<GroupBloc>().add(GroupProfileEvent(currentIndex));
           },
           child: CustomButtonViews(
             title: Strings.quizzesTXT,
@@ -75,8 +78,7 @@ class _ThreeButtonsState extends State<ThreeButtons> {
         GestureDetector(
           onTap: () {
             currentIndex = 1;
-            widget.controller.jumpToPage(currentIndex);
-            setState(() {});
+            context.read<GroupBloc>().add(GroupProfileEvent(currentIndex));
           },
           child: CustomButtonViews(
             title: Strings.groupsTXT,
@@ -89,8 +91,7 @@ class _ThreeButtonsState extends State<ThreeButtons> {
         GestureDetector(
           onTap: () {
             currentIndex = 2;
-            widget.controller.jumpToPage(currentIndex);
-            setState(() {});
+            context.read<GroupBloc>().add(GroupProfileEvent(currentIndex));
           },
           child: CustomButtonViews(
             title: Strings.statsTXT,
@@ -102,5 +103,7 @@ class _ThreeButtonsState extends State<ThreeButtons> {
         ),
       ],
     );
+  },
+);
   }
 }

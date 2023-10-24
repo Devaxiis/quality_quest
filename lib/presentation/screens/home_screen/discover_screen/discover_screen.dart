@@ -27,7 +27,7 @@ class DetailDiscoverScreen extends StatelessWidget {
         children: [
           Expanded(
             child: ListView.builder(
-                itemCount: 30,
+                itemCount: 10,
                 itemBuilder: (context, index) {
                   return GestureDetector(
                     onTap: () {
@@ -108,6 +108,8 @@ class DetailDiscoverScreen extends StatelessWidget {
                                 ),
                                 const Spacer(),
                                  Row(
+                                   mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                  mainAxisSize: MainAxisSize.min,
                                   children: [
                                      CircleAvatar(
 
@@ -116,8 +118,11 @@ class DetailDiscoverScreen extends StatelessWidget {
                                       ),
                                       radius: 20.sp,
                                     ),
-                                    const SizedBox(width: 20),
                                     Text('Edgar Torrey',style: TextStyle(fontSize: 18.sp,fontWeight: FontWeight.bold),),
+                                    SizedBox(width: 20.sp),
+                                    IconButton(onPressed: (){
+                                      print("=============>hello<==============");
+                                    }, icon: const Icon(Icons.bookmark_border)),
                                   ],
                                 ),
                                 const Spacer(),

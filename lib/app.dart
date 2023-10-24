@@ -1,8 +1,8 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import 'package:quality_quest/bloc/auth/auth_bloc.dart';
-import 'package:quality_quest/bloc/logout/logout_bloc.dart';
+import 'package:quality_quest/bloc/create_science/create_science_bloc.dart';
 import 'package:quality_quest/bloc/mein_home/home_bloc.dart';
+import 'package:quality_quest/bloc/mein_home/profile/group_bloc.dart';
 import 'package:quality_quest/library.dart';
 import 'package:quality_quest/presentation/registration_screens/splash_screen/splash_screen.dart';
 
@@ -17,6 +17,8 @@ class MyApp extends StatelessWidget {
         BlocProvider<AuthBloc>(create: (context) => AuthBloc(),),
         BlocProvider<LogoutBloc>(create: (context) => LogoutBloc(),),
         BlocProvider<HomeBloc>(create: (context) => HomeBloc(),),
+        BlocProvider<GroupBloc>(create: (context) => GroupBloc(),),
+        BlocProvider<CreateScienceBloc>(create: (context) => CreateScienceBloc(),),
       ],
       child: ScreenUtilInit(
           minTextAdapt: true,
