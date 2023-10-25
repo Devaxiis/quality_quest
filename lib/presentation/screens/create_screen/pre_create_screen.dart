@@ -342,10 +342,8 @@ class _PreCreateScreenState extends State<PreCreateScreen> {
                                 isPrivate: _toggleSwitch,
                                 scienceTypeId: index,
                                 userId: int.parse(data["id"]),
-                                // int.parse(data["id"]),
-
                               ));
-                          print("===>>--${int.parse(data["id"])}");
+
                         } else {
                           ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                               backgroundColor: const Color(0xff6949ff),
