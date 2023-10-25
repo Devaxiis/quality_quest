@@ -57,6 +57,8 @@ export 'package:quality_quest/data/store.dart';
 export 'dart:convert';
 export 'package:dio/dio.dart';
 export '../domain/model/screens/category_model/category_model.dart';
+export 'package:jwt_decoder/jwt_decoder.dart';
+
 
 
 

@@ -19,6 +19,7 @@ class CreateScienceBloc extends Bloc<CreateScienceEvent, CreateScienceState> {
      "isPrivate":event.isPrivate,
      "scienceTypeId":event.scienceTypeId,
      "userId":event.userId,
+     // "phoroUrl":event.phoroUrl,
     };
     
     final repo = await HttpService.createScience(api: Api.getScience, data: data);

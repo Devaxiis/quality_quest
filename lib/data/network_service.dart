@@ -1,13 +1,4 @@
-
-import 'package:dio/dio.dart';
-import 'package:http/http.dart' as http;
-import 'package:http_parser/http_parser.dart';
-import 'package:quality_quest/core/params/apis.dart';
-import 'dart:convert';
-import 'package:quality_quest/data/dio_interseptor.dart';
-import 'package:quality_quest/data/store.dart';
-import 'package:quality_quest/domain/model/screens/category_model/category_model.dart';
-
+import 'package:quality_quest/library.dart';
 
 // abstract class Network {
 // Future<void> methodPost({required String api,required Map<String, Object?> data});
@@ -30,8 +21,6 @@ class HttpService {
   static Future<void> _saveToken(Map<String, dynamic> data) async {
     final token = data["accessToken"];
     final refToken = data["refreshToken"];
-    print("AccessToken:-----------------$token----------------------");
-    print("RefreshToken:-----------------$refToken----------------------");
     await Store.setToken(token, refToken);
   }
 
@@ -42,16 +31,15 @@ class HttpService {
   }) async {
     try {
       final response = await dio.post("${Api.baseUrl}$api", data: data);
-      print("-----------------${response.statusCode}----------------------");
       if (response.statusCode == 200 || response.statusCode == 201) {
         return true;
       } else {
         return false;
       }
     } catch (e) {
-      print("SIGN UP ERROR:===>$e");
+      throw Exception("Sign Up ERROR:===>$e");
     }
-    return false;
+
   }
 
   // #Method SignIn
@@ -61,8 +49,6 @@ class HttpService {
         "${Api.baseUrl}$api",
         data: jsonEncode(data),
       );
-      print("-----------------${response.statusCode}----------------------");
-      print("-----------------${response.data}----------------------");
       if (response.statusCode == 200 || response.statusCode == 201) {
         _saveToken(response.data);
         return true;
@@ -70,13 +56,12 @@ class HttpService {
         return false;
       }
     } catch (e) {
-      print("SIGN IN ERROR:===>$e");
+      throw Exception("Sign IN ERROR:===>$e");
     }
-    return false;
+
   }
 
   // #Method GET Science Type
-
   static Future<List<ScienceType>> fetchScienceTypes({
     required String api,
   }) async {
@@ -96,24 +81,36 @@ class HttpService {
       await Store.clear();
       return true;
     } catch (e) {
-      print("Error:----------$e-----------");
+      throw Exception("Logo out ERROR:===>$e");
     }
-    return false;
+
   }
 
+  // #Method Create Science
   static Future<bool> createScience({required String api, required Map<String, Object?> data})async{
     try {
       final response = await dio.post("${Api.baseUrl}$api", data: data);
-      print("-----------------${response.statusCode}----------------------");
       if (response.statusCode == 200 || response.statusCode == 201) {
         return true;
       } else {
         return false;
       }
     } catch (e) {
-      print("SIGN UP ERROR:===>$e");
+      throw Exception("Create Science ERROR:===>$e");
     }
-    return false;
+
+  }
+
+
+  // #Method UserToken
+  static Future<Map<String,Object?>> userToken()async{
+    try{
+      final data = await Store.getToken();
+      final reponse = JwtDecoder.decode(data!);
+      return reponse;
+    }catch(e){
+      throw Exception("UserToken:::$e");
+    }
   }
 
 }

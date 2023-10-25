@@ -10,6 +10,7 @@ class DioInterceptor extends Interceptor {
       options.headers['Authorization'] = 'Bearer $token';
     }
 
+
     options.headers['Content-Type'] = 'application/json; charset=UTF-8';
     super.onRequest(options, handler);
   }
