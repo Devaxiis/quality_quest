@@ -1,12 +1,13 @@
 
 import 'package:dio/dio.dart';
-import 'package:http/http.dart' as http;
-import 'package:http_parser/http_parser.dart';
+import 'package:jwt_decoder/jwt_decoder.dart';
 import 'package:quality_quest/core/params/apis.dart';
 import 'dart:convert';
 import 'package:quality_quest/data/dio_interseptor.dart';
 import 'package:quality_quest/data/store.dart';
 import 'package:quality_quest/domain/model/screens/category_model/category_model.dart';
+import 'package:quality_quest/domain/model/user_model.dart';
+
 
 
 // abstract class Network {
@@ -101,6 +102,7 @@ class HttpService {
     return false;
   }
 
+  // #Method Create Science
   static Future<bool> createScience({required String api, required Map<String, Object?> data})async{
     try {
       final response = await dio.post("${Api.baseUrl}$api", data: data);
@@ -114,6 +116,21 @@ class HttpService {
       print("SIGN UP ERROR:===>$e");
     }
     return false;
+  }
+
+
+  // #Method UserToken
+  static Future<Map<String,Object?>> userToken()async{
+    try{
+      final data = await Store.getToken();
+      final refData = await Store.getRefreshToken();
+      final reponse = JwtDecoder.decode(data!);
+      print("Response:==>:::$reponse:::<==");
+      // final value = reponse.map((key, value) => );
+      return reponse;
+    }catch(e){
+      throw Exception("UserToken:::$e");
+    }
   }
 
 }
