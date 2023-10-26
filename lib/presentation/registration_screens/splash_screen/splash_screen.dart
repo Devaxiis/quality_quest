@@ -1,9 +1,4 @@
-import 'package:quality_quest/data/store.dart';
 import 'package:quality_quest/library.dart';
-import 'package:quality_quest/services/auth_service/auth_service.dart';
-
-import '../../../main.dart';
-
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -12,9 +7,8 @@ class SplashScreen extends StatefulWidget {
   State<SplashScreen> createState() => _SplashScreenState();
 }
 
-
-
-class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMixin {
+class _SplashScreenState extends State<SplashScreen>
+    with TickerProviderStateMixin {
   late AnimationController controller;
   late Tween<Offset> offsetTween;
   late Tween<Offset> offsetTween2;
@@ -61,7 +55,6 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
         setState(() => animateCompleted = true);
       });
     }
-
   }
 
   @override
@@ -71,10 +64,12 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
   }
 
   void navigateToSignInScreen() async {
-    Future.delayed(const Duration(seconds: 4)).then(
+    Future.delayed(const Duration(seconds: 3)).then(
       (value) {
         Navigator.of(context).pushAndRemoveUntil(
-          MaterialPageRoute(builder: (context) => user != null ? const MainHomeScreen():const IntroScreen()),
+          MaterialPageRoute(
+              builder: (context) =>
+                  user != null ? const MainHomeScreen() : const IntroScreen()),
           (route) => false,
         );
       },

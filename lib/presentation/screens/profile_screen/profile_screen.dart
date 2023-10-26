@@ -1,5 +1,4 @@
-import 'package:quality_quest/bloc/mein_home/profile/group_bloc.dart';
-import 'package:quality_quest/bloc/user_token/user_token_bloc.dart';
+
 import 'package:quality_quest/library.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -13,11 +12,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
   PageController controller = PageController();
   Map<String, Object?> data = {};
 
+
   @override
   void initState() {
     super.initState();
     context.read<UserTokenBloc>().add(UserTokenGetEvent());
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -54,6 +55,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         ],
         forceMaterialTransparency: true,
       ),
+
       body: MultiBlocListener(
         listeners: [
           BlocListener<GroupBloc, GroupState>(
@@ -72,29 +74,39 @@ class _ProfileScreenState extends State<ProfileScreen> {
             },
           ),
         ],
+
         child: SafeArea(
             child: Column(
-              children: [
-                Expanded(
-                  flex: 3,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Expanded(
+              flex: 3,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Spacer(flex: 2),
+                  Row(
                     children: [
-                      const Spacer(flex: 2),
-                      Row(
-                        children: [
-                          const Spacer(),
-                          SizedBox(
-                            height: 60.sp,
-                            width: 60.sp,
-                            child: const CircleAvatar(
-                              radius: 60,
-                              backgroundColor: CustomColors.oxFF6949FF,
-                              backgroundImage: AssetImage(
-                                "assets/images/img_profile_circle.png",
-                              ),
-                            ),
+                      const Spacer(),
+                      SizedBox(
+                        height: 60.sp,
+                        width: 60.sp,
+                        child: const CircleAvatar(
+                          radius: 60,
+                          backgroundColor: CustomColors.oxFF6949FF,
+                          backgroundImage: AssetImage(
+                            "assets/images/img_profile_circle.png",
                           ),
+                        ),
+                      ),
+                      const Spacer(),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Andrev John",
+                            style: Style.nameEditST,
+                          ),
+
                           const Spacer(),
                           BlocBuilder<UserTokenBloc, UserTokenState>(
                             builder: (context, state) {
@@ -138,37 +150,52 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 Strings.editProfileTXT,
                                 style: Style.editProfileST,
                               ),
+
                             ),
+                          );
+                        },
+                        child: Container(
+                          height: 40.sp,
+                          alignment: Alignment.center,
+                          padding: EdgeInsets.symmetric(horizontal: 10.sp),
+                          decoration: const BoxDecoration(
+                            color: CustomColors.oxFF6949FF,
+                            borderRadius: BorderRadius.all(Radius.circular(50)),
                           ),
-                          const Spacer(),
-                        ],
+                          child: Text(
+                            Strings.editProfileTXT,
+                            style: Style.editProfileST,
+                          ),
+                        ),
                       ),
-                      // const SizedBox(height: 30),
-                      const Spacer(flex: 5),
-                      ThreeButtons(controller: controller,),
-                      // const SizedBox(height: 5),
                       const Spacer(),
                     ],
                   ),
-                ),
-                Expanded(
-                    flex: 7,
-                    child: PageView(
-                      controller: controller,
-                      physics: const NeverScrollableScrollPhysics(),
-                      children: [
-                        quizGroup(),
-                        Container(
-                          color: Colors.green,
-                        ),
-                        Container(
-                          color: Colors.red,
-                        )
-                      ],
+                  // const SizedBox(height: 30),
+                  const Spacer(flex: 5),
+                  ThreeButtons(controller: controller),
+                  // const SizedBox(height: 5),
+                  const Spacer(),
+                ],
+              ),
+            ),
+            Expanded(
+                flex: 7,
+                child: PageView(
+                  controller: controller,
+                  physics: const NeverScrollableScrollPhysics(),
+                  children: [
+                    quizGroup(),
+                    Container(
+                      color: Colors.green,
+                    ),
+                    Container(
+                      color: Colors.red,
                     )
-                ),
-              ],
-            )),
+                  ],
+                )),
+          ],
+        )),
       ),
     );
   }

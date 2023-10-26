@@ -1,6 +1,5 @@
 import 'package:quality_quest/library.dart';
-import 'package:quality_quest/presentation/screens/home_screen/exam_screen/exam_controller.dart';
-import 'package:quality_quest/services/fake_data/fake_data.dart';
+
 
 class ExamScreen extends StatefulWidget {
   final ExamController controller;
