@@ -52,7 +52,7 @@ class _PreCreateScreenState extends State<PreCreateScreen> {
           BlocListener<CreateScienceBloc, CreateScienceState>(
             listener: (context, state) {
               if (state is CreateScienceFailure) {
-                Navigator.of(context).push(
+                Navigator.of(context).pushReplacement(
                     MaterialPageRoute(builder: (_) => const MainHomeScreen()));
               }
               if (state is CreateScienceSuccess) {
@@ -334,7 +334,7 @@ class _PreCreateScreenState extends State<PreCreateScreen> {
                     child: CustomDeepPurpleButton(
                       onTap: () {
                         if (controller.text.trim().isNotEmpty &&
-                            index.toString().isNotEmpty) {
+                            index.toString().isNotEmpty && data["id"].toString().isNotEmpty) {
                           context
                               .read<CreateScienceBloc>()
                               .add(CreateScienceNameEvent(
