@@ -1,7 +1,6 @@
 import 'package:quality_quest/library.dart';
 
 
-import '../../../services/constants/colors.dart';
 
 class IntroScreen extends StatefulWidget {
   const IntroScreen({super.key});

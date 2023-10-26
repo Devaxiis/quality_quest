@@ -155,7 +155,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       horizontal: 8.0,
                                     ),
                                     child: Text(
-                                      scienceType!.name,
+                                      scienceType.name,
                                       style: TextStyle(
                                         fontSize: 15.sp,
                                         color: Colors.black,

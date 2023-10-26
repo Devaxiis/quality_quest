@@ -12,7 +12,7 @@ class IspublicInitial extends IspublicState {
 class SelectedCategoryIsPublicSuccessState extends IspublicState{
   final bool? isPublic;
 
-  SelectedCategoryIsPublicSuccessState({required this.isPublic});
+  const SelectedCategoryIsPublicSuccessState({required this.isPublic});
 
   @override
   List<Object?> get props => [isPublic];

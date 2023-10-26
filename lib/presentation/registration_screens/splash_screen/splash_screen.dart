@@ -1,4 +1,5 @@
 import 'package:quality_quest/library.dart';
+import 'package:quality_quest/main.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});

@@ -1,4 +1,6 @@
 import 'package:quality_quest/library.dart';
+import 'package:quality_quest/presentation/screens/home_screen/exam_screen/exam_controller.dart';
+import 'package:quality_quest/services/fake_data/fake_data.dart';
 
 
 class ExamScreen extends StatefulWidget {
@@ -21,7 +23,6 @@ class _ExamScreenState extends State<ExamScreen> {
   @override
   void initState() {
     super.initState();
-
     question = widget.data.tarix.keys.first;
     questionList = widget.data.tarix.values.first.values.first;
     questionIndex += 1;
@@ -47,7 +48,7 @@ class _ExamScreenState extends State<ExamScreen> {
               flex: 4,
               child: Center(
                 child: Padding(
-                  padding: EdgeInsets.all(20.0),
+                  padding: const EdgeInsets.all(20.0),
                   child: Text(
                     question,
                     style: Style.homeExamQuestionST,

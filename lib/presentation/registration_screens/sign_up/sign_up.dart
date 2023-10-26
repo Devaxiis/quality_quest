@@ -1,3 +1,4 @@
+import 'package:quality_quest/bloc/auth/auth_bloc.dart';
 import 'package:quality_quest/library.dart';
 
 class SignUpScreen extends StatefulWidget {

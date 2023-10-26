@@ -14,7 +14,7 @@ class HttpService {
 
   HttpService() {
     _dio = Dio();
-    _dio.interceptors.add();
+    _dio.interceptors.add(DioInterceptor());
   }
 
   // #Save Token
