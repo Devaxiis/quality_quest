@@ -57,6 +57,13 @@ export 'package:quality_quest/data/store.dart';
 export 'dart:convert';
 export 'package:dio/dio.dart';
 export '../domain/model/screens/category_model/category_model.dart';
-
-
+export 'package:quality_quest/bloc/auth/auth_bloc.dart';
+export '../../../main.dart';
+export 'package:quality_quest/bloc/create_science/create_science_bloc.dart';
+export 'package:flutter/services.dart';
+export 'package:image_picker/image_picker.dart';
+export 'package:quality_quest/presentation/screens/home_screen/exam_screen/exam_controller.dart';
+export 'package:quality_quest/services/fake_data/fake_data.dart';
+export 'package:quality_quest/presentation/screens/library_screen/library_views/library_app_bar_views.dart';
+export 'package:quality_quest/bloc/mein_home/profile/group_bloc.dart';
 

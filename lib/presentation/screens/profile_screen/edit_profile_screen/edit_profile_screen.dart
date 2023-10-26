@@ -1,7 +1,5 @@
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
 import 'package:quality_quest/library.dart';
-
 import 'edit_profile_screen_views/show_success_edit_dialog.dart';
 
 class EditProfileScreen extends StatefulWidget {

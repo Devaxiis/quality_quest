@@ -1,6 +1,7 @@
-import 'package:quality_quest/domain/model/screens/category_model/category_model.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:quality_quest/library.dart';
-import 'package:quality_quest/presentation/screens/home_screen/notification_screen/notification_screen.dart';
+
+import 'main_notification_screen/main_notification_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -11,15 +12,11 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int currentIndex = 0;
-  List<ScienceType> list =[];
-
-
-
+  List<ScienceType> list = [];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       /// #background Color
       backgroundColor: CustomColors.oxFFFFFFFF,
 
@@ -54,10 +51,16 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               );
             },
-            icon: Image(
-              image: const AssetImage('assets/icons/ic_bell.png'),
-              height: 25.sp,
-              width: 25.sp,
+            icon: Badge(
+              largeSize: 9.sp,
+              smallSize: 9.sp,
+              backgroundColor: CustomColors.oxFFD32F2F,
+              alignment: const Alignment(1, -1),
+              child: Image(
+                image: const AssetImage('assets/icons/ic_bell.png'),
+                height: 25.sp,
+                width: 25.sp,
+              ),
             ),
           ),
           const SizedBox(width: 10),
@@ -68,123 +71,120 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
 
       /// #Body
-      body:  FutureBuilder(
-          future: HttpService.fetchScienceTypes(api: Api.getScienceTypes),
-          builder: (context, snapshot) {
-            if (snapshot.connectionState == ConnectionState.waiting) {
-              return const Center(child: CircularProgressIndicator());
-            } else if (snapshot.hasError) {
-              return Center(child: Text('Error: ${snapshot.error}'));
-            } else {
-              final scienceTypes = snapshot.data;
-              return Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 5),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Expanded(
-                      child: GridView.builder(
-                        padding:
-                        const EdgeInsets.only(top: 20, left: 8, right: 8),
-                        scrollDirection: Axis.vertical,
-                        itemCount: scienceTypes?.length,
-                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                          crossAxisSpacing: 15.sp,
-                          mainAxisSpacing: 20.sp,
-                          mainAxisExtent: 258.sp,
-                        ),
-                        itemBuilder: (context, index) {
-                          final scienceType = scienceTypes?[index];
-                          return GestureDetector(
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) =>
-                                  const DetailDiscoverScreen(),
-                                ),
-                              );
-                            },
+      body: FutureBuilder(
+        future: HttpService.fetchScienceTypes(api: Api.getScienceTypes),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(child: CircularProgressIndicator());
+          } else if (snapshot.hasError) {
+            return Center(child: Text('Error: ${snapshot.error}'));
+          } else {
+            final scienceTypes = snapshot.data;
+            return Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 5),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Expanded(
+                    child: GridView.builder(
+                      padding:
+                          const EdgeInsets.only(top: 20, left: 8, right: 8),
+                      scrollDirection: Axis.vertical,
+                      itemCount: scienceTypes?.length,
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        crossAxisSpacing: 15.sp,
+                        mainAxisSpacing: 20.sp,
+                        mainAxisExtent: 258.sp,
+                      ),
+                      itemBuilder: (context, index) {
+                        final scienceType = scienceTypes?[index];
+                        return GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    const DetailDiscoverScreen(),
+                              ),
+                            );
+                          },
+                          child: Container(
+                            alignment: Alignment.topCenter,
+                            decoration: const BoxDecoration(
+                              color: CustomColors.oxFFEEEEEE,
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(20),
+                              ),
+                            ),
                             child: Container(
-                              alignment: Alignment.topCenter,
+                              clipBehavior: Clip.antiAlias,
+                              width: 200.sp,
+                              height: 250.sp,
                               decoration: const BoxDecoration(
-                                color: CustomColors.oxFFEEEEEE,
+                                color: CustomColors.oxFFFFFFFF,
                                 borderRadius: BorderRadius.all(
                                   Radius.circular(20),
                                 ),
                               ),
-                              child: Container(
-                                clipBehavior: Clip.antiAlias,
-                                width: 200.sp,
-                                height: 250.sp,
-                                decoration: const BoxDecoration(
-                                  color: CustomColors.oxFFFFFFFF,
-                                  borderRadius: BorderRadius.all(
-                                    Radius.circular(20),
-                                  ),
-                                ),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    /// #Cover Image
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  /// #Cover Image
 
-                                    Image.network(
-                                      scienceType!.photoUrl.toString() ,
-                                      errorBuilder: (___, __, _) => Image(
-                                        height: 125.sp,
-                                        width: 200.sp,
-                                        fit: BoxFit.fitWidth,
-                                        image: const AssetImage("assets/images/img_idea.png"),
-                                      ),
+                                  CachedNetworkImage(
+                                    imageUrl: "${scienceType!.photoUrl}",
+                                    height: 125.sp,
+                                    width: 200.sp,
+                                    placeholder: (_, __) => Image(
                                       height: 125.sp,
                                       width: 200.sp,
-                                    ),
-
-
-                                    const Spacer(flex: 3),
-
-                                    /// #Title
-                                    Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                        horizontal: 8.0,
-                                      ),
-                                      child: Text(
-                                        scienceType.name,
-                                        style: TextStyle(
-                                          fontSize: 15.sp,
-                                          color: Colors.black,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                        overflow: TextOverflow.ellipsis,
+                                      fit: BoxFit.fitWidth,
+                                      image: const AssetImage(
+                                        "assets/images/img_idea.png",
                                       ),
                                     ),
+                                  ),
 
-                                    const Spacer(flex: 3),
+                                  const Spacer(flex: 3),
 
-                                    /// #Questions Quantity
-                                    const QuestionsQuantity(),
+                                  /// #Title
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                      horizontal: 8.0,
+                                    ),
+                                    child: Text(
+                                      scienceType!.name,
+                                      style: TextStyle(
+                                        fontSize: 15.sp,
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                      overflow: TextOverflow.ellipsis,
+                                    ),
+                                  ),
 
-                                    const Spacer(),
-                                  ],
-                                ),
+                                  const Spacer(flex: 3),
+
+                                  /// #Questions Quantity
+                                  const QuestionsQuantity(),
+
+                                  const Spacer(),
+                                ],
                               ),
                             ),
-                          );
-                        },
-                      ),
+                          ),
+                        );
+                      },
                     ),
-                  ],
-                ),
-              );
-            }
-          }),
+                  ),
+                ],
+              ),
+            );
+          }
+        },
+      ),
     );
   }
 }
-
-
-
-
-

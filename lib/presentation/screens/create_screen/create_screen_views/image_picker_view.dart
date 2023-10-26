@@ -1,18 +1,16 @@
-import 'package:flutter/services.dart';
-import 'package:image_picker/image_picker.dart';
-
 import 'package:quality_quest/library.dart';
 
 class CustomImagePicker extends StatefulWidget {
-
-   CustomImagePicker({super.key,});
+  const CustomImagePicker({
+    super.key,
+  });
 
   @override
   State<CustomImagePicker> createState() => _CustomImagePickerState();
 }
 
 class _CustomImagePickerState extends State<CustomImagePicker> {
-   File? image;
+  File? image;
 
   Future pickImage() async {
     try {

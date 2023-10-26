@@ -62,8 +62,15 @@ dependencies:
 
   #local storage
   shared_preferences: ^2.2.2
+
+  #http
   http: ^1.1.0
+
+  #http parser
   http_parser: ^4.0.2
+
+
+  cached_network_image: ^3.3.0
 
 
 

@@ -1,6 +1,3 @@
-
-import 'package:quality_quest/bloc/mein_home/profile/group_bloc.dart';
-import 'package:quality_quest/bloc/mein_home/profile/group_bloc.dart';
 import 'package:quality_quest/library.dart';
 
 class CustomButtonViews extends StatelessWidget {
@@ -34,15 +31,19 @@ class CustomButtonViews extends StatelessWidget {
       ),
       child: Text(
         title,
-        style:
-            TextStyle(color: color, fontWeight: FontWeight.bold, fontSize: 15.sp),
+        style: TextStyle(
+          color: color,
+          fontWeight: FontWeight.bold,
+          fontSize: 15.sp,
+        ),
       ),
     );
   }
 }
 
 class ThreeButtons extends StatefulWidget {
- final PageController controller;
+  final PageController controller;
+
   const ThreeButtons({
     super.key,
     required this.controller,
@@ -58,52 +59,61 @@ class _ThreeButtonsState extends State<ThreeButtons> {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<GroupBloc, GroupState>(
-  builder: (context, state) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
-      children: [
-        GestureDetector(
-          onTap: () {
-            currentIndex = 0;
-            context.read<GroupBloc>().add(GroupProfileEvent(currentIndex));
-          },
-          child: CustomButtonViews(
-            title: Strings.quizzesTXT,
-            index: currentIndex,
-            color: currentIndex == 0 ? CustomColors.oxFFFFFFFF : CustomColors.oxFF6949FF,
-            colorBack:
-                currentIndex != 0 ? CustomColors.oxFFFFFFFF  : CustomColors.oxFF6949FF,
-          ),
-        ),
-        GestureDetector(
-          onTap: () {
-            currentIndex = 1;
-            context.read<GroupBloc>().add(GroupProfileEvent(currentIndex));
-          },
-          child: CustomButtonViews(
-            title: Strings.groupsTXT,
-            index: currentIndex,
-            color: currentIndex == 1 ? CustomColors.oxFFFFFFFF : CustomColors.oxFF6949FF,
-            colorBack:
-                currentIndex != 1 ? CustomColors.oxFFFFFFFF : CustomColors.oxFF6949FF,
-          ),
-        ),
-        GestureDetector(
-          onTap: () {
-            currentIndex = 2;
-            context.read<GroupBloc>().add(GroupProfileEvent(currentIndex));
-          },
-          child: CustomButtonViews(
-            title: Strings.statsTXT,
-            index: currentIndex,
-            color: currentIndex == 2 ? CustomColors.oxFFFFFFFF : CustomColors.oxFF6949FF,
-            colorBack:
-                currentIndex != 2 ? CustomColors.oxFFFFFFFF : CustomColors.oxFF6949FF,
-          ),
-        ),
-      ],
+      builder: (context, state) {
+        return Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            GestureDetector(
+              onTap: () {
+                currentIndex = 0;
+                context.read<GroupBloc>().add(GroupProfileEvent(currentIndex));
+              },
+              child: CustomButtonViews(
+                title: Strings.quizzesTXT,
+                index: currentIndex,
+                color: currentIndex == 0
+                    ? CustomColors.oxFFFFFFFF
+                    : CustomColors.oxFF6949FF,
+                colorBack: currentIndex != 0
+                    ? CustomColors.oxFFFFFFFF
+                    : CustomColors.oxFF6949FF,
+              ),
+            ),
+            GestureDetector(
+              onTap: () {
+                currentIndex = 1;
+                context.read<GroupBloc>().add(GroupProfileEvent(currentIndex));
+              },
+              child: CustomButtonViews(
+                title: Strings.groupsTXT,
+                index: currentIndex,
+                color: currentIndex == 1
+                    ? CustomColors.oxFFFFFFFF
+                    : CustomColors.oxFF6949FF,
+                colorBack: currentIndex != 1
+                    ? CustomColors.oxFFFFFFFF
+                    : CustomColors.oxFF6949FF,
+              ),
+            ),
+            GestureDetector(
+              onTap: () {
+                currentIndex = 2;
+                context.read<GroupBloc>().add(GroupProfileEvent(currentIndex));
+              },
+              child: CustomButtonViews(
+                title: Strings.statsTXT,
+                index: currentIndex,
+                color: currentIndex == 2
+                    ? CustomColors.oxFFFFFFFF
+                    : CustomColors.oxFF6949FF,
+                colorBack: currentIndex != 2
+                    ? CustomColors.oxFFFFFFFF
+                    : CustomColors.oxFF6949FF,
+              ),
+            ),
+          ],
+        );
+      },
     );
-  },
-);
   }
 }

@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:quality_quest/bloc/create_science/create_science_bloc.dart';
 import 'package:quality_quest/library.dart';
 
 class PreCreateScreen extends StatefulWidget {
@@ -55,7 +54,7 @@ class _PreCreateScreenState extends State<PreCreateScreen> {
                   const SizedBox(height: 15),
 
                   /// #Image picker
-                  CustomImagePicker(),
+                  const CustomImagePicker(),
                   const SizedBox(height: 30),
 
                   /// #Exam Name
