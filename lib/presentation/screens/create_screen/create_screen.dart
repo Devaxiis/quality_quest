@@ -16,38 +16,75 @@ class _CreateScreenState extends State<CreateScreen> {
   @override
   Widget build(BuildContext context) {
     // #Scaffold
-    return Scaffold(
-      // #Background Color
-      backgroundColor: CustomColors.oxFFFFFFFF,
-
-      // #AppBar
-      appBar: AppBar(
-        forceMaterialTransparency: true,
-        title: const Text(
-          Strings.createQuizTXT,
-          style: Style.createQuizST,
-        ),
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
+    return WillPopScope(
+      onWillPop: () async {
+        final shouldPop = await showDialog<bool>(
+          context: context,
+          builder: (context) {
+            return AlertDialog(
+              title:  Center(
+                child: Text('Do you want to kill test?',style: TextStyle(
+                    color: const Color(0xff6949ff),
+                    fontSize: 20.sp,
+                    fontWeight: FontWeight.bold),),
+              ),
+              actionsAlignment: MainAxisAlignment.spaceBetween,
+              actions: [
+                TextButton(
+                  onPressed: () {
+                    Navigator.pop(context, true);
+                  },
+                  child: Text(
+                    'Yes',
+                    style: TextStyle(
+                        color: const Color(0xff6949ff),
+                        fontSize: 20.sp,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
+                TextButton(
+                  onPressed: () {
+                    Navigator.pop(context, false);
+                  },
+                  child: Text(
+                    'No',
+                    style: TextStyle(
+                        color: const Color(0xff6949ff),
+                        fontSize: 20.sp,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
+              ],
+            );
           },
-          icon: const Icon(
-            Icons.clear,
-            color: CustomColors.oxFF295ECC,
-            size: 30,
+        );
+        return shouldPop!;
+      },
+      child: Scaffold(
+
+        // #Background Color
+        backgroundColor: CustomColors.oxFFFFFFFF,
+
+        // #AppBar
+        appBar: AppBar(
+          forceMaterialTransparency: true,
+          title: const Text(
+            Strings.createQuizTXT,
+            style: Style.createQuizST,
           ),
-        ),
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(
-              Icons.more_horiz,
-              color: CustomColors.oxFF295ECC,
-              size: 35,
+          automaticallyImplyLeading: false,
+          actions: [
+            IconButton(
+              onPressed: () {},
+              icon: const Icon(
+                Icons.more_horiz,
+                color: CustomColors.oxFF295ECC,
+                size: 35,
+              ),
             ),
-          ),
-        ],
-      ),
+          ],
+        ),
+
 
       // #Body
       body: Padding(
@@ -186,15 +223,16 @@ class _CreateScreenState extends State<CreateScreen> {
               ),
             ],
           ),
+        )
         ),
-      ),
 
-      /// #Floating action button
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        backgroundColor: CustomColors.oxFF6949FF,
-        hoverColor: CustomColors.oxFFD9D6FE,
-        child: const Icon(Icons.add, color: CustomColors.oxFFFFFFFF),
+        /// #Floating action button
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {},
+          backgroundColor: CustomColors.oxFF6949FF,
+          hoverColor: CustomColors.oxFFD9D6FE,
+          child: const Icon(Icons.add, color: CustomColors.oxFFFFFFFF),
+        ),
       ),
     );
   }

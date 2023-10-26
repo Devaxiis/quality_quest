@@ -1,5 +1,9 @@
-import 'package:date_time/date_time.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:quality_quest/bloc/create_science/create_science_bloc.dart';
+import 'package:quality_quest/bloc/create_science/set_image/setimage_bloc.dart';
+import 'package:quality_quest/bloc/selected_category/ispublic/ispublic_bloc.dart';
+import 'package:quality_quest/bloc/selected_category/selected_category_bloc.dart';
+import 'package:quality_quest/bloc/user_token/user_token_bloc.dart';
 import 'package:quality_quest/library.dart';
 
 class PreCreateScreen extends StatefulWidget {
@@ -47,7 +51,7 @@ class _PreCreateScreenState extends State<PreCreateScreen> {
           BlocListener<CreateScienceBloc, CreateScienceState>(
             listener: (context, state) {
               if (state is CreateScienceFailure) {
-                Navigator.of(context).push(
+                Navigator.of(context).pushReplacement(
                     MaterialPageRoute(builder: (_) => const MainHomeScreen()));
               }
               if (state is CreateScienceSuccess) {
@@ -99,7 +103,7 @@ class _PreCreateScreenState extends State<PreCreateScreen> {
                   const SizedBox(height: 15),
 
                   /// #Image picker
-                  const CustomImagePicker(),
+                   const CustomImagePicker(),
                   const SizedBox(height: 30),
 
                   /// #Exam Name
@@ -329,7 +333,7 @@ class _PreCreateScreenState extends State<PreCreateScreen> {
                     child: CustomDeepPurpleButton(
                       onTap: () {
                         if (controller.text.trim().isNotEmpty &&
-                            index.toString().isNotEmpty) {
+                            index.toString().isNotEmpty && data["id"].toString().isNotEmpty) {
                           context
                               .read<CreateScienceBloc>()
                               .add(CreateScienceNameEvent(

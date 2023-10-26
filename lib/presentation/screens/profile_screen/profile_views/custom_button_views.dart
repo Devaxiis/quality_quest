@@ -1,3 +1,4 @@
+import 'package:quality_quest/bloc/mein_home/profile/group_bloc.dart';
 import 'package:quality_quest/library.dart';
 
 class CustomButtonViews extends StatelessWidget {
@@ -41,19 +42,13 @@ class CustomButtonViews extends StatelessWidget {
   }
 }
 
-class ThreeButtons extends StatefulWidget {
+// ignore: must_be_immutable
+class ThreeButtons extends StatelessWidget {
+
+  ThreeButtons({super.key,required this.controller});
+
   final PageController controller;
 
-  const ThreeButtons({
-    super.key,
-    required this.controller,
-  });
-
-  @override
-  State<ThreeButtons> createState() => _ThreeButtonsState();
-}
-
-class _ThreeButtonsState extends State<ThreeButtons> {
   int currentIndex = 0;
 
   @override

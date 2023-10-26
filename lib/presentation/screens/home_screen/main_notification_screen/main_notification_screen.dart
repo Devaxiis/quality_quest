@@ -3,7 +3,7 @@ import 'package:quality_quest/library.dart';
 import 'main_notification_screen_views/accept_ignore_button.dart';
 
 class NotificationMainScreen extends StatefulWidget {
-  const NotificationMainScreen({Key? key}) : super(key: key);
+  const NotificationMainScreen({super.key});
 
   @override
   State<NotificationMainScreen> createState() => _NotificationMainScreenState();

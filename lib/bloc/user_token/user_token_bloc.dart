@@ -1,9 +1,7 @@
-import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:quality_quest/data/network_service.dart';
-import 'package:quality_quest/domain/model/user_model.dart';
 
 part 'user_token_event.dart';
 part 'user_token_state.dart';

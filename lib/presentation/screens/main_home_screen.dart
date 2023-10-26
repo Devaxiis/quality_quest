@@ -24,7 +24,12 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
           context: context,
           builder: (context) {
             return AlertDialog(
-              title: const Text('Do you want to go back?'),
+              title:  Center(
+                child: Text('Do you want to go back?',style: TextStyle(
+                    color: const Color(0xff6949ff),
+                    fontSize: 20.sp,
+                    fontWeight: FontWeight.bold),),
+              ),
               actionsAlignment: MainAxisAlignment.spaceBetween,
               actions: [
                 TextButton(

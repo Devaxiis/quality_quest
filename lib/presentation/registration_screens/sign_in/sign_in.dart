@@ -1,8 +1,5 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quality_quest/bloc/auth/auth_bloc.dart';
-import 'package:quality_quest/domain/model/registration/sign_in_model/sign_in_model.dart';
 import 'package:quality_quest/library.dart';
-import 'package:quality_quest/main.dart';
 
 
 class SignInScreen extends StatefulWidget {
