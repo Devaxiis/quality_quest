@@ -1,3 +1,4 @@
+
 import 'package:quality_quest/library.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -9,6 +10,15 @@ class ProfileScreen extends StatefulWidget {
 
 class _ProfileScreenState extends State<ProfileScreen> {
   PageController controller = PageController();
+  Map<String, Object?> data = {};
+
+
+  @override
+  void initState() {
+    super.initState();
+    context.read<UserTokenBloc>().add(UserTokenGetEvent());
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +43,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
           IconButton(
             onPressed: () {
               Navigator.of(context).push(
-                MaterialPageRoute(builder: (context) => const SettingScreen()),
+                MaterialPageRoute(
+                    builder: (context) => const SettingScreen()),
               );
             },
             icon: const Icon(
@@ -44,12 +55,26 @@ class _ProfileScreenState extends State<ProfileScreen> {
         ],
         forceMaterialTransparency: true,
       ),
-      body: BlocListener<GroupBloc, GroupState>(
-        listener: (context, state) {
-          if (state is GroupSuccess) {
-            controller.jumpToPage(state.index);
-          }
-        },
+
+      body: MultiBlocListener(
+        listeners: [
+          BlocListener<GroupBloc, GroupState>(
+            listener: (context, state) {
+              if (state is GroupSuccess) {
+                controller.jumpToPage(state.index);
+              }
+            },
+          ),
+          BlocListener<UserTokenBloc, UserTokenState>(
+            listener: (context, state) {
+              if (state is UserTokenFailure) {}
+              if (state is UserTokenSuccess) {
+                data = state.data;
+              }
+            },
+          ),
+        ],
+
         child: SafeArea(
             child: Column(
           children: [
@@ -81,19 +106,51 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             "Andrev John",
                             style: Style.nameEditST,
                           ),
-                          Text(
-                            "andewy@gmail.com",
-                            style: Style.emailEditST,
+
+                          const Spacer(),
+                          BlocBuilder<UserTokenBloc, UserTokenState>(
+                            builder: (context, state) {
+                              return Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    data["firstname"].toString(),
+                                    style: Style.nameEditST,
+                                  ),
+                                  Text(
+                                    data["email"].toString(),
+                                    style: Style.emailEditST,
+                                  ),
+                                ],
+                              );
+                            },
                           ),
-                        ],
-                      ),
-                      const Spacer(),
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const EditProfileScreen(),
+                          const Spacer(),
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (
+                                      context) => const EditProfileScreen(),
+                                ),
+                              );
+                            },
+                            child: Container(
+                              height: 40.sp,
+                              alignment: Alignment.center,
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 10.sp),
+                              decoration: const BoxDecoration(
+                                color: CustomColors.oxFF6949FF,
+                                borderRadius: BorderRadius.all(
+                                    Radius.circular(50)),
+                              ),
+                              child: Text(
+                                Strings.editProfileTXT,
+                                style: Style.editProfileST,
+                              ),
+
                             ),
                           );
                         },

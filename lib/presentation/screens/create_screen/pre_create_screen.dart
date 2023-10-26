@@ -1,3 +1,4 @@
+import 'package:date_time/date_time.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:quality_quest/library.dart';
 
@@ -9,9 +10,18 @@ class PreCreateScreen extends StatefulWidget {
 }
 
 class _PreCreateScreenState extends State<PreCreateScreen> {
+  File? image;
   bool _toggleSwitch = false;
-  String chooseCategory = "Category";
+  late int index;
+  Map<String,dynamic> data = {};
+  String chooseCategory = "...";
   TextEditingController controller = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    context.read<UserTokenBloc>().add(UserTokenGetEvent());
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,15 +42,50 @@ class _PreCreateScreenState extends State<PreCreateScreen> {
       ),
 
       /// #Body
-      body: BlocListener<CreateScienceBloc, CreateScienceState>(
-        listener: (context, state) {
-          if(state is CreateScienceFailure){
-            Navigator.of(context).push(MaterialPageRoute(builder: (_)=> const MainHomeScreen()));
-          }
-          if(state is CreateScienceSuccess){
-            Navigator.of(context).push(MaterialPageRoute(builder: (_)=> const CreateScreen()));
-          }
-        },
+      body: MultiBlocListener(
+        listeners: [
+          BlocListener<CreateScienceBloc, CreateScienceState>(
+            listener: (context, state) {
+              if (state is CreateScienceFailure) {
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (_) => const MainHomeScreen()));
+              }
+              if (state is CreateScienceSuccess) {
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (_) => const CreateScreen()));
+              }
+            },
+          ),
+          BlocListener<SelectedCategoryBloc, SelectedCategoryState>(
+            listener: (context, state) {
+              if (state is SelectedCategoryFailure) {
+                Navigator.pop(context);
+              }
+              if (state is SelectedCategorySuccess) {
+                chooseCategory = state.item;
+                index = state.index;
+              }
+
+            },
+          ),
+          BlocListener<IspublicBloc,IspublicState>(
+              listener:(context,state){
+                if(state is SelectedCategoryIsPublicSuccessState){
+                  _toggleSwitch = state.isPublic!;
+                }
+              }),
+          BlocListener<SetimageBloc,SetimageState>(listener: (context,state){
+            if(state is SetImageSuccess){
+              image = state.image;
+            }
+          }),
+          BlocListener<UserTokenBloc,UserTokenState>(listener: (context,state){
+            if(state is UserTokenSuccess){
+              data = state.data;
+              print("======>>>>$data");
+            }
+          }),
+        ],
         child: SafeArea(
           child: SingleChildScrollView(
             child: Padding(
@@ -106,87 +151,141 @@ class _PreCreateScreenState extends State<PreCreateScreen> {
                         color: CustomColors.oxFF6949FF,
                       ),
                     ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        Text(
-                          chooseCategory,
-                          style: TextStyle(
-                            color: CustomColors.oxFF6949FF,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 15.sp,
-                          ),
-                        ),
-                        PopupMenuButton(
-                          iconSize: 30,
-                          color: CustomColors.oxFF6949FF,
-                          icon: const Icon(Icons.arrow_drop_down_rounded),
-                          itemBuilder: (BuildContext context) {
-                            return [
-                              PopupMenuItem(
-                                child: Text(
-                                  "History",
-                                  style: TextStyle(
-                                    fontSize: 15.sp,
-                                    fontWeight: FontWeight.w800,
-                                    color: CustomColors.oxFFFFFFFF,
-                                  ),
-                                ),
-                                onTap: () {
-                                  chooseCategory = "History";
-                                  setState(() {});
-                                },
+                    child: BlocBuilder<SelectedCategoryBloc,
+                        SelectedCategoryState>(
+                      builder: (context, state) {
+                        return Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Text(
+                              chooseCategory,
+                              style: TextStyle(
+                                color: CustomColors.oxFF6949FF,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15.sp,
                               ),
-                              PopupMenuItem(
-                                child: Text(
-                                  "Math",
-                                  style: TextStyle(
-                                    fontSize: 15.sp,
-                                    fontWeight: FontWeight.w800,
-                                    color: CustomColors.oxFFFFFFFF,
+                            ),
+                            PopupMenuButton(
+                              iconSize: 30,
+                              color: CustomColors.oxFF6949FF,
+                              icon: const Icon(Icons.arrow_drop_down_rounded),
+                              itemBuilder: (BuildContext context) {
+                                return [
+                                  PopupMenuItem(
+                                    child: Text(
+                                      "History",
+                                      style: TextStyle(
+                                        fontSize: 15.sp,
+                                        fontWeight: FontWeight.w800,
+                                        color: CustomColors.oxFFFFFFFF,
+                                      ),
+                                    ),
+                                    onTap: () {
+                                      context.read<SelectedCategoryBloc>().add(
+                                          const SelectedEvent(
+                                              item: "History", index: 2));
+                                      // chooseCategory = ;
+                                      // setState(() {});
+                                    },
                                   ),
-                                ),
-                                onTap: () {
-                                  chooseCategory = "Math";
-                                  setState(() {});
-                                },
-                              ),
-                              PopupMenuItem(
-                                child: Text(
-                                  "Science",
-                                  style: TextStyle(
-                                    fontSize: 15.sp,
-                                    fontWeight: FontWeight.w800,
-                                    color: CustomColors.oxFFFFFFFF,
+                                  PopupMenuItem(
+                                    child: Text(
+                                      "Math",
+                                      style: TextStyle(
+                                        fontSize: 15.sp,
+                                        fontWeight: FontWeight.w800,
+                                        color: CustomColors.oxFFFFFFFF,
+                                      ),
+                                    ),
+                                    onTap: () {
+                                      context.read<SelectedCategoryBloc>().add(
+                                          const SelectedEvent(
+                                              item: "Math", index: 3));
+
+                                      // chooseCategory = "";
+                                      // setState(() {});
+                                    },
                                   ),
-                                ),
-                                onTap: () {
-                                  chooseCategory = "Science";
-                                  setState(() {});
-                                },
-                              ),
-                              PopupMenuItem(
-                                child: Text(
-                                  "Logical",
-                                  style: TextStyle(
-                                    fontSize: 15.sp,
-                                    fontWeight: FontWeight.w800,
-                                    color: CustomColors.oxFFFFFFFF,
+                                  PopupMenuItem(
+                                    child: Text(
+                                      "Science",
+                                      style: TextStyle(
+                                        fontSize: 15.sp,
+                                        fontWeight: FontWeight.w800,
+                                        color: CustomColors.oxFFFFFFFF,
+                                      ),
+                                    ),
+                                    onTap: () {
+                                      context.read<SelectedCategoryBloc>().add(
+                                          const SelectedEvent(
+                                              item: "Science", index: 4));
+                                      // chooseCategory = "Science";
+                                      // setState(() {});
+                                    },
                                   ),
-                                ),
-                                onTap: () {
-                                  chooseCategory = "Logical";
-                                  setState(() {});
-                                },
-                              ),
-                            ];
-                          },
-                        ),
-                      ],
+                                  PopupMenuItem(
+                                    child: Text(
+                                      "English",
+                                      style: TextStyle(
+                                        fontSize: 15.sp,
+                                        fontWeight: FontWeight.w800,
+                                        color: CustomColors.oxFFFFFFFF,
+                                      ),
+                                    ),
+                                    onTap: () {
+                                      context.read<SelectedCategoryBloc>().add(
+                                          const SelectedEvent(
+                                              item: "English", index: 4));
+                                      // chooseCategory = "Logical";
+                                      // setState(() {});
+                                    },
+                                  ),
+                                  PopupMenuItem(
+                                    child: Text(
+                                      "Biology",
+                                      style: TextStyle(
+                                        fontSize: 15.sp,
+                                        fontWeight: FontWeight.w800,
+                                        color: CustomColors.oxFFFFFFFF,
+                                      ),
+                                    ),
+                                    onTap: () {
+                                      context.read<SelectedCategoryBloc>().add(
+                                          const SelectedEvent(
+                                              item: "Biology", index: 5));
+                                      // chooseCategory = "Logical";
+                                      // setState(() {});
+                                    },
+                                  ),
+                                  PopupMenuItem(
+                                    child: Text(
+                                      "National language",
+                                      style: TextStyle(
+                                        fontSize: 15.sp,
+                                        fontWeight: FontWeight.w800,
+                                        color: CustomColors.oxFFFFFFFF,
+                                      ),
+                                    ),
+                                    onTap: () {
+                                      context.read<SelectedCategoryBloc>().add(
+                                          const SelectedEvent(
+                                              item: "National language",
+                                              index: 6));
+
+                                      // chooseCategory = "Logical";
+                                      // setState(() {});
+                                    },
+                                  ),
+                                ];
+                              },
+                            ),
+                          ],
+                        );
+                      },
                     ),
                   ),
 
-                  /// # Public button
+                  /// #isPublic button
                   const SizedBox(height: 30),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 15),
@@ -200,20 +299,23 @@ class _PreCreateScreenState extends State<PreCreateScreen> {
                         SizedBox(
                           height: 50.sp,
                           width: 50.sp,
-                          child: CupertinoCheckbox(
-                            activeColor: CustomColors.oxFF295ECC,
-                            shape: const RoundedRectangleBorder(
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(7),
-                              ),
-                            ),
-                            side: const BorderSide(
-                                color: CustomColors.oxFF295ECC),
-                            value: _toggleSwitch,
-                            onChanged: (ind) {
-                              setState(() {
-                                _toggleSwitch = !_toggleSwitch;
-                              });
+                          child: BlocBuilder<IspublicBloc,IspublicState>(
+                            builder: (context, state) {
+                              return CupertinoCheckbox(
+                                activeColor: CustomColors.oxFF295ECC,
+                                shape: const RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(7),
+                                  ),
+                                ),
+                                side: const BorderSide(
+                                    color: CustomColors.oxFF295ECC),
+                                value: _toggleSwitch,
+                                onChanged: (ind) {
+                                  context.read<IspublicBloc>().add(
+                                      SelectedIsPublicEvent(isPublic: ind));
+                                },
+                              );
                             },
                           ),
                         ),
@@ -226,10 +328,27 @@ class _PreCreateScreenState extends State<PreCreateScreen> {
                   Center(
                     child: CustomDeepPurpleButton(
                       onTap: () {
-                        if(controller.text.trim().isNotEmpty){
-                          context.read<CreateScienceBloc>().add(CreateScienceNameEvent(name: controller.text.trim(),isPrivate: _toggleSwitch,scienceTypeId: 2,userId:1,));
-                        }else{
-                          ScaffoldMessenger.of(context).showSnackBar( SnackBar(backgroundColor: const Color(0xff6949ff),content: Text("please fill in all sections",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 15.sp),)));
+                        if (controller.text.trim().isNotEmpty &&
+                            index.toString().isNotEmpty) {
+                          context
+                              .read<CreateScienceBloc>()
+                              .add(CreateScienceNameEvent(
+                                name: controller.text.trim(),
+                                isPrivate: _toggleSwitch,
+                                scienceTypeId: index,
+                                userId: int.parse(data["id"]),
+                              ));
+
+                        } else {
+                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                              backgroundColor: const Color(0xff6949ff),
+                              content: Text(
+                                "please fill in all sections",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 15.sp),
+                              )));
                         }
                       },
                       displayText: "Next",

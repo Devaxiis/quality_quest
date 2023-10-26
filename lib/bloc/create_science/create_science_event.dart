@@ -9,12 +9,14 @@ class CreateScienceNameEvent extends CreateScienceEvent{
   late bool isPrivate;
   late int scienceTypeId;
   late int userId;
+  // late File? phoroUrl;
 
   CreateScienceNameEvent({
     required this.name,
     required this.isPrivate,
     required this.scienceTypeId,
     required this.userId,
+    // required this.phoroUrl,
 });
 
   @override
