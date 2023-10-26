@@ -1,11 +1,9 @@
-
 import 'package:quality_quest/library.dart';
 
 import 'bottom_sheet_button.dart';
 
-
-Future showLogoutBottomSheet(BuildContext context, {required Function onTab,required Function onTabTwo}) async {
-
+Future showLogoutBottomSheet(BuildContext context,
+    {required Function onTab, required Function onTabTwo}) async {
   showModalBottomSheet(
     context: context,
     backgroundColor: CustomColors.oxFFFFFFFF,
@@ -26,9 +24,7 @@ Future showLogoutBottomSheet(BuildContext context, {required Function onTab,requ
             const Center(
               child: Text(
                 Strings.logoutTXT,
-
                 style: Style.logoutST,
-
               ),
             ),
             const SizedBox(height: 10),
@@ -49,14 +45,14 @@ Future showLogoutBottomSheet(BuildContext context, {required Function onTab,requ
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 BottomSheetButton(
-                  onTap: ()=>onTab(),
+                  onTap: () => onTab(),
                   shadowColor: CustomColors.oxFFC3B6FF,
                   buttonColor: CustomColors.oxFFF0EDFF,
                   displayText: Strings.cancelTXT,
                   textColor: CustomColors.oxFF6949FF,
                 ),
                 BottomSheetButton(
-                  onTap:()=> onTabTwo(),
+                  onTap: () => onTabTwo(),
                   shadowColor: CustomColors.oxFF543ACD,
                   buttonColor: CustomColors.oxFF6949FF,
                   displayText: Strings.yesLogOutTXT,

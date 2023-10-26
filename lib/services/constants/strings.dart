@@ -37,7 +37,7 @@ sealed class Strings {
   static const profileTXT = "Profile";
   static const searchTXT = "Search";
   static const followingTXT = "Following";
-  static const followTXT = "Following";
+  static const followTXT = "Follow";
   static const editProfileTXT = "Edit Profile";
   static const quizzesTXT = "Quizzes";
   static const statsTXT = "Statistics";

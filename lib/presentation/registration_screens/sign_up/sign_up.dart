@@ -1,5 +1,3 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:quality_quest/bloc/auth/auth_bloc.dart';
 import 'package:quality_quest/library.dart';
 
 class SignUpScreen extends StatefulWidget {
@@ -64,7 +62,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         ),
                         const Spacer(),
 
-                        ///TextField name
+                        /// #TextField name
                         CustomTextFormField(
                           control: controllerName,
                           keyboardType: TextInputType.name,
@@ -113,7 +111,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         ),
                         const Spacer(),
 
-                        ///Personal text
+                        /// #Personal text
                         Text(
                           Strings.signUpAlertTXT,
                           style: Style.signUpAlertST,
@@ -121,7 +119,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         ),
                         const Spacer(flex: 2),
 
-                        ///Sign up button
+                        /// #Sign up button
                         CustomDeepPurpleButton(
                           onTap: () {
                             if(controllerName.text.trim().length >= 3 && controllerSurname.text.trim().length >= 3 && controllerPassword.text.trim().length > 4 && controllerEmail.text.trim().length >= 6 && controllerEmail.text.trim().contains("@")){

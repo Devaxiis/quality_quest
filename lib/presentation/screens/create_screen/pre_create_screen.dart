@@ -1,10 +1,5 @@
 import 'package:date_time/date_time.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:quality_quest/bloc/create_science/create_science_bloc.dart';
-import 'package:quality_quest/bloc/create_science/set_image/setimage_bloc.dart';
-import 'package:quality_quest/bloc/selected_category/ispublic/ispublic_bloc.dart';
-import 'package:quality_quest/bloc/selected_category/selected_category_bloc.dart';
-import 'package:quality_quest/bloc/user_token/user_token_bloc.dart';
 import 'package:quality_quest/library.dart';
 
 class PreCreateScreen extends StatefulWidget {
@@ -104,7 +99,7 @@ class _PreCreateScreenState extends State<PreCreateScreen> {
                   const SizedBox(height: 15),
 
                   /// #Image picker
-                  CustomImagePicker(),
+                  const CustomImagePicker(),
                   const SizedBox(height: 30),
 
                   /// #Exam Name
