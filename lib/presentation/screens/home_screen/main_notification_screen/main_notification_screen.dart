@@ -1,5 +1,4 @@
 import 'package:quality_quest/library.dart';
-
 import 'main_notification_screen_views/accept_ignore_button.dart';
 
 class NotificationMainScreen extends StatefulWidget {
@@ -18,11 +17,9 @@ class _NotificationMainScreenState extends State<NotificationMainScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: CustomColors.oxFFFFFFFF,
-        title: const Text(
-          "Notifications",
-          style: TextStyle(
-            color: CustomColors.oxFF000000,
-          ),
+        title: Text(
+          Strings.notificationsTXT,
+          style: Style.notificationTextST,
         ),
       ),
       backgroundColor: CustomColors.oxFFFFFFFF,
@@ -48,20 +45,12 @@ class _NotificationMainScreenState extends State<NotificationMainScreen> {
               text: TextSpan(
                 children: [
                   TextSpan(
-                    style: TextStyle(
-                      fontSize: 16.sp,
-                      fontWeight: FontWeight.w600,
-                      color: CustomColors.oxFF000000,
-                    ),
+                    style: Style.usernameTextST,
                     text: "Richard Traverse",
                   ),
                   TextSpan(
-                    style: TextStyle(
-                      fontSize: 15.sp,
-                      fontWeight: FontWeight.w500,
-                      color: CustomColors.oxDD000000,
-                    ),
-                    text: " is inviting you to connect",
+                    style: Style.invitingYouConnectST,
+                    text: Strings.invitingConnectTXT,
                   ),
                 ],
               ),
@@ -73,12 +62,8 @@ class _NotificationMainScreenState extends State<NotificationMainScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Your Groups",
-                          style: TextStyle(
-                            fontSize: 16.sp,
-                            fontWeight: FontWeight.w700,
-                            color: CustomColors.oxFF6949FF,
-                          ),
+                          Strings.yourGroupsTXT,
+                          style: Style.yourGroupsST,
                         ),
                         ListTile(
                           leading: CircleAvatar(
@@ -89,11 +74,7 @@ class _NotificationMainScreenState extends State<NotificationMainScreen> {
                           ),
                           title: Text(
                             "History Group",
-                            style: TextStyle(
-                              fontSize: 17.sp,
-                              fontWeight: FontWeight.w600,
-                              color: CustomColors.oxDD000000,
-                            ),
+                            style: Style.addGroupST,
                           ),
                           trailing: GestureDetector(
                             onTap: () {
@@ -114,12 +95,10 @@ class _NotificationMainScreenState extends State<NotificationMainScreen> {
                                 color: CustomColors.oxFF6949FF,
                               ),
                               child: Text(
-                                _toggleAddButtonList[index] ? "Added" : "Add",
-                                style: TextStyle(
-                                  fontSize: 15.sp,
-                                  fontWeight: FontWeight.w600,
-                                  color: CustomColors.oxFFFFFFFF,
-                                ),
+                                _toggleAddButtonList[index]
+                                    ? Strings.addedTXT
+                                    : Strings.addTXT,
+                                style: Style.addButtonST,
                               ),
                             ),
                           ),
@@ -130,7 +109,7 @@ class _NotificationMainScreenState extends State<NotificationMainScreen> {
                       children: [
                         const Spacer(),
                         AcceptIgnoreButton(
-                          text: "Accept",
+                          text: Strings.acceptTXT,
                           onTap: () {
                             setState(() {
                               _isTapped = !_isTapped;
@@ -139,7 +118,7 @@ class _NotificationMainScreenState extends State<NotificationMainScreen> {
                         ),
                         const Spacer(flex: 3),
                         AcceptIgnoreButton(
-                          text: "Ignore",
+                          text: Strings.ignoreTXT,
                           onTap: () {},
                         ),
                         const Spacer(flex: 10),

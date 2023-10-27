@@ -13,13 +13,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
   PageController controller = PageController();
   Map<String, Object?> data = {};
 
-
   @override
   void initState() {
     super.initState();
     context.read<UserTokenBloc>().add(UserTokenGetEvent());
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +43,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
             onPressed: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
-                    builder: (context) => const SettingScreen()),
+                  builder: (context) => const SettingScreen(),
+                ),
               );
             },
             icon: const Icon(
@@ -56,7 +55,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
         ],
         forceMaterialTransparency: true,
       ),
-
       body: MultiBlocListener(
         listeners: [
           BlocListener<GroupBloc, GroupState>(
@@ -75,73 +73,73 @@ class _ProfileScreenState extends State<ProfileScreen> {
             },
           ),
         ],
-
         child: SafeArea(
           child: Column(
             children: [
               Expanded(
                 flex: 3,
                 child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                    const Spacer(flex: 2),
-                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Spacer(),
-                    SizedBox(
-                      height: 60.sp,
-                      width: 60.sp,
-                      child: const CircleAvatar(
-                        radius: 60,
-                        backgroundColor: CustomColors.oxFF6949FF,
-                        backgroundImage: AssetImage(
-                          "assets/images/img_profile_circle.png",
-                        ),
-                      ),
-                    ),
-                    const Spacer(),
-                    BlocBuilder<UserTokenBloc, UserTokenState>(
-                      builder: (context, state) {
-                        return Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              data["firstname"].toString(),
-                              style: Style.nameEditST,
+                    const Spacer(flex: 2),
+                    Row(
+                      children: [
+                        const Spacer(),
+                        SizedBox(
+                          height: 60.sp,
+                          width: 60.sp,
+                          child: const CircleAvatar(
+                            radius: 60,
+                            backgroundColor: CustomColors.oxFF6949FF,
+                            backgroundImage: AssetImage(
+                              "assets/images/img_profile_circle.png",
                             ),
-                            Text(
-                              data["email"].toString(),
-                              style: Style.emailEditST,
-                            ),
-                          ],
-                        );
-                      },
-                    ),
-                    const Spacer(),
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const EditProfileScreen(),
                           ),
-                        );
-                      },
-                      child: Container(
-                        height: 40.sp,
-                        alignment: Alignment.center,
-                        padding: EdgeInsets.symmetric(horizontal: 10.sp),
-                        decoration: const BoxDecoration(
-                          color: CustomColors.oxFF6949FF,
-                          borderRadius: BorderRadius.all(Radius.circular(50)),
                         ),
-                        child: Text(
-                          Strings.editProfileTXT,
-                          style: Style.editProfileST,
+                        const Spacer(),
+                        BlocBuilder<UserTokenBloc, UserTokenState>(
+                          builder: (context, state) {
+                            return Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  data["firstname"].toString(),
+                                  style: Style.nameEditST,
+                                ),
+                                Text(
+                                  data["email"].toString(),
+                                  style: Style.emailEditST,
+                                ),
+                              ],
+                            );
+                          },
                         ),
-                      ),
-                    ),
-                      const Spacer(),
+                        const Spacer(),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const EditProfileScreen(),
+                              ),
+                            );
+                          },
+                          child: Container(
+                            height: 40.sp,
+                            alignment: Alignment.center,
+                            padding: EdgeInsets.symmetric(horizontal: 10.sp),
+                            decoration: const BoxDecoration(
+                              color: CustomColors.oxFF6949FF,
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(50)),
+                            ),
+                            child: Text(
+                              Strings.editProfileTXT,
+                              style: Style.editProfileST,
+                            ),
+                          ),
+                        ),
+                        const Spacer(),
                       ],
                     ),
                     // const SizedBox(height: 30),
@@ -152,7 +150,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ],
                 ),
               ),
-
               Expanded(
                 flex: 7,
                 child: PageView(

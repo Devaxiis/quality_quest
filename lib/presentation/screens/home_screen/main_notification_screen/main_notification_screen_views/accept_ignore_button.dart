@@ -33,14 +33,9 @@ class AcceptIgnoreButton extends StatelessWidget {
         ),
         child: Text(
           text,
-          style: TextStyle(
-            fontSize: 15.sp,
-            fontWeight: FontWeight.w600,
-            color: CustomColors.oxFF6949FF,
-          ),
+          style: Style.addTextST,
         ),
       ),
     );
   }
 }
-

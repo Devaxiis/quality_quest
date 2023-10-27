@@ -69,5 +69,12 @@ sealed class Strings {
   static const countryTXT = "Country";
   static const dateOfBirthTXT = "Date of Birth";
   static const personalInfoTXT = "Personal Info";
+  static const notificationsTXT = "Notifications";
+  static const invitingConnectTXT = " is inviting you to connect";
+  static const yourGroupsTXT = "Your Groups";
+  static const addedTXT = "Added";
+  static const addTXT = "Add";
+  static const acceptTXT = "Accept";
+  static const ignoreTXT = "Ignore";
 
 }
