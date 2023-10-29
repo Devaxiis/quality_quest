@@ -198,4 +198,46 @@ sealed class Style {
     fontSize: 20.sp,
     fontWeight: FontWeight.bold,
   );
+
+  static final notificationTextST = TextStyle(
+    color: CustomColors.oxFF000000,
+    fontWeight: FontWeight.w600,
+    fontSize: 18.sp,
+  );
+
+  static final usernameTextST = TextStyle(
+    fontSize: 16.sp,
+    fontWeight: FontWeight.w600,
+    color: CustomColors.oxFF000000,
+  );
+
+  static final invitingYouConnectST = TextStyle(
+    fontSize: 15.sp,
+    fontWeight: FontWeight.w500,
+    color: CustomColors.oxDD000000,
+  );
+
+  static final yourGroupsST = TextStyle(
+    fontSize: 16.sp,
+    fontWeight: FontWeight.w700,
+    color: CustomColors.oxFF6949FF,
+  );
+
+  static final addGroupST = TextStyle(
+    fontSize: 17.sp,
+    fontWeight: FontWeight.w600,
+    color: CustomColors.oxDD000000,
+  );
+
+  static final addButtonST = TextStyle(
+    fontSize: 15.sp,
+    fontWeight: FontWeight.w600,
+    color: CustomColors.oxFFFFFFFF,
+  );
+
+  static final addTextST = TextStyle(
+    fontSize: 15.sp,
+    fontWeight: FontWeight.w600,
+    color: CustomColors.oxFF6949FF,
+  );
 }
