@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:quality_quest/bloc/libray/library_bloc.dart';
 import 'package:quality_quest/library.dart';
 
 class DetailDiscoverScreen extends StatefulWidget {
@@ -151,9 +152,9 @@ class _DetailDiscoverScreenState extends State<DetailDiscoverScreen> {
                                               CupertinoIcons.bookmark_fill,
                                               color: CustomColors.oxFFD32F2F,
                                             )
-                                          : const Icon(CupertinoIcons.bookmark),
+                                          : const Icon(
+                                              CupertinoIcons.bookmark),
                                     ),
-
                                   ],
                                 ),
                                 const Spacer(),

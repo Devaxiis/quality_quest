@@ -74,10 +74,12 @@ class LibraryContainerContentViews extends StatelessWidget {
                     Text(
                       'Elmer Wick',
                       style: TextStyle(
-                        fontSize: 15.sp,
+                        fontSize: 18.sp,
                       ),
                     ),
-                    const Spacer(flex: 50),
+                    const Spacer(flex: 10),
+                    const Icon(Icons.bookmark_border),
+                    const Spacer(flex: 10),
                   ],
                 ),
                 const Spacer(),

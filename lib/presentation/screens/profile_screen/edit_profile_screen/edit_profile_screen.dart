@@ -78,28 +78,35 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                       "assets/images/img_profile_circle.png",
                     ),
                   ),
-                  Container(
-                    height: 32.sp,
-                    width: 32.sp,
-                    decoration: const BoxDecoration(
-                      color: CustomColors.oxFF6949FF,
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(8),
+                  GestureDetector(
+                    onTap: (){},
+                    child: Container(
+                      height: 32.sp,
+                      width: 32.sp,
+                      decoration: const BoxDecoration(
+                        color: CustomColors.oxFF6949FF,
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(8),
+                        ),
                       ),
-                    ),
-                    child: const Icon(
-                      Icons.edit,
-                      color: CustomColors.oxFFFFFFFF,
+                      child: const Icon(
+                        Icons.edit,
+                        color: CustomColors.oxFFFFFFFF,
+                      ),
                     ),
                   ),
                 ],
               ),
               const SizedBox(height: 20),
+
+              // #Divider
               const Divider(
                 color: CustomColors.oxFF9E9E9E,
                 thickness: 0.5,
               ),
+
               const SizedBox(height: 20),
+
               CustomTextFormField(
                 text: Strings.fullNameTXT,
                 keyboardType: TextInputType.name,
@@ -107,6 +114,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 control: fullNameController,
               ),
               const SizedBox(height: 20),
+
               CustomTextFormField(
                 text: Strings.emailTXT,
                 keyboardType: TextInputType.emailAddress,
@@ -114,33 +122,14 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 control: emailController,
               ),
               const SizedBox(height: 20),
-              CustomTextFormField(
-                text: Strings.phoneNumberTXT,
-                keyboardType: TextInputType.phone,
-                textInput: TextInputAction.continueAction,
-                control: phoneNumberController,
-              ),
-              const SizedBox(height: 20),
+
               CustomTextFormField(
                 text: Strings.countryTXT,
                 keyboardType: TextInputType.text,
                 textInput: TextInputAction.next,
                 control: countryController,
               ),
-              const SizedBox(height: 20),
-              CustomTextFormField(
-                text: Strings.dateOfBirthTXT,
-                keyboardType: TextInputType.name,
-                textInput: TextInputAction.done,
-                control: dateOfBirthController,
-                suffixIcon: IconButton(
-                  onPressed: pickDeadline,
-                  icon: const Icon(
-                    Icons.calendar_month_outlined,
-                    color: CustomColors.oxFF6949FF,
-                  ),
-                ),
-              ),
+
             ],
           ),
         ),

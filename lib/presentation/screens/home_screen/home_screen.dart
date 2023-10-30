@@ -133,19 +133,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                 children: [
                                   /// #Cover Image
 
-                                  CachedNetworkImage(
-                                    imageUrl: "${scienceType!.photoUrl}",
-                                    height: 125.sp,
-                                    width: 200.sp,
-                                    placeholder: (_, __) => Image(
-                                      height: 125.sp,
-                                      width: 200.sp,
-                                      fit: BoxFit.fitWidth,
-                                      image: const AssetImage(
-                                        "assets/images/img_idea.png",
-                                      ),
-                                    ),
-                                  ),
+                                  Image(height: 125.sp,width: 200.sp,fit: BoxFit.fitWidth,image: const AssetImage("assets/images/img_idea.png",),),
+
 
                                   const Spacer(flex: 3),
 
@@ -155,7 +144,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       horizontal: 8.0,
                                     ),
                                     child: Text(
-                                      scienceType.name,
+                                      scienceType!.name,
                                       style: TextStyle(
                                         fontSize: 15.sp,
                                         color: Colors.black,

@@ -2,6 +2,7 @@
 import 'package:quality_quest/bloc/auth/auth_bloc.dart';
 import 'package:quality_quest/bloc/create_science/create_science_bloc.dart';
 import 'package:quality_quest/bloc/create_science/set_image/setimage_bloc.dart';
+import 'package:quality_quest/bloc/libray/library_bloc.dart';
 import 'package:quality_quest/bloc/mein_home/home_bloc.dart';
 import 'package:quality_quest/bloc/mein_home/profile/group_bloc.dart';
 import 'package:quality_quest/bloc/selected_category/ispublic/ispublic_bloc.dart';
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
         BlocProvider<IspublicBloc>(create: (context) => IspublicBloc(),),
         BlocProvider<SetimageBloc>(create: (context) => SetimageBloc(),),
         BlocProvider<UserTokenBloc>(create: (context) => UserTokenBloc(),),
+        BlocProvider<LibraryBloc>(create: (context) => LibraryBloc(),),
       ],
       child: ScreenUtilInit(
           minTextAdapt: true,
