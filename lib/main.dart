@@ -5,6 +5,7 @@ import 'app.dart';
 
 late final user;
 late final users;
+
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   user = await Store.getToken();
