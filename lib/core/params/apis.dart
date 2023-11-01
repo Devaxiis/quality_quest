@@ -11,6 +11,7 @@ sealed class Api{
   static const addSciencePhoto = "/api/Science/AddPhoto";
   static const getScienceTypes = "/api/Science/GetScienceTypes";
   static const getScience = "/api/Science/CreateScience";
+  static const getSearchScience = "/api/Science/GetScienceByNames/";
   static const postCreateScience = "/api/Quiz/Create";
 
 }

@@ -11,6 +11,7 @@ abstract class Network {
   Future<bool> createScience({required String api, required Map<String, Object?> data});
   Future<Map<String,Object?>> userToken();
   Future<bool> methodMakeTest({required String api, required Map<String, Object?> data});
+  Future<bool> methodSearchScience({required String api, required String data});
 }
 
 
@@ -148,5 +149,19 @@ class HttpService implements Network {
       throw Exception("MethodMakeTest:::  $e");
     }
 
+  }
+
+  @override
+  Future<bool> methodSearchScience({required String api, required String data})async{
+   try{
+     final response = await _dio.get("${Api.baseUrl}$api$data",);
+     if(response.statusCode == 200 || response.statusCode == 201){
+       print("L:::===>${response.data}");
+       return true;
+     }
+     return false;
+   }on DioException catch(e){
+     throw Exception(e);
+   }
   }
 }
