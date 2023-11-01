@@ -1,7 +1,9 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:quality_quest/core/params/apis.dart';
+import 'package:quality_quest/core/service_locator.dart';
 import 'package:quality_quest/data/network_service.dart';
+import 'package:quality_quest/domain/repository/repository.dart';
 
 part 'auth_event.dart';
 
@@ -27,7 +29,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
 
     // #method
-    final result = await HttpService.methodSignUpPost(
+    final result = await (repository as RepositoryImplementation).network.methodSignUpPost(
         api: Api.apiSignUp, data: data);
 
 
@@ -44,15 +46,9 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     // #loading
     emit(AuthSignInLoadingState());
 
-    // String response = UserSave.getUser().toString();
-    // List<String> users = response.split(",");
-    // List<String> haveUser = users.where((user) {
-    //   return user[3] == event.data["email"].toString() &&
-    //       user[4] == event.data["password"].toString();
-    // }).toList();
 
     // #method
-    final result = await HttpService.methodSignInPost(
+    final result = await (repository as RepositoryImplementation).network.methodSignInPost(
         api: Api.apiSignIN, data: event.data);
 
     if (result) {
@@ -61,15 +57,6 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       emit(AuthSignInFailureState());
     }
 
-
-
-
-    // UserSave.setAccessUser(email: event.data["email"].toString(), password: event.data["password"].toString(),);
-    // if(haveUser.isNotEmpty){
-    //    emit(AuthSignInSuccessState());
-    // }else{
-    //   emit(AuthSignInFailureState());
-    // }
 
   }
 }

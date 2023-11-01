@@ -1,51 +1,55 @@
 import 'package:quality_quest/library.dart';
+import 'package:quality_quest/main.dart';
 
-// abstract class Network {
-// Future<void> methodPost({required String api,required Map<String, Object?> data});
-// static Future<void> _saveToken(Map<String,dynamic> data);
-// static Future<bool> methodSignUpPost({required String api,required Map<String, Object?> data});
-// static Future<bool> methodSignInPost({required String api, required Map<String, Object?> data});
-// }
+abstract class Network {
+  Future<void> _saveToken(Map<String, dynamic> data);
+  Future<bool> methodSignUpPost({required String api,required Map<String, Object?> data});
+  Future<bool> methodSignInPost({required String api, required Map<String, Object?> data});
+  Future<bool> methodRefreshToken({required String api, required Map<String, Object?> data});
+  Future<List<ScienceType>> fetchScienceTypes({required String api});
+  Future<bool> logoOut();
+  Future<bool> createScience({required String api, required Map<String, Object?> data});
+  Future<Map<String,Object?>> userToken();
+  Future<bool> methodMakeTest({required String api, required Map<String, Object?> data});
+}
 
-final dio = Dio();
 
-class HttpService {
+class HttpService implements Network {
   late final Dio _dio;
 
-  HttpService() {
-    _dio = Dio();
+  HttpService(){_dio = Dio();
     _dio.interceptors.add(DioInterceptor());
   }
 
   // #Save Token
-  static Future<void> _saveToken(Map<String, dynamic> data) async {
+  @override
+  Future<void> _saveToken(Map<String, dynamic> data) async {
     final token = data["accessToken"];
     final refToken = data["refreshToken"];
     await Store.setToken(token, refToken);
   }
 
   // #Method SignUp
-  static Future<bool> methodSignUpPost({
-    required String api,
-    required Map<String, Object?> data,
-  }) async {
+  @override
+  Future<bool> methodSignUpPost({required String api,required Map<String, Object?> data}) async {
     try {
-      final response = await dio.post("${Api.baseUrl}$api", data: data);
+      final response =await _dio.post("${Api.baseUrl}$api", data: data, );
       if (response.statusCode == 200 || response.statusCode == 201) {
         return true;
       } else {
         return false;
       }
-    } catch (e) {
+    }on DioException catch (e) {
       throw Exception("Sign Up ERROR:===>$e");
     }
 
   }
 
   // #Method SignIn
-  static Future<bool> methodSignInPost({required String api, required Map<String, Object?> data}) async {
+  @override
+  Future<bool> methodSignInPost({required String api, required Map<String, Object?> data}) async {
     try {
-      final response = await dio.post(
+      final response = await _dio.post(
         "${Api.baseUrl}$api",
         data: jsonEncode(data),
       );
@@ -55,20 +59,36 @@ class HttpService {
       } else {
         return false;
       }
-    } catch (e) {
+    }on DioException catch (e) {
       throw Exception("Sign IN ERROR:===>$e");
     }
 
   }
 
+  // #Method Refresh Token
+  @override
+  Future<bool> methodRefreshToken({required String api, required Map<String, Object?> data}) async {
+    try {
+      final response = await _dio.post("${Api.baseUrl}$api",data: jsonEncode(data),);
+      if (response.statusCode == 200 || response.statusCode == 201) {
+        _saveToken(response.data);
+        return true;
+      } else {
+        return false;
+      }
+    }on DioException catch (e) {
+      throw Exception("Refresh token ERROR:===>$e");
+    }
+
+  }
+
   // #Method GET Science Type
-  static Future<List<ScienceType>> fetchScienceTypes({
-    required String api,
-  }) async {
-    final response = await dio.get("${Api.baseUrl}$api");
+  @override
+  Future<List<ScienceType>> fetchScienceTypes({required String api}) async {
+    final response = await _dio.get("${Api.baseUrl}$api");
     if (response.statusCode == 200 || response.statusCode == 201) {
       final List jsonList = response.data;
-       final data = jsonList.map((json) => ScienceType.fromJson(json as Map<String, Object?>)).toList();
+      final data = jsonList.map((json) => ScienceType.fromJson(json as Map<String, Object?>)).toList();
       return data;
     } else {
       throw Exception('Failed to fetch science types');
@@ -76,41 +96,57 @@ class HttpService {
   }
 
   // #Method Logo0ut
-  static Future<bool> logoOut() async {
+  @override
+  Future<bool> logoOut() async {
     try {
       await Store.clear();
       return true;
-    } catch (e) {
+    }on DioException catch (e) {
       throw Exception("Logo out ERROR:===>$e");
     }
-
   }
 
   // #Method Create Science
-  static Future<bool> createScience({required String api, required Map<String, Object?> data})async{
+  @override
+  Future<bool> createScience({required String api, required Map<String, Object?> data})async{
     try {
-      final response = await dio.post("${Api.baseUrl}$api", data: data);
+      final response = await _dio.post("${Api.baseUrl}$api", data: data);
+       scienceID = response.data["id"];
+      print("====>>>> ${response.data["id"]}<<<<<=====");
       if (response.statusCode == 200 || response.statusCode == 201) {
         return true;
       } else {
         return false;
       }
-    } catch (e) {
+    }on DioException catch (e) {
       throw Exception("Create Science ERROR:===>$e");
     }
-
   }
 
-
   // #Method UserToken
-  static Future<Map<String,Object?>> userToken()async{
+  @override
+  Future<Map<String,Object?>> userToken()async{
     try{
       final data = await Store.getToken();
       final reponse = JwtDecoder.decode(data!);
       return reponse;
-    }catch(e){
+    }on DioException catch(e){
       throw Exception("UserToken:::$e");
     }
   }
 
+  @override
+  Future<bool> methodMakeTest({required String api, required Map<String, Object?> data}) async{
+    try {
+      final response = await _dio.post("${Api.baseUrl}$api", data: data);
+      if (response.statusCode == 201 || response.statusCode == 200) {
+        print("Data::::::=====>${response.data}");
+      return true;
+      }
+      return false;
+    }on DioException catch(e){
+      throw Exception("MethodMakeTest:::  $e");
+    }
+
+  }
 }

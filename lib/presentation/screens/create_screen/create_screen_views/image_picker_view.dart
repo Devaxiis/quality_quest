@@ -1,10 +1,7 @@
 
 import 'package:quality_quest/library.dart';
-
-
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:quality_quest/bloc/create_science/set_image/setimage_bloc.dart';
 
 
 class CustomImagePicker extends StatefulWidget {

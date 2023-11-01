@@ -1,16 +1,6 @@
+import 'package:quality_quest/presentation/bloc/create_science/create_science_value/science_value_bloc.dart';
 
-import 'package:quality_quest/bloc/auth/auth_bloc.dart';
-import 'package:quality_quest/bloc/create_science/create_science_bloc.dart';
-import 'package:quality_quest/bloc/create_science/set_image/setimage_bloc.dart';
-import 'package:quality_quest/bloc/libray/library_bloc.dart';
-import 'package:quality_quest/bloc/mein_home/home_bloc.dart';
-import 'package:quality_quest/bloc/mein_home/profile/group_bloc.dart';
-import 'package:quality_quest/bloc/selected_category/ispublic/ispublic_bloc.dart';
-import 'package:quality_quest/bloc/selected_category/selected_category_bloc.dart';
-import 'package:quality_quest/bloc/user_token/user_token_bloc.dart';
-import 'package:quality_quest/library.dart';
-import 'package:quality_quest/presentation/registration_screens/splash_screen/splash_screen.dart';
-
+import 'library.dart';
 
 
 class MyApp extends StatelessWidget {
@@ -30,6 +20,7 @@ class MyApp extends StatelessWidget {
         BlocProvider<SetimageBloc>(create: (context) => SetimageBloc(),),
         BlocProvider<UserTokenBloc>(create: (context) => UserTokenBloc(),),
         BlocProvider<LibraryBloc>(create: (context) => LibraryBloc(),),
+        BlocProvider<ScienceValueBloc>(create: (context) => ScienceValueBloc(),),
       ],
       child: ScreenUtilInit(
           minTextAdapt: true,

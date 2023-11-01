@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:quality_quest/bloc/libray/library_bloc.dart';
 import 'package:quality_quest/library.dart';
 
 class DetailDiscoverScreen extends StatefulWidget {

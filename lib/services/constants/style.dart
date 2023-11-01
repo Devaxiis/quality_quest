@@ -60,13 +60,13 @@ sealed class Style {
     fontSize: 15.sp,
   );
   static final nameEditST = TextStyle(
-    color: Colors.black,
+    color: Color(0xff6949ff),
     fontWeight: FontWeight.bold,
-    fontSize: 22.sp,
+    fontSize: 23.sp,
   );
   static final qualityQuestST = TextStyle(
     color: const Color(0xff6949ff),
-    fontSize: 24.sp,
+    fontSize: 25.sp,
     fontWeight: FontWeight.bold,
   );
 

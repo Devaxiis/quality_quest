@@ -1,4 +1,6 @@
-import 'package:cached_network_image/cached_network_image.dart';
+
+import 'package:quality_quest/core/service_locator.dart';
+import 'package:quality_quest/domain/repository/repository.dart';
 import 'package:quality_quest/library.dart';
 
 import 'main_notification_screen/main_notification_screen.dart';
@@ -72,7 +74,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
       /// #Body
       body: FutureBuilder(
-        future: HttpService.fetchScienceTypes(api: Api.getScienceTypes),
+        future: (repository as RepositoryImplementation).network.fetchScienceTypes(api: Api.getScienceTypes),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(child: CircularProgressIndicator());
