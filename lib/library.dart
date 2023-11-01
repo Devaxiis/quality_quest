@@ -47,7 +47,6 @@ export 'package:quality_quest/presentation/screens/home_screen/exam_screen/exam_
 export 'package:quality_quest/presentation/screens/create_screen/create_screen.dart';
 export 'package:quality_quest/services/constants/colors.dart';
 export 'package:flutter_bloc/flutter_bloc.dart';
-export 'package:quality_quest/bloc/logout/logout_bloc.dart';
 export 'package:flutter_screenutil/flutter_screenutil.dart';
 export 'package:quality_quest/domain/model/registration/token_model/token_mode.dart';
 export 'package:quality_quest/presentation/screens/profile_screen/edit_profile_screen/edit_profile_screen.dart';
@@ -58,6 +57,19 @@ export 'dart:convert';
 export 'package:dio/dio.dart';
 export '../domain/model/screens/category_model/category_model.dart';
 export 'package:jwt_decoder/jwt_decoder.dart';
+export 'package:quality_quest/library.dart';
+export 'package:quality_quest/presentation/bloc/auth/auth_bloc.dart';
+export 'package:quality_quest/presentation/bloc/create_science/create_science_bloc.dart';
+export 'package:quality_quest/presentation/bloc/create_science/set_image/setimage_bloc.dart';
+export 'package:quality_quest/presentation/bloc/libray/library_bloc.dart';
+export 'package:quality_quest/presentation/bloc/logout/logout_bloc.dart';
+export 'package:quality_quest/presentation/bloc/mein_home/home_bloc.dart';
+export 'package:quality_quest/presentation/bloc/mein_home/profile/group_bloc.dart';
+export 'package:quality_quest/presentation/bloc/selected_category/ispublic/ispublic_bloc.dart';
+export 'package:quality_quest/presentation/bloc/selected_category/selected_category_bloc.dart';
+export 'package:quality_quest/presentation/bloc/user_token/user_token_bloc.dart';
+export 'package:quality_quest/presentation/registration_screens/splash_screen/splash_screen.dart';
+
 
 
 

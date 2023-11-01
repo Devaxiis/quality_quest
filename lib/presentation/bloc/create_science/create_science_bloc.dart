@@ -1,5 +1,7 @@
 
 import 'package:equatable/equatable.dart';
+import 'package:quality_quest/core/service_locator.dart';
+import 'package:quality_quest/domain/repository/repository.dart';
 import 'package:quality_quest/library.dart';
 
 part 'create_science_event.dart';
@@ -18,10 +20,9 @@ class CreateScienceBloc extends Bloc<CreateScienceEvent, CreateScienceState> {
      "isPrivate":event.isPrivate,
      "scienceTypeId":event.scienceTypeId,
      "userId":event.userId,
-
     };
     
-    final repo = await HttpService.createScience(api: Api.getScience, data: data);
+    final repo = await (repository as RepositoryImplementation).network.createScience(api: Api.getScience, data: data);
     if(repo){
       emit(CreateScienceSuccess());
     }else{
