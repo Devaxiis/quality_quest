@@ -1,11 +1,19 @@
 import 'package:quality_quest/library.dart';
+import 'package:quality_quest/presentation/bloc/mein_home/search/search_bloc.dart';
 
 
-class SearchScreen extends StatelessWidget {
+class SearchScreen extends StatefulWidget {
   const SearchScreen({super.key});
 
   @override
+  State<SearchScreen> createState() => _SearchScreenState();
+}
+
+class _SearchScreenState extends State<SearchScreen> {
+  @override
   Widget build(BuildContext context) {
+    TextEditingController searchController = TextEditingController();
+
     return Scaffold(
       backgroundColor: CustomColors.oxFFFFFFFF,
       appBar: AppBar(
@@ -15,12 +23,12 @@ class SearchScreen extends StatelessWidget {
           padding: const EdgeInsets.only(top: 10),
           child: SizedBox(
             height: 55,
-            width: MediaQuery.sizeOf(context).width / 1.1,
+            width: MediaQuery
+                .sizeOf(context)
+                .width / 1.1,
             child: TextField(
-              onSubmitted: (d){
-
-              },
-              decoration:  InputDecoration(
+              controller: searchController,
+              decoration: InputDecoration(
                 prefixIcon: const Padding(
                   padding: EdgeInsets.all(15.0),
                   child: Image(
@@ -29,8 +37,11 @@ class SearchScreen extends StatelessWidget {
                   ),
                 ),
                 suffixIcon: IconButton(
-                  onPressed: (){},
-                  icon:  const Icon(Icons.cancel),
+                  onPressed: () {
+                    searchController.text == "";
+                    setState(() {});
+                  },
+                  icon: const Icon(Icons.cancel),
                   color: CustomColors.oxFF6949FF,),
                 label: const Text(
                   Strings.searchTXT,
@@ -71,8 +82,22 @@ class SearchScreen extends StatelessWidget {
         automaticallyImplyLeading: false,
         forceMaterialTransparency: true,
       ),
-      body: const Column(
-        children: [],
+      body: BlocListener<SearchBloc, SearchState>(
+        listener: (context, state) {
+          // TODO: implement listener
+        },
+        child: const SafeArea(
+          child: Column(),
+        ),
+      ),
+
+      // $Search Button
+      floatingActionButton: FloatingActionButton(onPressed: () {
+        context.read<SearchBloc>().add(
+            SearchScienceEvent(title: searchController.text.trim()));
+        searchController.text == "";
+      },
+        child: const Icon(Icons.search_rounded),
       ),
     );
   }

@@ -31,6 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
         actions: [
           IconButton(
             onPressed: () {
+
               Navigator.push(
                 context,
                 MaterialPageRoute(
@@ -44,27 +45,27 @@ class _HomeScreenState extends State<HomeScreen> {
               width: 25.sp,
             ),
           ),
-          IconButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const NotificationMainScreen(),
-                ),
-              );
-            },
-            icon: Badge(
-              largeSize: 9.sp,
-              smallSize: 9.sp,
-              backgroundColor: CustomColors.oxFFD32F2F,
-              alignment: const Alignment(1, -1),
-              child: Image(
-                image: const AssetImage('assets/icons/ic_bell.png'),
-                height: 25.sp,
-                width: 25.sp,
-              ),
-            ),
-          ),
+          // IconButton(
+          //   onPressed: () {
+          //     Navigator.push(
+          //       context,
+          //       MaterialPageRoute(
+          //         builder: (context) => const NotificationMainScreen(),
+          //       ),
+          //     );
+          //   },
+          //   icon: Badge(
+          //     largeSize: 9.sp,
+          //     smallSize: 9.sp,
+          //     backgroundColor: CustomColors.oxFFD32F2F,
+          //     alignment: const Alignment(1, -1),
+          //     child: Image(
+          //       image: const AssetImage('assets/icons/ic_bell.png'),
+          //       height: 25.sp,
+          //       width: 25.sp,
+          //     ),
+          //   ),
+          // ),
           const SizedBox(width: 10),
         ],
         elevation: 3,
