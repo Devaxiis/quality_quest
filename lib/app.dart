@@ -1,4 +1,6 @@
 import 'package:quality_quest/presentation/bloc/create_science/create_science_value/science_value_bloc.dart';
+import 'package:quality_quest/presentation/bloc/get_science/get_science_bloc.dart';
+import 'package:quality_quest/presentation/bloc/get_science/my_question/my_question_bloc.dart';
 import 'package:quality_quest/presentation/bloc/mein_home/search/search_bloc.dart';
 
 import 'library.dart';
@@ -40,12 +42,9 @@ class MyApp extends StatelessWidget {
         BlocProvider<LibraryBloc>(
           create: (context) => LibraryBloc(),
         ),
-        BlocProvider<ScienceValueBloc>(
-          create: (context) => ScienceValueBloc(),
-        ),
-        BlocProvider<SearchBloc>(
-          create: (context) => SearchBloc(),
-        ),
+        BlocProvider<ScienceValueBloc>(create: (context) => ScienceValueBloc()),
+        BlocProvider<SearchBloc>(create: (context) => SearchBloc()),
+        BlocProvider<GetScienceBloc>(create: (context) => GetScienceBloc() ),
       ],
       child: ScreenUtilInit(
         minTextAdapt: true,

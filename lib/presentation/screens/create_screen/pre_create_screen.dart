@@ -179,7 +179,7 @@ class _PreCreateScreenState extends State<PreCreateScreen> {
                                         return [
                                           PopupMenuItem(
                                             child: Text(
-                                              "History",
+                                              "Ona Tili",
                                               style: TextStyle(
                                                 fontSize: 15.sp,
                                                 fontWeight: FontWeight.w800,
@@ -190,14 +190,14 @@ class _PreCreateScreenState extends State<PreCreateScreen> {
                                               context
                                                   .read<SelectedCategoryBloc>()
                                                   .add(const SelectedEvent(
-                                                      item: "History", index: 2));
+                                                      item: "Ona Tili", index: 8));
                                               // chooseCategory = ;
                                               // setState(() {});
                                             },
                                           ),
                                           PopupMenuItem(
                                             child: Text(
-                                              "Math",
+                                              "Adabiyot",
                                               style: TextStyle(
                                                 fontSize: 15.sp,
                                                 fontWeight: FontWeight.w800,
@@ -208,7 +208,7 @@ class _PreCreateScreenState extends State<PreCreateScreen> {
                                               context
                                                   .read<SelectedCategoryBloc>()
                                                   .add(const SelectedEvent(
-                                                      item: "Math", index: 3));
+                                                      item: "Adabiyot", index: 9));
 
                                               // chooseCategory = "";
                                               // setState(() {});
@@ -216,7 +216,7 @@ class _PreCreateScreenState extends State<PreCreateScreen> {
                                           ),
                                           PopupMenuItem(
                                             child: Text(
-                                              "Science",
+                                              "Ingliz Tili",
                                               style: TextStyle(
                                                 fontSize: 15.sp,
                                                 fontWeight: FontWeight.w800,
@@ -227,14 +227,14 @@ class _PreCreateScreenState extends State<PreCreateScreen> {
                                               context
                                                   .read<SelectedCategoryBloc>()
                                                   .add(const SelectedEvent(
-                                                      item: "Science", index: 4));
+                                                      item: "Ingliz Tili", index: 10));
                                               // chooseCategory = "Science";
                                               // setState(() {});
                                             },
                                           ),
                                           PopupMenuItem(
                                             child: Text(
-                                              "English",
+                                              "Matematika",
                                               style: TextStyle(
                                                 fontSize: 15.sp,
                                                 fontWeight: FontWeight.w800,
@@ -245,14 +245,14 @@ class _PreCreateScreenState extends State<PreCreateScreen> {
                                               context
                                                   .read<SelectedCategoryBloc>()
                                                   .add(const SelectedEvent(
-                                                      item: "English", index: 4));
+                                                      item: "Matematika", index: 11));
                                               // chooseCategory = "Logical";
                                               // setState(() {});
                                             },
                                           ),
                                           PopupMenuItem(
                                             child: Text(
-                                              "Biology",
+                                              "Fizika",
                                               style: TextStyle(
                                                 fontSize: 15.sp,
                                                 fontWeight: FontWeight.w800,
@@ -263,14 +263,14 @@ class _PreCreateScreenState extends State<PreCreateScreen> {
                                               context
                                                   .read<SelectedCategoryBloc>()
                                                   .add(const SelectedEvent(
-                                                      item: "Biology", index: 5));
+                                                      item: "Fizika", index: 12));
                                               // chooseCategory = "Logical";
                                               // setState(() {});
                                             },
                                           ),
                                           PopupMenuItem(
                                             child: Text(
-                                              "National language",
+                                              "Kimyo",
                                               style: TextStyle(
                                                 fontSize: 15.sp,
                                                 fontWeight: FontWeight.w800,
@@ -281,8 +281,68 @@ class _PreCreateScreenState extends State<PreCreateScreen> {
                                               context
                                                   .read<SelectedCategoryBloc>()
                                                   .add(const SelectedEvent(
-                                                      item: "National language",
-                                                      index: 6));
+                                                      item: "Kimyo",
+                                                      index: 13));
+
+                                              // chooseCategory = "Logical";
+                                              // setState(() {});
+                                            },
+                                          ),
+                                          PopupMenuItem(
+                                            child: Text(
+                                              "Biologiya",
+                                              style: TextStyle(
+                                                fontSize: 15.sp,
+                                                fontWeight: FontWeight.w800,
+                                                color: CustomColors.oxFFFFFFFF,
+                                              ),
+                                            ),
+                                            onTap: () {
+                                              context
+                                                  .read<SelectedCategoryBloc>()
+                                                  .add(const SelectedEvent(
+                                                      item: "Biologiya",
+                                                      index: 14));
+
+                                              // chooseCategory = "Logical";
+                                              // setState(() {});
+                                            },
+                                          ),
+                                          PopupMenuItem(
+                                            child: Text(
+                                              "Geografiya",
+                                              style: TextStyle(
+                                                fontSize: 15.sp,
+                                                fontWeight: FontWeight.w800,
+                                                color: CustomColors.oxFFFFFFFF,
+                                              ),
+                                            ),
+                                            onTap: () {
+                                              context
+                                                  .read<SelectedCategoryBloc>()
+                                                  .add(const SelectedEvent(
+                                                      item: "Geografiya",
+                                                      index: 15));
+
+                                              // chooseCategory = "Logical";
+                                              // setState(() {});
+                                            },
+                                          ),
+                                          PopupMenuItem(
+                                            child: Text(
+                                              "Tarix",
+                                              style: TextStyle(
+                                                fontSize: 15.sp,
+                                                fontWeight: FontWeight.w800,
+                                                color: CustomColors.oxFFFFFFFF,
+                                              ),
+                                            ),
+                                            onTap: () {
+                                              context
+                                                  .read<SelectedCategoryBloc>()
+                                                  .add(const SelectedEvent(
+                                                      item: "Tarix",
+                                                      index: 16));
 
                                               // chooseCategory = "Logical";
                                               // setState(() {});

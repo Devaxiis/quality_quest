@@ -86,10 +86,19 @@ class _CreateScreenState extends State<CreateScreen> {
           actions: [
             IconButton(
               onPressed: () {
+                context.read<HomeBloc>().add(MainHomeEvent(0));
+                context.read<ScienceValueBloc>().add(ScienceValuePost(
+                  scienceId: scienceID,
+                  question: controllerQuestion.text.trim(),
+                  correctAnswer: firstAnswer,
+                  answer1: secondAnswer,
+                  answer2: thirdAnswer,
+                  answer3: fourthAnswer,
+                ));
                 Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (_)=> const MainHomeScreen()), (route) => false);
               },
               icon: const Icon(
-                Icons.cancel,
+                Icons.save,
                 color: CustomColors.oxFF295ECC,
                 size: 35,
               ),

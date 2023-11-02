@@ -1,4 +1,7 @@
+import 'package:quality_quest/core/service_locator.dart';
+import 'package:quality_quest/domain/model/get_science/get_science.dart';
 import 'package:quality_quest/domain/model/screens/search_model/search_screen_model.dart';
+import 'package:quality_quest/domain/repository/repository.dart';
 import 'package:quality_quest/library.dart';
 import 'package:quality_quest/main.dart';
 
@@ -27,6 +30,8 @@ abstract class Network {
       {required String api, required Map<String, Object?> data});
 
   Future<List<SearchModel>> methodSearchScience({required String api, required String data});
+
+  Future<List<GetScienceModel>> methodGetAllScience({String domain = Api.baseUrl,required String api,});
 }
 
 class HttpService implements Network {
@@ -97,12 +102,9 @@ class HttpService implements Network {
         _saveToken(response.data);
         return true;
       }
-<<<<<<< HEAD
-       return false;
-    }on DioException catch (e) {
-=======
+      return false;
+
     } on DioException catch (e) {
->>>>>>> afa1958469df8e1b8f107c3253b7638b379d392a
       throw Exception("Refresh token ERROR:===>$e");
     }
   }
@@ -140,7 +142,7 @@ class HttpService implements Network {
     try {
       final response = await _dio.post("${Api.baseUrl}$api", data: data);
       scienceID = response.data["id"];
-      print("====>>>> ${response.data["id"]}<<<<<=====");
+      // print("====>>>> ${response.data["id"]}<<<<<=====");
       if (response.statusCode == 200 || response.statusCode == 201) {
         return true;
       } else {
@@ -169,7 +171,7 @@ class HttpService implements Network {
     try {
       final response = await _dio.post("${Api.baseUrl}$api", data: data);
       if (response.statusCode == 201 || response.statusCode == 200) {
-        print("Data::::::=====>${response.data}");
+        // print("Data::::::=====>${response.data}");
         return true;
       }
       return false;
@@ -185,7 +187,6 @@ class HttpService implements Network {
 
       final response = await _dio.get("${Api.baseUrl}$api$data");
       if (response.statusCode == 200 || response.statusCode == 201) {
-        print("L:::===>${response.data}");
         final List jsonList = response.data;
         final searchedList = jsonList.map((json) => SearchModel.fromJson(json as Map<String, Object?>)).toList();
         return searchedList;
@@ -196,16 +197,24 @@ class HttpService implements Network {
     }
   }
 
-  // @override
-  // Future<Map<Stringng, dynamic>> methodSearchScience({required String api, required String data}) async {
-  //   try {
-  //     final response = await _dio.get("${Api.baseUrl}$api$data");
-  //     if (response.statusCode == 200 || response.statusCode == 201) {
-  //       return response.data;
-  //     }
-  //     return {};
-  //   } catch (error) {
-  //     throw Exception('Failed to connect to the API');
-  //   }
-  // }
+  @override
+  Future<List<GetScienceModel>> methodGetAllScience({String domain = Api.baseUrl, required String api}) async{
+    try{
+      final response = await _dio.get("$domain$api");
+      if(response.statusCode == 200){
+        List<GetScienceModel> data =[];
+        final List json = response.data;
+        print(json);
+        data = json.map((e) => GetScienceModel.fromJson(e as Map<String,Object?>)).toList();
+        print(data);
+        return data;
+      }
+      return [];
+    }on DioException catch(e){
+      throw Exception("DioE::::$e");
+    }
+
+  }
+
+
 }
