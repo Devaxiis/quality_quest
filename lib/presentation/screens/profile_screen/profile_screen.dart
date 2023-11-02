@@ -1,4 +1,7 @@
+
+import 'package:quality_quest/domain/model/get_science/get_science.dart';
 import 'package:quality_quest/library.dart';
+import 'package:quality_quest/presentation/bloc/get_science/my_question/my_question_bloc.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -127,6 +130,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               );
                             },
                           ),
+
                           // const Spacer(),
                           // GestureDetector(
                           //   onTap: () {
@@ -171,12 +175,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     physics: const NeverScrollableScrollPhysics(),
                     children: [
                       quizGroup(),
-                      // Container(
-                      //   color: Colors.green,
-                      // ),
-                      // Container(
-                      //   color: Colors.red,
-                      // )
                     ],
                   ),
                 ),
@@ -197,12 +195,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
 Widget quizGroup() {
   return ListView.separated(
+    itemCount: 10,
     itemBuilder: (context, index) {
       return const MyQuestionViews();
     },
     separatorBuilder: (context, index) {
       return SizedBox(height: 10.sp);
     },
-    itemCount: 20,
+
   );
 }

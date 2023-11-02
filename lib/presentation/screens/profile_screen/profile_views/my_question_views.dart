@@ -46,7 +46,7 @@ class MyQuestionViews extends StatelessWidget {
               children: [
                 const Spacer(),
                  Text(
-                  "Back to School. Get Smarter With New Quizzes",
+                  "Back to School. Get ",
                   style: TextStyle(
                     color: CustomColors.oxFF000000,
                     fontWeight: FontWeight.w800,
@@ -55,20 +55,9 @@ class MyQuestionViews extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                 ),
                 const Spacer(),
-                Row(
-                  children: [
-                     Text(
-                      "2 years ago",
-                      style: TextStyle(fontSize: 15.sp),
-                    ),
-                    const SizedBox(width: 15),
-                    CircleAvatar(
-                      backgroundColor: Colors.grey.shade800,
-                      maxRadius: 3.3,
-                    ),
-                     const SizedBox(width: 15),
-                     Text("15.7K plays",style: TextStyle(fontSize: 15.sp)),
-                  ],
+                Text(
+                  "Savollar soni: 10",
+                  style: TextStyle(fontSize: 15.sp),
                 ),
                 const Spacer(),
                  Row(

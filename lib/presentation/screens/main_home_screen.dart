@@ -1,4 +1,7 @@
 
+import 'package:quality_quest/core/service_locator.dart';
+import 'package:quality_quest/domain/model/get_science/get_science.dart';
+import 'package:quality_quest/domain/repository/repository.dart';
 import 'package:quality_quest/library.dart';
 import 'join_screen/join_screen.dart';
 
@@ -14,6 +17,9 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
   int bottomNavbarIndex = 0;
   int counter = 0;
   List<TokenModel> list = [];
+  List<GetScienceModel> data = [];
+
+
 
   @override
   Widget build(BuildContext context) {

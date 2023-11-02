@@ -2,6 +2,7 @@
 import 'package:quality_quest/core/service_locator.dart';
 import 'package:quality_quest/domain/repository/repository.dart';
 import 'package:quality_quest/library.dart';
+import 'package:quality_quest/presentation/bloc/get_science/get_science_bloc.dart';
 
 import 'main_notification_screen/main_notification_screen.dart';
 
@@ -109,7 +110,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               context,
                               MaterialPageRoute(
                                 builder: (context) =>
-                                    const DetailDiscoverScreen(),
+                                     DetailDiscoverScreen(data: scienceType.name,),
                               ),
                             );
                           },
