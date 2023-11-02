@@ -4,11 +4,10 @@ abstract class SearchEvent extends Equatable {
   const SearchEvent();
 }
 
-class SearchScienceEvent extends SearchEvent{
-
+class SearchScienceEvent extends SearchEvent {
   final String title;
 
-  SearchScienceEvent({required this.title});
+  const SearchScienceEvent({required this.title});
 
   @override
   List<Object?> get props => [title];
