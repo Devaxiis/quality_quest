@@ -19,7 +19,6 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
     emit(SearchLoading());
 
 
-
     final response = await (repository as RepositoryImplementation).network.methodSearchScience(api: Api.getSearchScience, data: event.title);
     if(response){
       emit(SearchSuccess());

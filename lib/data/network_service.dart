@@ -74,9 +74,8 @@ class HttpService implements Network {
       if (response.statusCode == 200 || response.statusCode == 201) {
         _saveToken(response.data);
         return true;
-      } else {
-        return false;
       }
+       return false;
     }on DioException catch (e) {
       throw Exception("Refresh token ERROR:===>$e");
     }

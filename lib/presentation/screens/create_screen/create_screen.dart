@@ -85,9 +85,11 @@ class _CreateScreenState extends State<CreateScreen> {
           automaticallyImplyLeading: false,
           actions: [
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (_)=> const MainHomeScreen()), (route) => false);
+              },
               icon: const Icon(
-                Icons.more_horiz,
+                Icons.cancel,
                 color: CustomColors.oxFF295ECC,
                 size: 35,
               ),

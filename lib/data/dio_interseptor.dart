@@ -20,12 +20,13 @@ class DioInterceptor extends Interceptor{
 
   @override
   void onResponse(Response response, ResponseInterceptorHandler handler) {
-    if(response.statusCode == 401 || response.statusCode == 401){
+    if(response.statusCode == 401 ){
         final Map<String, Object?> data = {
           "accessToken": user,
           "refreshToken": users,
         };
         final value = (repository as RepositoryImplementation).network.methodRefreshToken(api: Api.apiRefreshToken, data: data);
+        print("======>>>. $value <<<<<<=======");
     }
     super.onResponse(response, handler);
   }
