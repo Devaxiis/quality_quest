@@ -26,9 +26,7 @@ class LibraryScreen extends StatelessWidget {
         itemBuilder: (context, index) {
           return Container(
             height: 150.sp,
-            width: MediaQuery
-                .sizeOf(context)
-                .width / 1.5,
+            width: MediaQuery.sizeOf(context).width / 1.5,
             margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
             clipBehavior: Clip.antiAlias,
             decoration: BoxDecoration(

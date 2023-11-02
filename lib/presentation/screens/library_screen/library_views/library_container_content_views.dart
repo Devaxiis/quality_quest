@@ -29,7 +29,7 @@ class LibraryContainerContentViews extends StatelessWidget {
               children: [
                 const Spacer(),
                 Text(
-                  "Have Fun Together & Smart Brain",
+                  "Salom",
                   style: TextStyle(
                     fontSize: 18.sp,
                     color: CustomColors.oxFF000000,
@@ -39,22 +39,17 @@ class LibraryContainerContentViews extends StatelessWidget {
                 ),
                 const Spacer(),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Text(
-                      "4 months ago",
+                      "Savollar soni:",
                       style: TextStyle(
                         fontSize: 15.sp,
                       ),
                     ),
-                    // SizedBox(width: 15.sp),
-                    const CircleAvatar(
-                      backgroundColor: CustomColors.oxFF424242,
-                      maxRadius: 3.3,
-                    ),
-                    // SizedBox(width: 15.sp),
+                    SizedBox(width: 20.sp),
                     Text(
-                      "95.7K plays",
+                      "20",
                       style: TextStyle(
                         fontSize: 15.sp,
                       ),
@@ -78,7 +73,8 @@ class LibraryContainerContentViews extends StatelessWidget {
                       ),
                     ),
                     const Spacer(flex: 10),
-                    const Icon(Icons.bookmark_border),
+                    IconButton(onPressed: (){},
+                        icon: const Icon(Icons.delete)),
                     const Spacer(flex: 10),
                   ],
                 ),
