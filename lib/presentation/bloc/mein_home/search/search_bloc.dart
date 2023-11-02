@@ -1,12 +1,12 @@
-import 'dart:async';
-
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:quality_quest/core/params/apis.dart';
 import 'package:quality_quest/core/service_locator.dart';
+import 'package:quality_quest/domain/model/screens/search_model/search_screen_model.dart';
 import 'package:quality_quest/domain/repository/repository.dart';
 
 part 'search_event.dart';
+
 part 'search_state.dart';
 
 class SearchBloc extends Bloc<SearchEvent, SearchState> {
@@ -14,17 +14,18 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
     on<SearchScienceEvent>(_searchScience);
   }
 
-  void _searchScience(SearchScienceEvent event, Emitter emit)async{
-
+  void _searchScience(SearchScienceEvent event, Emitter emit) async {
     emit(SearchLoading());
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> afa1958469df8e1b8f107c3253b7638b379d392a
     final response = await (repository as RepositoryImplementation).network.methodSearchScience(api: Api.getSearchScience, data: event.title);
-    if(response){
-      emit(SearchSuccess());
-    }else{
+    if (response.isNotEmpty) {
+      emit(SearchSuccess(data: response));
+    } else {
       emit(SearchFailure());
     }
-
   }
 }

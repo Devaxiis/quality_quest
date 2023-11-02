@@ -13,7 +13,6 @@ sealed class Api{
   static const getScience = "/api/Science/CreateScience";
   static const getSearchScience = "/api/Science/GetScienceByNames/";
   static const postCreateScience = "/api/Quiz/Create";
-
 }
 
 
